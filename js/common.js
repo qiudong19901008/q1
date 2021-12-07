@@ -1,8 +1,3 @@
-import './common.css';
-import 'font-awesome/css/font-awesome.min.css';
-import * as $ from 'jquery';
-
-
 // 点击弹出手机菜单
 $('#header-container .toggle-menu-btn').on('click',(e)=>{
   // 禁止滑动
@@ -34,8 +29,4 @@ $('#header-container .mask').on('click',(e)=>{
   $('#header-container .mask').addClass('hide');
   // 图标还原 搜索
   $('#header-container .toggle-search-form-btn i').removeClass('fa-remove');
-
 })
-
-
-

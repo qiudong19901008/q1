@@ -1,0 +1,9 @@
+@import url('./post-content-style.css');
+
+
+.main .content .post-content-wrapper,
+.main .content .prev-next-wrapper,
+.main .content .recommend-wrapper,
+.main .content .comment-wrapper{
+  margin-bottom: 2rem;
+}
