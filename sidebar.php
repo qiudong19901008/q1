@@ -10,3 +10,4 @@
 <div class="widget">
   <?php get_template_part('component/card-tag'); ?>
 </div>
+<?php dynamic_sidebar('right-sidebar') ?>
