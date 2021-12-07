@@ -1,0 +1,71 @@
+.card-author-container{
+  background-color: #fff;
+  padding: 1.5rem;
+}
+
+/* 作者介绍 */
+.card-author-container .intro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-author-container .intro>*{
+  margin-bottom: 1rem;
+}
+
+.card-author-container .intro .portrait{
+  width: 128px;
+  height:128px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card-author-container .intro .portrait img{
+  width: 100%;
+  height: 100%;
+}
+
+.card-author-container .intro .nickname{
+  font-size: 2rem;
+}
+
+.card-author-container .intro .description{
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+/* 创作信息 */
+.card-author-container .creation{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.card-author-container .creation div p:nth-child(1){
+  font-size: 1rem;
+}
+
+.card-author-container .creation div p:nth-child(2){
+  font-size: 2.4rem;
+}
+
+/* 联系方式 */
+.card-author-container .contact-way{
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.card-author-container .contact-way a{
+  width:25%;
+  text-align: center;
+  font-size: 1.1rem;
+  padding:1rem;
+}
+
+.card-author-container .contact-way a:hover{
+  background-color: #f9f9f9;
+}
+
+

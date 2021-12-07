@@ -1,0 +1,40 @@
+.recommend-container{
+  background-color: #fff;
+  padding:2rem;
+  font-size: 1.4rem;
+  color: #999;
+  border-radius: 4px;
+}
+
+.recommend-container .title{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.recommend-container .cut-off{
+  color:#999;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+  margin-bottom: 1rem;
+}
+
+.recommend-container .post-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.recommend-container .post{
+  width:50%;
+  margin-bottom: 1rem;
+  padding-left:2rem;
+}
+
+.recommend-container .post a{
+  padding-left:.5rem;
+  color:#999;
+  cursor: pointer;
+}
+
+.recommend-container .post a:hover{
+  color:#6ac5f9;
+}

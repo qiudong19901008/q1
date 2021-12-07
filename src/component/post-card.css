@@ -1,0 +1,113 @@
+.post-card-container{
+  border: 1px solid #eaeaea;
+  padding:20px 20px 20px 20px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.post-card-container:hover{
+  background-color: rgb(251, 251, 251)  ;
+}
+
+/* header */
+
+.post-card-container .header{
+  margin:0 0 10px;  
+}
+
+.post-card-container .header .category{
+  color: #fff;
+  background-color: #45BCF9;
+  padding: 3px 6px;
+  font-size: 12px;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  margin-right: 6px;
+
+  background-color: #fb4c69;
+}
+
+.post-card-container .header .category i{
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  right: -4px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-left: 4px solid #45BCF9;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+
+  border-left-color: #fb4c69;
+}
+
+.post-card-container .header h2{
+  display: inline;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+
+/* meta */
+
+.post-card-container .meta{
+  color: #999;
+  font-size: 12px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.post-card-container .meta a{
+  color:#999;
+}
+.post-card-container .meta a:hover{
+  color:#45BCF9;
+}
+
+.post-card-container .meta > *{
+  margin-right:10px;
+}
+
+.post-card-container .meta .post-like{
+  position:absolute;
+  right:0;  
+}
+
+.post-card-container .excerpt{
+  font-size: 12px;
+  color: #999;
+  word-wrap: break-word;
+  line-height: 20px;
+  margin-bottom: 0;
+  /* 最多显示两行 */
+  max-height:40px;
+  overflow: hidden;
+}
+
+
+@media screen and (max-width:1000px) {
+
+  .post-card-container .header .category{
+    display: none;
+  }
+
+  .post-card-container .header h2{
+    font-size: 14px;
+    line-height: 1.2;
+    /* height:  px; */
+  }
+  
+
+  .post-card-container .meta .author{
+    display: none;
+  }
+
+  .post-card-container .excerpt{
+    max-height: 20px;
+  }
+}
