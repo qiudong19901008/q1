@@ -1,4 +1,4 @@
-const $ = require('jquery');
+// const $ = require('jquery');
 /**
  * 组件-header
  */

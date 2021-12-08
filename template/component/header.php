@@ -7,7 +7,18 @@
     <!-- logo -->
     <a href="#" class="logo">合道社</a>
     <!-- 菜单 -->
-    <ul class="menu">
+    <div class="nav-menu-container">
+      <?php
+          wp_nav_menu( 
+            [
+              'theme_location'   =>   'primary',
+              'menu_class' =>'menu',
+            ] 
+          );
+      ?>
+    </div>
+    
+    <!-- <ul class="menu">
       <li>
         <a href="#">分类一</a>
       </li>
@@ -17,7 +28,7 @@
       <li>
         <a href="#">分类三</a>
       </li>
-    </ul>
+    </ul> -->
     <!-- 搜索按钮 -->
     <a href="#" class="toggle-search-form-btn">
       <i class="fa fa-search"></i>
@@ -34,7 +45,17 @@
     </button>
   </form>
   <!-- 手机菜单 -->
-  <ul class="mobile-menu">
+  <div class="mobile-nav-menu-container">
+    <?php
+        wp_nav_menu( 
+          [
+            'theme_location'   =>   'primary',
+            'menu_class' =>'mobile-menu',
+          ] 
+        );
+    ?>
+  </div>
+  <!-- <ul class="mobile-menu">
     <li>
       <a href="#">分类一</a>
     </li>
@@ -44,7 +65,7 @@
     <li>
       <a href="#">分类三</a>
     </li>
-  </ul>
+  </ul> -->
   
   
 </div>
