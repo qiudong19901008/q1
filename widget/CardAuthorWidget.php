@@ -50,18 +50,19 @@ class CardAuthorWidget extends WP_Widget {
         </div>
      </div>
      <!-- 创作 -->
+    
      <div class="creation">
         <div class="article">
           <p>文章</p>
-          <p>12</p>
+          <p> <?php echo wp_count_posts('post')->publish; ?></p>
         </div>
         <div class="category">
           <p>分类</p>
-          <p>7</p>
+          <p> <?php echo wp_count_terms('category')-1; ?></p>
         </div>
         <div class="tag">
           <p>标签</p>
-          <p>6</p>
+          <p> <?php echo wp_count_terms('post_tag'); ?></p>
         </div>
      </div>
      <!-- 联系方式 -->

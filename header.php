@@ -13,6 +13,6 @@
    <!-- 页头 -->
   <div class="header-wrapper">
     <div class="header">
-      <?php get_template_part( 'component/header' ); ?>
+      <?php get_template_part( 'template/component/header' ); ?>
     </div>
   </div>

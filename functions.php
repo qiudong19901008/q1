@@ -12,6 +12,8 @@ define('VERSION','1.0');
 require_once plugin_dir_path(__FILE__) . '/widget/CardAuthorWidget.php';
 require_once plugin_dir_path(__FILE__) . '/widget/CardSearchWidget.php';
 
+require_once plugin_dir_path(__FILE__) . '/lib/helper.php';
+
 /**
  * 加载css js
  */
@@ -85,3 +87,37 @@ add_filter('use_block_editor_for_post', '__return_false', 10);
 add_filter('use_block_editor_for_post_type', '__return_false', 10);
 // Disables the block editor from managing widgets.
 add_filter( 'use_widgets_block_editor', '__return_false' );
+
+
+/**
+ * 修改wordpress样式
+ */
+// 修改excerpt结尾
+function new_excerpt_more($more) {
+  return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+
+/**
+ * 功能增强
+ */
+//更新文章浏览量
+function updatePostViewCount(){
+  if (!is_singular()){
+    return;
+  }
+  global $post;
+  $postId = $post->ID;
+  if(!$postId){
+    return;
+  }
+  $oldView = (int)get_post_meta($postId,'view',true);
+  // if(!$oldView){
+  //   delete_post_meta($postId,'view');
+  //   add_post_meta($postId,'view',0);
+  //   $oldView = 0;
+  // }
+  update_post_meta($postId, 'view', ($oldView+1));
+}
+add_action('wp_head', 'updatePostViewCount');

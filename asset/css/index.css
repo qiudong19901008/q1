@@ -4,11 +4,7 @@
 }
 
 /* 文章列表 */
-/* .post-list{
-
-} */
-
-.post-list .title,
+.post-list-has-title .title,
 .top-post .title{
   font-size: 2rem;
   font-weight: 600;
@@ -18,11 +14,18 @@
   border: 1px solid #eaeaea;
 }
 
-.post-list .list,
-.top-post .post-wrapper{
+.top-post,
+.top-post .post-card-wrapper{
   margin-top:-1px;
 }
 
-.post-list .list .post-card{
-  margin-top: -1px;
+.post-list-has-title{
+  margin-top:-1px;
 }
+
+.post-list-wrapper{
+margin-top:-1px;
+}
+
+
+

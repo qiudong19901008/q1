@@ -9,39 +9,30 @@
           <div class="title">
             置顶
           </div>
-          <div class="post-wrapper">
-            <?php get_template_part('component/post-card') ?>
+          <div class="post-card-wrapper">
+            <?php get_template_part('template/component/post-card') ?>
           </div>
         </div>
         <!-- 文章列表 -->
-        <div class="post-list">
+        <div class="post-list-has-title">
           <div class="title">
             最新文章
           </div>
-          <div class="list">
-            <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
-            </div>
-            <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
-            </div>
-            <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
-            </div>
-            <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
-            </div>
-            <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
-            </div>
-            <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
-            </div>    
+          <div class="post-list-wrapper">
+            <?php get_template_part('template/post-list'); ?>
           </div>
+          
         </div>
         <!-- 分页 -->
-        <div class="pagination">
-          <?php get_template_part('component/pagination') ?>
+        <div class="pagination-wrapper">
+          <?php echo paginate_links(
+            [
+              'prev_next' => true,
+              'mid_size'  => 1,
+              'prev_text' => '上一页',
+              'next_text' => '下一页',
+            ]
+          ); ?>
         </div>
       </div>
       <!-- 侧边栏 -->

@@ -5,7 +5,9 @@
   2. 全局样式
   3. css样式类
   4. 组件
-  5. common页面
+  5. 模板
+  6. common页面
+  7. 分页
 *
 /*
 
@@ -860,6 +862,10 @@ a:hover{
   color:#6ac5f9;
 }
 
+/* 模板-post-list  */
+.post-list-container .post-card-wrapper{
+  margin-top:-1px;
+}
 
 /* 页面-common */
 
@@ -909,6 +915,35 @@ a:hover{
   .main .sidebar{
     display: none;
   }
+}
+
+/* 分页 */
+.pagination-wrapper{
+  font-size:1.2rem;
+  padding:1rem;
+  display: flex;
+  /* justify-content: center; */
+  background-color: #fff;
+  margin:2rem 0;
+  border-radius: 4px;
+}
+.pagination-wrapper .page-numbers{
+  border-radius:3px;
+  text-align:center;
+  padding: .4rem 1.2rem;  
+  margin:0 .3rem;
+}
+.pagination-wrapper .page-numbers:not(.dots){
+  background-color: rgb(221, 221, 221);
+}
+.pagination-wrapper .page-numbers.current,
+.pagination-wrapper .page-numbers:not(.dots):hover{
+  background:rgb(106, 197, 249);
+  border-color:rgb(106, 197, 249);
+  color:#fff
+}
+.pagination-wrapper .page-numbers.dots{
+  border-color:rgba(0,0,0,0);
 }
 
 

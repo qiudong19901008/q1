@@ -6,29 +6,29 @@
       <div class="content">
         <!-- 提示 -->
         <div class="tips-wrapper">
-          <?php get_template_part('component/card-tips') ?>
+          <?php get_template_part('template/component/card-tips') ?>
         </div>
 
         <!-- 文章列表 -->
         <div class="post-list">
           <div class="list">
             <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
+              <?php get_template_part('template/component/post-card') ?>
             </div>
             <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
+              <?php get_template_part('template/component/post-card') ?>
             </div>
             <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
+              <?php get_template_part('template/component/post-card') ?>
             </div>
             <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
+              <?php get_template_part('template/component/post-card') ?>
             </div>
             <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
+              <?php get_template_part('template/component/post-card') ?>
             </div>
             <div class="post-card">
-              <?php get_template_part('component/post-card') ?>
+              <?php get_template_part('template/component/post-card') ?>
             </div>
             
           </div>
