@@ -10,7 +10,7 @@ class CardAuthorWidget extends WP_Widget {
       'card-author', 
         
       // 名称
-      '作者卡片小工具', 
+      'q1-作者卡片', 
         
       // 其他选项
       [
@@ -30,6 +30,7 @@ class CardAuthorWidget extends WP_Widget {
     $portrait = $instance[ 'portrait' ];
     $nickname = $instance[ 'nickname' ];
     $description = $instance[ 'description' ];
+    $contactWay = $instance[ 'contactWay' ];
 
     ?>
     <div class="card-author-container">
@@ -65,11 +66,15 @@ class CardAuthorWidget extends WP_Widget {
      </div>
      <!-- 联系方式 -->
      <div class="contact-way">
-        <a href="#"><i class="fa fa-github"></i></a>
+        <?php
+          echo html_entity_decode($contactWay);
+        ?>
+       <!-- fab代表品牌图标 -->
+        <!-- <a href="#"><i class="fa fa-github"></i></a>
         <a href="#"><i class="fa fa-envelope"></i></a>
         <a href="#"><i class="fa fa-envelope"></i></a>
         <a href="#"><i class="fa fa-envelope"></i></a>
-        <a href="#"><i class="fa fa-envelope"></i></a>
+        <a href="#"><i class="fa fa-envelope"></i></a> -->
      </div>
 </div>
 
@@ -82,6 +87,7 @@ class CardAuthorWidget extends WP_Widget {
     $portrait = $instance[ 'portrait' ];
     $nickname = $instance[ 'nickname' ];
     $description = $instance[ 'description' ];
+    $contactWay = $instance[ 'contactWay' ];
     ?>
     <p>
       <label for="<?php echo $this->get_field_id( 'portrait' ); ?>">头像地址:</label>
@@ -94,7 +100,7 @@ class CardAuthorWidget extends WP_Widget {
       >
     </p>
     <p>
-      <label for="<?php echo $this->get_field_id( 'nickname' ); ?>">昵称</label>
+      <label for="<?php echo $this->get_field_id( 'nickname' ); ?>">昵称:</label>
       <input 
         type="text" 
         id="<?php echo $this->get_field_id( 'nickname' );?>"
@@ -104,13 +110,24 @@ class CardAuthorWidget extends WP_Widget {
       >
     </p>
     <p>
-      <label for="<?php echo $this->get_field_id( 'description' ); ?>">简介</label>
+      <label for="<?php echo $this->get_field_id( 'description' ); ?>">简介:</label>
       <textarea 
         id="<?php echo $this->get_field_id( 'description' );?>"
         name="<?php echo $this->get_field_name( 'description' ); ?>" 
         rows="6" cols="50" 
         class="widefat code"
       ><?php echo esc_attr( $description ); ?></textarea>
+    </p>
+    <p>
+      <label for="<?php echo $this->get_field_id( 'contactWay' ); ?>">联系方式:</label>
+      <textarea 
+        placeholder='<a href="xxxx"><i class="fa fa-envelope"></i></a>'
+        id="<?php echo $this->get_field_id( 'contactWay' );?>"
+        name="<?php echo $this->get_field_name( 'contactWay' ); ?>"
+        value="<?php echo htmlentities( $contactWay ); ?>"
+        rows="6" cols="50" 
+        class="widefat code"
+      ><?php echo $contactWay; ?></textarea>
     </p>
     <?php 
   }
@@ -121,6 +138,7 @@ class CardAuthorWidget extends WP_Widget {
     $instance['portrait'] =  strip_tags($new_instance['portrait']);
     $instance['nickname'] =  strip_tags($new_instance['nickname']);
     $instance['description'] =  strip_tags($new_instance['description']);
+    $instance['contactWay'] =  $new_instance['contactWay'];
     return $instance;
   }
    

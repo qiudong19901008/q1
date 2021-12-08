@@ -1,0 +1,14 @@
+{
+  "name": "q1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "git": "git add . && git commit -m'1'",
+    "postgit": "git push origin"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
