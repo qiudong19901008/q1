@@ -99,6 +99,9 @@ a:hover{
 .hide{
   display: none;
 }
+.mb-2{
+  margin-bottom: 2rem;
+}
 
 
 /* 
@@ -245,6 +248,7 @@ a:hover{
 .card-search-container input:focus{
   outline: none;
   border: 1px solid #6ac5f9;
+  /* border-color: rgb(0 0 0/50%); */
 }
 
 .card-search-container button{

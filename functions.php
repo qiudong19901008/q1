@@ -10,6 +10,7 @@ define('VERSION','1.0');
 
 // 加载各种功能
 require_once plugin_dir_path(__FILE__) . '/widget/CardAuthorWidget.php';
+require_once plugin_dir_path(__FILE__) . '/widget/CardSearchWidget.php';
 
 /**
  * 加载css js
@@ -29,6 +30,9 @@ function load_difference_css_js(){
   }else if(is_single()){
     wp_enqueue_style('post', CSS_HOME . 'post.css',  ['my-common'], VERSION, 'all');
     wp_enqueue_script('post', JS_HOME . 'post.js',['my-common'],VERSION,true);
+  }else if(is_search()){
+    wp_enqueue_style('search', CSS_HOME . 'search.css',  ['my-common'], VERSION, 'all');
+    wp_enqueue_script('search', JS_HOME . 'search.js',['my-common'],VERSION,true);
   }
 }
 
@@ -49,7 +53,7 @@ function registe_widget_section() {
     [
       'name' => '右侧栏',
       'id' => 'right-sidebar',
-      'before_widget' => '<div class="widget">',
+      'before_widget' => '<div class="mb-2">',
       'after_widget' => '</div>',
       'before_title' => '',
       'after_title' => '',
@@ -66,6 +70,7 @@ add_action( 'widgets_init', 'registe_widget_section' );
  */
 function registe_widget_list() {
   register_widget( 'CardAuthorWidget' );
+  register_widget( 'CardSearchWidget' );
 }
 add_action( 'widgets_init', 'registe_widget_list' );
 

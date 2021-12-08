@@ -1,0 +1,27 @@
+
+.main .content .tips-wrapper{
+  margin-bottom:2rem;
+}
+
+
+/* 文章列表 */
+.post-list{
+
+}
+
+.post-list .title{
+  font-size: 2rem;
+  font-weight: 600;
+  background-color: #fff;
+  padding:1rem;
+  padding-left:2rem;
+  border: 1px solid #eaeaea;
+}
+
+.post-list .list{
+  margin-top:-1px;
+}
+
+.post-list .list .post-card{
+  margin-top: -1px;
+}
