@@ -1,13 +1,13 @@
 <?php
 
-class CardAuthorWidget extends WP_Widget {
+class WidgetAuthor extends WP_Widget {
  
   // The construct part  
   function __construct() {
     parent::__construct(
   
       // id
-      'card-author', 
+      'widget-author', 
         
       // 名称
       'q1-作者卡片', 
@@ -27,13 +27,13 @@ class CardAuthorWidget extends WP_Widget {
   }
 
   private function _widget($instance){
-    $portrait = $instance[ 'portrait' ];
-    $nickname = $instance[ 'nickname' ];
-    $description = $instance[ 'description' ];
-    $contactWay = $instance[ 'contactWay' ];
+    $portrait = getValue($instance[ 'portrait' ],'https://rcbb-public.oss-cn-guangzhou.aliyuncs.com/rcbb.cc.logo.white.png');
+    $nickname = getValue($instance[ 'nickname' ],'古今合道士');
+    $description = getValue($instance[ 'description' ],'享生活，分享好看的电影，好听的音乐和好用的工具，可能也会分享一些技术文章');
+    $contactWay = getValue($instance[ 'contactWay' ],'<a href="#"><i class="fab fa-github"></i></a>');
 
     ?>
-    <div class="card-author-container">
+    <div class="widget-author-container radius">
     <!-- 作者介绍 -->
     <div class="intro">
         <div class="portrait">
@@ -85,10 +85,10 @@ class CardAuthorWidget extends WP_Widget {
             
   // Creating widget Backend 
   public function form( $instance ) {
-    $portrait = $instance[ 'portrait' ];
-    $nickname = $instance[ 'nickname' ];
-    $description = $instance[ 'description' ];
-    $contactWay = $instance[ 'contactWay' ];
+    $portrait = getValue($instance[ 'portrait' ],'https://rcbb-public.oss-cn-guangzhou.aliyuncs.com/rcbb.cc.logo.white.png');
+    $nickname = getValue($instance[ 'nickname' ],'古今合道士');
+    $description = getValue($instance[ 'description' ],'享生活，分享好看的电影，好听的音乐和好用的工具，可能也会分享一些技术文章');
+    $contactWay = getValue($instance[ 'contactWay' ],'<a href="#"><i class="fab fa-github"></i></a>');
     ?>
     <p>
       <label for="<?php echo $this->get_field_id( 'portrait' ); ?>">头像地址:</label>

@@ -36,13 +36,12 @@ $('#header-container .mask').on('click',(e)=>{
 })
 
 /**
- * 组件-card-search
+ * 小工具-widget-search
  */
 
 // 点击搜索
-$('#card-search-container button').on('click',(e)=>{
-  // ?s=111
-  // $('#card-search-container input')
-  const searchValue = $('#card-search-container input').val();
-  console.log(searchValue)
-})
+// $('#widget-search-container button').on('click',(e)=>{
+//   // ?s=111
+//   const searchValue = $('#widget-search-container input').val();
+//   console.log(searchValue)
+// })

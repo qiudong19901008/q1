@@ -9,10 +9,13 @@ define('ROOT_URI',get_template_directory_uri() . '/');
 define('VERSION','1.0');
 
 // 加载各种功能
-require_once plugin_dir_path(__FILE__) . '/widget/CardAuthorWidget.php';
-require_once plugin_dir_path(__FILE__) . '/widget/CardSearchWidget.php';
+require_once plugin_dir_path(__FILE__) . '/widget/WidgetAuthor.php';
+require_once plugin_dir_path(__FILE__) . '/widget/WidgetRecommendPosts.php';
+require_once plugin_dir_path(__FILE__) . '/widget/WidgetSearch.php';
+require_once plugin_dir_path(__FILE__) . '/widget/WidgetTagCloud.php';
 
 require_once plugin_dir_path(__FILE__) . '/lib/helper.php';
+require_once plugin_dir_path(__FILE__) . '/lib/query.php';
 
 /**
  * 加载css js
@@ -71,8 +74,10 @@ add_action( 'widgets_init', 'registe_widget_section' );
  * 注册小工具
  */
 function registe_widget_list() {
-  register_widget( 'CardAuthorWidget' );
-  register_widget( 'CardSearchWidget' );
+  register_widget( 'WidgetAuthor' );
+  register_widget( 'WidgetRecommendPosts' );
+  register_widget( 'WidgetSearch' );
+  register_widget('WidgetTagCloud');
 }
 add_action( 'widgets_init', 'registe_widget_list' );
 

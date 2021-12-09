@@ -8,6 +8,7 @@
   5. 模板
   6. common页面
   7. 分页
+  8. 小工具
 *
 /*
 
@@ -105,6 +106,12 @@ a:hover{
   margin-bottom: 2rem;
 }
 
+.radius{
+  border-radius: 4px;
+}
+.radius-big{
+  border-radius: 8px;
+}
 
 /* 
 * 组件-card-author
@@ -239,6 +246,9 @@ a:hover{
   color:#7a7a7a;
 }
 
+.card-hot-article-container .post .info a:hover{
+  color:#45B6F7;
+}
 
 /* 组件-card-search */
 .card-search-container{
@@ -960,3 +970,217 @@ a:hover{
 }
 
 
+/* 小工具-widget-search */
+
+.widget-search-container{
+  background-color: #fff;
+  padding:2rem;
+  display: flex;
+}
+
+.widget-search-container input{
+  /* height: 4rem; */
+  border: 1px solid rgb(0 0 0/10%);
+  padding:.8rem 1rem;
+  font-size: 1.6rem;
+  width: 80%;
+}
+
+.widget-search-container input:focus{
+  outline: none;
+  border: 1px solid #6ac5f9;
+  /* border-color: rgb(0 0 0/50%); */
+}
+
+.widget-search-container button{
+  /* padding:2rem; */
+  border: none;
+  width: 20%;
+  background-color: #6ac5f9;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+/* 小工具-widget-author */
+
+.widget-author-container{
+  background-color: #fff;
+  padding: 1.5rem;
+}
+
+/* 作者介绍 */
+.widget-author-container .intro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.widget-author-container .intro>*{
+  margin-bottom: 1rem;
+}
+
+.widget-author-container .intro .portrait{
+  width: 128px;
+  height:128px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.widget-author-container .intro .portrait img{
+  width: 100%;
+  height: 100%;
+}
+
+.widget-author-container .intro .nickname{
+  font-size: 2rem;
+}
+
+.widget-author-container .intro .description{
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+/* 创作信息 */
+.widget-author-container .creation{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.widget-author-container .creation div p:nth-child(1){
+  font-size: 1rem;
+}
+
+.widget-author-container .creation div p:nth-child(2){
+  font-size: 2.4rem;
+}
+
+/* 联系方式 */
+.widget-author-container .contact-way{
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.widget-author-container .contact-way a{
+  width:25%;
+  text-align: center;
+  font-size: 1.1rem;
+  padding:1rem;
+}
+
+.widget-author-container .contact-way a:hover{
+  background-color: #f9f9f9;
+}
+
+/* 小工具-widget-recommend-posts */
+.widget-recommend-posts-container{
+  background-color: #fff;
+  padding:2rem;
+}
+
+.widget-recommend-posts-container .title{
+  color:#7a7a7a;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.widget-recommend-posts-container .post-list .post{
+  display: flex;
+  margin-bottom: 3rem;
+}
+
+.widget-recommend-posts-container .post-list .post:last-child{
+  margin-bottom: 0;
+}
+
+.widget-recommend-posts-container .post .thumbnail{
+  width:64px;
+  height: 64px;
+  margin-right:1.5rem;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink:0;
+}
+
+.widget-recommend-posts-container .post .thumbnail img{
+  width: 100%;
+  height: 100%;
+  
+}
+
+.widget-recommend-posts-container .post .info{
+  display: flex;
+  flex-direction: column;
+}
+
+.widget-recommend-posts-container .post .info .meta{
+  color:#7a7a7a;
+  font-size: .8rem;
+  margin-bottom: 2rem;
+}
+
+.widget-recommend-posts-container .post .info .meta time{
+  margin-right:1rem;
+}
+
+.widget-recommend-posts-container .post .info a{
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  height:1.4rem;
+  overflow: hidden;
+  color:#7a7a7a;
+}
+
+.widget-recommend-posts-container .post .info a:hover{
+  color:#45B6F7;
+}
+
+/* 小工具-widget-tag-cloud */
+.widget-tag-cloud{
+  background-color: #fff;
+  padding:2rem;
+}
+
+.widget-tag-cloud .title{
+  color:#7a7a7a;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.widget-tag-cloud .tag-list{
+  display: flex;
+  font-size:1.4rem;
+  flex-wrap: wrap;
+}
+
+.widget-tag-cloud .tag-list .tag{
+  display: flex;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  margin:0 1rem 1rem 0;
+}
+
+.widget-tag-cloud .tag-list .tag .name{
+  align-items: center;
+  color: #4a4a4a;
+  font-size: .75rem;
+  height: 2em;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
+.widget-tag-cloud .tag-list .tag .count{
+  height:100%;
+  background-color: #e7e7e7;
+  align-items: center;
+  color: #4a4a4a;
+  font-size: .75rem;
+  line-height: 1.5;
+  padding-left: 1em;
+  padding-right: 1em;
+}

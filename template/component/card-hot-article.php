@@ -1,51 +1,40 @@
 
-<?php 
-
-  $res = new WP_Query([
-    'posts_per_page'	=> 3,
-    'meta_key'			=> 'view',
-    'orderby'			=> 'meta_value',
-    'order'				=> 'DESC',
-  ])
-
-  // $posts = get_posts(array(
-  //   // 'post_type'			=> 'event',
-    
-  // ));
-?>
 <div class="card-hot-article-container">
   <h2 class="title">最热文章</h2>
   <div class="post-list">
+  <?php
+    $query = queryPostDesc('comment',4);
 
-      <?php 
-        if($res->have_posts()){
-          while($res->have_posts()){
-            the_post();
-            
-            ?>
-
-              <div class="post">
-                <a class="thumbnail" href="#">
-                  <img src="https://siteimage.w2fenx.com/sszas/thumbnail/20211205/sszas-thumbnail-1638664698151.jpeg" alt="">
-                </a>
-                <div class="info">
-                  <div class="meta">
-                    <time>the</time>
-                    <span>
-                      阅读(0)
-                    </span>
-                  </div>
-                  <a href="#"><?php the_title(); ?></a>
-                </div>
+    if( $query->have_posts()):
+      while($query->have_posts()):
+        $query->the_post();
+        ?>
+        
+          <div class="post">
+            <a class="thumbnail" href="<?php the_permalink()?>">
+              <img src="<?php the_post_thumbnail() ?>" alt="">
+            </a>
+            <div class="info">
+              <div class="meta">
+                <time><?php the_time('Y-m-d')?></time>
+                <span>
+                  浏览(<?php echo getPostViewCount(get_the_ID()) ?>)
+                </span>
+                <span>
+                  评论(<?php echo getCommentCountByPostId(get_the_ID()) ?>)
+                </span>
               </div>
+              <a href="<?php the_permalink()?>">
+                <?php the_title(); ?>
+              </a>
+            </div>
+          </div>
 
-            <?php
-
-          }
-        }
-       ?>
+        <?php
       
-
-
+      endwhile;
+    endif;
+  ?>
+  
   </div>
 </div>

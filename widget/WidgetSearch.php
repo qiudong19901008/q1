@@ -1,11 +1,11 @@
 <?php
 
-class CardSearchWidget extends WP_Widget{
+class WidgetSearch extends WP_Widget{
   function __construct() {
     parent::__construct(
       
       // Base ID of your widget
-      'card-search', 
+      'widget-search', 
         
       // Widget name will appear in UI
       'q1-搜索框',
@@ -25,14 +25,14 @@ class CardSearchWidget extends WP_Widget{
   }
 
   private function _widget($instance){
-    $placeholder = !empty($instance[ 'placeholder' ])?$instance[ 'placeholder' ]:'搜点什么呢?';
-    $btnInnerHtml = !empty($instance[ 'btnInnerHtml' ])?$instance[ 'btnInnerHtml' ]:'<i class="fa fa-search" ></i>';
-    $color = !empty($instance[ 'color' ])?$instance[ 'color' ]:'#6ac5f9';
+    $placeholder = getValue($instance[ 'placeholder' ],'搜点什么呢?');
+    $btnInnerHtml = getValue($instance[ 'btnInnerHtml' ],'<i class="fa fa-search" ></i>');
+    $color = getValue($instance[ 'color' ],'#6ac5f9');
     ?>
 
       <form 
-        class="card-search-container" 
-        id="card-search-container"
+        class="widget-search-container radius" 
+        id="widget-search-container"
         method="get" 
         action="<?php echo esc_url( home_url( '/' ) );  ?>"
       >
@@ -53,10 +53,10 @@ class CardSearchWidget extends WP_Widget{
             
   // Widget Backend 
   public function form( $instance ) {
-
-    $placeholder = !empty($instance[ 'placeholder' ])?$instance[ 'placeholder' ]:'搜点什么呢?';
-    $btnInnerHtml = !empty($instance[ 'btnInnerHtml' ])?$instance[ 'btnInnerHtml' ]:'<i class="fa fa-search" ></i>';
-    $color = !empty($instance[ 'color' ])?$instance[ 'color' ]:'#6ac5f9';
+    
+    $placeholder = getValue($instance[ 'placeholder' ],'搜点什么呢?');
+    $btnInnerHtml = getValue($instance[ 'btnInnerHtml' ],'<i class="fa fa-search" ></i>');
+    $color = getValue($instance[ 'color' ],'#6ac5f9');
 
     ?>
        
