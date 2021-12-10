@@ -29,7 +29,7 @@
     </span>
     <a href="" class="comment">
       <i class="fa fa-comments-o"></i>
-      评论(<?php echo getCommentCountByPostId($post->ID) ?>)
+      评论(<?php echo getPostCommentCount($post->ID) ?>)
     </a>
     <a href="#" class="post-like">
       <i class="fa fa-thumbs-o-up"></i>

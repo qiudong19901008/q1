@@ -234,6 +234,7 @@ Note that we only use a top margin and not a bottom margin -- this prevents the
   display:block;
   margin:0 auto;
   border:1px solid #8474c7;
+  max-width: 100%;
 }
 .post-content-container .post-content span{
   font-size:20px;

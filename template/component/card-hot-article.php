@@ -21,7 +21,7 @@
                   浏览(<?php echo getPostViewCount(get_the_ID()) ?>)
                 </span>
                 <span>
-                  评论(<?php echo getCommentCountByPostId(get_the_ID()) ?>)
+                  评论(<?php echo getPostCommentCount(get_the_ID()) ?>)
                 </span>
               </div>
               <a href="<?php the_permalink()?>">
