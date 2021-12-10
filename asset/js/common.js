@@ -36,12 +36,21 @@ $('#header-container .mask').on('click',(e)=>{
 })
 
 /**
- * 小工具-widget-search
+ * 全局函数
  */
 
-// 点击搜索
-// $('#widget-search-container button').on('click',(e)=>{
-//   // ?s=111
-//   const searchValue = $('#widget-search-container input').val();
-//   console.log(searchValue)
-// })
+function getCookie(cookieName){  
+  var cookieValue="";  
+  if (document.cookie && document.cookie != '') {   
+      var cookies = document.cookie.split(';');  
+      for (var i = 0; i < cookies.length; i++) {   
+           var cookie = cookies[i];  
+           if (cookie.substring(0, cookieName.length + 2).trim() == cookieName.trim() + "=") {  
+                 cookieValue = cookie.substring(cookieName.length + 2, cookie.length);   
+                 break;  
+           }  
+       }  
+  }   
+  return cookieValue;  
+}
+

@@ -27,14 +27,14 @@
       <i class="fa fa-eye"></i>
       阅读(<?php echo getPostViewCount($post->ID) ?>)
     </span>
-    <a href="" class="comment">
-      <i class="fa fa-comments-o"></i>
+    <span href="" class="comment">
+      <i class="fa fa-comments"></i>
       评论(<?php echo getPostCommentCount($post->ID) ?>)
-    </a>
-    <a href="#" class="post-like">
-      <i class="fa fa-thumbs-o-up"></i>
-      赞(<span>0</span>)
-    </a>
+    </span>
+    <span href="#" class="post-like">
+      <i class="fa fa-thumbs-up"></i>
+      赞(<span><?php echo getPostLikeCount($post->ID) ?></span>)
+    </span>
   </div>
   
   <div class="excerpt">

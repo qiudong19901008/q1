@@ -24,16 +24,15 @@
           
         </div>
         <!-- 分页 -->
+        <?php 
+          $paginationHtml = getPaginationHtml();
+          if(!empty($paginationHtml)):
+        ?>
         <div class="pagination-wrapper">
-          <?php echo paginate_links(
-            [
-              'prev_next' => true,
-              'mid_size'  => 1,
-              'prev_text' => '上一页',
-              'next_text' => '下一页',
-            ]
-          ); ?>
+          <?php echo $paginationHtml ?>
         </div>
+        <?php endif; ?>
+        
       </div>
       <!-- 侧边栏 -->
       <div class="sidebar">

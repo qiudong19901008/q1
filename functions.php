@@ -16,6 +16,9 @@ require_once plugin_dir_path(__FILE__) . '/widget/WidgetTagCloud.php';
 
 require_once plugin_dir_path(__FILE__) . '/lib/helper.php';
 require_once plugin_dir_path(__FILE__) . '/lib/query.php';
+require_once plugin_dir_path(__FILE__) . '/lib/htmlGetter.php';
+
+require_once plugin_dir_path(__FILE__) . '/lib/ajax.php';
 
 /**
  * 加载css js
@@ -38,6 +41,9 @@ function load_difference_css_js(){
   }else if(is_search()){
     wp_enqueue_style('search', CSS_HOME . 'search.css',  ['my-common'], VERSION, 'all');
     wp_enqueue_script('search', JS_HOME . 'search.js',['my-common'],VERSION,true);
+  }else if(is_tag()){
+    wp_enqueue_style('tag', CSS_HOME . 'tag.css',  ['my-common'], VERSION, 'all');
+    wp_enqueue_script('tag', JS_HOME . 'tag.js',['my-common'],VERSION,true);
   }
 }
 
@@ -137,3 +143,27 @@ function registe_menu(){
   register_nav_menu( 'primary', '顶部主菜单' );
 }
 add_action( 'after_setup_theme', 'registe_menu' );
+
+
+
+// /**
+//  * 文章点赞
+//  */
+// function q1_post_like_callback(){
+//   global $wpdb,$post;
+//   $id = $_POST["postId"];
+//   // $action = $_POST["action"];
+//   $q1_post_like_count= get_post_meta($id,'q1_post_like_count',true);
+//   $expire = time() + 99999999;
+//   $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false; // make cookies work with localhost
+//   setcookie('q1_post_like_'.$id,$id,$expire,'/',$domain,false);
+//   if (!$q1_post_like_count || !is_numeric($q1_post_like_count)) {
+//     update_post_meta($id, 'q1_post_like_count', 1);
+//   }else {
+//     update_post_meta($id, 'q1_post_like_count', ($q1_post_like_count + 1));
+//   }
+//   echo get_post_meta($id,'q1_post_like_count',true);
+//   die;
+// }
+// add_action('wp_ajax_nopriv_q1_post_like_action', 'q1_post_like_callback');
+// add_action('wp_ajax_q1_post_like_action', 'q1_post_like_callback');

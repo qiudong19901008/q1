@@ -1,3 +1,4 @@
+
 <?php 
   $categorysInfo = getCategorysInfo(get_the_ID());
   $categoryInfo = $categorysInfo[0];
@@ -21,7 +22,7 @@
         <span>分类:<a href="<?php echo $categoryInfo['url'] ?>"><?php echo $categoryInfo['name'] ?></a></span>
         <span>阅读(<span><?php echo getPostViewCount(get_the_ID()) ?></span>)</span>
         <span>评论(<span><?php echo getPostCommentCount(get_the_ID()) ?></span>)</span>
-        <span>点赞(<span><?php echo getPostLikeCount(get_the_ID()) ?></span>)</span>
+        <span>点赞(<span id="likeShow"><?php echo getPostLikeCount(get_the_ID()) ?></span>)</span>
       </div>
   </div>
   <div class="post-content">
@@ -31,10 +32,10 @@
     结束
   </p>
   <div class="interaction">
-    <a href="#" class="like">
-      <i class="fa fa-thumbs-o-up"></i>
-      赞(<span>1</span>)
-    </a>
+    <div class="like <?php echo has_cookie('q1_post_like_'.get_the_ID())?'done':'';  ?>" id="like" data-id="<?php the_ID(); ?>">
+      <i class="fa fa-thumbs-up"></i>
+      赞(<span><?php echo getPostLikeCount(get_the_ID()) ?></span>)
+    </div>
   </div>
   <div class="post-tag">
     <span>标签:</span>

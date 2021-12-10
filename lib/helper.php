@@ -20,7 +20,7 @@ function getPostViewCount($post_id){
  * 获取文章点赞数量
  */
 function getPostLikeCount($post_id){
-  $count = get_post_meta( $post_id, 'like', true );
+  $count = get_post_meta( $post_id, 'q1_post_like_count', true );
   return !empty($count)?$count:0;
 }
 
@@ -176,5 +176,17 @@ function getTagUrl($slug){
   $url = home_url().'/tag/'.$slug;
   return $url;
 }
+
+/**
+ * cookie是否包含某个值
+ */
+function has_cookie($cookie_name){
+  if(isset($_COOKIE[$cookie_name])){
+    return true;
+  }else{
+    return false;
+  }
+}
+
 
 

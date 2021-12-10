@@ -10,33 +10,20 @@
         </div>
 
         <!-- 文章列表 -->
-        <div class="post-list">
-          <div class="list">
-            <div class="post-card">
-              <?php get_template_part('template/component/post-card') ?>
-            </div>
-            <div class="post-card">
-              <?php get_template_part('template/component/post-card') ?>
-            </div>
-            <div class="post-card">
-              <?php get_template_part('template/component/post-card') ?>
-            </div>
-            <div class="post-card">
-              <?php get_template_part('template/component/post-card') ?>
-            </div>
-            <div class="post-card">
-              <?php get_template_part('template/component/post-card') ?>
-            </div>
-            <div class="post-card">
-              <?php get_template_part('template/component/post-card') ?>
-            </div>
-            
+        <div class="post-list-no-title">
+          <div class="post-list-wrapper">
+            <?php get_template_part('template/post-list'); ?>
           </div>
         </div>
         <!-- 分页 -->
-        <div class="pagination">
-          <?php get_template_part('template/component/pagination') ?>
+        <?php 
+          $paginationHtml = getPaginationHtml();
+          if(!empty($paginationHtml)):
+        ?>
+        <div class="pagination-wrapper">
+          <?php echo $paginationHtml ?>
         </div>
+        <?php endif; ?>
 
       </div>
       <!-- 侧边栏 -->

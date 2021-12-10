@@ -11,6 +11,20 @@
             </div>
             <?php
           }
+        }else{
+          ?>
+
+            <div
+              style="
+                display:flex;
+                height:100%;
+                justify-content:center;
+                align-items:center;
+                padding-top:30%;
+              "
+            >没有文章</div>
+
+          <?php
         }
       ?>
 

@@ -779,10 +779,19 @@ a:hover{
   line-height: 1;
   padding: 12px 20px;
   border-radius: 2px;
-  color: #fff;
   font-size: 14px;
-  background-color: #45B6F7;
   margin: 0 7px;
+  cursor: pointer;
+
+  color: #45B6F7;
+  background-color: #fff;
+  border: 1px solid #45B6F7;
+  
+}
+
+.post-content-container .interaction .done{
+  color: #fff;
+  background-color: #45B6F7;
 }
 
 /* tag */
