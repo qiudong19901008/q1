@@ -15,6 +15,7 @@
         </div>
         <!-- <div class="comment-wrapper">
         </div> -->
+        <?php comments_template() ?>
       </div>
       <!-- 侧边栏 -->
       <div class="sidebar">

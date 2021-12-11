@@ -20,6 +20,9 @@ require_once plugin_dir_path(__FILE__) . '/lib/htmlGetter.php';
 
 require_once plugin_dir_path(__FILE__) . '/lib/ajax.php';
 
+// dao层
+require_once plugin_dir_path(__FILE__) . '/dao/CommentDao.php';
+
 /**
  * 加载css js
  */
@@ -124,11 +127,6 @@ function updatePostViewCount(){
     return;
   }
   $oldView = (int)get_post_meta($postId,'view',true);
-  // if(!$oldView){
-  //   delete_post_meta($postId,'view');
-  //   add_post_meta($postId,'view',0);
-  //   $oldView = 0;
-  // }
   update_post_meta($postId, 'view', ($oldView+1));
 }
 add_action('wp_head', 'updatePostViewCount');
@@ -146,24 +144,3 @@ add_action( 'after_setup_theme', 'registe_menu' );
 
 
 
-// /**
-//  * 文章点赞
-//  */
-// function q1_post_like_callback(){
-//   global $wpdb,$post;
-//   $id = $_POST["postId"];
-//   // $action = $_POST["action"];
-//   $q1_post_like_count= get_post_meta($id,'q1_post_like_count',true);
-//   $expire = time() + 99999999;
-//   $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false; // make cookies work with localhost
-//   setcookie('q1_post_like_'.$id,$id,$expire,'/',$domain,false);
-//   if (!$q1_post_like_count || !is_numeric($q1_post_like_count)) {
-//     update_post_meta($id, 'q1_post_like_count', 1);
-//   }else {
-//     update_post_meta($id, 'q1_post_like_count', ($q1_post_like_count + 1));
-//   }
-//   echo get_post_meta($id,'q1_post_like_count',true);
-//   die;
-// }
-// add_action('wp_ajax_nopriv_q1_post_like_action', 'q1_post_like_callback');
-// add_action('wp_ajax_q1_post_like_action', 'q1_post_like_callback');

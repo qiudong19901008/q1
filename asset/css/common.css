@@ -930,6 +930,75 @@ a:hover{
   color:#6ac5f9;
 }
 
+/* 组件-card-comment-form */
+.card-comment-form-container{
+  padding:2rem; 
+  background-color: #fff;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-comment-form-container .author-info{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.card-comment-form-container .author-info > *{
+  width: 50%;
+}
+
+.card-comment-form-container .comment-submit-btn{
+  display: flex;
+  justify-content: center; 
+}
+
+.card-comment-form-container .comment-submit-btn .submit-btn{
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding:.8rem 1.6rem;
+  border-radius: 4px;
+  background-color: rgb(106 197 249 / 90%);
+  
+}
+
+.card-comment-form-container .submit-btn:hover{
+  background-color: rgb(106, 197, 249);
+}
+
+/* 通用 */
+
+.form-group{
+  padding: .6rem;
+}
+
+.form-group label{
+  width: 20%;
+}
+
+.form-group input,
+.form-group textarea{
+  border: 1px solid rgb(0 0 0/10%);
+  padding: 0.6rem .8rem;
+  font-size: 1.4rem;
+  outline: none;
+  border-radius: 4px;
+  width: 80%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  border: 1px solid rgb(0 0 0/50%);
+}
+
+.form-group textarea{
+  width:100%;
+}
+
+
+
+
 /* 模板-post-list  */
 .post-list-container .post-card-wrapper{
   margin-top:-1px;

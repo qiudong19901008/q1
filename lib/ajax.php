@@ -22,3 +22,27 @@ function q1_post_like_callback(){
 }
 add_action('wp_ajax_nopriv_q1_post_like_action', 'q1_post_like_callback');
 add_action('wp_ajax_q1_post_like_action', 'q1_post_like_callback');
+
+
+
+/**
+ * 提交评论
+ */
+function q1_callback_sumbit_comment(){
+  global $wpdb,$post;
+  $name = $_POST["name"];
+  $email = $_POST["email"];
+  $website = $_POST["website"];
+  $content = $_POST["content"];
+  $postId = $_POST["postId"];
+
+  // echo $name;
+  // echo $name;
+  
+
+
+
+  die;
+}
+add_action('wp_ajax_nopriv_q1_ajax_submit_comment', 'q1_callback_sumbit_comment');
+add_action('wp_ajax_q1_ajax_submit_comment', 'q1_callback_sumbit_comment');
