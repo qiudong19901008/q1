@@ -23,6 +23,9 @@ require_once plugin_dir_path(__FILE__) . '/lib/ajax.php';
 // dao层
 require_once plugin_dir_path(__FILE__) . '/dao/CommentDao.php';
 
+// service层
+require_once plugin_dir_path(__FILE__) . '/service/CommentService.php';
+
 /**
  * 加载css js
  */
