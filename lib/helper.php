@@ -86,59 +86,8 @@ function getNextPostInfo($post_id){
   ];
 }
 
-/**
- * @description 获取分类信息
- * @param number $post_id
- * @param Boolean $is_first 是否只获取第一个
- * @return Array 
- */
-function getCategorysInfo($post_id,$is_first=true){
-  $categories = get_the_category($post_id);
-  if(!$categories){
-    return [];
-  }
-  $res = [];
-  foreach($categories as $category){
-    $oneCategoryInfo = [
-      'id'=>$category->term_id,
-      'name'=>$category->name,
-      'slug'=>$category->slug,
-      'url'=>get_category_link($category->term_id),
-    ];
-    array_push($res,$oneCategoryInfo);
-    if($is_first){
-      break;
-    }
-  }
-  return $res;
-}
 
-/**
- * @description 获取标签信息
- * @param number $post_id
- * @param Boolean $is_first 是否只获取第一个
- * @return Array 
- */
-function getTagsInfo($post_id,$is_first=true){
-  $tags = get_the_tags($post_id);
-  if(!$tags){
-    return [];
-  }
-  $res = array();
-  foreach($tags as $tag){
-    $oneTagInfo = [
-      'name'=>$tag->name,
-      'id'=>$tag->term_id,
-      'slug'=>$tag->slug,
-      'url'=>get_tag_link($tag->term_id),
-    ];
-    array_push($res,$oneTagInfo);
-    if($is_first){
-      break;
-    }
-  }
-  return $res;
-}
+
 
 /**
  * 获取值, 没有则使用默认值
@@ -191,9 +140,9 @@ function has_cookie($cookie_name){
 /**
  * 设置cookie
  */
-function setQ1Cookie($key,$value,$expire=60*60*24*30){
+function setQ1Cookie($key,$value,$path='/',$expire=60*60*24*30){
   $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false; // make cookies work with localhost
-  return setcookie($key,$value,$expire,'/',$domain,false);
+  return setcookie($key,$value,$expire,$path,$domain,false);
 }
 
 /**
@@ -203,5 +152,6 @@ function setQ1Cookie($key,$value,$expire=60*60*24*30){
 function json($data){
   header('Content-Type:application/json');
   echo json_encode($data);
+  die;
 }
 

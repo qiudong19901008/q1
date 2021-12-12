@@ -18,5 +18,26 @@ class PostService{
     return $likeCount;
   }
 
+  /**
+   * @description 查询推荐文章
+   * @param int $postId 文章id
+   * @return array [id,title,url]推荐的文章列表
+   */
+  public static function queryRecommendPostList($postId){
+    $categoryList = CategoryDao::getCategoryList($postId,true);
+    $category = $categoryList[0];
+    $res = PostDao::queryPostListByCategoryId(
+      $category['id'],
+      [$postId],
+      'rand',
+      'DESC',
+      1,
+      Configs::RECOMMEND_POST_COUNT
+    );
+    return $res;
+  }
+
+
+
 }
 

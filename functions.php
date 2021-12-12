@@ -8,101 +8,43 @@ define('JS_HOME',get_template_directory_uri() . '/asset/js/');
 define('ROOT_URI',get_template_directory_uri() . '/');
 define('VERSION','1.0');
 
-// 加载各种功能
+// 加载小工具
 require_once plugin_dir_path(__FILE__) . '/widget/WidgetAuthor.php';
 require_once plugin_dir_path(__FILE__) . '/widget/WidgetRecommendPosts.php';
 require_once plugin_dir_path(__FILE__) . '/widget/WidgetSearch.php';
 require_once plugin_dir_path(__FILE__) . '/widget/WidgetTagCloud.php';
 
+// 加载主题支持
+require_once plugin_dir_path(__FILE__) . '/core/registeCssJs.php'; //加载css js
+require_once plugin_dir_path(__FILE__) . '/core/registeWidget.php'; //加载小工具
+require_once plugin_dir_path(__FILE__) . '/core/registeMenu.php'; //加载菜单
+
+//lib库
 require_once plugin_dir_path(__FILE__) . '/lib/helper.php';
 require_once plugin_dir_path(__FILE__) . '/lib/query.php';
 require_once plugin_dir_path(__FILE__) . '/lib/htmlGetter.php';
 require_once plugin_dir_path(__FILE__) . '/lib/Fields.php';
+require_once plugin_dir_path(__FILE__) . '/lib/Configs.php';
 
-// require_once plugin_dir_path(__FILE__) . '/lib/ajax.php';
-
-// dao层
+// dao
 require_once plugin_dir_path(__FILE__) . '/dao/CommentDao/CommentDao.php';
+require_once plugin_dir_path(__FILE__) . '/dao/PostDao/PostDao.php';
+require_once plugin_dir_path(__FILE__) . '/dao/CategoryDao/CategoryDao.php';
+require_once plugin_dir_path(__FILE__) . '/dao/TagDao/TagDao.php';
 
-// service层
-require_once plugin_dir_path(__FILE__) . '/service/CommentService.php';
+// service
+require_once plugin_dir_path(__FILE__) . '/service/PostService.php';
 
 // api
-// require_once plugin_dir_path(__FILE__) . '/api/v1/postApi.php';
-
-
-/**
- * 加载css js
- */
-function load_common_js_css(){
-  wp_enqueue_style('my-common', CSS_HOME . 'common.css',  [], VERSION, 'all');
-  wp_enqueue_script('my-common', JS_HOME . 'common.js',[],VERSION,true);
-}
-
-function load_difference_css_js(){
-  if(is_home()){
-    wp_enqueue_style('index', CSS_HOME . 'index.css',  ['my-common'], VERSION, 'all');
-    wp_enqueue_script('index', JS_HOME . 'index.js',['my-common'],VERSION,true);
-  }else if(is_category()){
-    wp_enqueue_style('category', CSS_HOME . 'category.css',  ['my-common'], VERSION, 'all');
-    wp_enqueue_script('category', JS_HOME . 'category.js',['my-common'],VERSION,true);
-  }else if(is_single()){
-    wp_enqueue_style('post', CSS_HOME . 'post.css',  ['my-common'], VERSION, 'all');
-    wp_enqueue_script('post', JS_HOME . 'post.js',['my-common'],VERSION,true);
-  }else if(is_search()){
-    wp_enqueue_style('search', CSS_HOME . 'search.css',  ['my-common'], VERSION, 'all');
-    wp_enqueue_script('search', JS_HOME . 'search.js',['my-common'],VERSION,true);
-  }else if(is_tag()){
-    wp_enqueue_style('tag', CSS_HOME . 'tag.css',  ['my-common'], VERSION, 'all');
-    wp_enqueue_script('tag', JS_HOME . 'tag.js',['my-common'],VERSION,true);
-  }
-}
-
-function load_css_js() {
-  load_common_js_css();
-  load_difference_css_js();
-}
-add_action('wp_enqueue_scripts', 'load_css_js');
-
-
-/**
- * 注册小工具栏目
- */
-function registe_widget_section() {
-
-  // 右边栏
-  register_sidebar(
-    [
-      'name' => '右侧栏',
-      'id' => 'right-sidebar',
-      'before_widget' => '<div class="mb-2">',
-      'after_widget' => '</div>',
-      'before_title' => '',
-      'after_title' => '',
-    ]
-  );
-
-}
-
-
-add_action( 'widgets_init', 'registe_widget_section' );
-
-/**
- * 注册小工具
- */
-function registe_widget_list() {
-  register_widget( 'WidgetAuthor' );
-  register_widget( 'WidgetRecommendPosts' );
-  register_widget( 'WidgetSearch' );
-  register_widget('WidgetTagCloud');
-}
-add_action( 'widgets_init', 'registe_widget_list' );
+require_once plugin_dir_path(__FILE__) . '/api/v1/postApi.php';
 
 
 
 /**
- * 禁用古腾堡编辑器
+ * 功能增强
  */
+
+// 禁用古腾堡编辑器
 // disable for posts
 add_filter('use_block_editor_for_post', '__return_false', 10);
 // disable for post types
@@ -111,9 +53,6 @@ add_filter('use_block_editor_for_post_type', '__return_false', 10);
 add_filter( 'use_widgets_block_editor', '__return_false' );
 
 
-/**
- * 修改wordpress样式
- */
 // 修改excerpt结尾
 function new_excerpt_more($more) {
   return '...';
@@ -121,9 +60,7 @@ function new_excerpt_more($more) {
 add_filter('excerpt_more', 'new_excerpt_more');
 
 
-/**
- * 功能增强
- */
+
 //更新文章浏览量
 function updatePostViewCount(){
   if (!is_singular()){
@@ -140,28 +77,5 @@ function updatePostViewCount(){
 add_action('wp_head', 'updatePostViewCount');
 
 
-/**
- * 注册菜单
- */
-function registe_menu(){ 
-  // 注册菜单
-  register_nav_menu( 'primary', '顶部主菜单' );
-}
-add_action( 'after_setup_theme', 'registe_menu' );
 
 
-function likePostRouter(){
-  global $wpdb,$post;
-  $id = $_POST["postId"];
-  // $likeCount = PostService::likePostById($id);
-  // setQ1Cookie('q1_cookie_like_post_'.$id,$id,60*60*24*90);
-  echo $id;
-  die;
-  // json([
-  //   'likeCount'=>$likeCount,
-  // ]);
-}
-
-
-add_action('wp_ajax_nopriv_q1_api_like_post', 'likePostRouter');
-add_action('wp_ajax_q1_api_like_post', 'likePostRouter');

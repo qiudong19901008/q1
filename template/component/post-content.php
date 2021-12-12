@@ -1,9 +1,9 @@
 
 <?php 
-  $categorysInfo = getCategorysInfo(get_the_ID());
+  $categorysInfo = CategoryDao::getCategoryList(get_the_ID());
   $categoryInfo = $categorysInfo[0];
 
-  $tags = getTagsInfo(get_the_ID());
+  $tags = TagDao::getTagList(get_the_ID());
 ?>
 <div class="post-content-container">
   <div class="crumbs">

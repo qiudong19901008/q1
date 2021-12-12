@@ -1,5 +1,5 @@
 
-    <?php get_header(); ?>
+  <?php get_header(); ?>
   <!-- 主内容区域 -->
   <div class="main-wrapper">
     <div class="main">
@@ -15,7 +15,9 @@
         </div>
         <!-- <div class="comment-wrapper">
         </div> -->
-        <?php comments_template() ?>
+        <?php 
+          comments_template();
+        ?>
       </div>
       <!-- 侧边栏 -->
       <div class="sidebar">

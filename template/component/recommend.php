@@ -1,6 +1,6 @@
 <?php 
 
-  $posts = queryRecommendPostsInfo(get_the_ID(),8);
+  $posts = PostService::queryRecommendPostList(get_the_ID());
 
 
 ?>
@@ -10,7 +10,6 @@
   <div class="post-list">
     <?php 
       foreach($posts as $post):
-      // var_dump($post);
     ?>
 
     <div class="post">
