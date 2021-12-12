@@ -2,9 +2,9 @@
 
   $count = 5;
   $name = '标签云';
-  $tags = queryTagsDesc(5);
-  var_dump($tags);
-  echo(home_url().'/tag/'.'')
+  // $tags = queryTagsDesc(5);
+  // var_dump($tags);
+  // echo(home_url().'/tag/'.'')
 ?>
 
 <div class="card-tag-container">

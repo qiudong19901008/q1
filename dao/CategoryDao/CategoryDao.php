@@ -9,7 +9,7 @@ class CategoryDao{
    * @param Boolean $first 是否只获取第一个
    * @return Array [id,name,slug,url]
    */
-  public static function getCategoryList($postId,$first=true){
+  public static function getCategoryListByPostId($postId,$first=true){
     $categories = get_the_category($postId);
     $res = [];
     if(!$categories){

@@ -997,6 +997,8 @@ a:hover{
 }
 
 
+/* 组件-com-commnet-card */
+
 
 
 /* 模板-post-list  */
@@ -1008,7 +1010,7 @@ a:hover{
 
 /* 页头 */
 .header-wrapper{
-  margin-bottom: 16px;
+  margin-bottom: 2rem;
   background: #fff; 
 }
 
@@ -1021,10 +1023,13 @@ a:hover{
 
 
 /* 主体 */
+.main-wrapper{
+  margin-bottom:2rem;
+}
 .main{
   display: flex;
   justify-content: space-between;
-  margin:0 auto;
+  margin:2rem auto;
   max-width: 1200px;
   /* width:90%; */
 }

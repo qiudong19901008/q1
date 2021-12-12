@@ -27,9 +27,7 @@ class WidgetTagCloud extends WP_Widget{
   private function _widget($instance){
     $name = getValue($instance[ 'name' ],'标签云');
     $count = getValue($instance[ 'count' ],10);
-
-    $tags = queryTagsDesc($count);
-          
+    $tags = TagDao::getTagList($count);
     ?>
 
       <div class="widget-tag-cloud radius">
@@ -44,9 +42,9 @@ class WidgetTagCloud extends WP_Widget{
               
           ?>
 
-            <a class="tag" href="<?php echo getTagUrl($tag->slug) ?>">
-              <h3 class="name"><?php echo $tag->name; ?></h3>
-              <span class="count"><?php echo $tag->count; ?></span>
+            <a class="tag" href="<?php echo $tag['url']; ?>">
+              <h3 class="name"><?php echo $tag['name']; ?></h3>
+              <span class="count"><?php echo $tag['count']; ?></span>
             </a>
 
           <?php endforeach; ?>
