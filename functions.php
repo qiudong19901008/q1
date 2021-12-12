@@ -17,14 +17,19 @@ require_once plugin_dir_path(__FILE__) . '/widget/WidgetTagCloud.php';
 require_once plugin_dir_path(__FILE__) . '/lib/helper.php';
 require_once plugin_dir_path(__FILE__) . '/lib/query.php';
 require_once plugin_dir_path(__FILE__) . '/lib/htmlGetter.php';
+require_once plugin_dir_path(__FILE__) . '/lib/Fields.php';
 
-require_once plugin_dir_path(__FILE__) . '/lib/ajax.php';
+// require_once plugin_dir_path(__FILE__) . '/lib/ajax.php';
 
 // dao层
-require_once plugin_dir_path(__FILE__) . '/dao/CommentDao.php';
+require_once plugin_dir_path(__FILE__) . '/dao/CommentDao/CommentDao.php';
 
 // service层
 require_once plugin_dir_path(__FILE__) . '/service/CommentService.php';
+
+// api
+// require_once plugin_dir_path(__FILE__) . '/api/v1/postApi.php';
+
 
 /**
  * 加载css js
@@ -138,7 +143,6 @@ add_action('wp_head', 'updatePostViewCount');
 /**
  * 注册菜单
  */
-
 function registe_menu(){ 
   // 注册菜单
   register_nav_menu( 'primary', '顶部主菜单' );
@@ -146,4 +150,18 @@ function registe_menu(){
 add_action( 'after_setup_theme', 'registe_menu' );
 
 
+function likePostRouter(){
+  global $wpdb,$post;
+  $id = $_POST["postId"];
+  // $likeCount = PostService::likePostById($id);
+  // setQ1Cookie('q1_cookie_like_post_'.$id,$id,60*60*24*90);
+  echo $id;
+  die;
+  // json([
+  //   'likeCount'=>$likeCount,
+  // ]);
+}
 
+
+add_action('wp_ajax_nopriv_q1_api_like_post', 'likePostRouter');
+add_action('wp_ajax_q1_api_like_post', 'likePostRouter');

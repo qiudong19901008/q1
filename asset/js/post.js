@@ -1,7 +1,7 @@
 // const $ = require('jquery');
 
 function isAlreadyZan(id){
-  const cookies = getCookie(`q1_post_like_${id}`);
+  const cookies = getCookie(`q1_cookie_like_post_${id}`);
   if(cookies){
     return true;
   }
@@ -18,7 +18,7 @@ $('#like').on('click',(e)=>{
   }
   const data = {
     postId: id,
-    action:'q1_post_like_action',
+    action:'q1_api_like_post',
   };
   $.ajax({
     url:'/zixuehu/wp-admin/admin-ajax.php',
@@ -30,6 +30,7 @@ $('#like').on('click',(e)=>{
       $('#likeShow').html(data); 
     },
     error:(e)=>{
+      console.log(e);
       alert('点赞失败');
     }
   })

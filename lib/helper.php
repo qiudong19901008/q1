@@ -188,5 +188,20 @@ function has_cookie($cookie_name){
   }
 }
 
+/**
+ * 设置cookie
+ */
+function setQ1Cookie($key,$value,$expire=60*60*24*30){
+  $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false; // make cookies work with localhost
+  return setcookie($key,$value,$expire,'/',$domain,false);
+}
 
+/**
+ * 返回json数据
+ * @param array $data
+ */
+function json($data){
+  header('Content-Type:application/json');
+  echo json_encode($data);
+}
 
