@@ -18,7 +18,7 @@
 
 
 <?php
-// $res = CommentDao::query(71,'commen_date','DESC',1,1);
+// $res = CommentDao::query(71,'commen_date','DESC',1,10);
 // var_dump($res);
 ?>
 

@@ -1,28 +1,7 @@
 <?php
 
 
-/**
- * 获取评论数量
- */
-function getPostCommentCount($post_id){
-  return wp_count_comments($post_id)->total_comments;
-}
 
-/**
- * 获取文章浏览量
- */
-function getPostViewCount($post_id){
-  $count = get_post_meta( $post_id, 'view', true );
-  return !empty($count)?$count:0;
-}
-
-/**
- * 获取文章点赞数量
- */
-function getPostLikeCount($post_id){
-  $count = get_post_meta( $post_id, 'q1_post_like_count', true );
-  return !empty($count)?$count:0;
-}
 
 /**
  * 获取文章分类html
@@ -95,28 +74,6 @@ function getNextPostInfo($post_id){
  function getValue($value,$default){
   return !empty($value)?$value:$default;
  }
-
- /**
-  * 获取like, comment, view的html片段
-  */
-function getRecommendArticleMetaHtmlByType($type){
-  $text = '';
-  $count = 0;
-  switch($type){
-    case 'view':
-      $count = getPostViewCount(get_the_ID());
-      $text = '浏览('.$count.')';
-      break;
-    case 'comment':
-      $count = getPostCommentCount(get_the_ID());
-      $text = '评论('.$count.')';
-      break;
-    case 'like':
-    
-      break;
-  }
-  return '<span>'.$text.' </span>';
-}
 
 /**
  * 根据slug获得tag的永久连接

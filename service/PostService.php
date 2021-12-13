@@ -24,7 +24,7 @@ class PostService{
    * @return array [id,title,url]推荐的文章列表
    */
   public static function queryRecommendPostList($postId){
-    $categoryList = CategoryDao::getCategoryList($postId,true);
+    $categoryList = CategoryDao::getCategoryListByPostId($postId,true);
     $category = $categoryList[0];
     $res = PostDao::queryPostListByCategoryId(
       $category['id'],

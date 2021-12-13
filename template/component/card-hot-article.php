@@ -18,10 +18,10 @@
               <div class="meta">
                 <time><?php the_time('Y-m-d')?></time>
                 <span>
-                  浏览(<?php echo getPostViewCount(get_the_ID()) ?>)
+                  浏览(<?php echo PostDao::getPostViewCount(get_the_ID()) ?>)
                 </span>
                 <span>
-                  评论(<?php echo getPostCommentCount(get_the_ID()) ?>)
+                  评论(<?php echo PostDao::getPostCommentCount(get_the_ID()) ?>)
                 </span>
               </div>
               <a href="<?php the_permalink()?>">

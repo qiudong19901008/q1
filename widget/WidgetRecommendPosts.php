@@ -39,33 +39,30 @@ class WidgetRecommendPosts extends WP_Widget{
           <h2 class="title"><?php echo $name; ?></h2>
           <div class="post-list">
           <?php
-            $query = queryPostDesc( $type,$size );
+            $postList = PostDao::queryRecommendPostList($type,$size);
+            if(count($postList) ==0){
+              return;
+            }
+            foreach($postList as $post){
+              ?>
 
-            if( $query->have_posts()):
-              while($query->have_posts()):
-                $query->the_post();
-                ?>
-                
                   <div class="post">
-                    <a class="thumbnail" href="<?php the_permalink()?>">
-                      <img src="<?php the_post_thumbnail() ?>" alt="">
+                    <a class="thumbnail" href="<?php echo $post['url']; ?>">
+                      <img src="<?php echo $post['thumbnail']; ?>" alt="">
                     </a>
                     <div class="info">
                       <div class="meta">
-                        <time><?php the_time('Y-m-d')?></time>
-                        <?php echo getRecommendArticleMetaHtmlByType($type) ?>
+                        <time><?php echo $post['createTime']; ?></time>
+                        <?php echo $this->_getWidgetMetaHtml($type,$post); ?>
                       </div>
-                      <a href="<?php the_permalink()?>">
-                        <?php the_title(); ?>
+                      <a href="<?php echo $post['url']; ?>">
+                        <?php echo $post['title']; ?>
                       </a>
                     </div>
                   </div>
 
-                <?php
-              
-              endwhile;
-              wp_reset_query();
-            endif;
+              <?php
+            }
           ?>
 
           </div>
@@ -144,6 +141,24 @@ class WidgetRecommendPosts extends WP_Widget{
       $instance['type'] =  strip_tags($new_instance['type']);
       return $instance;
     }
+
+
+
+    private function _getWidgetMetaHtml($type,$post){
+      $text = '';
+      switch($type){
+        case 'view':
+          $text = '浏览('.$post['viewCount'].')';
+          break;
+        case 'comment':
+          $text = '评论('.$post['commentCount'].')';
+          break;
+        case 'like':
+          $text = '点赞('.$post['likeCount'].')';
+          break;
+      }
+      return '<span>'.$text.'</span>';
+  }
 
 }
 

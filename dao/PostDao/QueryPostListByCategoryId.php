@@ -1,6 +1,9 @@
 <?php
 
-class QueryPostListByCategoryId{
+require_once plugin_dir_path(__FILE__) . './BasePostDao.php';
+
+
+class QueryPostListByCategoryId extends BasePostDao{
 
 
   /**
@@ -26,21 +29,12 @@ class QueryPostListByCategoryId{
       'posts_per_page'=>$size,
     ];
     $query = new WP_Query($args);
-    if(!$query->have_posts()){
-      return $res;
-    }
-    while($query->have_posts()){
-      $query->the_post();
-      $post = [
-        'id'=>get_the_ID(),
-        'title'=>get_the_title(),
-        'url'=>get_the_permalink(),
-      ];
-      array_push($res,$post);
-    }
+    $res = $this->getNeededData($query);
     wp_reset_query();
     return $res;
   }
+
+  
 
   private function _getoffset($page,$size){
     return ($page-1)*$size;    

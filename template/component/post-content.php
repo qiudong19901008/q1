@@ -20,9 +20,9 @@
       <div class="meta">
         <span>发布日期：<time><?php the_time('Y-m-d h:i:s') ?></time></span>
         <span>分类:<a href="<?php echo $categoryInfo['url'] ?>"><?php echo $categoryInfo['name'] ?></a></span>
-        <span>阅读(<span><?php echo getPostViewCount(get_the_ID()) ?></span>)</span>
-        <span>评论(<span><?php echo getPostCommentCount(get_the_ID()) ?></span>)</span>
-        <span>点赞(<span id="likeShow"><?php echo getPostLikeCount(get_the_ID()) ?></span>)</span>
+        <span>阅读(<span><?php echo PostDao::getPostViewCount(get_the_ID()) ?></span>)</span>
+        <span>评论(<span><?php echo PostDao::getPostCommentCount(get_the_ID()) ?></span>)</span>
+        <span>点赞(<span id="likeShow"><?php echo PostDao::getPostLikeCount(get_the_ID()) ?></span>)</span>
       </div>
   </div>
   <div class="post-content">
@@ -34,7 +34,7 @@
   <div class="interaction">
     <div class="like <?php echo has_cookie('q1_post_like_'.get_the_ID())?'done':'';  ?>" id="like" data-id="<?php the_ID(); ?>">
       <i class="fa fa-thumbs-up"></i>
-      赞(<span><?php echo getPostLikeCount(get_the_ID()) ?></span>)
+      赞(<span><?php echo PostDao::getPostLikeCount(get_the_ID()); ?></span>)
     </div>
   </div>
   <div class="post-tag">

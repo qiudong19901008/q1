@@ -25,15 +25,15 @@
     </span>
     <span>
       <i class="fa fa-eye"></i>
-      阅读(<?php echo getPostViewCount($post->ID) ?>)
+      阅读(<?php echo PostDao::getPostViewCount($post->ID) ?>)
     </span>
     <span href="" class="comment">
       <i class="fa fa-comments"></i>
-      评论(<?php echo getPostCommentCount($post->ID) ?>)
+      评论(<?php echo PostDao::getPostCommentCount($post->ID) ?>)
     </span>
     <span href="#" class="post-like">
       <i class="fa fa-thumbs-up"></i>
-      赞(<span><?php echo getPostLikeCount($post->ID) ?></span>)
+      赞(<span><?php echo PostDao::getPostLikeCount($post->ID) ?></span>)
     </span>
   </div>
   

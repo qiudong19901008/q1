@@ -1,7 +1,10 @@
 <?php
-require_once plugin_dir_path(__FILE__) . './QueryPostListByCategoryId.php';
 
-class PostDao{
+require_once plugin_dir_path(__FILE__) . './BasePostDao.php';
+require_once plugin_dir_path(__FILE__) . './QueryPostListByCategoryId.php';
+require_once plugin_dir_path(__FILE__) . './QueryRecommendPostList.php';
+
+class PostDao extends BasePostDao{
 
    /**
    * @description 查询文章
@@ -19,42 +22,20 @@ class PostDao{
   }
 
 
-    /**
+  /**
    * @description 根据like、view、comment降序获取文章
    * @param 'like'|'view'|'comment' $type
    * @param number $size
-   * @return Wp_Query
    */
-  public static function queryPost($type,$size){
-
-    $arg = []; //wp_query的参数
-    switch($type){
-      case 'view':
-        $arg = [
-          'posts_per_page'	=> $size,
-          'meta_key'			=> 'view',
-          'orderby'			=> ['meta_value_num'=>'DESC'],
-        ];
-        break;
-      case 'comment':
-        $arg = [
-          'posts_per_page'	=> $size,
-          'orderby'			=> 'comment_count',
-          'order'				=> 'DESC',
-        ];
-        break;
-      case 'like':
-        $arg = [
-          'posts_per_page'	=> $size,
-          'meta_key'			=> 'like',
-          'orderby'			=> ['meta_value_num'=>'DESC'],
-        ];
-        break;
-    }
-    $query = new WP_Query($arg);
-
-    return $query;
+  public static function queryRecommendPostList($type,$size){
+    $querier = new QueryRecommendPostList();
+    return $querier->run($type,$size);
   }
+
+
+  
+
+    
 
 
 
