@@ -1,6 +1,6 @@
 
 <div class="comment-list-container">
-  <?php get_template_part('template/com') ?>
+  <?php get_template_part('template/commentList'); ?>
 </div>
 
 

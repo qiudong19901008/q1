@@ -1,4 +1,8 @@
-// const $ = require('jquery');
+const $ = require('jquery');
+
+// $(document).ready(){
+
+// }
 
 function isAlreadyZan(id){
   const cookies = getCookie(`q1_cookie_like_post_${id}`);

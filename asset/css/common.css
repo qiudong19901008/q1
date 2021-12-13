@@ -997,7 +997,80 @@ a:hover{
 }
 
 
-/* 组件-com-commnet-card */
+/* 组件-commentCard */
+.commentCard{
+  display: flex;
+  padding:1rem;
+  border-radius: 4px;
+  font-size:1.4rem;
+}
+.commentCard__left{
+  margin-right:2rem;
+}
+.commentCard__portrait{
+  width:4.8rem;
+  height:4.8rem;
+  border-radius: 50%;
+}
+
+.commentCard__right{
+  font-display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex:1;
+}
+
+.commentCard__author{
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.commentCard__content{
+  margin-bottom: 1rem;
+}
+
+.commentCard__meta{
+  display: flex;
+  font-size:1.2rem;
+}
+
+.commentCard__meta>*{
+  margin-right:1rem;
+}
+
+.commentCard__replyBtn{
+  cursor: pointer;
+}
+
+/* 组件-commentList */
+.commentList{
+  padding:2rem;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.commentList__item{
+  border-bottom: 1px solid rgb(245, 246, 247);
+}
+.commentList__item:last-child{
+  border-bottom: none;
+}
+/* 244, 244, 244 */
+.commentList__cardChild{
+  background-color: rgb(244, 244, 244);
+  margin:1rem;
+  margin-left:7.4rem;
+  border-radius: 4px;
+  padding:1rem;
+}
+.commentList__childCardWrap{
+  border-bottom: 1px solid rgb(0 0 0 / 8%);
+}
+.commentList__childCardWrap:last-child{
+  border-bottom:none;
+}
+
 
 
 

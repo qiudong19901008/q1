@@ -37,6 +37,7 @@ require_once plugin_dir_path(__FILE__) . '/service/PostService.php';
 
 // api
 require_once plugin_dir_path(__FILE__) . '/api/v1/postApi.php';
+require_once plugin_dir_path(__FILE__) . '/api/v1/commentApi.php';
 
 
 
