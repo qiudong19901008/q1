@@ -1,4 +1,7 @@
 import * as $ from 'jquery';
+import 'font-awesome/css/font-awesome.min.css';
+import './common.css';
+
 /**
  * 组件-header
  */
