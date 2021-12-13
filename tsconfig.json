@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "esnext",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "lib": [ 
+      "webworker", 
+      "es6", 
+      "dom", 
+      "es2015",
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+    ],
+    // "allowSyntheticDefaultImports": true,
+    // "esModuleInterop": true
+  }
+}

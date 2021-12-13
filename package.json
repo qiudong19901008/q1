@@ -2,16 +2,41 @@
   "name": "q1",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "git": "git add . && git commit -m'1'",
-    "postgit": "git push origin"
+    "postgit": "git push origin",
+    "prod": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/jquery": "^3.5.9"
+    "@babel/polyfill": "^7.11.5",
+    "@types/jquery": "^3.5.9",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "autoprefixer": "^10.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "browser-sync": "^2.26.12",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "css-loader": "^4.3.0",
+    "file-loader": "^6.1.0",
+    "mini-css-extract-plugin": "^0.11.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.2",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }

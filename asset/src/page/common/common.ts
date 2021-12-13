@@ -1,4 +1,4 @@
-// const $ = require('jquery');
+import * as $ from 'jquery';
 /**
  * 组件-header
  */
@@ -38,8 +38,7 @@ $('#header-container .mask').on('click',(e)=>{
 /**
  * 全局函数
  */
-
-function getCookie(cookieName){  
+const getCookie = (cookieName:string)=>{
   var cookieValue="";  
   if (document.cookie && document.cookie != '') {   
       var cookies = document.cookie.split(';');  
@@ -51,6 +50,9 @@ function getCookie(cookieName){
            }  
        }  
   }   
-  return cookieValue;  
+  return cookieValue; 
+}
+export {
+  getCookie
 }
 

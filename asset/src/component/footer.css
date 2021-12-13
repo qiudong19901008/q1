@@ -1,0 +1,64 @@
+.footer{
+  position: relative;
+  z-index: 9;
+  clear: both;
+  padding: 40px 30px;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  color: #999;
+  background-color: #fff;
+  border-top: 1px solid #eaeaea;
+}
+
+.footer a{
+  color:#999;
+}
+
+.footer .container{
+  margin:0 auto;
+  max-width: 1200px;
+}
+
+/* 友情链接 */
+
+.footer .friend-link{
+  display: flex;
+  margin-bottom:10px;
+}
+
+.footer .friend-link .title{
+  padding:1rem;
+  font-weight: 600;
+}
+
+
+.footer .friend-link .list{
+  display: flex;
+}
+
+.footer .friend-link .list li{
+  padding:1rem;
+}
+
+
+/* 补充信息 */
+.additional-info{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.additional-info li{
+
+}
+
+.additional-info span{
+  margin:0 3px;
+}
+
+@media screen and (max-width:1000px) {
+  .footer .friend-link{
+    display: none;
+  }
+}

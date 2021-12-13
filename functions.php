@@ -3,8 +3,8 @@
 /**
  * 定义常量
  */
-define('CSS_HOME',get_template_directory_uri() . '/asset/css/');
-define('JS_HOME',get_template_directory_uri() . '/asset/js/');
+define('CSS_HOME',get_template_directory_uri() . '/asset/dist/css/');
+define('JS_HOME',get_template_directory_uri() . '/asset/dist/js/');
 define('ROOT_URI',get_template_directory_uri() . '/');
 define('VERSION','1.0');
 
