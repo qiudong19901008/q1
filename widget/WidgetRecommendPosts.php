@@ -74,6 +74,7 @@ class WidgetRecommendPosts extends WP_Widget{
 
     // Widget Backend 
     public function form( $instance ) {
+      // get_template_part('','',)
       $name = getValue($instance['name'],'推荐文章');
       $size = getValue($instance['size'],6);
       $type = getValue($instance['type'],'view');
