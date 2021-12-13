@@ -1,8 +1,37 @@
-const $ = require('jquery');
+// const $ = require('jquery');
+// const getCommentsHtml = require('./getCommentsHtml');
+import getCommentsHtml from './getCommentsHtml';
+/**
+ * 页面加载完后的动作
+ */
+$(function(){
 
-// $(document).ready(){
+  const url = $('.commentList').data('url');
+  // const url = $('.commentList').data('postid');
+  const action = $('.commentList').data('action');
+// console.log(url)
+  $.ajax({
+    url,
+    method:'GET',
+    data:{
+      postId:71,
+      page:1,
+      size:10,
+      action,
+    },
+    error:(e)=>{
+      alert('评论拉取错误');
+    },
+    success:(data)=>{
+      const html = getCommentsHtml(data.list);
+      console.log(html);
+      // console.log(data);
+    }
+  })
+})
 
-// }
+
+
 
 function isAlreadyZan(id){
   const cookies = getCookie(`q1_cookie_like_post_${id}`);

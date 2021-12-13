@@ -93,8 +93,9 @@ class CommentQuery{
     $res = [
       'commentId' =>$comment->comment_ID,
       'commentDate' =>$comment->comment_date,
-      'commentContent' =>$comment->comment_author,
+      'commentAuthor' =>$comment->comment_author,
       'commentParentId' =>$comment->comment_parent,
+      'commentContent' =>$comment->comment_content,
     ];
     if($parentComment){
       $res['replyPersonName'] = $parentComment->comment_author;

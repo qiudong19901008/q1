@@ -1,6 +1,9 @@
 
 <div class="comment-list-container">
-  <?php get_template_part('template/commentList'); ?>
+  <?php 
+    get_template_part('template/commentList'); 
+    // echo admin_url('admin-ajax.php');
+  ?>
 </div>
 
 

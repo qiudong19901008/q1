@@ -2,6 +2,7 @@
   "name": "q1",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "git": "git add . && git commit -m'1'",
