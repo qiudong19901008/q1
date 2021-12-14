@@ -1,7 +1,7 @@
 import './index.css';
 import * as $ from 'jquery';
 import PostModel from '../../model/PostModel';
-import CommonView from '../common/common';
+
 
 
 class IndexView{
@@ -27,8 +27,3 @@ class IndexView{
 }
 
 // const indexView = new IndexView();
-const commonView = new CommonView();
-$(function(){
-  console.log('aaaaaaa')
-  commonView.initral();
-});

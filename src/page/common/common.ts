@@ -46,12 +46,12 @@ class CommonView{
 
 }
 
-// const commonView = new CommonView();
+const commonView = new CommonView();
 
-// $(function(){
-//   commonView.initral();
+$(function(){
+  commonView.initral();
   
-// })
+})
 
 export default CommonView;
 

@@ -11,7 +11,7 @@ function registe_widget_section() {
     [
       'name' => '右侧栏',
       'id' => 'right-sidebar',
-      'before_widget' => '<div class="mb-2">',
+      'before_widget' => '<div class="mb-2 radius">',
       'after_widget' => '</div>',
       'before_title' => '',
       'after_title' => '',
