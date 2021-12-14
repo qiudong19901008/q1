@@ -2,6 +2,7 @@
 
 require_once plugin_dir_path(__FILE__) . './BasePostDao.php';
 require_once plugin_dir_path(__FILE__) . './QueryPostListByCategoryId.php';
+require_once plugin_dir_path(__FILE__) . './QueryPostList.php';
 require_once plugin_dir_path(__FILE__) . './QueryRecommendPostList.php';
 
 class PostDao extends BasePostDao{
@@ -30,6 +31,21 @@ class PostDao extends BasePostDao{
   public static function queryRecommendPostList($type,$size){
     $querier = new QueryRecommendPostList();
     return $querier->run($type,$size);
+  }
+
+  /**
+   * @description 查询文章
+   * @param Array $dynamicConditionList [$categoryId=0,$tagId=0,$s='']
+   * @param Array $excludePostIdList 需要排除的文章id列表
+   * @param 'create_time'|'update_time'|'rand' $orderBy 需要排序的字段 默认创建时间
+   * @param 'ASC'|'DESC' 升序或降序,默认降序
+   * @param int $page 页码
+   * @param int $size 数量
+   * @return Array
+   */
+  public static function queryPostList($dynamicConditionList,$excludePostIdList,$orderBy='create_time',$order='DESC',$page=1,$size=10){
+    $querier = new QueryPostList();
+    return $querier->run($dynamicConditionList,$excludePostIdList,$orderBy,$order,$page,$size);
   }
 
 

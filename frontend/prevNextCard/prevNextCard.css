@@ -1,0 +1,32 @@
+.prevNextCard{
+  display: flex;
+  justify-content: space-between;
+}
+
+.prevNextCard__prev,
+.prevNextCard__next{
+  background-color: #fff;
+  padding:1.5rem;
+  border-radius: 4px;
+  font-size:1.4rem;
+  color: #999;
+  width:48%;
+}
+
+.prevNextCard__prevTitle,
+.prevNextCard__nextTitle{
+  height: 4rem;
+  overflow: hidden;
+  margin-top:1rem;
+}
+
+.prevNextCard__next >*{
+  text-align: right;
+}
+
+.prevNextCard__prev:hover,
+.prevNextCard__next:hover{
+  color:#6ac5f9;
+  cursor: pointer;
+}
+

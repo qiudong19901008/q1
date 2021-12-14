@@ -12,6 +12,14 @@ type LikePostType = {
   action:string,
 }
 
+type GetPostList = {
+  action:string,
+  orderBy:'create_time'|'update_time'|'rand',
+  categoryId?:number,
+  tagId?:number,
+  s?:string,
+}
+
 
 
 class PostModel extends BaseModel{
@@ -31,6 +39,15 @@ class PostModel extends BaseModel{
       ...data,
     });
     return res as any as {count:number};
+  }
+
+  public static async getPostList(url:string,params:GetPostList,page:number,size:number){
+    const res = await httpHandler.get(url,{
+      ...params,
+      page,
+      size,
+    });
+    return res;
   }
 
 

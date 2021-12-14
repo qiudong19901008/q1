@@ -1,0 +1,27 @@
+.searchCard{
+  background-color: #fff;
+  padding:2rem;
+  display: flex;
+}
+
+.searchCard__input{
+  /* height: 4rem; */
+  border: 1px solid rgb(0 0 0/10%);
+  padding:.8rem 1rem;
+  font-size: 1.6rem;
+  width: 80%;
+}
+
+.searchCard__input:focus{
+  outline: none;
+  border: 1px solid #6ac5f9;
+  /* border-color: rgb(0 0 0/50%); */
+}
+
+.searchCard__btn{
+  border: none;
+  width: 20%;
+  background-color: #6ac5f9;
+  color: #fff;
+  cursor: pointer;
+}

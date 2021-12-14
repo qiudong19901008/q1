@@ -1,0 +1,57 @@
+.siteFooter{
+  position: relative;
+  z-index: 9;
+  padding: 4rem 3rem;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+  color: #999;
+  background-color: #fff;
+  border-top: 1px solid #eaeaea;
+}
+
+.siteFooter a{
+  color:#999;
+}
+
+
+/* 友情链接 */
+
+.siteFooter__friendLink{
+  display: flex;
+  margin-bottom:10px;
+}
+
+.siteFooter__friendLinkTitle{
+  padding:1rem;
+  font-weight: 600;
+}
+
+
+.siteFooter__friendLinkList{
+  display: flex;
+}
+
+.siteFooter__friendLinkListItem{
+  padding:1rem;
+}
+
+
+/* 补充信息 */
+.siteFooter__additionalInfo{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.siteFooter__additionalInfoCutOff{
+  margin:0 3px;
+}
+
+
+@media screen and (max-width:1000px) {
+  .siteFooter__friendLink,
+  .siteFooter__additionalInfo{
+    display: none;
+  }
+}

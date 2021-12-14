@@ -1,0 +1,45 @@
+.tagCloudCard{
+  background-color: #fff;
+  padding:2rem;
+}
+
+.tagCloudCard__title{
+  color:#7a7a7a;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tagCloudCard__list{
+  display: flex;
+  font-size:1.4rem;
+  flex-wrap: wrap;
+}
+
+.tagCloudCard__item{
+  display: flex;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  margin:0 1rem 1rem 0;
+}
+
+.tagCloudCard__itemName{
+  align-items: center;
+  color: #4a4a4a;
+  font-size: .75rem;
+  height: 2em;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
+.tagCloudCard__itemCount{
+  height:100%;
+  background-color: #e7e7e7;
+  align-items: center;
+  color: #4a4a4a;
+  font-size: .75rem;
+  line-height: 1.5;
+  padding-left: 1em;
+  padding-right: 1em;
+}

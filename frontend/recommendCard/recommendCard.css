@@ -1,0 +1,40 @@
+.recommendCard{
+  background-color: #fff;
+  padding:2rem;
+  font-size: 1.4rem;
+  color: #999;
+  border-radius: 4px;
+}
+
+.recommendCard__title{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.recommendCard__cutOff{
+  color:#999;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+  margin-bottom: 1rem;
+}
+
+.recommendCard__postList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.recommendCard__post{
+  width:50%;
+  margin-bottom: 1rem;
+  padding-left:2rem;
+}
+
+.recommendCard__postLink{
+  padding-left:.5rem;
+  color:#999;
+  cursor: pointer;
+}
+
+.recommendCard__postLink:hover{
+  color:#6ac5f9;
+}

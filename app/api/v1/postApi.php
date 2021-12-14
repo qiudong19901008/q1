@@ -20,3 +20,26 @@ function likePostRouter(){
 }
 add_action('wp_ajax_nopriv_q1_api_like_post', 'likePostRouter');
 add_action('wp_ajax_q1_api_like_post', 'likePostRouter');
+
+/**
+ * @description 请求分类文章列表
+ * @action q1_api_get_post_list
+ * @method GET
+ */
+function getPostListRouter(){
+  $orderBy = $_GET["orderBy"]?$_GET["orderBy"]:'create_time';
+  $page = $_GET["page"];
+  $size = $_GET["size"];
+  $dynamicConditionList = [
+    'categoryId'=>$_GET["categoryId"],
+    'tagId'=>$_GET["tagId"],
+    's'=>$_GET["s"],
+  ];
+  $res = PostDao::queryPostList($dynamicConditionList,[],$orderBy,'DESC',$page,$size);
+  json([
+    'list'=>$res,
+    'count'=>count($res),
+  ]);
+}
+add_action('wp_ajax_nopriv_q1_api_get_post_list', 'getPostListRouter');
+add_action('wp_ajax_q1_api_get_post_list', 'getPostListRouter');

@@ -1,0 +1,74 @@
+/* 
+* 组件-card-author
+*/
+.authorCard{
+  background-color: #fff;
+  padding: 1.5rem;
+}
+
+.authroCard__intro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.authroCard__intro > *{
+  margin-bottom: 1rem;
+}
+
+.authroCard__portrait{
+  width: 128px;
+  height:128px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.authroCard__portraitImg{
+  width: 100%;
+  height: 100%;
+}
+
+.authorCard__nickname{
+  font-size: 2rem;
+}
+
+.authorCard__description{
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.authorCard__creation{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.authorCard__articleName,
+.authorCard__categoryName,
+.authorCard__tagName{
+  font-size: 1rem;
+}
+
+.authorCard__articleCount,
+.authorCard__categoryCount,
+.authorCard__tagCount{
+  font-size: 2.4rem;
+}
+
+.authorCard__contactWay{
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.authorCard__contactWay>*{
+  width:25%;
+  text-align: center;
+  font-size: 1.1rem;
+  padding:1rem;
+}
+
+.authorCard__contactWay>*:hover{
+  background-color: #f9f9f9;
+}
+

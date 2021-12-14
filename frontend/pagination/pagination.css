@@ -1,39 +1,31 @@
-.pagination-container{
-  margin: 0;
-  padding: 20px;
-  text-align: center;
-  font-size: 12px;
+
+/**
+ 该分页html是借助了wordpress paginate_links生成的
+*/
+.pagination{
+  font-size:1.2rem;
+  padding:1rem;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  background-color: #fff;
+  margin:2rem 0;
+  border-radius: 4px;
 }
-
-.pagination-container ul{
-  display: flex;
-  justify-content: center;
-   flex-wrap: wrap;
+.pagination .page-numbers{
+  border-radius:3px;
+  text-align:center;
+  padding: .4rem 1.2rem;  
+  margin:0 .3rem;
 }
-.pagination-container ul li {
-  margin-bottom: 4px;
+.pagination .page-numbers:not(.dots){
+  background-color: rgb(221, 221, 221);
 }
-
-.pagination-container ul li a{
-  margin: 0 2px;
-  float: left;
-  padding: 5px 12px;
-  background-color: #ddd;
-  color: #666;
-  border-radius: 2px;
-  opacity: .88;
+.pagination .page-numbers.current,
+.pagination .page-numbers:not(.dots):hover{
+  background:rgb(106, 197, 249);
+  border-color:rgb(106, 197, 249);
+  color:#fff
 }
-
-.pagination-container ul li span{
-  color: #999;
-  background-color: transparent;
-  cursor: default;
-  margin: 0 2px;
-  float: left;
-  padding: 5px 12px;
-  color: #666;
-  border-radius: 2px;
-  opacity: .88;
+.pagination .page-numbers.dots{
+  border-color:rgba(0,0,0,0);
 }

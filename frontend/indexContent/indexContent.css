@@ -1,0 +1,25 @@
+.indexContent__topPost{
+  margin-bottom: 2rem;
+}
+
+.indexContent__topPostTitle,
+.indexContent__postListTitle{
+  font-size: 2rem;
+  font-weight: 600;
+  background-color: #fff;
+  padding:1rem;
+  padding-left:2rem;
+  border: 1px solid #eaeaea;
+}
+
+.indexContent__topPostWrap,
+.indexContent__postListWrap{
+  margin-top:-1px;
+}
+
+
+
+
+
+
+

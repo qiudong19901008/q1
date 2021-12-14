@@ -1,0 +1,24 @@
+.pageTitleCard{
+  background-color: #fff;
+  padding:1rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.pageTitleCard__title{
+  padding-left:1rem;
+  font-size:2rem;
+  font-weight: 800;
+  text-align: center;
+  color:#999;
+  display: flex;
+  justify-content: center;
+}
+
+.pageTitleCard__bg{
+  position: absolute;
+  left:0;
+  top:0;
+  opacity:0.2;
+}

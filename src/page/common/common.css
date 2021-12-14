@@ -113,47 +113,9 @@ a:hover{
   border-radius: 8px;
 }
 
-/* 
-* 组件-card-author
-*/
-@import url('../../../frontend/card-author/card-author.css');
-
-/* 组件-card-hot-article */
-@import url('../../../frontend/card-hot-article/card-hot-article.css');
 
 
-/* 组件-card-search */
-@import url('../../../frontend/card-search/card-search.css');
 
-/* 组件-card-tag */
-@import url('../../../frontend/card-tag/card-tag.css');
-
-/* 组件-header */
-@import url('../../../frontend/header/header.css');
-
-/* 组件-footer */
-@import url('../../../frontend/footer/footer.css');
-
-/* 组件-post-card */
-@import url('../../../frontend/post-card/post-card.css');
-
-/* 组件-pagination */
-@import url('../../../frontend/pagination/pagination.css');
-
-/* 组件-card-tips */
-@import url('../../../frontend/card-tips/card-tips.css');
-
-/* 组件-post-content */
-@import url('../../../frontend/post-content/post-content.css');
-
-/* 组件-prev-next */
-@import url('../../../frontend/prev-next/prev-next.css');
-
-/* 组件-recommend */
-@import url('../../../frontend/recommend/recommend.css');
-
-/* 组件-card-comment-form */
-@import url('../../../frontend/card-comment-form/card-comment-form.css');
 
 
 /* 组件-commentCard */
@@ -167,6 +129,42 @@ a:hover{
 
 /* 组件-postList */
 @import url('../../../frontend/postList/postList.css');
+
+/* 组件-indexContent */
+@import url('../../../frontend/indexContent/indexContent.css');
+
+/* 组件-pagination */
+@import url('../../../frontend/pagination/pagination.css');
+
+/* 组件-authorCard */
+@import url('../../../frontend/authorCard/authorCard.css');
+
+/* 组件-searchCard */
+@import url('../../../frontend/searchCard/searchCard.css');
+
+/* 组件-tagCloudCard */
+@import url('../../../frontend/tagCloudCard/tagCloudCard.css');
+
+/* 组件-pageTitleCard */
+@import url('../../../frontend/pageTitleCard/pageTitleCard.css');
+
+/* 组件-recommendCard */
+@import url('../../../frontend/recommendCard/recommendCard.css');
+
+/* 组件-prevNextCard */
+@import url('../../../frontend/prevNextCard/prevNextCard.css');
+
+/* 组件-postContent */
+@import url('../../../frontend/postContent/postContent.css');
+
+/* 组件-siteHeader */
+@import url('../../../frontend/siteHeader/siteHeader.css');
+
+/* 组件-siteFooter */
+@import url('../../../frontend/siteFooter/siteFooter.css');
+
+
+
 
 
 
@@ -228,34 +226,7 @@ a:hover{
   }
 }
 
-/* 分页 */
-.pagination-wrapper{
-  font-size:1.2rem;
-  padding:1rem;
-  display: flex;
-  /* justify-content: center; */
-  background-color: #fff;
-  margin:2rem 0;
-  border-radius: 4px;
-}
-.pagination-wrapper .page-numbers{
-  border-radius:3px;
-  text-align:center;
-  padding: .4rem 1.2rem;  
-  margin:0 .3rem;
-}
-.pagination-wrapper .page-numbers:not(.dots){
-  background-color: rgb(221, 221, 221);
-}
-.pagination-wrapper .page-numbers.current,
-.pagination-wrapper .page-numbers:not(.dots):hover{
-  background:rgb(106, 197, 249);
-  border-color:rgb(106, 197, 249);
-  color:#fff
-}
-.pagination-wrapper .page-numbers.dots{
-  border-color:rgba(0,0,0,0);
-}
+
 
 
 /* 小工具-widget-search */

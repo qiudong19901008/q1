@@ -1,31 +1,28 @@
-/* 页面-index */
-.top-post{
-  margin-bottom: 2rem;
+.indexWrap{
+  margin-bottom:2rem;
+}
+.index{
+  display: flex;
+  justify-content: space-between;
+  margin:2rem auto;
+  max-width: 1200px;
 }
 
-/* 文章列表 */
-.post-list-has-title .title,
-.top-post .title{
-  font-size: 2rem;
-  font-weight: 600;
-  background-color: #fff;
-  padding:1rem;
-  padding-left:2rem;
-  border: 1px solid #eaeaea;
+.index__contentWrap{
+  flex:1;
+  width: 100%;
 }
 
-.top-post,
-.top-post .post-card-wrapper{
-  margin-top:-1px;
+.index__sidebar{
+  width:30rem;
+  margin-left:2rem;
 }
 
-.post-list-has-title{
-  margin-top:-1px;
+/* 小于1000 */
+@media screen and (max-width:1000px) {
+  .index__sidebar{
+    display: none;
+  }
 }
-
-.post-list-wrapper{
-margin-top:-1px;
-}
-
 
 

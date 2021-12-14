@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/page/index/index.css\");\n\r\n\n\n//# sourceURL=webpack://q1/./src/page/index/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/page/index/index.css\");\n\r\n// class IndexView{\r\n//   public initral(){\r\n//   }\r\n//   /**\r\n//    * 获取文章列表\r\n//    */\r\n//   private async _getPostListHtml(page=1,size=10){\r\n//   const url = $('.commentList').data('url');\r\n//   const action = $('.commentList').data('action');\r\n//   const {list,count} = await PostModel.getPostList(url,{\r\n//     action,\r\n//     orderBy:'create_time',\r\n//   },page,size);\r\n//   console.log()\r\n// }\r\n// }\r\n// const indexView = new IndexView();\r\n// $(function(){\r\n//   indexView.initral();\r\n// });\r\n\n\n//# sourceURL=webpack://q1/./src/page/index/index.ts?");
 
 /***/ })
 

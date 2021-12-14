@@ -1,0 +1,115 @@
+.siteHeader{
+  height: 56px;
+  line-height: 56px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  /* position: relative; */
+}
+
+.siteHeader__top{
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* logo */
+.siteHeader__logo{
+ font-size: 22px;
+ letter-spacing: 3px;
+ color: #333;
+}
+
+.siteHeader__toggleMenuBtn{
+  display: none;
+}
+
+/* 电脑菜单, wordpress生成 */
+.siteHeader__navMenuContainer .menu{
+  margin-left: 3rem;
+  display: flex;
+  font-size: 14px;
+  flex-grow: 1;
+}
+.siteHeader__navMenuContainer .menu li{
+  margin-right:2rem;
+}
+
+
+
+
+/* 切换搜索框按钮 */
+.siteHeader__toggleSearchFormBtn{
+  display: none;
+}
+
+
+
+/* 搜索框 */
+.siteHeader__searchForm{
+  /* display: flex; */
+  background-color: #fff;
+  z-index: 3;
+  width: 90%;
+  /* padding:1rem; */
+  height:50px;
+}
+
+.siteHeader__searchFormInput{
+  float: left;
+  color: #999;
+  border: solid 1px #ddd;
+  width: 85%;
+  height: 50px;
+  padding: 4px 12px;
+  border-right: none;
+  font-size: 16px;
+  border-radius: 2px 0 0 2px;
+  outline: none;
+  vertical-align: top;
+}
+
+
+.siteHeader__searchFormBtn{
+  color: #fff;
+  border: none;
+  background: #45B6F7;
+  height: 50px;
+  font-size: 16px;
+  padding: 0 12px;
+  border-radius: 0 2px 2px 0;
+  width: 15%;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+/* 手机菜单 , wordpress生成 */
+.siteHeader__mobileNavMenuContainer .mobile-menu{
+  background-color: #000;
+  position:fixed;
+  top:0;
+  left:-60%;
+  width:60%;
+  height:100%;
+  z-index: 999;
+  padding:3rem;
+  padding-left:15%;
+  transition: left linear .3s;
+}
+
+.siteHeader__mobileNavMenuContainer .mobile-menu li a{
+  color:rgb(255 255 255/70%);
+}
+
+/* 小于1000 */
+@media screen and (max-width:1000px) {
+  .siteHeader__toggleSearchFormBtn{
+    display: block;
+  }
+  .siteHeader__toggleMenuBtn{
+    display: block;
+  }
+  .siteHeader__navMenuContainer{
+    display: none;
+  }  
+}
