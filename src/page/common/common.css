@@ -163,14 +163,14 @@ a:hover{
 @import url('../../../frontend/siteFooter/siteFooter.css');
 
 
-/* 组件-indexContent */
-@import url('../../../frontend/indexContent/indexContent.css');
+/* 组件-indexPageContent */
+@import url('../../../frontend/indexPageContent/indexPageContent.css');
 
-/* 组件-categoryContent */
-@import url('../../../frontend/categoryContent/categoryContent.css');
+/* 组件-categoryPageContent */
+@import url('../../../frontend/categoryPageContent/categoryPageContent.css');
 
-/* 组件-tagContent */
-@import url('../../../frontend/tagContent/tagContent.css');
+/* 组件-tagPageContent */
+@import url('../../../frontend/tagPageContent/tagPageContent.css');
 
 /* 组件-searchPageContent */
 @import url('../../../frontend/searchPageContent/searchPageContent.css');
@@ -196,45 +196,6 @@ a:hover{
 .siteFooterWrap{
   margin:0 auto;
   max-width:1200px;
-}
-
-
-
-/* 主体 */
-.main-wrapper{
-  margin-bottom:2rem;
-}
-.main{
-  display: flex;
-  justify-content: space-between;
-  margin:2rem auto;
-  max-width: 1200px;
-  /* width:90%; */
-}
-
-/* 主体内容区 */
-.main .content{
-  flex:1;
-  width: 100%;
-}
-
-/* 主体侧边栏 */
-.main .sidebar{
-  width:30rem;
-  margin-left:2rem;
-}
-
-
-.main .sidebar .widget{
-  margin-bottom: 2rem;
-}
-
-
-/* 小于1000 */
-@media screen and (max-width:1000px) {
-  .main .sidebar{
-    display: none;
-  }
 }
 
 

@@ -1,14 +1,14 @@
 <?php get_header(); ?>
 
-<div class="tagWrap">
+<div class="tagPageWrap">
 
-  <div class="tag">
+  <div class="tagPage">
     <!-- 分类页内容 -->
-    <div class="tag__contentWrap">
-      <?php get_template_part('frontend/tagContent/tagContent') ?>
+    <div class="tagPage__contentWrap">
+      <?php get_template_part('frontend/tagPageContent/tagPageContent') ?>
     </div>
     <!-- 侧边栏 -->
-    <div class="tag__sidebar">
+    <div class="tagPage__sidebar">
       <?php get_sidebar(); ?>
     </div>
   </div>
