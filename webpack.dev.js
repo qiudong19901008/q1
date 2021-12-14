@@ -3,15 +3,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 const publicPath = '/';
-const outputPath = 'asset/dist';
+const outputPath = 'public';
 
 const config = {
 
   mode:'development',
 
   entry:{
-    'common':path.resolve(__dirname, 'asset/src/page/common/common.ts'), 
-    'index':path.resolve(__dirname, 'asset/src/page/index/index.ts'), 
+    'common':path.resolve(__dirname, 'asset/common/common.ts'), 
+    'index':path.resolve(__dirname, 'asset/page/index/index.ts'), 
   },
 
   output: {

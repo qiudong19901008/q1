@@ -8,36 +8,40 @@ define('JS_HOME',get_template_directory_uri() . '/public/js/');
 define('ROOT_URI',get_template_directory_uri() . '/');
 define('VERSION','1.0');
 
+define('APP_HOME', '/app/');
+
 // 加载小工具
 require_once plugin_dir_path(__FILE__) . '/widget/WidgetAuthor.php';
 require_once plugin_dir_path(__FILE__) . '/widget/WidgetRecommendPosts.php';
 require_once plugin_dir_path(__FILE__) . '/widget/WidgetSearch.php';
 require_once plugin_dir_path(__FILE__) . '/widget/WidgetTagCloud.php';
 
-// 加载主题支持
-require_once plugin_dir_path(__FILE__) . '/core/registeCssJs.php'; //加载css js
-require_once plugin_dir_path(__FILE__) . '/core/registeWidget.php'; //加载小工具
-require_once plugin_dir_path(__FILE__) . '/core/registeMenu.php'; //加载菜单
+//加载APP
+
+//主题支持
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'core/registeCssJs.php'; //加载css js
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'core/registeWidget.php'; //加载小工具
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'core/registeMenu.php'; //加载菜单
 
 //lib库
-require_once plugin_dir_path(__FILE__) . '/lib/helper.php';
-require_once plugin_dir_path(__FILE__) . '/lib/query.php';
-require_once plugin_dir_path(__FILE__) . '/lib/htmlGetter.php';
-require_once plugin_dir_path(__FILE__) . '/lib/Fields.php';
-require_once plugin_dir_path(__FILE__) . '/lib/Configs.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/helper.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/query.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/htmlGetter.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Fields.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Configs.php';
 
 // dao
-require_once plugin_dir_path(__FILE__) . '/dao/CommentDao/CommentDao.php';
-require_once plugin_dir_path(__FILE__) . '/dao/PostDao/PostDao.php';
-require_once plugin_dir_path(__FILE__) . '/dao/CategoryDao/CategoryDao.php';
-require_once plugin_dir_path(__FILE__) . '/dao/TagDao/TagDao.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/CommentDao/CommentDao.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/PostDao/PostDao.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/CategoryDao/CategoryDao.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/TagDao/TagDao.php';
 
 // service
-require_once plugin_dir_path(__FILE__) . '/service/PostService.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'service/PostService.php';
 
 // api
-require_once plugin_dir_path(__FILE__) . '/api/v1/postApi.php';
-require_once plugin_dir_path(__FILE__) . '/api/v1/commentApi.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'api/v1/postApi.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'api/v1/commentApi.php';
 
 
 

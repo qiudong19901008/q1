@@ -9,9 +9,9 @@ function likePostRouter(){
   $id = $_POST["postId"];
   $likeCount = PostService::likePostById($id);
   setQ1Cookie(
-    'q1_cookie_like_post',
+    'q1_cookie_like_post_' . $id,
     $id,
-    '/'.$id.'.html',
+    '/',
     60*60*24*90
   );
   json([
