@@ -11,8 +11,8 @@
 </head>
 <body>
    <!-- 页头 -->
-  <div class="header-wrapper">
-    <div class="header">
-      <?php get_template_part( 'frontend/siteHeader' ); ?>
+  <div class="siteHeaderWrapWrap">
+    <div class="siteHeaderWrap">
+      <?php get_template_part( 'frontend/siteHeader/siteHeader' ); ?>
     </div>
   </div>

@@ -45,7 +45,7 @@
       placeholder="输入关键字"
     >
     <button class="siteHeader__searchFormBtn">
-      <i class="fa fa-search "></i>
+      <i class="siteHeader__searchFormBtnIcon fa fa-search"></i>
     </button>
   </form>
   <!-- 手机菜单 -->

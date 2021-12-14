@@ -8,10 +8,10 @@
         <li class="siteFooter__friendLinkListItem">
           <a href="#">百度</a>
         </li>
-        <li>
+        <li class="siteFooter__friendLinkListItem">
           <a href="#">百度</a>
         </li>
-        <li>
+        <li class="siteFooter__friendLinkListItem">
           <a href="#">百度</a>
         </li>
       </ul>

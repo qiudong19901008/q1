@@ -766,7 +766,7 @@
 .siteFooter{
   position: relative;
   z-index: 9;
-  padding: 4rem 3rem;
+  padding: 1rem 0;
   font-size: 1.2rem;
   line-height: 1.2rem;
   text-align: center;
@@ -977,24 +977,23 @@ a:hover{
 
 
 
-
-/* 模板-post-list  */
-.post-list-container .post-card-wrapper{
-  margin-top:-1px;
-}
-
-/* 页面-common */
-
-/* 页头 */
-.header-wrapper{
+.siteHeaderWrapWrap{
   margin-bottom: 2rem;
   background: #fff; 
 }
-
-.header{
+.siteHeaderWrap{
   margin:0 auto;
-  max-width: 1200px;
+  max-width:1200px;
   width:90%;
+}
+
+.siteFooterWrapWrap{
+  /* margin-bottom: 2rem; */
+  background: #fff; 
+}
+.siteFooterWrap{
+  margin:0 auto;
+  max-width:1200px;
 }
 
 

@@ -1,10 +1,8 @@
-<!-- 页脚 -->
-<?php get_template_part( 'template/component/footer' ); ?>
 
-  <!-- 页头 -->
-  <div class="siteFooterWrapContainer">
+ <!-- 页脚 -->
+  <div class="siteFooterWrapWrap">
     <div class="siteFooterWrap">
-      <?php get_template_part( 'frontend/siteFooter' ); ?>
+      <?php get_template_part( 'frontend/siteFooter/siteFooter' ); ?>
     </div>
   </div>
 

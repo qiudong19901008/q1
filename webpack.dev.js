@@ -59,6 +59,10 @@ const config = {
       },
     ]
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  
 
   optimization:{
     splitChunks: {
