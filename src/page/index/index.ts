@@ -4,28 +4,27 @@ import PostModel from '../../model/PostModel';
 import CommonView from '../common/common';
 
 
-// class IndexView{
+class IndexView{
 
-//   public initral(){
+  public initral(){
 
-//   }
+  }
 
-//   /**
-//    * 获取文章列表
-//    */
-//   private async _getPostListHtml(page=1,size=10){
-//   const url = $('.commentList').data('url');
-//   const action = $('.commentList').data('action');
-//   const {list,count} = await PostModel.getPostList(url,{
-//     action,
-//     orderBy:'create_time',
-//   },page,size);
-//   console.log()
-// }
+  /**
+   * 获取文章列表
+   */
+  private async _getPostListHtml(page=1,size=10){
+  const url = $('.commentList').data('url');
+  const action = $('.commentList').data('action');
+  const {list,count} = await PostModel.getPostList(url,{
+    action,
+    orderBy:'create_time',
+  },page,size);
+  console.log()
+}
 
-console.log('index begin');
 
-// }
+}
 
 // const indexView = new IndexView();
 const commonView = new CommonView();

@@ -1,5 +1,5 @@
 import * as $ from 'jquery';
-// import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import './common.css';
 
 
@@ -10,7 +10,6 @@ class CommonView{
   }
 
   private _bindEvents(){
-
     //点击弹出手机菜单
     $('.siteHeader__toggleMenuBtn').on('click',(e)=>{
       // 禁止滑动
@@ -18,7 +17,7 @@ class CommonView{
       // 显示遮罩
       $('.siteHeader__mask').removeClass('hide');
       // 显示菜单栏
-      $('.siteHeader__mobileNavMenuContainer').css('left',0);
+      $('.siteHeader__mobileNavMenuContainer .mobile-menu').css('left',0);
     });
 
     // 点击弹出搜索框
@@ -37,7 +36,7 @@ class CommonView{
       // 允许滑动
       $('body').css('overflow','auto');
       // 关闭菜单栏, 搜索框和遮罩
-      $('.siteHeader__mobileNavMenuContainer').css('left','-60%');
+      $('.siteHeader__mobileNavMenuContainer .mobile-menu').css('left','-60%');
       $('.siteHeader__searchForm').addClass('hide');
       $('.siteHeader__mask').addClass('hide');
       // 图标还原 搜索

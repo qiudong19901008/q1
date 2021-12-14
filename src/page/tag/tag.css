@@ -1,27 +1,28 @@
-
-.main .content .tips-wrapper{
+.tagWrap{
   margin-bottom:2rem;
 }
-
-
-/* 文章列表 */
-.post-list{
-
+.tag{
+  display: flex;
+  justify-content: space-between;
+  margin:2rem auto;
+  max-width: 1200px;
 }
 
-.post-list .title{
-  font-size: 2rem;
-  font-weight: 600;
-  background-color: #fff;
-  padding:1rem;
-  padding-left:2rem;
-  border: 1px solid #eaeaea;
+.tag__contentWrap{
+  flex:1;
+  width: 100%;
 }
 
-.post-list .list{
-  margin-top:-1px;
+.tag__sidebar{
+  width:30rem;
+  margin-left:2rem;
 }
 
-.post-list .list .post-card{
-  margin-top: -1px;
+/* 小于1000 */
+@media screen and (max-width:1000px) {
+  .tag__sidebar{
+    display: none;
+  }
 }
+
+
