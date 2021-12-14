@@ -1,4 +1,4 @@
-
+import './post.css';
 import {
   getCookie,
   isAlreadyLike,
@@ -8,6 +8,7 @@ import {
 } from '../../lib/htmlGetter';
 import PostModel from '../../model/PostModel';
 
+
 class PostView{
 
   /**
@@ -16,6 +17,7 @@ class PostView{
    */
   public initral(){
     this._getCommentListHtml(1,10);
+    this._bindEvents();
   }
 
   private async _bindEvents(){

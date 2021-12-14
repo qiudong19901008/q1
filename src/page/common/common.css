@@ -116,120 +116,57 @@ a:hover{
 /* 
 * 组件-card-author
 */
-@import url('../../component/card-author.css');
+@import url('../../../frontend/card-author/card-author.css');
 
 /* 组件-card-hot-article */
-@import url('../../component/card-hot-article.css');
+@import url('../../../frontend/card-hot-article/card-hot-article.css');
 
 
 /* 组件-card-search */
-@import url('../../component/card-search.css');
+@import url('../../../frontend/card-search/card-search.css');
 
 /* 组件-card-tag */
-@import url('../../component/card-tag.css');
+@import url('../../../frontend/card-tag/card-tag.css');
 
 /* 组件-header */
-@import url('../../component/header.css');
+@import url('../../../frontend/header/header.css');
 
 /* 组件-footer */
-@import url('../../component/footer.css');
+@import url('../../../frontend/footer/footer.css');
 
 /* 组件-post-card */
-@import url('../../component/post-card.css');
+@import url('../../../frontend/post-card/post-card.css');
 
 /* 组件-pagination */
-@import url('../../component/pagination.css');
+@import url('../../../frontend/pagination/pagination.css');
 
 /* 组件-card-tips */
-@import url('../../component/card-tips.css');
+@import url('../../../frontend/card-tips/card-tips.css');
 
 /* 组件-post-content */
-@import url('../../component/post-content.css');
+@import url('../../../frontend/post-content/post-content.css');
 
 /* 组件-prev-next */
-@import url('../../component/prev-next.css');
+@import url('../../../frontend/prev-next/prev-next.css');
 
 /* 组件-recommend */
-@import url('../../component/recommend.css');
+@import url('../../../frontend/recommend/recommend.css');
 
 /* 组件-card-comment-form */
-@import url('../../component/card-comment-form.css');
+@import url('../../../frontend/card-comment-form/card-comment-form.css');
 
 
 /* 组件-commentCard */
-.commentCard{
-  display: flex;
-  padding:1rem;
-  border-radius: 4px;
-  font-size:1.4rem;
-}
-.commentCard__left{
-  margin-right:2rem;
-}
-.commentCard__portrait{
-  width:4.8rem;
-  height:4.8rem;
-  border-radius: 50%;
-}
-
-.commentCard__right{
-  font-display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex:1;
-}
-
-.commentCard__author{
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.commentCard__content{
-  margin-bottom: 1rem;
-}
-
-.commentCard__meta{
-  display: flex;
-  font-size:1.2rem;
-}
-
-.commentCard__meta>*{
-  margin-right:1rem;
-}
-
-.commentCard__replyBtn{
-  cursor: pointer;
-}
+@import url('../../../frontend/commentCard/commentCard.css');
 
 /* 组件-commentList */
-.commentList{
-  padding:2rem;
-  background-color: #fff;
-  border-radius: 4px;
-}
+@import url('../../../frontend/commentList/commentList.css');
 
-.commentList__item{
-  border-bottom: 1px solid rgb(245, 246, 247);
-}
-.commentList__item:last-child{
-  border-bottom: none;
-}
-/* 244, 244, 244 */
-.commentList__cardChild{
-  background-color: rgb(244, 244, 244);
-  margin:1rem;
-  margin-left:7.4rem;
-  border-radius: 4px;
-  padding:1rem;
-}
-.commentList__childCardWrap{
-  border-bottom: 1px solid rgb(0 0 0 / 8%);
-}
-.commentList__childCardWrap:last-child{
-  border-bottom:none;
-}
+/* 组件-postCard */
+@import url('../../../frontend/postCard/postCard.css');
 
+/* 组件-postList */
+@import url('../../../frontend/postList/postList.css');
 
 
 

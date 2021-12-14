@@ -10,7 +10,7 @@
             置顶
           </div>
           <div class="post-card-wrapper">
-            <?php get_template_part('template/component/post-card') ?>
+            <?php get_template_part('frontend/postCard/postCard') ?>
           </div>
         </div>
         <!-- 文章列表 -->
@@ -19,7 +19,7 @@
             最新文章
           </div>
           <div class="post-list-wrapper">
-            <?php get_template_part('template/post-list'); ?>
+            <?php get_template_part('frontend/postList/postList'); ?>
           </div>
           
         </div>

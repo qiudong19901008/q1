@@ -10,8 +10,8 @@ const config = {
   mode:'development',
 
   entry:{
-    'common':path.resolve(__dirname, 'asset/common/common.ts'), 
-    'index':path.resolve(__dirname, 'asset/page/index/index.ts'), 
+    'common':path.resolve(__dirname, 'src/page/common/common.ts'), 
+    'index':path.resolve(__dirname, 'src/page/index/index.ts'), 
   },
 
   output: {

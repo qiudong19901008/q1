@@ -7,17 +7,17 @@
 
   <div class="commentList__item">
     <div class="commentList__cardWrap">
-      <?php get_template_part('template/commentCard'); ?>
+      <?php get_template_part('frontend/commentCard/commentCard'); ?>
     </div>
     <div class="commentList__cardChild">
       <div class="commentList__childCardWrap">
-        <?php get_template_part('template/commentCard'); ?>
+        <?php get_template_part('frontend/commentCard/commentCard'); ?>
       </div>
       <div class="commentList__childCardWrap">
-        <?php get_template_part('template/commentCard'); ?>
+        <?php get_template_part('frontend/commentCard/commentCard'); ?>
       </div>
       <div class="commentList__childCardWrap">
-        <?php get_template_part('template/commentCard'); ?>
+        <?php get_template_part('frontend/commentCard/commentCard'); ?>
       </div>
     </div>
   </div>
@@ -25,17 +25,17 @@
 
   <div class="commentList__item">
     <div class="commentList__cardWrap">
-      <?php get_template_part('template/commentCard'); ?>
+      <?php get_template_part('frontend/commentCard/commentCard'); ?>
     </div>
     <div class="commentList__cardChild">
       <div class="commentList__childCardWrap">
-        <?php get_template_part('template/commentCard'); ?>
+        <?php get_template_part('frontend/commentCard/commentCard'); ?>
       </div>
       <div class="commentList__childCardWrap">
-        <?php get_template_part('template/commentCard'); ?>
+        <?php get_template_part('frontend/commentCard/commentCard'); ?>
       </div>
       <div class="commentList__childCardWrap">
-        <?php get_template_part('template/commentCard'); ?>
+        <?php get_template_part('frontend/commentCard/commentCard'); ?>
       </div>
     </div>
   </div>

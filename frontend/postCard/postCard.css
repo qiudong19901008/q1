@@ -1,0 +1,81 @@
+.postCard{
+  border: 1px solid #eaeaea;
+  padding:2rem;
+  overflow: hidden;
+  background-color: #fff;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+.postCard:hover{
+  background-color: rgb(251, 251, 251)  ;
+}
+
+.postCard__header{
+  margin:0 0 1rem;
+}
+
+.postCard__category{
+  color: #fff;
+  padding: 3px 6px;
+  font-size: 12px;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  margin-right: 6px;
+  background-color: #45BCF9;
+  /* background-color: #fb4c69; */
+}
+
+.postCard__category:hover{
+  background-color: #3dade6;
+  color:#fff;
+}
+
+.postCard__categoryIcon{
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  right: -4px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+
+  /* border-left-color: #fb4c69; */
+  border-left: 4px solid #45BCF9;
+}
+
+.postCard__title{
+  display: inline;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.postCard__meta{
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.postCard__meta > *{
+  margin-right:1rem;
+}
+
+.postCard__likeCount{
+  position:absolute;
+  right:0;  
+}
+
+.postCard__excerpt{
+  word-wrap: break-word;
+  line-height: 2rem;
+  margin-bottom: 0;
+  /* 最多显示两行 */
+  max-height:4rem;
+  overflow: hidden;
+}
+

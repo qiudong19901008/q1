@@ -1,0 +1,44 @@
+.commentCard{
+  display: flex;
+  padding:1rem;
+  border-radius: 4px;
+  font-size:1.4rem;
+}
+.commentCard__left{
+  margin-right:2rem;
+}
+.commentCard__portrait{
+  width:4.8rem;
+  height:4.8rem;
+  border-radius: 50%;
+}
+
+.commentCard__right{
+  font-display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex:1;
+}
+
+.commentCard__author{
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.commentCard__content{
+  margin-bottom: 1rem;
+}
+
+.commentCard__meta{
+  display: flex;
+  font-size:1.2rem;
+}
+
+.commentCard__meta>*{
+  margin-right:1rem;
+}
+
+.commentCard__replyBtn{
+  cursor: pointer;
+}
