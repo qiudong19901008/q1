@@ -170,6 +170,9 @@ a:hover{
 /* 组件-searchPageContent */
 @import url('../../../frontend/searchPageContent/searchPageContent.css');
 
+/* 组件-postPageContent */
+@import url('../../../frontend/postPageContent/postPageContent.css');
+
 
 .siteHeaderWrapWrap{
   margin-bottom: 2rem;

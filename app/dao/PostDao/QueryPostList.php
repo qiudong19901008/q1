@@ -41,7 +41,7 @@ class QueryPostList extends BasePostDao{
     ];
     $args = $this->_addDynamicCondition($dynamicConditionList,$args);
     $query = new WP_Query($args);
-    $res = $this->getNeededData($query);
+    $res = $this->getNeededData($query,['likeCount','viewCount','commentCount']);
     wp_reset_query();
     return $res;
   }

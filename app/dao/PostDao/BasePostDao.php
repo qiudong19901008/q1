@@ -19,7 +19,7 @@ class BasePostDao{
         'title'=>get_the_title(),
         'url'=>get_the_permalink(),
         'thumbnail'=>get_the_post_thumbnail(),
-        'createTime'=>get_the_time('Y-m-d'),
+        'create_time'=>get_the_time('Y-m-d'),
       ];
       $post = $this->_injectExtendFields($post,$extendFieldList);
       array_push($res,$post);

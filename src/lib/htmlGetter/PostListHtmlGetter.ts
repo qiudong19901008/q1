@@ -1,0 +1,91 @@
+
+class PostListHtmlGetter{
+
+  public static run(postList:any[],url:string,action:string){
+    const res = `
+      <div 
+        class="postList" 
+        data-url="${url}"
+        data-action="${action}"
+      >
+        ${this._renderPostList(postList)} 
+      </div>
+    `;
+    return res;
+  }
+
+
+  private static _renderPostList(postList:any[]){
+    let res = '';
+    for(let post of postList){
+      res+=this._renderOnePost(post);
+    }
+    return res;
+  }
+
+  private static _renderOnePost(post:any){
+    const res = `
+      <div class="postList__CardWrap">
+        <div class="postCard">
+          ${this._renderPostHeader(post)}
+          ${this._renderPostMeta(post)}
+          <div class="postCard__excerpt">
+            双击放大看 双击放大看 双击放大看
+          </div>
+        </div>
+      </div>
+    `;
+    return res;
+  }
+
+
+  private static _renderPostHeader(post:any){
+    return `
+    <div class="postCard__header">
+      <a href="${post.url}" class="postCard__category">
+        分类
+        <i class="postCard__categoryIcon"></i>
+      </a>
+      <h2 class="postCard__title">
+        <a href="${post.url}" title="">
+          ${post.title}
+        </a>
+      </h2>
+    </div>
+    `;
+  }
+
+  private static _renderPostMeta(post:any){
+    return `
+      <div class="postCard__meta">
+        <time class="postCard__createTime">
+          <i class="fa fa-clock"></i>
+          ${post.createTime}
+        </time>
+        <span class="postCard__author">
+          <i class="fa fa-user"></i>
+          <span href="#">秋冬</span>
+        </span>
+        <span class="postCard__viewCount">
+          <i class="fa fa-eye"></i>
+          阅读(${post.viewCount})
+        </span>
+        <span class="postCard__commentCount">
+          <i class="fa fa-comments"></i>
+          评论(${post.commentCount})
+        </span>
+        <span href="#" class="postCard__likeCount">
+          <i class="fa fa-thumbs-up"></i>
+          赞(${post.likeCount})
+        </span>
+      </div>
+    
+    `
+  }
+
+
+
+
+
+}
+export default PostListHtmlGetter;

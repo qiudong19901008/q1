@@ -14,7 +14,8 @@ const config = {
     'index':path.resolve(__dirname, 'src/page/index/index.ts'), 
     'category':path.resolve(__dirname, 'src/page/category/category.ts'), 
     'tag':path.resolve(__dirname, 'src/page/tag/tag.ts'), 
-    'search':path.resolve(__dirname, 'src/page/search/search.ts'), 
+    'search':path.resolve(__dirname, 'src/page/search/search.ts'),
+    'post':path.resolve(__dirname, 'src/page/post/post.ts'), 
   },
 
   output: {

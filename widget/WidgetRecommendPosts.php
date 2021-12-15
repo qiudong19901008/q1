@@ -42,12 +42,6 @@ class WidgetRecommendPosts extends WP_Widget{
           'postList'=>$postList,
         ]);
       }
-
-      ?>
-      
-       
-  
-        <?php
   
     }
 

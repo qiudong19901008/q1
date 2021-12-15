@@ -1,9 +1,33 @@
-@import url('./post-content-style.css');
 
 
-.main .content .post-content-wrapper,
-.main .content .prev-next-wrapper,
-.main .content .recommend-wrapper,
-.main .content .comment-wrapper{
-  margin-bottom: 2rem;
+
+.postPageWrap{
+  margin-bottom:2rem;
 }
+.postPage{
+  display: flex;
+  justify-content: space-between;
+  margin:2rem auto;
+  max-width: 1200px;
+}
+
+.postPage__contentWrap{
+  flex:1;
+  width: 100%;
+}
+
+.postPage__sidebar{
+  width:30rem;
+  margin-left:2rem;
+}
+
+/* 小于1000 */
+@media screen and (max-width:1000px) {
+  .postPage__sidebar{
+    display: none;
+  }
+}
+
+
+/* 文章样式 */
+@import url('./post-content-style.css');
