@@ -34,9 +34,12 @@ require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/CommentDao/CommentDao.p
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/PostDao/PostDao.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/CategoryDao/CategoryDao.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/TagDao/TagDao.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/PostMetaDao/PostMetaDao.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/UserDao/UserDao.php';
 
 // service
-require_once plugin_dir_path(__FILE__) . APP_HOME . 'service/PostService.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'service/PostService/PostService.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'service/CommentService/CommentService.php';
 
 // api
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'api/v1/postApi.php';

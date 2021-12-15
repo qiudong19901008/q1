@@ -39,7 +39,10 @@ class QueryRecommendPostList extends BasePostDao{
         break;
     }
     $query = new WP_Query($arg);
-    $res = $this->getNeededData($query,$extendFieldList);
+    $res = $this->getNeededData($query,['meta'],[
+      Fields::COUNT_POST_LIKE,
+      Fields::COUNT_POST_VIEW,
+    ]);
     wp_reset_query();
     return $res;
   }

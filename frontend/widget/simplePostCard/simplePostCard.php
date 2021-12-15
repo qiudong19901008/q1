@@ -1,6 +1,7 @@
 
 <?php
   $post = $args['post'];
+  // var_dump($post);
 ?>
 
 
@@ -14,7 +15,7 @@
   </a>
   <div class="simplePostCard__info">
     <div class="simplePostCard__meta">
-      <time class="simplePostCard__time"><?php echo $post['createTime']; ?></time>
+      <time class="simplePostCard__time"><?php echo $post['create_time']; ?></time>
       <?php echo $post['metaHtml']; ?>
     </div>
     <a 

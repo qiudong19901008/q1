@@ -13,6 +13,9 @@ class QueryPostList extends BasePostDao{
    * @description 查询文章
    * @param Array $dynamicConditionList [$categoryId=0,$tagId=0,$s='']
    * @param Array $excludePostIdList 需要排除的文章id列表
+   * @param Array $includePostIdList 需要包含的文章id列表
+   * @param array ['author'|'category'|'meta'] — $includeTableNameList 包含的额外表名列表
+   * @param array $metaNameList — 额外字段的名字列表, 如果没有包含meta表则会忽略该选项
    * @param 'create_time'|'update_time'|'rand' $orderBy 需要排序的字段 默认创建时间
    * @param 'ASC'|'DESC' 升序或降序,默认降序
    * @param int $page 页码
@@ -21,7 +24,10 @@ class QueryPostList extends BasePostDao{
    */
   public function run(
       $dynamicConditionList=[],
-      $excludePostIdList,
+      $excludePostIdList=null,
+      $includePostIdList=null,
+      $includeTableNameList=[],
+      $metaNameList=[],
       $orderBy='create_time',
       $order='DESC',
       $page=1,
@@ -30,8 +36,8 @@ class QueryPostList extends BasePostDao{
 
     $res = [];
     $args = [
-      // 'cat'=>$categoryId, //分类id
       'post__not_in'=>$excludePostIdList,
+      'post__in'=>$includePostIdList,
       'post_type'=>'post',
       'post_status'=>'publish',
       'orderby'=>$this->_getOrderBy($orderBy),
@@ -41,7 +47,7 @@ class QueryPostList extends BasePostDao{
     ];
     $args = $this->_addDynamicCondition($dynamicConditionList,$args);
     $query = new WP_Query($args);
-    $res = $this->getNeededData($query,['likeCount','viewCount','commentCount']);
+    $res = $this->getNeededData($query,$includeTableNameList,$metaNameList);
     wp_reset_query();
     return $res;
   }

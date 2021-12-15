@@ -46,23 +46,25 @@ class WidgetRecommendPosts extends WP_Widget{
     }
 
     private function _addPostMetaHtml($postList,$type){
+      $res = [];
       foreach($postList as $post){
         $post['metaHtml'] = $this->_getMetaHtml($type,$post);
+        array_push($res,$post);
       }
-      return $postList;
+      return $res;
     }
 
     private function _getMetaHtml($type,$post){
         $text = '';
         switch($type){
           case 'view':
-            $text = '浏览('.$post['viewCount'].')';
+            $text = '浏览('.$post[Fields::COUNT_POST_VIEW].')';
             break;
           case 'comment':
             $text = '评论('.$post['commentCount'].')';
             break;
           case 'like':
-            $text = '点赞('.$post['likeCount'].')';
+            $text = '点赞('.$post[Fields::COUNT_POST_LIKE].')';
             break;
         }
         return '<span>'.$text.'</span>';
