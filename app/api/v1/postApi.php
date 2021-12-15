@@ -35,11 +35,23 @@ function getPostListRouter(){
     'tagId'=>$_GET["tagId"],
     's'=>$_GET["s"],
   ];
-  $res = PostDao::queryPostList($dynamicConditionList,[],$orderBy,'DESC',$page,$size);
-  json([
-    'list'=>$res,
-    'count'=>count($res),
-  ]);
+
+  $res = PostDao::queryPostList(
+      $dynamicConditionList,
+      null,
+      null,
+      ['meta','author','category'],
+      [
+        Fields::COUNT_POST_LIKE,
+        Fields::COUNT_POST_VIEW,
+      ],
+      $orderBy,
+      'DESC',
+      $page,
+      $size
+  );
+
+  json($res);
 }
 add_action('wp_ajax_nopriv_q1_api_get_post_list', 'getPostListRouter');
 add_action('wp_ajax_q1_api_get_post_list', 'getPostListRouter');

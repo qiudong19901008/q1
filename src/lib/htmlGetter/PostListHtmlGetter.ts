@@ -40,10 +40,12 @@ class PostListHtmlGetter{
 
 
   private static _renderPostHeader(post:any){
+    const category = post.categoryList[0];
+
     return `
     <div class="postCard__header">
-      <a href="${post.url}" class="postCard__category">
-        分类
+      <a href="${category.url}" class="postCard__category">
+        ${category.name}
         <i class="postCard__categoryIcon"></i>
       </a>
       <h2 class="postCard__title">
@@ -56,11 +58,14 @@ class PostListHtmlGetter{
   }
 
   private static _renderPostMeta(post:any){
+
+    const meta = post.meta?post.meta:{};
+
     return `
       <div class="postCard__meta">
         <time class="postCard__createTime">
           <i class="fa fa-clock"></i>
-          ${post.createTime}
+          ${post.create_time}
         </time>
         <span class="postCard__author">
           <i class="fa fa-user"></i>
@@ -68,15 +73,15 @@ class PostListHtmlGetter{
         </span>
         <span class="postCard__viewCount">
           <i class="fa fa-eye"></i>
-          阅读(${post.viewCount})
+          阅读(${meta.viewCount?meta.viewCount:0})
         </span>
         <span class="postCard__commentCount">
           <i class="fa fa-comments"></i>
-          评论(${post.commentCount})
+          评论(${post.commentCount?post.commentCount:0})
         </span>
         <span href="#" class="postCard__likeCount">
           <i class="fa fa-thumbs-up"></i>
-          赞(${post.likeCount})
+          赞(${meta['likeCount']?meta['likeCount']:0})
         </span>
       </div>
     

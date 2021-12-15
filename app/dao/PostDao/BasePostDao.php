@@ -144,10 +144,11 @@ class BasePostDao{
         'id'=>$category->term_id,
         'name'=>$category->name,
         'slug'=>$category->slug,
+        'url'=>get_category_link($category),
       ];
       array_push($myCategoryList,$oneCategory);
     }
-    $post['categories']=$myCategoryList;
+    $post['categoryList']=$myCategoryList;
     return $post;
   }
 
@@ -233,9 +234,25 @@ class BasePostDao{
   private static function _addMetaTableInfoToOnePost($post,$metaList){
     foreach($metaList as $meta){
       if((int)$meta->post_id == $post['id']){
-        $post[$meta->meta_key] = $meta->meta_value;
+        $post = BasePostDao::_addOneMetaToPost($post,$meta);
       }
     }
+    return $post;
+  }
+
+  private static function _addOneMetaToPost($post,$meta){
+    $metaList = [];
+    switch($meta->meta_key){
+      case Fields::COUNT_POST_LIKE:
+        $metaList['likeCount'] = $meta->meta_value;
+        break;
+      case Fields::COUNT_POST_VIEW:
+        $metaList['viewCount'] = $meta->meta_value;
+        break;
+      default:
+        $metaList[$meta->meta_key] = $meta->meta_value;
+    }
+    $post['meta'] = $metaList;
     return $post;
   }
 

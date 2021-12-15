@@ -48,8 +48,13 @@ class QueryPostList extends BasePostDao{
     $args = $this->_addDynamicCondition($dynamicConditionList,$args);
     $query = new WP_Query($args);
     $res = $this->getNeededData($query,$includeTableNameList,$metaNameList);
+    // $query->max_num_pages
+    $count = $query->found_posts;
     wp_reset_query();
-    return $res;
+    return [
+      'list'=>$res,
+      'count'=>$count,
+    ];
   }
 
   /**

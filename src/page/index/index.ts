@@ -23,7 +23,6 @@ class IndexView{
       action,
       orderBy:'create_time',
     },page,size);
-    // console.log(list);
     const postListHtml = getPostListHtml(list,url,action);
     $('.indexPageContent__postListWrap').html(postListHtml);
   }

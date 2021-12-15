@@ -55,8 +55,9 @@
 
 // $res = PostDao::queryPostList([],null,[71],['meta','author','category'],[Fields::COUNT_POST_LIKE,Fields::COUNT_POST_VIEW],'create_time','DESC',1,1);
 
-// $res = get_categories(); //默认只会查出有文章的分类
+$res = get_categories(); //默认只会查出有文章的分类
 
+// get_category_link(9)
 
 
 var_dump($res);
