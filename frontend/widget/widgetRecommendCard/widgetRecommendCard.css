@@ -1,0 +1,18 @@
+.widgetRecommendCard{
+  background-color: #fff;
+  padding:2rem;
+}
+
+.widgetRecommendCard__title{
+  color:#7a7a7a;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.widgetRecommendCard__postWrap{
+  margin-bottom: 3rem;
+}
+
+.widgetRecommendCard__postWrap:last-child{
+  margin-bottom: 0;
+}

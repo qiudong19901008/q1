@@ -28,27 +28,12 @@ class WidgetSearch extends WP_Widget{
     $placeholder = getValue($instance[ 'placeholder' ],'搜点什么呢?');
     $btnInnerHtml = getValue($instance[ 'btnInnerHtml' ],'<i class="fa fa-search" ></i>');
     $color = getValue($instance[ 'color' ],'#6ac5f9');
-    ?>
 
-      <form 
-        class="widget-search-container radius" 
-        id="widget-search-container"
-        method="get" 
-        action="<?php echo esc_url( home_url( '/' ) );  ?>"
-      >
-        <input 
-          type="text" 
-          name="s"
-          placeholder="<?php echo $placeholder; ?>"
-        >
-        <button
-          style="background-color: <?php echo $color; ?>;"
-        >
-          <?php echo $btnInnerHtml; ?>
-        </button>
-      </form>
-
-    <?php
+    get_template_part('frontend/widget/searchCard/searchCard',null,[
+      'placeholder'=>$placeholder,
+      'btnInnerHtml'=>$btnInnerHtml,
+      'color'=>$color,
+    ]);
   }
             
   // Widget Backend 

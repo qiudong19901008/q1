@@ -28,30 +28,12 @@ class WidgetTagCloud extends WP_Widget{
     $name = getValue($instance[ 'name' ],'标签云');
     $count = getValue($instance[ 'count' ],10);
     $tags = TagDao::getTagList($count);
-    ?>
 
-      <div class="widget-tag-cloud radius">
-        <h3 class="title"><?php echo $name ?></h3>
-        <div class="tag-list">
-          <!-- <a class="tag">
-            <h4 class="name">picgo</h4>
-            <span class="count">4</span>
-          </a> -->
-          <?php 
-            foreach($tags as $tag): 
-              
-          ?>
+    get_template_part('frontend/widget/tagCloudCard/tagCloudCard',null,[
+      'name'=>$name,
+      'tags'=>$tags,
+    ]);
 
-            <a class="tag" href="<?php echo $tag['url']; ?>">
-              <h3 class="name"><?php echo $tag['name']; ?></h3>
-              <span class="count"><?php echo $tag['count']; ?></span>
-            </a>
-
-          <?php endforeach; ?>
-        </div>
-      </div>
-
-    <?php
   }
             
   // Widget Backend 
@@ -59,6 +41,8 @@ class WidgetTagCloud extends WP_Widget{
     
     $name = getValue($instance[ 'name' ],'标签云');
     $count = getValue($instance[ 'count' ],10);
+
+    
 
     ?>
        

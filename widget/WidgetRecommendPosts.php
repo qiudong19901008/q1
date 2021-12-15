@@ -33,43 +33,45 @@ class WidgetRecommendPosts extends WP_Widget{
       $size = getValue($instance['size'],6);
       $type = getValue($instance['type'],'view');
 
-        ?>
+      $postList = PostDao::queryRecommendPostList($type,$size);
+
+      if(count($postList) > 0){
+        $postList = $this->_addPostMetaHtml($postList,$type);
+        get_template_part('frontend/widget/widgetRecommendCard/widgetRecommendCard',null,[
+          'name'=>$name,
+          'postList'=>$postList,
+        ]);
+      }
+
+      ?>
       
-        <div class="widget-recommend-posts-container radius">
-          <h2 class="title"><?php echo $name; ?></h2>
-          <div class="post-list">
-          <?php
-            $postList = PostDao::queryRecommendPostList($type,$size);
-            if(count($postList) ==0){
-              return;
-            }
-            foreach($postList as $post){
-              ?>
-
-                  <div class="post">
-                    <a class="thumbnail" href="<?php echo $post['url']; ?>">
-                      <img src="<?php echo $post['thumbnail']; ?>" alt="">
-                    </a>
-                    <div class="info">
-                      <div class="meta">
-                        <time><?php echo $post['createTime']; ?></time>
-                        <?php echo $this->_getWidgetMetaHtml($type,$post); ?>
-                      </div>
-                      <a href="<?php echo $post['url']; ?>">
-                        <?php echo $post['title']; ?>
-                      </a>
-                    </div>
-                  </div>
-
-              <?php
-            }
-          ?>
-
-          </div>
-        </div>
+       
   
         <?php
   
+    }
+
+    private function _addPostMetaHtml($postList,$type){
+      foreach($postList as $post){
+        $post['metaHtml'] = $this->_getMetaHtml($type,$post);
+      }
+      return $postList;
+    }
+
+    private function _getMetaHtml($type,$post){
+        $text = '';
+        switch($type){
+          case 'view':
+            $text = '浏览('.$post['viewCount'].')';
+            break;
+          case 'comment':
+            $text = '评论('.$post['commentCount'].')';
+            break;
+          case 'like':
+            $text = '点赞('.$post['likeCount'].')';
+            break;
+        }
+        return '<span>'.$text.'</span>';
     }
 
     // Widget Backend 
@@ -145,21 +147,7 @@ class WidgetRecommendPosts extends WP_Widget{
 
 
 
-    private function _getWidgetMetaHtml($type,$post){
-      $text = '';
-      switch($type){
-        case 'view':
-          $text = '浏览('.$post['viewCount'].')';
-          break;
-        case 'comment':
-          $text = '评论('.$post['commentCount'].')';
-          break;
-        case 'like':
-          $text = '点赞('.$post['likeCount'].')';
-          break;
-      }
-      return '<span>'.$text.'</span>';
-  }
+    
 
 }
 
