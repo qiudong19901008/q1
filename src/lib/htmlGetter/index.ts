@@ -14,8 +14,8 @@ const getPostListHtml = (postList:any[],url:string,action:string)=>{
   return PostListHtmlGetter.run(postList,url,action);
 }
 
-const getPaginationHtml = (currentPage:number,totalPage:number)=>{
-  return PaginationHtmlGetter.run(currentPage,totalPage);
+const getPaginationHtml = (currentPage:number,totalCount:number,size:number)=>{
+  return PaginationHtmlGetter.run(currentPage,totalCount,size);
 }
 
 
@@ -26,4 +26,5 @@ const getPaginationHtml = (currentPage:number,totalPage:number)=>{
 export {
   getCommentListHtml,
   getPostListHtml,
+  getPaginationHtml,
 }

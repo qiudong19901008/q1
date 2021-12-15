@@ -1,31 +1,32 @@
 
-/**
- 该分页html是借助了wordpress paginate_links生成的
-*/
+
 .pagination{
   font-size:1.2rem;
   padding:1rem;
   display: flex;
-  /* justify-content: center; */
   background-color: #fff;
   margin:2rem 0;
   border-radius: 4px;
 }
-.pagination .page-numbers{
+.pagination__page,
+.pagination__dots{
   border-radius:3px;
   text-align:center;
   padding: .4rem 1.2rem;  
   margin:0 .3rem;
 }
-.pagination .page-numbers:not(.dots){
+.pagination__page{
   background-color: rgb(221, 221, 221);
+  outline: none;
+  border: none;
 }
-.pagination .page-numbers.current,
-.pagination .page-numbers:not(.dots):hover{
+
+.pagination__page--current,
+.pagination__page:hover{
   background:rgb(106, 197, 249);
-  border-color:rgb(106, 197, 249);
-  color:#fff
+  color:#fff;
+  cursor: pointer;
 }
-.pagination .page-numbers.dots{
-  border-color:rgba(0,0,0,0);
+.pagination__dots{
+  /* border-color:rgba(0,0,0,0); */
 }
