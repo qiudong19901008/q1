@@ -28,8 +28,20 @@ const isAlreadyLike = (id:number)=>{
   return false;
 }
 
+/**
+ * 是否是数字
+ */
+const isInt = (val:string)=>{
+  const re = /^\d+$/;
+  if(re.test(val)){
+    return true;
+  }
+  return false;
+}
+
 
 export {
   getCookie,
   isAlreadyLike,
+  isInt,
 }

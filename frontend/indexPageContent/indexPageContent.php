@@ -18,13 +18,17 @@
       最新文章
     </div>
     <div class="indexPageContent__postListWrap">
-      <?php get_template_part('frontend/common/postList/postList'); ?>
+      <?php 
+        get_template_part('frontend/common/postList/postList'); 
+      ?>
     </div>
     
   </div>
   <!-- 分页 -->
   <div class="indexPageContent__paginationWrap">
-    <?php get_template_part('frontend/common/pagination/pagination'); ?>
+    <?php 
+      get_template_part('frontend/common/pagination/pagination'); 
+    ?>
   </div>
   
   

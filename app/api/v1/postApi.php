@@ -34,6 +34,8 @@ function getPostListRouter(){
     'categoryId'=>$_GET["categoryId"],
     'tagId'=>$_GET["tagId"],
     's'=>$_GET["s"],
+    'categorySlug'=>$_GET["categorySlug"],
+    'tagSlug'=>$_GET["tagSlug"],
   ];
 
   $res = PostDao::queryPostList(

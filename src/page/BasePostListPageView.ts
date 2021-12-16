@@ -1,8 +1,9 @@
-import PostModel from "../model/PostModel";
+import PostModel, { GetPostList } from "../model/PostModel";
 import {
   getPaginationHtml,
   getPostListHtml,
 } from '../lib/htmlGetter';
+import { isInt } from "../lib/helper";
 
 
 
@@ -59,11 +60,14 @@ abstract class BasePostListPageView{
   protected getCurrentPage(){
     const path = location.pathname;
     const pathPiece = path.split('/');
-    let page = pathPiece[pathPiece.length-1];
-    if(!page){ //第一页
-      page = '1';
+    let page = pathPiece[pathPiece.length-1]; 
+    let pageNum = 0;
+    if(!isInt(page)){
+      pageNum = 1;
+    }else{
+      pageNum = parseInt(page);
     }
-    return parseInt(page);
+    return pageNum;
   }
 
   /**
@@ -87,10 +91,13 @@ abstract class BasePostListPageView{
     const action = $('.postList').data('action');
     const size = $('.postList').data('size');
     const pageUrl = $('.postList').data('pageurl');
-    const {list,count} = await PostModel.getPostList(url,{
+    const differenceParams = this.getDifferenceRequestPostListParams();
+    const params:GetPostList = {
       action,
       orderBy:'create_time',
-    },page,parseInt(size));
+      ...differenceParams,
+    }
+    const {list,count} = await PostModel.getPostList(url,params,page,parseInt(size));
     const postListHtml = getPostListHtml(list,url,action,size,pageUrl);
     const paginationHtml = getPaginationHtml(page,count,size);
     this.updatePageStructure(postListHtml,paginationHtml);
@@ -109,6 +116,11 @@ abstract class BasePostListPageView{
     window.history.pushState(null, null,nextPageUrl); 
   }
 
+  /**
+   * 第一页是: http://localhost/zixuehu
+   * 第二页是: http://localhost/zixuehu/page/4
+   * 第一页少了一个斜杠
+   */
   private _getNextPageUrl(page:number){
     //获取当前页url
     const currentUrl = $('.postList').data('pageurl');
@@ -119,9 +131,9 @@ abstract class BasePostListPageView{
     }
     const re = /.*page\/(\d+)/;
     const reRes = re.exec(currentUrl);
-    //如果当前页是第一页
+    //如果当前页是第一页, 第一页少了一个斜杠, 所以使用 /page
     if(!reRes){
-      return currentUrl+`page/${page}`;
+      return currentUrl+`/page/${page}`;
     }
     //其他情况
     return currentUrl.replace(/page\/\d+/,`page/${page}`);
@@ -140,6 +152,11 @@ abstract class BasePostListPageView{
    * 因为 index category tag的选择器不同, 所以必须子类完成选取更新操作
    */
   protected abstract updatePageStructure(postListHtml:string,paginationHtml:string):void;
+
+  /**
+   * 获取差异化的请求post列表的请求参数, 因为index category tag search页面的参数不同
+   */
+  protected abstract getDifferenceRequestPostListParams():{};
   
 
 }

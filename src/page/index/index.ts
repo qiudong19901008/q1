@@ -4,7 +4,10 @@ import BasePostListPageView from '../BasePostListPageView';
 
 class IndexView extends BasePostListPageView{
   
-
+  
+  protected getDifferenceRequestPostListParams() {
+    return {};
+  }
 
   protected updatePageStructure(postListHtml: string, paginationHtml: string): void {
     $('.indexPageContent__postListWrap').html(postListHtml);

@@ -2,22 +2,24 @@ import BaseModel from "./BaseModel";
 import HttpHandler from '../lib/HttpHandler';
 const httpHandler = new HttpHandler();
 
-type GetCommentListType = {
+export type GetCommentListType = {
   postId:number,
   action:string,
 }
 
-type LikePostType = {
+export type LikePostType = {
   postId:number,
   action:string,
 }
 
-type GetPostList = {
+export type GetPostList = {
   action:string,
   orderBy:'create_time'|'update_time'|'rand',
   categoryId?:number,
   tagId?:number,
   s?:string,
+  categorySlug?:string,
+  tagSlug?:string,
 }
 
 

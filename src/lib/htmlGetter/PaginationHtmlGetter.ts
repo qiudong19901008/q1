@@ -1,7 +1,16 @@
 class PaginationHtmlGetter{
 
+  private static isShowPagination(totalCount:number,size:number){
+    if(totalCount <= size){
+      return false;
+    }
+    return true;
+  }
 
   public static run(currentPage:number,totalCount:number,size:number){
+    if(!this.isShowPagination(totalCount,size)){
+      return;
+    }
     //确定页数
     let maxPage = Math.floor(totalCount/size);
     if(totalCount%size !== 0){

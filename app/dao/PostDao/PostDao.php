@@ -35,7 +35,7 @@ class PostDao extends BasePostDao{
 
   /**
    * @description 查询文章
-   * @param Array $dynamicConditionList [$categoryId=0,$tagId=0,$s='']
+   * @param Array $dynamicConditionList [$categoryId=0,$tagId=0,$s='',$categorySlug='',$tagSlug='']
    * @param Array $excludePostIdList 需要排除的文章id列表
    * @param Array $includePostIdList 需要包含的文章id列表
    * @param array ['author'|'category'|'meta'] — $includeTableNameList 包含的额外表名列表

@@ -8,19 +8,8 @@
   data-pageurl="<?php echo home_url(add_query_arg(array(),$wp->request)); ?>"
 >
   <div class="postList__CardWrap">
-    
-    <?php get_template_part('frontend/common/postCard/postCard') ?>
-  </div>
-  <div class="postList__CardWrap">
-    <?php get_template_part('frontend/common/postCard/postCard') ?>
-  </div>
-  <div class="postList__CardWrap">
-    <?php get_template_part('frontend/common/postCard/postCard') ?>
-  </div>
-  <div class="postList__CardWrap">
-    <?php get_template_part('frontend/common/postCard/postCard') ?>
-  </div>
-  <div class="postList__CardWrap">
-    <?php get_template_part('frontend/common/postCard/postCard') ?>
+    <?php 
+      // get_template_part('frontend/common/postCard/postCard') 
+    ?>
   </div>
 </div>

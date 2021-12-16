@@ -1,5 +1,12 @@
 
-<div class="tagPageContent">
+<div 
+  class="tagPageContent" 
+  data-slug="<?php 
+    $term = get_queried_object();
+    echo $term->slug;
+  ?>" 
+>
+
   <!-- 页面提示 -->
   <div class="tagPageContent__pageTitleCardWrap">
     <?php get_template_part('frontend/common/pageTitleCard/pageTitleCard') ?>

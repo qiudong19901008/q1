@@ -11,6 +11,13 @@ class CategoryView extends BasePostListPageView{
     $('.categoryPageContent__paginationWrap').html(paginationHtml);
   }
 
+  protected getDifferenceRequestPostListParams() {
+    const categorySlug = $('.categoryPageContent').data('slug');
+    return {
+      categorySlug,
+    };
+  }
+
 
 }
 
