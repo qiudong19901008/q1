@@ -65,9 +65,9 @@ class PaginationHtmlGetter{
   private static _getItemHtml(pageNum:number,isActive=false){
     let res = '';
     if(isActive){
-      res = `<button class="pagination__page pagination__page--current" data-page="${pageNum}">${pageNum}</button>`;
+      res = `<a class="pagination__page pagination__page--current" data-page="${pageNum}">${pageNum}</a>`;
     }else{
-      res = `<button class="pagination__page" data-page="${pageNum}">${pageNum}</button>`;
+      res = `<a class="pagination__page" data-page="${pageNum}">${pageNum}</a>`;
     }
     return res;
   }

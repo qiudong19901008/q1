@@ -10,8 +10,8 @@ const getCommentListHtml = (commentList:any[],url:string,action:string)=>{
   return CommentListHtmlGetter.run(commentList,url,action);
 }
 
-const getPostListHtml = (postList:any[],url:string,action:string)=>{
-  return PostListHtmlGetter.run(postList,url,action);
+const getPostListHtml = (postList:any[],url:string,action:string,size:string)=>{
+  return PostListHtmlGetter.run(postList,url,action,size);
 }
 
 const getPaginationHtml = (currentPage:number,totalCount:number,size:number)=>{

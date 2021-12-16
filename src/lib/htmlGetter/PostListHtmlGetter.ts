@@ -1,12 +1,13 @@
 
 class PostListHtmlGetter{
 
-  public static run(postList:any[],url:string,action:string){
+  public static run(postList:any[],url:string,action:string,size:string){
     const res = `
       <div 
         class="postList" 
         data-url="${url}"
         data-action="${action}"
+        data-size="${size}"
       >
         ${this._renderPostList(postList)} 
       </div>
