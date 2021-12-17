@@ -24,3 +24,13 @@
 .commentList__childCardWrap:last-child{
   border-bottom:none;
 }
+
+@media only screen and (max-width: 1000px){
+  .commentList{
+    padding:.5rem;
+  }
+  .commentList__cardChild{
+    padding:0;
+    margin-left:1rem;
+  }
+}

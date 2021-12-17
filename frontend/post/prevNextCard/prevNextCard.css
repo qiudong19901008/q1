@@ -1,10 +1,6 @@
 .prevNextCard{
   display: flex;
-  /* justify-content: space-between; */
-  position: relative;
-  /* flex: 1; */
-/* text-align: right; */
-  /* height:3rem; */
+  justify-content: space-between;
 }
 
 .prevNextCard__prev,
@@ -15,17 +11,12 @@
   font-size:1.4rem;
   color: #999;
   width:48%;
-  /* position:absolute; */
 }
 
-.prevNextCard__prev{
-  /* left:0; */
-  align-content: flex-start;
-}
 
 .prevNextCard__next{
-  /* right:0; */
-  align-content: flex-end;
+  margin-left: auto; 
+  margin-right: 0;
 }
 
 .prevNextCard__prevTitle,

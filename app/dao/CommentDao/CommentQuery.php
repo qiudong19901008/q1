@@ -14,9 +14,12 @@ class CommentQuery{
     $allCommentList = $this->_findAllCommentByPostId($postId,$orderBy,$order);
     $allTopCommentList = $this->_getAllTopCommentList($allCommentList);
     $neededTopCommentList = $this->_findNeededTopCommentList($allTopCommentList,$page,$size);
-    $res = $this->_assembleNeededTopCommentList($neededTopCommentList,$allCommentList);
-    return $res;
-    // return count($neededTopCommentList);
+    $list = $this->_assembleNeededTopCommentList($neededTopCommentList,$allCommentList);
+    $count = count($allTopCommentList);
+    return [
+      'list'=>$list,
+      'count'=>$count,
+    ];
   }
 
   private function _findAllCommentByPostId($postId,$orderBy,$order){

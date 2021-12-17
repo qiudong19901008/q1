@@ -11,11 +11,8 @@ function getCommentListRouter(){
   $page = $_GET["page"];
   $size = $_GET["size"];
   $res = CommentDao::query($postId,'comment_date','DESC',$page,$size);
-  json([
-    'list'=>$res,
-    'count'=>count($res),
-  ]);
+  json($res);
 }
-add_action('wp_ajax_nopriv_q1_api_get_comment_list', 'getCommentListRouter');
-add_action('wp_ajax_q1_api_get_comment_list', 'getCommentListRouter');
+add_action('wp_ajax_nopriv_' . Actions::GET_COMMENT_LIST, 'getCommentListRouter');
+add_action('wp_ajax_' . Actions::GET_COMMENT_LIST, 'getCommentListRouter');
 

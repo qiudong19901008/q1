@@ -19,13 +19,14 @@ require_once plugin_dir_path(__FILE__) . '/widget/WidgetTagCloud.php';
 //加载APP
 
 //主题支持
-require_once plugin_dir_path(__FILE__) . APP_HOME . 'core/registeCssJs.php'; //加载css js
-require_once plugin_dir_path(__FILE__) . APP_HOME . 'core/registeWidget.php'; //加载小工具
-require_once plugin_dir_path(__FILE__) . APP_HOME . 'core/registeMenu.php'; //加载菜单
+require_once plugin_dir_path(__FILE__) . '/registe/registeCssJs.php'; //加载css js
+require_once plugin_dir_path(__FILE__) . '/registe/registeWidget.php'; //加载小工具
+require_once plugin_dir_path(__FILE__) . '/registe/registeMenu.php'; //加载菜单
 
 //lib库
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/helper.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Fields.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Actions.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Configs.php';
 
 // dao

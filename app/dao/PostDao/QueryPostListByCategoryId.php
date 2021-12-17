@@ -17,6 +17,8 @@ class QueryPostListByCategoryId extends BasePostDao{
    * @return Array
    */
   public function run($categoryId,$excludePostIdList,$orderBy='create_time',$order='DESC',$page=1,$size=10){
+    global $post;
+    $originGlobalPost = $post;
     $res = [];
     $args = [
       'cat'=>$categoryId, //分类id
@@ -31,6 +33,7 @@ class QueryPostListByCategoryId extends BasePostDao{
     $query = new WP_Query($args);
     $res = $this->getNeededData($query);
     wp_reset_query();
+    $post = $originGlobalPost;
     return $res;
   }
 

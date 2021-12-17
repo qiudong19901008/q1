@@ -1,7 +1,7 @@
 
 <div class="comment-list-container">
   <?php 
-    get_template_part('frontend/post/commentList/commentList'); 
+    get_template_part('frontend/post/commentSection/commentSection'); 
   ?>
 </div>
 
@@ -20,7 +20,7 @@
 
 
 <?php
-// $res = CommentDao::query(71,'commen_date','DESC',1,10);
+// $res = CommentDao::query(71,'comment_date','DESC',1,10);
 // var_dump($res);
 
 // $arr = [

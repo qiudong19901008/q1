@@ -1,0 +1,37 @@
+.commentForm{
+  padding:2rem; 
+  background-color: #fff;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentForm__authorInfo{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.commentForm__authorInfo > *{
+  width: 50%;
+}
+
+.commentForm__submitArea{
+  display: flex;
+  justify-content: center; 
+}
+
+.commentForm__submitBtn{
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding:.8rem 1.6rem;
+  border-radius: 4px;
+  background-color: rgb(106 197 249 / 90%);
+  
+}
+
+.commentForm__submitBtn:hover{
+  background-color: rgb(106, 197, 249);
+}
+
+

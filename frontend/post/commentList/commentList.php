@@ -1,8 +1,9 @@
 <div 
   class="commentList" 
   data-url="<?php echo admin_url('admin-ajax.php');?>"
-  data-action="<?php echo 'q1_api_get_comments'; ?>"
-  data-postid="<?php echo get_the_ID(); ?>"
+  data-action="<?php echo Actions::GET_COMMENT_LIST; ?>"
+  data-size="<?php echo get_option('comments_per_page',10); ?>"
+  data-postid="<?php the_ID(); ?>"
 >
 
   <div class="commentList__item">

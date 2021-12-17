@@ -1,0 +1,29 @@
+.commentSection{
+  position:relative;
+}
+
+.commentSection__mask{
+  background-color: rgb(255 255 255 / 80%);
+  width: 100%;
+  height:100%;
+  position:absolute;
+  left:0;
+  top:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentSection__listWrap{
+  
+}
+
+.commentSection__paginationWrap{
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.commentSection__formWrap{
+  margin-top:2rem;
+}

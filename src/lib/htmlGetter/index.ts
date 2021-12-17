@@ -6,8 +6,8 @@ import PaginationHtmlGetter from "./PaginationHtmlGetter";
 
 
 
-const getCommentListHtml = (commentList:any[],url:string,action:string)=>{
-  return CommentListHtmlGetter.run(commentList,url,action);
+const getCommentListHtml = (commentList:any[],url:string,action:string,size:string,postId:string)=>{
+  return CommentListHtmlGetter.run(commentList,url,action,size,postId);
 }
 
 const getPostListHtml = (postList:any[],url:string,action:string,size:string,pageUrl:string)=>{

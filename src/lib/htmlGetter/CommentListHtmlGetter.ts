@@ -3,13 +3,14 @@
 class CommentListHtmlGetter{
 
   //获取评论html
-  public static run(commentList:any[],url:string,action:string){
+  public static run(commentList:any[],url:string,action:string,size:string,postId:string){
     const res = `
       <div 
         class="commentList" 
         data-url="${url}"
         data-action="${action}"
-        data-postid="<?php echo get_the_ID(); ?>"
+        data-postid="${postId}"
+        data-size="${size}"
       >
         ${this._renderCommentItemList(commentList)} 
       </div>
@@ -32,16 +33,29 @@ class CommentListHtmlGetter{
       <div class="commentList__cardWrap">
         ${this._renderTopComment(comment)}
       </div>
-      <div class="commentList__cardChild">
-        ${this._renderChildComments(comment)}
-      </div>
+      ${this._maybeAddChildComments(comment)}
     </div>
     `;
     return res;
   }
 
+  // <div class="commentList__cardChild">
+  //       ${this._renderChildComments(comment)}
+  //     </div>
+  private static _maybeAddChildComments(comment:any){
+    if(comment.offspring.length > 0){
+      return `
+      <div class="commentList__cardChild">
+        ${this._renderChildComments(comment)}
+      </div>
+      `
+    }else{
+      return '';
+    }
+
+  }
+
   private static _renderTopComment = (comment:any)=>{
-    // return this._renderCommentCard(comment);
     return CommentListHtmlGetter._renderCommentCard(comment);
   }
   
@@ -74,13 +88,21 @@ class CommentListHtmlGetter{
           <p class="commentCard__content">${comment.commentContent}</p>
           <div class="commentCard__meta">
             <div class="commentCard__time">${comment.commentDate}</div>
-            <div class="commentCard__replyWho">@Zke</div>
+            ${CommentListHtmlGetter._mayBeAddhaveReplyWho(comment)}
             <a class="commentCard__replyBtn">回复</a>
           </div>
         </div>
       </div>
     `;
     return res;
+  }
+
+  private static _mayBeAddhaveReplyWho(comment:any){
+    if(comment.replyPersonName){
+      return `<div class="commentCard__replyWho">@${comment.replyPersonName}</div>`
+    }else{
+      return '';
+    }
   }
   
 

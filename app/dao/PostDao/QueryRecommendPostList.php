@@ -11,7 +11,6 @@ class QueryRecommendPostList extends BasePostDao{
    */
   public function run($type,$size){
     $arg = []; //wp_query的参数
-    $extendFieldList = [];
     switch($type){
       case 'view':
         $arg = [
@@ -19,7 +18,6 @@ class QueryRecommendPostList extends BasePostDao{
           'meta_key'			=> 'view',
           'orderby'			=> ['meta_value_num'=>'DESC'],
         ];
-        $extendFieldList = ['viewCount'];
         break;
       case 'comment':
         $arg = [
@@ -27,7 +25,6 @@ class QueryRecommendPostList extends BasePostDao{
           'orderby'			=> 'comment_count',
           'order'				=> 'DESC',
         ];
-        $extendFieldList = ['commentCount'];
         break;
       case 'like':
         $arg = [
@@ -35,7 +32,6 @@ class QueryRecommendPostList extends BasePostDao{
           'meta_key'			=> 'like',
           'orderby'			=> ['meta_value_num'=>'DESC'],
         ];
-        $extendFieldList = ['likeCount'];
         break;
     }
     $query = new WP_Query($arg);

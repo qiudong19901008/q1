@@ -7,17 +7,20 @@ import {
   getCommentListHtml,
 } from '../../lib/htmlGetter';
 import PostModel from '../../model/PostModel';
+import CommentView from './CommentView';
 
-
+const commentView = new CommentView();
 class PostView{
 
   /**
    * 页面初始化
    * 1. 加载评论列表
    */
-  public initral(){
-    this._getCommentListHtml(1,10);
-    this._bindEvents();
+  public async initral(){
+    // this._getCommentListHtml(1);
+    // this._bindEvents();
+    // commentView
+    await commentView.initral();
   }
 
   private async _bindEvents(){
@@ -30,15 +33,17 @@ class PostView{
   /**
    * 获取评论列表
    */
-  private async _getCommentListHtml(page=1,size=10){
+  private async _getCommentListHtml(page=1){
     const postId = $('.commentList').data('postid');
     const url = $('.commentList').data('url');
     const action = $('.commentList').data('action');
+    const size = $('.commentList').data('size');
     const {list,count} = await PostModel.getCommentList(url,{
       postId,
       action,
-    },page,size);
-    return getCommentListHtml(list,url,action);
+    },page,parseInt(size));
+    const commentListHtml = getCommentListHtml(list,url,action,size,postId);
+    $('.commentSection__listWrap').html(commentListHtml);
   }
 
   /**
@@ -67,9 +72,10 @@ class PostView{
 const postView = new PostView();
 
 
+
 $(function(){
   postView.initral();
-  
+  // commentView
 })
 
 
