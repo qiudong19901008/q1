@@ -18,8 +18,8 @@ function likePostRouter(){
     'likeCount'=>$likeCount,
   ]);
 }
-add_action('wp_ajax_nopriv_q1_api_like_post', 'likePostRouter');
-add_action('wp_ajax_q1_api_like_post', 'likePostRouter');
+add_action('wp_ajax_nopriv_' . Actions::LIKE_POST, 'likePostRouter');
+add_action('wp_ajax_' . Actions::LIKE_POST, 'likePostRouter');
 
 /**
  * @description 请求分类文章列表
@@ -55,5 +55,5 @@ function getPostListRouter(){
 
   json($res);
 }
-add_action('wp_ajax_nopriv_q1_api_get_post_list', 'getPostListRouter');
-add_action('wp_ajax_q1_api_get_post_list', 'getPostListRouter');
+add_action('wp_ajax_nopriv_' . Actions::GET_POST_LIST, 'getPostListRouter');
+add_action('wp_ajax_' . Actions::GET_POST_LIST, 'getPostListRouter');

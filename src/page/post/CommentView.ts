@@ -9,6 +9,7 @@ class CommentView{
 
   public async initral(){
     await this.getDataThenUpdatePageStructure(1);
+    this.bindOnlyOnceEvents();
     this.bindEvents();
   }
 
@@ -31,6 +32,35 @@ class CommentView{
     //2.
     this.bindEvents();
     this._closeLoading();
+  }
+
+  /**
+   * 回复按钮点击处理函数
+   * 1. 
+   * 2. 
+   */
+   protected replyBtnHandler = async(e:JQuery.ClickEvent<HTMLElement, undefined, HTMLElement, HTMLElement>)=>{
+      e.preventDefault();
+      console.log(e.data);
+      // $('.commentForm__content').data('parentid','')
+    // onblur
+   }
+
+
+
+  /**
+   * 提交评论处理函数
+   * 1. 
+   * 2. 
+   */
+  protected submitCommentHandler = async(e:JQuery.ClickEvent<HTMLElement, undefined, HTMLElement, HTMLElement>)=>{
+    const author = $('.commentForm__authorNickname');
+    const email = $('.commentForm__authorEmail');
+    const url = $('.commentForm__authorWebsite');
+    const postid = $('.commentForm').data('postid');
+    // const 
+
+
   }
 
   private _openLoading(){
@@ -78,7 +108,16 @@ class CommentView{
    protected bindEvents(){
     // 分页按钮点击事件
     $('.commentSection .pagination__page').on('click',this.pagedHandler);
-  }
+    // 回复按钮点击事件
+    $('.commentSection .commentCard__replyBtn').on('click',this.pagedHandler);
+   }
+
+   // 只绑定一次事件, 因为该dom元素不会改变, 不需要重复绑定
+   protected bindOnlyOnceEvents(){
+    // 评论表单提交事件
+    $('.commentSection .commentForm__submitBtn').on('click',this.submitCommentHandler);
+   }
+
 
 
 

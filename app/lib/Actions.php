@@ -21,6 +21,11 @@ class Actions{
    * 请求评论列表的路由
    */
   public const GET_COMMENT_LIST = 'q1_api_get_comment_list';
+
+  /**
+   * 添加一条评论
+   */
+  public const GET_ONE_COMMENT = 'q1_api_add_one_comment';
    
 }
 

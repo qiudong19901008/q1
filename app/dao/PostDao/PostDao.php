@@ -38,7 +38,7 @@ class PostDao extends BasePostDao{
    * @param Array $dynamicConditionList [$categoryId=0,$tagId=0,$s='',$categorySlug='',$tagSlug='']
    * @param Array $excludePostIdList 需要排除的文章id列表
    * @param Array $includePostIdList 需要包含的文章id列表
-   * @param array ['author'|'category'|'meta'|'tag'] — $includeTableNameList 包含的额外表名列表
+   * @param array ['author'|'category'|'meta'|'tag']— $includeTableNameList 包含的额外表名列表
    * @param array $metaNameList — 额外字段的名字列表, 如果没有包含meta表则会忽略该选项
    * @param 'create_time'|'update_time'|'rand' $orderBy 需要排序的字段 默认创建时间
    * @param 'ASC'|'DESC' 升序或降序,默认降序

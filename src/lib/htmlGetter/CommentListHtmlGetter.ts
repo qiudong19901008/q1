@@ -89,7 +89,11 @@ class CommentListHtmlGetter{
           <div class="commentCard__meta">
             <div class="commentCard__time">${comment.commentDate}</div>
             ${CommentListHtmlGetter._mayBeAddhaveReplyWho(comment)}
-            <a class="commentCard__replyBtn">回复</a>
+            <a 
+              class="commentCard__replyBtn" 
+              data-id="${comment.commentId}" 
+              href="#commentForm__content"
+            >回复</a>
           </div>
         </div>
       </div>

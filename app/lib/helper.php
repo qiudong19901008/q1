@@ -129,3 +129,32 @@ function json($data){
   die;
 }
 
+/**
+ * errorCode: 0
+ * msg: "操作成功"
+ * requestUrl: "PUT /rws/siteType/update/8"
+ */
+function success($method,$action,$msg='操作成功'){
+  header('Content-Type:application/json');
+  echo json_encode([
+    'errorCode'=>0,
+    'msg'=>$msg,
+    'requestUrl'=>$method . ' ' . $action,
+  ]);
+  die;
+}
+
+/**
+ * errorCode: 0
+ * msg: "操作成功"
+ * requestUrl: "PUT /rws/siteType/update/8"
+ */
+function failed($method,$action,$msg='操作失败',$errorCode=ErrorCodes::COMMON_ERROR){
+  header('Content-Type:application/json');
+  echo json_encode([
+    'errorCode'=>$errorCode,
+    'msg'=>$msg,
+    'requestUrl'=>$method . ' ' . $action,
+  ]);
+  die;
+}
