@@ -1,32 +1,43 @@
 
-<?php 
-  $categorysInfo = CategoryDao::getCategoryListByPostId(get_the_ID());
-  $categoryInfo = $categorysInfo[0];
+<?php
 
-  $tags = TagDao::getTagListByPostId(get_the_ID());
+  global $post;
+
+  $categoryList = CategoryDao::getCategoryListByPostId(get_the_ID());
+  $category = $categoryList[0];
+  $likeCount = PostDao::getPostLikeCount(get_the_ID());
+  $viewCount = PostDao::getPostViewCount(get_the_ID());
+  $tagList = TagDao::getTagListByPostId(get_the_ID(),false);
+  $commentCount = $post->comment_count;
+
 ?>
 <div class="postContent">
   <div class="postContent__crumbs">
     <a href="<?php echo home_url(); ?>">首页</a>
     <i class="fa fa-angle-right"></i>
-    <a href="<?php echo $categoryInfo['url'] ?>"><?php echo $categoryInfo['name'] ?></a>
+    <a href="<?php echo $category['url'] ?>">
+      <?php echo $category['name'] ?>
+    </a>
     <i class="fa fa-angle-right"></i>
     <span>正文</span>
   </div>
   <div class="postContent__header">
       <h1 class="postContent__title">
-        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+        <a href="<?php echo the_permalink(); ?>"><?php the_title(); ?></a>
+    
       </h1>
       <div class="postContent__meta">
         <span>发布日期：<time><?php the_time('Y-m-d h:i:s') ?></time></span>
-        <span>分类:<a href="<?php echo $categoryInfo['url'] ?>"><?php echo $categoryInfo['name'] ?></a></span>
-        <span>阅读(<span><?php echo PostDao::getPostViewCount(get_the_ID()) ?></span>)</span>
-        <span>评论(<span><?php echo PostDao::getPostCommentCount(get_the_ID()) ?></span>)</span>
-        <span>点赞(<span id="likeShow"><?php echo PostDao::getPostLikeCount(get_the_ID()) ?></span>)</span>
+        <span>分类:<a href="<?php echo $category['url'] ?>"><?php echo $category['name'] ?></a></span>
+        <span>阅读(<span><?php echo $viewCount ?></span>)</span>
+        <span>评论(<span><?php echo $commentCount; ?></span>)</span>
+        <span>点赞(<span class="postContent__likeCount"><?php echo $likeCount; ?></span>)</span>
       </div>
   </div>
-  <div class="post-content">
-    <?php the_content(); ?>
+  <div class="postContent__content">
+    <?php 
+      the_content();
+    ?>
   </div>
   <p class="postContent__cutOff">
     结束
@@ -34,37 +45,34 @@
   <div class="postContent__interaction">
     <div 
       class="postContent__like postContent__like--done" 
-      id="like" 
       data-id="<?php the_ID(); ?>"
     >
       <i class="fa fa-thumbs-up"></i>
-      赞(<span><?php echo PostDao::getPostLikeCount(get_the_ID()); ?></span>)
+      赞(<span class="postContent__likeCount"><?php echo $likeCount; ?></span>)
     </div>
   </div>
-  <div class="postContent__tagContainer">
-    <span>标签:</span>
-    <div class="postContent__tagList">
-      
-      <?php 
-        if(count($tags) === 0){
-          echo '<span class="tag">无</span>';
-        }else{
-          foreach($tags as $tag){
-      ?>
-      
-        <a 
-          class="postContent__tag"
-          href="<?php echo $tag['url'] ?>">
-          <?php echo $tag['name'] ?>
-        </a>
-        
-      <?php
-          }
-        }
-      ?>
 
-     
+  <?php if(count($tagList)!==0): ?>
 
-    </div>
-  </div>
+      <div class="postContent__tagContainer">
+        <span>标签:</span>
+        <div class="postContent__tagList">
+          
+        <?php foreach($tagList as $tag): ?>
+
+          <a 
+            class="postContent__tag"
+            href="<?php echo $tag['url'] ?>">
+            <?php echo $tag['name'] ?>
+          </a>
+
+        <?php endforeach; ?>
+          
+
+        </div>
+      </div>
+
+  <?php endif ?>
+
+
 </div>

@@ -25,7 +25,6 @@ require_once plugin_dir_path(__FILE__) . APP_HOME . 'core/registeMenu.php'; //åŠ
 
 //libåº“
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/helper.php';
-require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/htmlGetter.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Fields.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Configs.php';
 

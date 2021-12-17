@@ -5,7 +5,7 @@
       <i class="fa fa-bars m-icon-nav"></i>
     </a>
     <!-- logo -->
-    <a href="#" class="siteHeader__logo">合道社</a>
+    <a href="<?php echo home_url(); ?>" class="siteHeader__logo">合道社</a>
     <!-- 菜单 -->
     <div class="siteHeader__navMenuContainer">
       <?php

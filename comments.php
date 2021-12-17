@@ -1,8 +1,7 @@
 
 <div class="comment-list-container">
   <?php 
-    // get_template_part('frontend/post/commentList/commentList'); 
-    // echo admin_url('admin-ajax.php');
+    get_template_part('frontend/post/commentList/commentList'); 
   ?>
 </div>
 
@@ -55,13 +54,26 @@
 
 // $res = PostDao::queryPostList([],null,[71],['meta','author','category'],[Fields::COUNT_POST_LIKE,Fields::COUNT_POST_VIEW],'create_time','DESC',1,1);
 
-$res = get_categories(); //默认只会查出有文章的分类
+// $res = get_categories(); //默认只会查出有文章的分类
 
 // get_category_link(9)
 
 
-var_dump($res);
+// var_dump($res);
 // echo $res;
+
+// $listAndCount = PostDao::queryPostList(
+//   [],
+//   null,
+//   [101],
+//   ['meta','author','category','tag'],
+//   [
+//     Fields::COUNT_POST_LIKE,
+//     Fields::COUNT_POST_VIEW,
+//   ],
+// );
+
+// var_dump($listAndCount);
 
 ?>
 

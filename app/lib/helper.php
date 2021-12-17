@@ -29,40 +29,57 @@ function getPostCategory($post_id){
 
 /**
  * @description 获取上一篇文章信息
+ * @param number $postId 文章id, 如果不传入则使用当前的文章id
  * @return Array 
  */
-function getPrevPostInfo( $post_id ) {
+function getPrevPostInfo( $postId=0 ) {
   global $post;
-  $oldGlobal = $post;
-  $post = get_post( $post_id );
+  $originGlobalPost = $post;
+  //使用传入id的文章
+  if($postId !== 0){
+    $post = get_post( $postId );
+  }
   $prevPost = get_previous_post();
-  $post = $oldGlobal;
+  var_dump($prevPost);
   if ( '' == $prevPost ) {
       return [];
   }
-  return [
-    'title'=>$prevPost->post_title,
-    'url'=>get_home_url().'/'.$prevPost->ID.'.html',
+  //把前一篇文章赋值给当前文章
+  $post=$prevPost;
+  $res = [
+    'title'=>get_the_title(),
+    'url'=>get_the_permalink(),
   ];
+  //把最初的文章赋值给当前文章
+  $post=$originGlobalPost;
+  return $res;
 }
 
 /**
  * @description 获取下一篇文章信息
+ * @param number $postId 文章id, 如果不传入则使用当前的文章id
  * @return Array
  */
-function getNextPostInfo($post_id){
+function getNextPostInfo($postId=0){
   global $post;
-  $oldGlobal = $post;
-  $post = get_post( $post_id );
+  $originGlobalPost = $post;
+  //使用传入id的文章
+  if($postId !== 0){
+    $post = get_post( $postId );
+  }
   $nextPost = get_next_post();
-  $post = $oldGlobal;
   if ( '' == $nextPost ) {
       return [];
   }
-  return [
-    'title'=>$nextPost->post_title,
-    'url'=>get_home_url().'/'.$nextPost->ID.'.html',
+  //把前一篇文章赋值给当前文章
+  $post=$nextPost;
+  $res = [
+    'title'=>get_the_title(),
+    'url'=>get_the_permalink(),
   ];
+  //把最初的文章赋值给当前文章
+  $post=$originGlobalPost;
+  return $res;
 }
 
 

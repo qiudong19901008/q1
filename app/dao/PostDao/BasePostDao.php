@@ -3,59 +3,37 @@
 
 class BasePostDao{
 
-  /**
-   * @param WP_Query $query 
-   * @param array['likeCount'|'viewCount'|'commentCount'] $extendFieldList 包含额外的字段,主要是怕sql查询次数太多,没必要则不包含这些字段
-   */
-  // protected function getNeededData($query,$extendFieldList=[]){
-  //   $res = [];
-  //   if(!$query->have_posts()){
-  //     return $res;
-  //   }
-  //   while($query->have_posts()){
-  //     $query->the_post();
-  //     $post = [
-  //       'id'=>get_the_ID(),
-  //       'title'=>get_the_title(),
-  //       'url'=>get_the_permalink(),
-  //       'thumbnail'=>get_the_post_thumbnail(),
-  //       'excerpt'=>get_the_excerpt(),
-  //       ''=>'', //作者
-  //       ''=>'', //分类
-  //       ''=>'',
-  //       'update_time'=>get_the_modified_time('Y-m-d'),
-  //       'create_time'=>get_the_time('Y-m-d'),
-  //       'commentCount'=>get_comment_count(),
-  //     ];
-  //     $post = $this->_injectExtendFields($post,$extendFieldList);
-  //     array_push($res,$post);
-  //   }
-  //   return $res;
-  // }
-
-  // private function _injectExtendFields($post,$extendFieldList){
-  //   foreach($extendFieldList as $extendField){
-  //     if($extendField === 'likeCount'){
-  //       $post['likeCount'] = BasePostDao::getPostLikeCount(get_the_ID());
-  //       continue;
-  //     }
-  //     if($extendField === 'viewCount'){
-  //       $post['viewCount'] = BasePostDao::getPostViewCount(get_the_ID());
-  //       continue;
-  //     }
-  //     if($extendField === 'commentCount'){
-  //       $post['commentCount'] = BasePostDao::getPostCommentCount(get_the_ID());
-  //       continue;
-  //     }
-  //   }
-  //   return $post;
-  // }
 
   /**
-   * @description 获取文章评论数量
+   * @description 获取上一篇或下一篇文章, 默认获取上一篇
+   * @param boolean $isNext 是否是下一篇
+   * @param number $postId 文章id, 如果不传入则使用当前的文章id
+   * @return Array 
    */
-  public static function getPostCommentCount($post_id){
-    return wp_count_comments($post_id)->total_comments;
+  public static function getPrevOrNextPostInfo( $isNext=false,$postId=0) {
+    global $post;
+    $originGlobalPost = $post;
+    //使用传入id的文章
+    if($postId !== 0){
+      $post = get_post( $postId );
+    }
+    if($isNext){
+      $resPost = get_next_post();
+    }else{
+      $resPost = get_previous_post();
+    }
+    if ( empty($resPost) ) {
+      return [];
+    }
+    //把前一篇文章赋值给当前文章
+    $post=$resPost;
+    $res = [
+      'title'=>get_the_title(),
+      'url'=>get_the_permalink(),
+    ];
+    //把最初的文章赋值给当前文章
+    $post=$originGlobalPost;
+    return $res;
   }
 
   /**
@@ -75,11 +53,9 @@ class BasePostDao{
   }
 
 
-
-
    /**
    * @param WP_Query $query 
-   * @param array['author'|'category'|'meta'] $includeTableNameList 包含的额外表名列表
+   * @param array['author'|'category'|'meta'|'tag'] $includeTableNameList 包含的额外表名列表
    * @param array $metaNameList 额外字段的名字列表
    */
   protected static function getNeededData($query,$includeTableNameList=[],$metaNameList=[]){
@@ -96,8 +72,10 @@ class BasePostDao{
         'url'=>get_the_permalink(),
         'thumbnail'=>get_the_post_thumbnail(),
         'excerpt'=>get_the_excerpt(),
-        'update_time'=>get_the_modified_time('Y-m-d'),
-        'create_time'=>get_the_time('Y-m-d'),
+        'content'=>get_the_content(),
+        'update_time'=>get_the_modified_time('Y-m-d h:i:s'),
+        'create_time'=>get_the_time('Y-m-d h:i:s'),
+        'create_date'=>get_the_time('Y-m-d'),
         'commentCount'=>$post->comment_count,
         'authorId'=>$post->post_author,
       ];
@@ -124,6 +102,11 @@ class BasePostDao{
     if($isIncludeCategory){
       $postList = BasePostDao::_addCategoryTableInfo($postList);
     }
+    //注入标签
+    $isIncludeTag = BasePostDao::_isIncludeTag($includeTableNameList);
+    if($isIncludeTag){
+      $postList = BasePostDao::_addTagTableInfo($postList);
+    }
     return $postList;
   }
 
@@ -134,6 +117,35 @@ class BasePostDao{
       array_push($res,$post);
     }
     return $res;
+  }
+
+  private static function _addTagTableInfo($postList){
+    $res = [];
+    foreach($postList as $post){
+      $post = BasePostDao::_addTagTableInfoToOnePost($post);
+      array_push($res,$post);
+    }
+    return $res;
+  }
+
+  private static function _addTagTableInfoToOnePost($post){
+    $tagList = get_the_tags($post['id']);
+    if(!$tagList){
+      $post['tagList'] = [];
+      return $post;
+    }
+    $myTagList = [];
+    foreach($tagList as $tag){
+      $oneTag = [
+        'id'=>$tag->term_id,
+        'name'=>$tag->name,
+        'slug'=>$tag->slug,
+        'url'=>get_tag_link($tag),
+      ];
+      array_push($myTagList,$oneTag);
+    }
+    $post['tagList']=$myTagList;
+    return $post;
   }
 
   private static function _addCategoryTableInfoToOnePost($post){
@@ -174,6 +186,15 @@ class BasePostDao{
   private static function _isIncludeCategory($includeTableNameList){
     foreach($includeTableNameList as $name){
       if($name == 'category'){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static function _isIncludeTag($includeTableNameList){
+    foreach($includeTableNameList as $name){
+      if($name == 'tag'){
         return true;
       }
     }

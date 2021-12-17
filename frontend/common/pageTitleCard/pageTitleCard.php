@@ -1,23 +1,23 @@
 <?php 
 
-  // $tips='';
-  // $name='';
-  // if(is_category()){
-  //   $tips='分类：';
-  //   $name=single_cat_title('',false);
-  // }elseif(is_tag()){
-  //   $tips='标签：';
-  //   $name=single_tag_title('',false);
-  // }elseif(is_search()){
-  //   $tips='搜索：';
-  //   $name=$s;
-  // }
+  $tips='';
+  $name='';
+  if(is_category()){
+    $tips='分类：';
+    $name=single_cat_title('',false);
+  }elseif(is_tag()){
+    $tips='标签：';
+    $name=single_tag_title('',false);
+  }elseif(is_search()){
+    $tips='搜索：';
+    $name=$s;
+  }
 
 ?>
 <div class="pageTitleCard">
   <div class="pageTitleCard__title">
-    <span>分类:</span>
-    <h1>雪蟹类</h1>
+    <span><?php echo $tips; ?></span>
+    <h1><?php echo $name; ?></h1>
   </div>
   
   <img 

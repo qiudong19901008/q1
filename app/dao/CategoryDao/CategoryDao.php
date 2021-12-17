@@ -20,7 +20,7 @@ class CategoryDao{
         'id'=>$category->term_id,
         'name'=>$category->name,
         'slug'=>$category->slug,
-        'url'=>get_category_link($category->term_id),
+        'url'=>get_category_link($category),
       ];
       array_push($res,$oneCategoryInfo);
       if($first){

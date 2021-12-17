@@ -1,16 +1,16 @@
 /* content */
-.postPage__contentWrap .post-content{
+.postPage__contentWrap .postContent__content{
   text-align: center;
 }
 
-.postPage__contentWrap .post-content pre, 
-.postPage__contentWrap .post-content code {
+.postPage__contentWrap .postContent__content pre, 
+.postPage__contentWrap .postContent__content code {
   font-size: 0.85em;
   font-family: Consolas, Inconsolata, Courier, monospace;
   
 }
 
-.postPage__contentWrap .post-content code {
+.postPage__contentWrap .postContent__content code {
   margin: 0 0.15em;
   padding: 0 0.3em;
   white-space: pre-wrap;
@@ -21,12 +21,12 @@
   text-align:left;
 }
 
-.postPage__contentWrap .post-content pre {
+.postPage__contentWrap .postContent__content pre {
   font-size: 1em;
   line-height: 1.2em;
 }
 
-.postPage__contentWrap .post-content pre code {
+.postPage__contentWrap .postContent__content pre code {
   white-space: pre;
   overflow: auto; /* fixes issue #70: Firefox/Thunderbird: Code blocks with horizontal scroll would have bad background colour */
   border-radius: 3px;
@@ -42,7 +42,7 @@
 Note that we only use a top margin and not a bottom margin -- this prevents the
 "blank line" look at the top of the email (issue #243).
 */
-.postPage__contentWrap .post-content p {
+.postPage__contentWrap .postContent__content p {
   /* !important is needed here because Hotmail/Outlook.com uses !important to
      kill the margin in <p>. We need this to win. */
   margin: 1.5rem 0 1.5rem 0 !important;
@@ -52,72 +52,72 @@ Note that we only use a top margin and not a bottom margin -- this prevents the
   line-height: 1.75rem;
 }
 
-.postPage__contentWrap .post-content table, 
-.postPage__contentWrap .post-content pre, 
-.postPage__contentWrap .post-content dl, 
-.postPage__contentWrap .post-content blockquote, 
-.postPage__contentWrap .post-content q, 
-.postPage__contentWrap .post-content ul, 
-.postPage__contentWrap .post-content ol {
+.postPage__contentWrap .postContent__content table, 
+.postPage__contentWrap .postContent__content pre, 
+.postPage__contentWrap .postContent__content dl, 
+.postPage__contentWrap .postContent__content blockquote, 
+.postPage__contentWrap .postContent__content q, 
+.postPage__contentWrap .postContent__content ul, 
+.postPage__contentWrap .postContent__content ol {
   margin: 1.2em 0;
   letter-spacing: 1.5px;
 }
 
-.postPage__contentWrap .post-content ul, 
-.postPage__contentWrap .post-content ol {
+.postPage__contentWrap .postContent__content ul, 
+.postPage__contentWrap .postContent__content ol {
   padding-left: 2em;
 }
 
-.postPage__contentWrap .post-content li {
+.postPage__contentWrap .postContent__content li {
   margin: 0.5em 0;
 }
 
 /* Space paragraphs in a list the same as the list itself. */
-.postPage__contentWrap .post-content li p {
+.postPage__contentWrap .postContent__content li p {
   /* Needs !important to override rule above. */
   margin: 0.5em 0 !important;
 }
 
 /* Smaller spacing for sub-lists */
-.postPage__contentWrap .post-content ul ul, 
-.postPage__contentWrap .post-content ul ol, 
-.postPage__contentWrap .post-content ol ul, 
-.postPage__contentWrap .post-content ol ol {
+.postPage__contentWrap .postContent__content ul ul, 
+.postPage__contentWrap .postContent__content ul ol, 
+.postPage__contentWrap .postContent__content ol ul, 
+.postPage__contentWrap .postContent__content ol ol {
   margin: 0;
   padding-left: 1em;
 }
 
 /* Use Roman numerals for sub-ordered-lists. (Like Github.) */
-.postPage__contentWrap .post-content ol ol, 
-.postPage__contentWrap .post-content ul ol {
+.postPage__contentWrap .postContent__content ol ol, 
+.postPage__contentWrap .postContent__content ul ol {
   list-style-type: lower-roman;
 }
 
 /* Use letters for sub-sub-ordered lists. (Like Github.) */
-.postPage__contentWrap .post-content ul ul ol, 
-.postPage__contentWrap .post-content ul ol ol, 
-.postPage__contentWrap .post-content ol ul ol, 
-.postPage__contentWrap .post-content ol ol ol {
+.postPage__contentWrap .postContent__content ul ul ol, 
+.postPage__contentWrap .postContent__content ul ol ol, 
+.postPage__contentWrap .postContent__content ol ul ol, 
+.postPage__contentWrap .postContent__content ol ol ol {
   list-style-type: lower-alpha;
 }
 
-.postPage__contentWrap .post-content dl {
+.postPage__contentWrap .postContent__content dl {
   padding: 0;
 }
 
-.postPage__contentWrap .post-content dl dt {
+.postPage__contentWrap .postContent__content dl dt {
   font-size: 1em;
   font-weight: bold;
   font-style: italic;
 }
 
-.postPage__contentWrap .post-content dl dd {
+.postPage__contentWrap .postContent__content dl dd {
   margin: 0 0 1em;
   padding: 0 1em;
 }
 
-.postPage__contentWrap .post-content blockquote, 
-.postPage__contentWrap .post-content q {
+.postPage__contentWrap .postContent__content blockquote, 
+.postPage__contentWrap .postContent__content q {
   border-left: 4px solid #DDD;
   padding: 0 1em;
   color: #777;
@@ -126,38 +126,38 @@ Note that we only use a top margin and not a bottom margin -- this prevents the
  
 }
 
-.postPage__contentWrap .post-content blockquote::before, 
-.postPage__contentWrap .post-content blockquote::after, 
-.postPage__contentWrap .post-content q::before, 
-.postPage__contentWrap .post-content q::after {
+.postPage__contentWrap .postContent__content blockquote::before, 
+.postPage__contentWrap .postContent__content blockquote::after, 
+.postPage__contentWrap .postContent__content q::before, 
+.postPage__contentWrap .postContent__content q::after {
   content: none;
 }
 
-.postPage__contentWrap .post-content h1, 
-.postPage__contentWrap .post-content h2, 
-.postPage__contentWrap .post-content h3, 
-.postPage__contentWrap .post-content h4, 
-.postPage__contentWrap .post-content h5, 
-.postPage__contentWrap .post-content h6 {
+.postPage__contentWrap .postContent__content h1, 
+.postPage__contentWrap .postContent__content h2, 
+.postPage__contentWrap .postContent__content h3, 
+.postPage__contentWrap .postContent__content h4, 
+.postPage__contentWrap .postContent__content h5, 
+.postPage__contentWrap .postContent__content h6 {
   margin: 1.3em 0 1em;
   padding: 0;
   font-weight: bold;
   letter-spacing: 1.5px;
 }
 
-.postPage__contentWrap .post-content h1 {
+.postPage__contentWrap .postContent__content h1 {
   font-size: 1.6em;
   border-bottom: 1px solid #ddd;
 }
 
-.postPage__contentWrap .post-content h2 {
+.postPage__contentWrap .postContent__content h2 {
   font-size: 16px;
   text-align:center;
   color:#777;
 
 }
 
-.postPage__contentWrap .post-content h3 {
+.postPage__contentWrap .postContent__content h3 {
   font-size: 15px;
   text-align:left;
   color:#777;
@@ -166,14 +166,14 @@ Note that we only use a top margin and not a bottom margin -- this prevents the
 }
 
 
-.postPage__contentWrap .post-content h4{
+.postPage__contentWrap .postContent__content h4{
   font-size: 18px;
   text-align: center;
   margin:2.5rem auto;
   color:#d0cece;
 }
 
-.postPage__contentWrap .post-content h5{
+.postPage__contentWrap .postContent__content h5{
  text-align:center !important;
  margin:-1.2rem 0 0 0 !important;
  color:#777;
@@ -181,12 +181,12 @@ Note that we only use a top margin and not a bottom margin -- this prevents the
  font-weight: normal !important;
 }
 
-.postPage__contentWrap .post-content h6 {
+.postPage__contentWrap .postContent__content h6 {
   font-size: 1em;
   color: #777;
 }
 
-.postPage__contentWrap .post-content table {
+.postPage__contentWrap .postContent__content table {
   padding: 0;
   border-collapse: collapse;
   border-spacing: 0;
@@ -195,13 +195,13 @@ Note that we only use a top margin and not a bottom margin -- this prevents the
   border: 0;
 }
 
-.postPage__contentWrap .post-content tbody {
+.postPage__contentWrap .postContent__content tbody {
   margin: 0;
   padding: 0;
   border: 0;
 }
 
-.postPage__contentWrap .post-content table tr {
+.postPage__contentWrap .postContent__content table tr {
   border: 0;
   border-top: 1px solid #CCC;
   background-color: white;
@@ -209,34 +209,34 @@ Note that we only use a top margin and not a bottom margin -- this prevents the
   padding: 0;
 }
 
-.postPage__contentWrap .post-content table tr:nth-child(2n) {
+.postPage__contentWrap .postContent__content table tr:nth-child(2n) {
   background-color: #F8F8F8;
 }
 
-.postPage__contentWrap .post-content table tr th, 
-.postPage__contentWrap .post-content table tr td {
+.postPage__contentWrap .postContent__content table tr th, 
+.postPage__contentWrap .postContent__content table tr td {
   font-size: 1em;
   border: 1px solid #CCC;
   margin: 0;
   padding: 0.5em 1em;
 }
 
-.postPage__contentWrap .post-content table tr th {
+.postPage__contentWrap .postContent__content table tr th {
  font-weight: bold;
   background-color: #F0F0F0;
 }
 
-.postPage__contentWrap .post-content strong{
+.postPage__contentWrap .postContent__content strong{
  color:#8474c7;
 }
 
-.postPage__contentWrap .post-content img{
+.postPage__contentWrap .postContent__content img{
   display:block;
   margin:0 auto;
   border:1px solid #8474c7;
   max-width: 100%;
 }
-.postPage__contentWrap .post-content span{
+.postPage__contentWrap .postContent__content span{
   font-size:20px;
   color:#8474c7;
 }
