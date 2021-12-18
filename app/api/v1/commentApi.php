@@ -23,26 +23,20 @@ add_action('wp_ajax_' . Actions::GET_COMMENT_LIST, 'getCommentListRouter');
  * @method POST
  */
 function addOneCommentRouter(){
-  // $author = $_POST["author"];
-  // $content = $_POST["content"];
-  // $postId = $_POST["postId"];
-  // $parentId = $_POST["parentId"];
+  $author = $_POST["author"];
+  $content = $_POST["content"];
+  $postId = $_POST["postId"];
+  $parentId = $_POST["parentId"];
 
-  // $email = $_POST["email"];
-  // $url = $_POST["authorUrl"];
-  // $userId = $_POST["userId"]? $_POST["userId"]:0;
-  // $res = CommentDao::addOneComment($author,$content,$postId,$parentId,$email,$url,$userId);
-  // $res='';
-  // if($res){
-  //   success('POST',Actions::ADD_ONE_COMMENT);
-  // }else{
-  //   failed('POST',Actions::ADD_ONE_COMMENT);
-  // }
-  echo 0;
-  die;
-  // json([
-  //   'likeCount'=>0,
-  // ]);
+  $email = $_POST["email"];
+  $url = $_POST["authorUrl"];
+  $userId = $_POST["userId"]? $_POST["userId"]:0;
+  $res = CommentDao::addOneComment($author,$content,$postId,$parentId,$email,$url,$userId);
+  if($res){
+    success('POST',Actions::ADD_ONE_COMMENT);
+  }else{
+    failed('POST',Actions::ADD_ONE_COMMENT);
+  }
 }
 add_action('wp_ajax_nopriv_' . Actions::ADD_ONE_COMMENT, 'addOneCommentRouter');
 add_action('wp_ajax_' . Actions::ADD_ONE_COMMENT, 'addOneCommentRouter');

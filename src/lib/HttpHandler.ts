@@ -40,7 +40,7 @@ class HttpHandler{
       if(errorMsg !== ''){
         throw new Error(errorMsg);
       }
-      //3. 表单编码, 否则会404
+      //3. 表单编码, 否则会400
       reqConfig.data = qs.stringify(reqConfig.data); 
       return reqConfig;
     })
@@ -75,7 +75,7 @@ class HttpHandler{
   // {list:'',count:''}
   private _setResponseInterceptors(axios:AxiosInstance){
     axios.interceptors.response.use((res)=>{
-      console.log(res);
+      // console.log(res);
       if(this._isResCollect(res)){
         return res.data;
       }

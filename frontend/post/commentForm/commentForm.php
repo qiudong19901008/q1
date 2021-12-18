@@ -10,7 +10,7 @@
   <!-- 作者信息 -->
   <div class="commentForm__authorInfo">
     <div class="form-group">
-      <label for="name">昵称：</label>
+      <label for="name" class="commentForm__nicknameLabel">昵称：</label>
       <input type="text" name="name" id='name' class="commentForm__authorNickname">
     </div>
     <div class="form-group">
@@ -23,7 +23,8 @@
     </div>
   </div>
   <!-- 输入框 -->
-  <div class="form-group">
+  <div class="commentForm__contentWrap form-group">
+    <label for="commentForm__content" class="commentForm__contentLabel">内容：</label>
     <textarea 
       name="content" 
       rows="4" 

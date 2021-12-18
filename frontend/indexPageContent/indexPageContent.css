@@ -17,6 +17,14 @@
   margin-top:-1px;
 }
 
+.indexPageContent__paginationWrap{
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 4px;
+  /* margin-top:2rem;   */
+}
+
 
 
 

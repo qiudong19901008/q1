@@ -27,7 +27,9 @@ require_once plugin_dir_path(__FILE__) . '/registe/registeMenu.php'; //加载菜
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/helper.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Fields.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Actions.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Cookies.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Configs.php';
+
 
 // dao
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/CommentDao/CommentDao.php';

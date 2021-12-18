@@ -1,3 +1,5 @@
+import CookieHandler from "./CookieHandler";
+
 /**
  * 根据cookie名称获取cookie
  */
@@ -20,9 +22,9 @@
  * 是否已经点赞
  * @param id 文章id
  */
-const isAlreadyLike = (id:number)=>{
-  const cookies = getCookie(`q1_cookie_like_post_${id}`);
-  if(cookies){
+const isAlreadyLike = (cookieKey:string)=>{
+  const cookie = CookieHandler.getItem(cookieKey);
+  if(cookie){
     return true;
   }
   return false;

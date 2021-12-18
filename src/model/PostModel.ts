@@ -57,7 +57,7 @@ class PostModel extends BaseModel{
     const res = await httpHandler.post(url,{
       ...data,
     });
-    return res as any as {count:number};
+    return res as any as {likeCount:number};
   }
 
   public static async getPostList(url:string,params:GetPostList,page:number,size:number){

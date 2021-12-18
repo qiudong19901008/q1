@@ -8,62 +8,67 @@ import {
 } from '../../lib/htmlGetter';
 import PostModel from '../../model/PostModel';
 import CommentView from './CommentView';
+import CookieHandler from '../../lib/CookieHandler';
 
 const commentView = new CommentView();
 class PostView{
 
   /**
    * 页面初始化
-   * 1. 加载评论列表
+   * 
    */
   public async initral(){
-    // this._getCommentListHtml(1);
-    // this._bindEvents();
-    // commentView
-    await commentView.initral();
+    const cookieKey = $('.postContent__like').data('cookie');
+    if(isAlreadyLike(cookieKey)){
+      $('.postContent__like').addClass('postContent__like--done');
+    }
     this._bindEvents();
+    await commentView.initral();
+    
   }
 
-  private _bindEvents(){
-    //点赞事件
-    $('.postContent__like').on('click',this._likePost);
-  }
 
-  /**
-   * 获取评论列表
-   */
-  private async _getCommentListHtml(page=1){
-    const postId = $('.commentList').data('postid');
-    const url = $('.commentList').data('url');
-    const action = $('.commentList').data('action');
-    const size = $('.commentList').data('size');
-    const {list,count} = await PostModel.getCommentList(url,{
-      postId,
-      action,
-    },page,parseInt(size));
-    const commentListHtml = getCommentListHtml(list,url,action,size,postId);
-    $('.commentSection__listWrap').html(commentListHtml);
-  }
+  /**事件处理函数 */
 
   /**
-   * 给文章点赞
+   * 给文章点赞事件处理函数
    */
-  private async _likePost(){
-    // postContent__like--done
+   protected async likePostHandler(){
     const postId = $('.postContent__like').data('id');
-    if(isAlreadyLike(postId)){
+    const cookieKey = $('.postContent__like').data('cookie');
+    if(isAlreadyLike(cookieKey)){
       alert('您已经点过赞了!');
       return;
     }
     const url = $('.postContent__like').data('url');
     const action = $('.postContent__like').data('action');
-    const {count} = await PostModel.likePost(url,{
+    const {likeCount} = await PostModel.likePost(url,{
       postId,
       action
     });
     $('.postContent__like').addClass('postContent__like--done');
-    $('.postContent__likeCount').html(count+'');    
+    $('.postContent__likeCount').html(likeCount+'');    
+    //设置cookie
+    
+    CookieHandler.setItem(
+      cookieKey,
+      postId,
+      Infinity,
+      window.location.pathname,
+      window.location.host,
+      false,
+    );
   }
+
+
+  private _bindEvents(){
+    //点赞事件
+    $('.postContent__like').on('click',this.likePostHandler);
+  }
+
+ 
+
+  
 
 }
 
@@ -73,7 +78,6 @@ const postView = new PostView();
 
 $(function(){
   postView.initral();
-  // commentView
 })
 
 

@@ -22,9 +22,29 @@
   width: 50%;
 }
 
+.commentForm__contentWrap{
+  display: flex;
+}
+.commentForm__contentLabel{
+  width: 10% !important;
+}
+
 .commentForm__operation{
   display: flex;
   justify-content: center; 
+}
+
+.commentForm__authorNickname:focus,
+.commentForm__authorEmail:focus,
+.commentForm__authorWebsite:focus,
+.commentForm__content:focus{
+  border: 1px solid #6ac5f9 !important;
+}
+
+.commentForm__contentLabel::before,
+.commentForm__nicknameLabel::before{
+  content:'* ';
+  color:red;
 }
 
 

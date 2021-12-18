@@ -14,16 +14,15 @@
   align-items: center;
 }
 
-.commentSection__listWrap{
-  
-}
+
 
 .commentSection__paginationWrap{
   display: flex;
   justify-content: center;
   background-color: #fff;
+  /* margin-bottom:2rem; */
 }
 
-.commentSection__formWrap{
+/* .commentSection__formWrap{
   margin-top:2rem;
-}
+} */
