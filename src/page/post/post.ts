@@ -21,13 +21,12 @@ class PostView{
     // this._bindEvents();
     // commentView
     await commentView.initral();
+    this._bindEvents();
   }
 
-  private async _bindEvents(){
+  private _bindEvents(){
     //点赞事件
-    $('.like').on('click',async ()=>{
-      await this._likePost();
-    })
+    $('.postContent__like').on('click',this._likePost);
   }
 
   /**
@@ -50,21 +49,20 @@ class PostView{
    * 给文章点赞
    */
   private async _likePost(){
-    const postId = $('.like').data('id');
+    // postContent__like--done
+    const postId = $('.postContent__like').data('id');
     if(isAlreadyLike(postId)){
       alert('您已经点过赞了!');
       return;
     }
-    const url = $('.like').data('url');
-    const action = $('.like').data('action');
+    const url = $('.postContent__like').data('url');
+    const action = $('.postContent__like').data('action');
     const {count} = await PostModel.likePost(url,{
       postId,
       action
     });
-    $('.like').addClass('done');
-    $('.like span').html(count+'');
-    $('.likeShow').html(count+''); 
-    
+    $('.postContent__like').addClass('postContent__like--done');
+    $('.postContent__likeCount').html(count+'');    
   }
 
 }

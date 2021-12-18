@@ -1,6 +1,12 @@
 <form class="commentForm" 
   data-postid="<?php the_ID(); ?>"
+  data-action="<?php echo Actions::ADD_ONE_COMMENT; ?>"
+  data-url="<?php echo admin_url('admin-ajax.php') ?>"
 >
+  <!-- 提示信息 -->
+  <p class="commentForm__tips hide">
+    请输入作者信息
+  </p>
   <!-- 作者信息 -->
   <div class="commentForm__authorInfo">
     <div class="form-group">
@@ -18,10 +24,17 @@
   </div>
   <!-- 输入框 -->
   <div class="form-group">
-    <textarea name="content" rows="4" class="commentForm__content" id="commentForm__content"></textarea>
+    <textarea 
+      name="content" 
+      rows="4" 
+      class="commentForm__content" 
+      id="commentForm__content"
+      data-parentid="0"
+    ></textarea>
   </div>
   <!-- 提交按钮 -->
-  <div class="commentForm__submitArea form-group ">
+  <div class="commentForm__operation form-group ">
     <button type="button" class="commentForm__submitBtn">提交</button>
+    <button type="button" class="commentForm__resetBtn">重置</button>
   </div>
 </form>

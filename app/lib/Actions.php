@@ -25,7 +25,7 @@ class Actions{
   /**
    * 添加一条评论
    */
-  public const GET_ONE_COMMENT = 'q1_api_add_one_comment';
+  public const ADD_ONE_COMMENT = 'q1_api_add_one_comment';
    
 }
 

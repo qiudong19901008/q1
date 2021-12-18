@@ -6,6 +6,13 @@
   flex-direction: column;
 }
 
+.commentForm__tips{
+  text-align: center;
+  font-size: 1.4rem;
+  color:red;
+  margin-bottom: 1rem;
+}
+
 .commentForm__authorInfo{
   display: flex;
   flex-wrap: wrap;
@@ -15,22 +22,29 @@
   width: 50%;
 }
 
-.commentForm__submitArea{
+.commentForm__operation{
   display: flex;
   justify-content: center; 
 }
 
-.commentForm__submitBtn{
+
+
+.commentForm__submitBtn,
+.commentForm__resetBtn{
   border: none;
   color: #fff;
   cursor: pointer;
   padding:.8rem 1.6rem;
   border-radius: 4px;
   background-color: rgb(106 197 249 / 90%);
-  
 }
 
-.commentForm__submitBtn:hover{
+.commentForm__submitBtn{
+  margin-right:2rem;
+}
+
+.commentForm__submitBtn:hover,
+.commentForm__resetBtn:hover{
   background-color: rgb(106, 197, 249);
 }
 

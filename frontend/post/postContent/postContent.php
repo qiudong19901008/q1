@@ -44,8 +44,10 @@
   </p>
   <div class="postContent__interaction">
     <div 
-      class="postContent__like postContent__like--done" 
+      class="postContent__like" 
       data-id="<?php the_ID(); ?>"
+      data-action="<?php echo Actions::LIKE_POST; ?>"
+      data-url="<?php echo admin_url('admin-ajax.php') ?>"
     >
       <i class="fa fa-thumbs-up"></i>
       赞(<span class="postContent__likeCount"><?php echo $likeCount; ?></span>)

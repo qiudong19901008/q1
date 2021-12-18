@@ -1,6 +1,7 @@
 import AxiosStatic,{AxiosRequestConfig,AxiosResponse,AxiosInstance,Method } from 'axios';
 import config from '../config/config'
 import LocalStorager from './LocalStorager';
+import * as qs from 'qs';
 
 
 const defaultConfig:AxiosRequestConfig  = {
@@ -39,6 +40,8 @@ class HttpHandler{
       if(errorMsg !== ''){
         throw new Error(errorMsg);
       }
+      //3. 表单编码, 否则会404
+      reqConfig.data = qs.stringify(reqConfig.data); 
       return reqConfig;
     })
   }
@@ -72,6 +75,7 @@ class HttpHandler{
   // {list:'',count:''}
   private _setResponseInterceptors(axios:AxiosInstance){
     axios.interceptors.response.use((res)=>{
+      console.log(res);
       if(this._isResCollect(res)){
         return res.data;
       }

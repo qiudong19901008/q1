@@ -26,7 +26,7 @@ class CommentDao{
    * @param string $parentId 父级评论ID, 默认0
    * 
    * @param string $email 评论者邮箱, 默认空
-   * @param string $url 评论者网址, 默认空
+   * @param string $authorUrl 评论者网址, 默认空
    * @param string $userId 关联哪个用户, 默认0
    */
   public static function addOneComment(
@@ -37,7 +37,7 @@ class CommentDao{
     $parentId=0, //父级评论ID, 默认0
 
     $email='', //评论者邮箱, 默认空
-    $url='', //评论者网址, 默认空
+    $authorUrl='', //评论者网址, 默认空
     $userId=0 //关联哪个用户, 默认0
   )
   
@@ -50,7 +50,7 @@ class CommentDao{
 
       'comment_parent'=>$parentId,
       'comment_author_email'=>$email,
-      'comment_author_url'=>$url,
+      'comment_author_url'=>$authorUrl,
       'user_id'=>$userId,
     ]);
     if(!$commentId){
