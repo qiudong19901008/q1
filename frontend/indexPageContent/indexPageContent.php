@@ -4,14 +4,16 @@
 
 <div class="indexPageContent">
   <!-- 置顶文章 -->
-  <div class="indexPageContent__topPost">
+  <!-- <div class="indexPageContent__topPost">
     <div class="indexPageContent__topPostTitle">
       置顶
     </div>
-    <div class="indexPageContent__topPostWrap">
-      <?php get_template_part('frontend/common/postCard/postCard') ?>
-    </div>
-  </div>
+    <div class="indexPageContent__topPostWrap"> -->
+      <?php 
+        // get_template_part('frontend/common/postCard/postCard') 
+      ?>
+    <!-- </div>
+  </div> -->
   <!-- 文章列表 -->
   <div class="indexPageContent__postList">
     <div class="indexPageContent__postListTitle">

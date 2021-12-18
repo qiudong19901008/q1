@@ -1,3 +1,8 @@
+<?php
+  // var_dump($args['postList']);
+?>
+
+
 <div class="widgetRecommendCard">
   <h2 class="widgetRecommendCard__title"><?php echo $args['name']; ?></h2>
   <div class="widgetRecommendCard__postList">

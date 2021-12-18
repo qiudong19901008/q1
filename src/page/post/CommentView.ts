@@ -94,11 +94,13 @@ class CommentView{
           const parentId = $('.commentForm__content').data('parentid');
           //2. 
           if(!author){
-            this._showTips('请输入您的昵称!');
+            // this._showTips('请输入您的昵称!');
+            alert('请输入您的尊姓大名')
             return;
           }
           if(!content){
-            this._showTips('请输入您评论的内容!');
+            alert('请输入您评论的内容');
+            // this._showTips('请输入您评论的内容!');
             return;
           }
           this._openLoading();
@@ -201,10 +203,10 @@ class CommentView{
     // 内容输入框失去焦点事件
     // $('.commentForm__content').on('blur',this.contentInputBoxBlurHandler);
     // 输入框获得焦点事件
-    $('.commentForm__authorNickname').on('focus',this.inputBoxFocusHandler);
-    $('.commentForm__authorEmail').on('focus',this.inputBoxFocusHandler);
-    $('.commentForm__authorWebsite').on('focus',this.inputBoxFocusHandler);
-    $('.commentForm__content').on('focus',this.inputBoxFocusHandler);
+    // $('.commentForm__authorNickname').on('focus',this.inputBoxFocusHandler);
+    // $('.commentForm__authorEmail').on('focus',this.inputBoxFocusHandler);
+    // $('.commentForm__authorWebsite').on('focus',this.inputBoxFocusHandler);
+    // $('.commentForm__content').on('focus',this.inputBoxFocusHandler);
     
     // 评论表单提交事件
     $('.commentSection .commentForm__submitBtn').on('click',this.submitFormHandler);

@@ -72,6 +72,9 @@
 //     Fields::COUNT_POST_VIEW,
 //   ],
 // );
+$res = PostDao::queryRecommendPostList('like',6);
+
+var_dump($res);
 
 // var_dump($listAndCount);
 

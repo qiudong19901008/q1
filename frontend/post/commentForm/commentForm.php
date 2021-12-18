@@ -4,9 +4,9 @@
   data-url="<?php echo admin_url('admin-ajax.php') ?>"
 >
   <!-- 提示信息 -->
-  <p class="commentForm__tips hide">
+  <!-- <p class="commentForm__tips hide">
     请输入作者信息
-  </p>
+  </p> -->
   <!-- 作者信息 -->
   <div class="commentForm__authorInfo">
     <div class="form-group">

@@ -85,54 +85,54 @@ class BasePostDao{
     return $res;
   }
 
-  private static function _injectOtherFields($postList,$includeTableNameList,$metaNameList){
+  private static function _injectOtherFields($myPostList,$includeTableNameList,$metaNameList){
     
     //注入meta
     $isIncludeMeta = BasePostDao::_isIncludeMeta($includeTableNameList);
     if($isIncludeMeta){
-      $postList = BasePostDao::_addMetaTableInfo($postList,$metaNameList);
+      $myPostList = BasePostDao::_addMetaTableInfo($myPostList,$metaNameList);
     }
     //注入作者
     $isIncludeAuthor = BasePostDao::_isIncludeAuthor($includeTableNameList);
     if($isIncludeAuthor){
-      $postList = BasePostDao::_addAuthorTableInfo($postList);
+      $myPostList = BasePostDao::_addAuthorTableInfo($myPostList);
     }
     //注入分类
     $isIncludeCategory = BasePostDao::_isIncludeCategory($includeTableNameList);
     if($isIncludeCategory){
-      $postList = BasePostDao::_addCategoryTableInfo($postList);
+      $myPostList = BasePostDao::_addCategoryTableInfo($myPostList);
     }
     //注入标签
     $isIncludeTag = BasePostDao::_isIncludeTag($includeTableNameList);
     if($isIncludeTag){
-      $postList = BasePostDao::_addTagTableInfo($postList);
+      $myPostList = BasePostDao::_addTagTableInfo($myPostList);
     }
-    return $postList;
+    return $myPostList;
   }
 
-  private static function _addCategoryTableInfo($postList){
+  private static function _addCategoryTableInfo($myPostList){
     $res = [];
-    foreach($postList as $post){
-      $post = BasePostDao::_addCategoryTableInfoToOnePost($post);
-      array_push($res,$post);
+    foreach($myPostList as $myPost){
+      $myPost = BasePostDao::_addCategoryTableInfoToOnePost($myPost);
+      array_push($res,$myPost);
     }
     return $res;
   }
 
-  private static function _addTagTableInfo($postList){
+  private static function _addTagTableInfo($myPostList){
     $res = [];
-    foreach($postList as $post){
-      $post = BasePostDao::_addTagTableInfoToOnePost($post);
-      array_push($res,$post);
+    foreach($myPostList as $myPost){
+      $myPost = BasePostDao::_addTagTableInfoToOnePost($myPost);
+      array_push($res,$myPost);
     }
     return $res;
   }
 
-  private static function _addTagTableInfoToOnePost($post){
-    $tagList = get_the_tags($post['id']);
+  private static function _addTagTableInfoToOnePost($myPost){
+    $tagList = get_the_tags($myPost['id']);
     if(!$tagList){
-      $post['tagList'] = [];
-      return $post;
+      $myPost['tagList'] = [];
+      return $myPost;
     }
     $myTagList = [];
     foreach($tagList as $tag){
@@ -144,12 +144,12 @@ class BasePostDao{
       ];
       array_push($myTagList,$oneTag);
     }
-    $post['tagList']=$myTagList;
-    return $post;
+    $myPost['tagList']=$myTagList;
+    return $myPost;
   }
 
-  private static function _addCategoryTableInfoToOnePost($post){
-    $categoryList = get_the_category($post['id']);
+  private static function _addCategoryTableInfoToOnePost($myPost){
+    $categoryList = get_the_category($myPost['id']);
     $myCategoryList = [];
     foreach($categoryList as $category){
       $oneCategory = [
@@ -160,8 +160,8 @@ class BasePostDao{
       ];
       array_push($myCategoryList,$oneCategory);
     }
-    $post['categoryList']=$myCategoryList;
-    return $post;
+    $myPost['categoryList']=$myCategoryList;
+    return $myPost;
   }
 
  
@@ -201,67 +201,68 @@ class BasePostDao{
     return false;
   }
 
-  private static function _addAuthorTableInfo($postList){
+  private static function _addAuthorTableInfo($myPostList){
     $res = [];
-    $userIdList = BasePostDao::_getUserIdList($postList);
+    $userIdList = BasePostDao::_getUserIdList($myPostList);
     $userList = UserDao::getUserListByUserIdList($userIdList);
-    foreach($postList as $post){
-      $post = BasePostDao::_addAuthorTableInfoToOnePost($post,$userList);
-      array_push($res,$post);
+    foreach($myPostList as $myPost){
+      $myPost = BasePostDao::_addAuthorTableInfoToOnePost($myPost,$userList);
+      array_push($res,$myPost);
     }
     return $res;
   }
 
-  private static function _addAuthorTableInfoToOnePost($post,$userList){
+  private static function _addAuthorTableInfoToOnePost($myPost,$userList){
     foreach($userList as $user){
-      if($post['authorId'] == $user->ID){
-        $post['authorName'] = $user->user_nicename;
+      if($myPost['authorId'] == $user->ID){
+        $myPost['authorName'] = $user->user_nicename;
       }
     }
-    return $post;
+    return $myPost;
   }
 
-  private static function _getPostIdList($postList){
-    $postIdList= [];
-    foreach($postList as $post){
-      array_push($postIdList,$post['id']);
+  private static function _getPostIdList($myPostList){
+    $res= [];
+    foreach($myPostList as $myPost){
+      array_push($res,$myPost['id']);
     }
-    return $postIdList;
+    return $res;
   }
 
-  private static function _getUserIdList($postList){
+  private static function _getUserIdList($myPostList){
     $userIdList= [];
-    foreach($postList as $post){
-      array_push($userIdList,$post['authorId']);
+    foreach($myPostList as $myPost){
+      array_push($userIdList,$myPost['authorId']);
     }
     $userIdList = array_unique($userIdList);
     return $userIdList;
   }
 
 
-  private static function _addMetaTableInfo($postList,$metaNameList=[]){
+  private static function _addMetaTableInfo($myPostList,$metaNameList=[]){
     $res = [];
-    $postIdList = BasePostDao::_getPostIdList($postList);
-    $metaList = PostMetaDao::getPostMetaListByPostIdList($postIdList,$metaNameList);
-    foreach($postList as $post){
-      $post = BasePostDao::_addMetaTableInfoToOnePost($post,$metaList);
-      array_push($res,$post);
+    $myPostList = BasePostDao::_getPostIdList($myPostList);
+    $metaList = PostMetaDao::getPostMetaListByPostIdList($myPostList,$metaNameList);
+    foreach($myPostList as $myPost){
+      $myPost = BasePostDao::_addMetaTableInfoToOnePost($myPost,$metaList,$metaNameList);
+      array_push($res,$myPost);
     }
     return $res;
   }
 
   
 
-  private static function _addMetaTableInfoToOnePost($post,$metaList){
+  private static function _addMetaTableInfoToOnePost($myPost,$metaList,$metaNameList){
     foreach($metaList as $meta){
-      if((int)$meta->post_id == $post['id']){
-        $post = BasePostDao::_addOneMetaToPost($post,$meta);
+      if((int)$meta->post_id == $myPost['id']){
+        $myPost = BasePostDao::_addOneMetaToPost($myPost,$meta);
       }
     }
-    return $post;
+    $myPost = BasePostDao::_setDefaultMetaValue($myPost,$metaNameList);
+    return $myPost;
   }
 
-  private static function _addOneMetaToPost($post,$meta){
+  private static function _addOneMetaToPost($myPost,$meta){
     $metaList = [];
     switch($meta->meta_key){
       case Fields::COUNT_POST_LIKE:
@@ -273,8 +274,34 @@ class BasePostDao{
       default:
         $metaList[$meta->meta_key] = $meta->meta_value;
     }
-    $post['meta'] = $metaList;
-    return $post;
+    $myPost['meta'] = $metaList;
+    return $myPost;
+  }
+
+  private static function _setDefaultMetaValue($myPost,$metaNameList){
+    foreach($metaNameList as $metaName){
+      $myPost = BasePostDao::_setDefaultValueToOneMeta($myPost,$metaName);
+    }
+    return $myPost;
+  }
+
+  private static function _setDefaultValueToOneMeta($myPost,$metaName){
+    $metaList = $myPost['meta'];
+    if(isset($metaList[$metaName])){
+      return;
+    }
+    switch($metaName){
+      case Fields::COUNT_POST_LIKE:
+        $metaList['likeCount'] = 0;
+        break;
+      case Fields::COUNT_POST_VIEW:
+        $metaList['viewCount'] = 0;
+        break;
+      default:
+        $metaList[$metaName] = 0;
+    }
+    $myPost['meta'] = $metaList;
+    return $myPost;
   }
 
 

@@ -9,7 +9,7 @@
 >
   <div class="postList__CardWrap">
     <?php 
-      get_template_part('frontend/common/postCard/postCard') 
+      // get_template_part('frontend/common/postCard/postCard') 
     ?>
   </div>
 </div>

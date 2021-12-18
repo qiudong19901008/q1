@@ -32,8 +32,8 @@ class WidgetRecommendPosts extends WP_Widget{
       $name = getValue($instance['name'],'推荐文章');
       $size = getValue($instance['size'],6);
       $type = getValue($instance['type'],'view');
-
       $postList = PostDao::queryRecommendPostList($type,$size);
+      // var_dump($postList);
 
       if(count($postList) > 0){
         $postList = $this->_addPostMetaHtml($postList,$type);
@@ -55,16 +55,19 @@ class WidgetRecommendPosts extends WP_Widget{
     }
 
     private function _getMetaHtml($type,$post){
+        $meta = $post['meta'];
         $text = '';
         switch($type){
           case 'view':
-            $text = '浏览('.$post[Fields::COUNT_POST_VIEW].')';
+            $viewCount = $meta['viewCount']? $meta['viewCount']:0;
+            $text = '浏览('.$viewCount.')';
             break;
           case 'comment':
             $text = '评论('.$post['commentCount'].')';
             break;
           case 'like':
-            $text = '点赞('.$post[Fields::COUNT_POST_LIKE].')';
+            $likeCount = $meta['likeCount']? $meta['likeCount']:0;
+            $text = '点赞('.$likeCount.')';
             break;
         }
         return '<span>'.$text.'</span>';
@@ -72,10 +75,9 @@ class WidgetRecommendPosts extends WP_Widget{
 
     // Widget Backend 
     public function form( $instance ) {
-      // get_template_part('','',)
       $name = getValue($instance['name'],'推荐文章');
       $size = getValue($instance['size'],6);
-      $type = getValue($instance['type'],'view');
+      $type = getValue($instance['type'],'like');
     ?>
     
     <p>
@@ -105,7 +107,7 @@ class WidgetRecommendPosts extends WP_Widget{
         id="view" 
         name="<?php echo $this->get_field_name( 'type' ); ?>" 
         value="view"
-        <?php echo $type === 'view'?'checked':'' ?>
+        <?php echo $type == 'view'?'checked':'' ?>
       >
       <label for="view">浏览量</label>
 
@@ -114,7 +116,7 @@ class WidgetRecommendPosts extends WP_Widget{
         id="comment" 
         name="<?php echo $this->get_field_name( 'type' ); ?>" 
         value="comment"
-        <?php echo $type === 'comment'?'checked':'' ?>
+        <?php echo $type == 'comment'?'checked':'' ?>
       >
       <label for="comment">评论数</label>
 
@@ -123,7 +125,7 @@ class WidgetRecommendPosts extends WP_Widget{
         id="like" 
         name="<?php echo $this->get_field_name( 'type' ); ?>" 
         value="like"
-        <?php echo $type === 'like'?'checked':'' ?>
+        <?php echo $type == 'like'?'checked':'' ?>
       >
       <label for="like">点赞数</label>
       
@@ -137,7 +139,7 @@ class WidgetRecommendPosts extends WP_Widget{
       $instance = array();
       $instance['name'] =  strip_tags($new_instance['name']);
       $instance['size'] =  strip_tags($new_instance['size']);
-      $instance['type'] =  strip_tags($new_instance['type']);
+      $instance['type'] =  $new_instance['type'];
       return $instance;
     }
 
