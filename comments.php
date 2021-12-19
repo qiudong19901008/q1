@@ -72,9 +72,39 @@
 //     Fields::COUNT_POST_VIEW,
 //   ],
 // );
-$res = PostDao::queryRecommendPostList('like',6);
+// $res = PostDao::queryRecommendPostList('like',6);
+// $res = PostMetaDao::getPostMetaListByPostIdList([71],[
+//   Fields::COUNT_POST_LIKE,
+//   Fields::COUNT_POST_VIEW,
+// ]);
+// $res = empty('');
 
-var_dump($res);
+// $myPostList = ['abc'];
+// unset($myPostList['0']);
+// $myPostList = array_values($myPostList);
+// echo count($myPostList);
+
+
+// 测试metaKey排序
+// $listAndCount = PostDao::queryPostList(
+//   [],
+//   null,
+//   null,
+//   ['meta'],
+//   [Fields::COUNT_POST_VIEW],
+//   '',
+//   'DESC',
+//   1,
+//   10,
+//   Fields::COUNT_POST_VIEW
+// );
+// $res = [];
+// foreach($listAndCount['list'] as $one){
+//   $likeCount = $one['meta'];
+//   array_push($res,$likeCount);
+// }
+
+// var_dump($res);
 
 // var_dump($listAndCount);
 

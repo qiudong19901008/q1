@@ -32,9 +32,7 @@ class WidgetRecommendPosts extends WP_Widget{
       $name = getValue($instance['name'],'推荐文章');
       $size = getValue($instance['size'],6);
       $type = getValue($instance['type'],'view');
-      $postList = PostDao::queryRecommendPostList($type,$size);
-      // var_dump($postList);
-
+      $postList = PostService::queryWidgetRecommendPostList($type,$size);
       if(count($postList) > 0){
         $postList = $this->_addPostMetaHtml($postList,$type);
         get_template_part('frontend/widget/widgetRecommendCard/widgetRecommendCard',null,[
@@ -59,14 +57,14 @@ class WidgetRecommendPosts extends WP_Widget{
         $text = '';
         switch($type){
           case 'view':
-            $viewCount = $meta['viewCount']? $meta['viewCount']:0;
+            $viewCount = $meta[Fields::COUNT_POST_VIEW];
             $text = '浏览('.$viewCount.')';
             break;
           case 'comment':
             $text = '评论('.$post['commentCount'].')';
             break;
           case 'like':
-            $likeCount = $meta['likeCount']? $meta['likeCount']:0;
+            $likeCount = $meta[Fields::COUNT_POST_LIKE];
             $text = '点赞('.$likeCount.')';
             break;
         }

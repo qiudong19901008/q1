@@ -19,22 +19,65 @@ class PostService{
   }
 
   /**
-   * @description 查询推荐文章
+   * @description 查询post页面的推荐文章列表
    * @param int $postId 文章id
    * @return array [id,title,url]推荐的文章列表
    */
-  public static function queryRecommendPostList($postId){
+  public static function queryPostPageRecommendPostList($postId){
+    //找出该文章所属的分类
     $categoryList = CategoryDao::getCategoryListByPostId($postId,true);
     $category = $categoryList[0];
-    $res = PostDao::queryPostListByCategoryId(
-      $category['id'],
+    $listAndCount = PostDao::queryPostList(
+      ['categoryId'=>$category['id']],
       [$postId],
+      null,
+      [],
+      [],
       'rand',
-      'DESC',
+      '',
       1,
-      Configs::RECOMMEND_POST_COUNT
+      Configs::RECOMMEND_POST_COUNT,
+      ''
     );
-    return $res;
+    return $listAndCount['list'];
+  }
+
+  /**
+   * @description 查询小工具推荐文章的文章列表
+   * @param string ['comment','view','like'] $orderByType
+   * @param number $count
+   */
+  public static function queryWidgetRecommendPostList($orderByType,$count=6){
+      $orderBy = '';
+      $orderByMetaKey = '';
+      switch($orderByType){
+        case 'comment':
+          $orderBy = 'comment_count';
+          break;
+        case 'view':
+          $orderByMetaKey = Fields::COUNT_POST_VIEW;
+          break;
+        case 'like':
+          $orderByMetaKey = Fields::COUNT_POST_LIKE;
+          break;
+      }
+      //根据分类找出文章
+      $listAndCount = PostDao::queryPostList(
+        [],
+        null,
+        null,
+        ['meta'],
+        [
+          Fields::COUNT_POST_LIKE,
+          Fields::COUNT_POST_VIEW,
+        ],
+        $orderBy,
+        'DESC',
+        1,
+        $count,
+        $orderByMetaKey
+      );
+      return $listAndCount['list'];
   }
 
 

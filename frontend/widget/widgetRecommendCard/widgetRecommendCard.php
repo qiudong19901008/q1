@@ -9,14 +9,14 @@
 
     
 
-      <?php foreach($args['postList'] as $post): ?>
+      <?php foreach($args['postList'] as $myPost): ?>
 
         <div class="widgetRecommendCard__postWrap">
 
           <?php 
             get_template_part('frontend/widget/simplePostCard/simplePostCard',null,[
-              'post'=>$post,
-            ]) 
+              'post'=>$myPost,
+            ]);
           ?>
 
         </div>

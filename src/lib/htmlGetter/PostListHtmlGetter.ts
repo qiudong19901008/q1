@@ -61,13 +61,13 @@ class PostListHtmlGetter{
 
   private static _renderPostMeta(post:any){
 
-    const meta = post.meta?post.meta:{};
+    const meta = post.meta;
 
     return `
       <div class="postCard__meta">
         <time class="postCard__createTime">
           <i class="fa fa-clock"></i>
-          ${post.create_time}
+          ${post.create_date}
         </time>
         <span class="postCard__author">
           <i class="fa fa-user"></i>
@@ -75,15 +75,15 @@ class PostListHtmlGetter{
         </span>
         <span class="postCard__viewCount">
           <i class="fa fa-eye"></i>
-          阅读(${meta.viewCount?meta.viewCount:0})
+          阅读(${meta.q1_field_post_view_count})
         </span>
         <span class="postCard__commentCount">
           <i class="fa fa-comments"></i>
-          评论(${post.commentCount?post.commentCount:0})
+          评论(${post.commentCount})
         </span>
         <span href="#" class="postCard__likeCount">
           <i class="fa fa-thumbs-up"></i>
-          赞(${meta['likeCount']?meta['likeCount']:0})
+          赞(${meta.q1_field_post_like_count})
         </span>
       </div>
     

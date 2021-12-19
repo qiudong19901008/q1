@@ -16,7 +16,7 @@ class QueryPostList extends BasePostDao{
    * @param Array $includePostIdList 需要包含的文章id列表
    * @param array ['author'|'category'|'meta'|'tag'] — $includeTableNameList 包含的额外表名列表
    * @param array $metaNameList — 额外字段的名字列表, 如果没有包含meta表则会忽略该选项, 留空数组也会忽略
-   * @param 'create_time'|'update_time'|'rand' $orderBy 需要排序的字段 默认创建时间
+   * @param 'create_time'|'update_time'|'rand'|'comment_count' $orderBy 需要排序的字段 默认创建时间
    * @param 'ASC'|'DESC' 升序或降序,默认降序
    * @param int $page 页码
    * @param int $size 数量
@@ -33,7 +33,7 @@ class QueryPostList extends BasePostDao{
       $order='DESC',
       $page=1,
       $size=10,
-      $orderByMetaKey='',
+      $orderByMetaKey=''
   ){
     $res = [];
     $args = [
@@ -108,18 +108,63 @@ class QueryPostList extends BasePostDao{
         break;
       case 'create_time':
         $res = 'date';
-        break;    
+        break;
+      default:
+        $res = $orderBy;
     }
     return $res;
   }
 
+  /**8***********************排序算法********************** */
+
   /**
    * @param array $myPostList 存放了所有数据的postlist
-   * @param string $orderByMetaKey
-   * @param 'DESC'|'ASC' $order
+   * @param string $orderByMetaKey 排序的键
+   * @param string 'DESC'|'ASC' $order
    */
   private static function _orderByMeta($myPostList,$orderByMetaKey,$order){
+    $res=[];
+    while(count($myPostList)>0){
+      $bigest = QueryPostList::_findPostHaveBigestMetaValue($myPostList,$orderByMetaKey);
+      //从原始myPostList中删除最大的元素,并重置索引
+      unset($myPostList[$bigest['myPostKey']]);
+      $myPostList = array_values($myPostList);
+      //把最大元素放进结果集
+      if(strtoupper($order) == 'DESC'){ // 倒叙排列, 由大到小
+        array_push($res,$bigest['myPost']);
+      }else{ //正序排列, 由小到大
+        array_unshift($res,$bigest['myPost']);
+      }
+    }
+    return $res;
+  }
 
+
+  private static function _findPostHaveBigestMetaValue($myPostList,$orderByMetaKey){
+    //初始化
+    $firstMyPost = $myPostList[0];
+    $metaValue = (int)$firstMyPost['meta'][$orderByMetaKey];
+    $bigest = [
+      'metaValue'=>$metaValue, //存放当前最大的meta值, 用来和其他post做比较
+      'myPostKey'=>0, //到最后根据键位来删除最大myPost
+      'myPost'=>$firstMyPost   //最后返回的最大post
+    ];
+    //如果只剩下一个则直接返回
+    if(count($myPostList) === 1){
+      return $bigest;
+    }
+    //找出最大myPost
+    foreach($myPostList as $myPostKey=>$myPost){
+      $metaValue = (int)$myPost['meta'][$orderByMetaKey];
+      if($metaValue > $bigest['metaValue']){
+        $bigest = [
+          'metaValue'=> $metaValue,
+          'myPostKey'=>$myPostKey,
+          'myPost'=>$myPost,
+        ];
+      }
+    }
+    return $bigest;
   }
 
 }

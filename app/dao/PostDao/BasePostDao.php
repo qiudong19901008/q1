@@ -241,10 +241,10 @@ class BasePostDao{
 
   private static function _addMetaTableInfo($myPostList,$metaNameList=[]){
     $res = [];
-    $myPostList = BasePostDao::_getPostIdList($myPostList);
-    $metaList = PostMetaDao::getPostMetaListByPostIdList($myPostList,$metaNameList);
+    $myPostIdList = BasePostDao::_getPostIdList($myPostList);
+    $allMetaList = PostMetaDao::getPostMetaListByPostIdList($myPostIdList,$metaNameList);
     foreach($myPostList as $myPost){
-      $myPost = BasePostDao::_addMetaTableInfoToOnePost($myPost,$metaList,$metaNameList);
+      $myPost = BasePostDao::_addMetaTableInfoToOnePost($myPost,$allMetaList,$metaNameList);
       array_push($res,$myPost);
     }
     return $res;
@@ -252,57 +252,37 @@ class BasePostDao{
 
   
 
-  private static function _addMetaTableInfoToOnePost($myPost,$metaList,$metaNameList){
-    foreach($metaList as $meta){
-      if((int)$meta->post_id == $myPost['id']){
-        $myPost = BasePostDao::_addOneMetaToPost($myPost,$meta);
+  private static function _addMetaTableInfoToOnePost($myPost,$allMetaList,$metaNameList){
+    $postMetaList = [];
+    foreach($metaNameList as $metaName){
+      $value = BasePostDao::_extractMetaValueByPostIdAndMetaName($allMetaList,$metaName,$myPost['id']);
+      $postMetaList[$metaName] = $value;
+    }
+    $myPost['meta'] = $postMetaList;
+    return $myPost;
+  }
+
+  /**
+   * @description 根据postId和metaName从meta列表中提取meta值, 不存在则默认0
+   */
+  private static function _extractMetaValueByPostIdAndMetaName($allMetaList,$metaName,$postId){
+    $res='';
+    foreach($allMetaList as $key=>$meta){
+      if((int)$meta->post_id== $postId && $meta->meta_key == $metaName){
+        $res=$meta->meta_value;
+        unset($allMetaList[$key]);
       }
     }
-    $myPost = BasePostDao::_setDefaultMetaValue($myPost,$metaNameList);
-    return $myPost;
+    if(empty($res)){
+      $res = 0;
+    }
+    return $res;
   }
 
-  private static function _addOneMetaToPost($myPost,$meta){
-    $metaList = [];
-    switch($meta->meta_key){
-      case Fields::COUNT_POST_LIKE:
-        $metaList['likeCount'] = $meta->meta_value;
-        break;
-      case Fields::COUNT_POST_VIEW:
-        $metaList['viewCount'] = $meta->meta_value;
-        break;
-      default:
-        $metaList[$meta->meta_key] = $meta->meta_value;
-    }
-    $myPost['meta'] = $metaList;
-    return $myPost;
-  }
 
-  private static function _setDefaultMetaValue($myPost,$metaNameList){
-    foreach($metaNameList as $metaName){
-      $myPost = BasePostDao::_setDefaultValueToOneMeta($myPost,$metaName);
-    }
-    return $myPost;
-  }
 
-  private static function _setDefaultValueToOneMeta($myPost,$metaName){
-    $metaList = $myPost['meta'];
-    if(isset($metaList[$metaName])){
-      return;
-    }
-    switch($metaName){
-      case Fields::COUNT_POST_LIKE:
-        $metaList['likeCount'] = 0;
-        break;
-      case Fields::COUNT_POST_VIEW:
-        $metaList['viewCount'] = 0;
-        break;
-      default:
-        $metaList[$metaName] = 0;
-    }
-    $myPost['meta'] = $metaList;
-    return $myPost;
-  }
+
+  
 
 
 }

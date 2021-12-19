@@ -1,6 +1,6 @@
 
 <?php
-  $post = $args['post'];
+  $myPost = $args['post'];
   // var_dump($post);
 ?>
 
@@ -9,20 +9,20 @@
   <a class="simplePostCard__thumbnail" href="#">
     <img
       class="simplePostCard__thumbnailImg"
-      src="<?php echo $post['thumbnail']; ?>" 
+      src="<?php echo $myPost['thumbnail']; ?>" 
       alt=""
     >
   </a>
   <div class="simplePostCard__info">
     <div class="simplePostCard__meta">
-      <time class="simplePostCard__time"><?php echo $post['create_time']; ?></time>
-      <?php echo $post['metaHtml']; ?>
+      <time class="simplePostCard__time"><?php echo $myPost['create_date']; ?></time>
+      <?php echo $myPost['metaHtml']; ?>
     </div>
     <a 
       class="simplePostCard__title"
-      href="<?php echo $post['url']; ?>"
+      href="<?php echo $myPost['url']; ?>"
     >
-      <?php echo $post['title']; ?>
+      <?php echo $myPost['title']; ?>
     </a>
   </div>
 </div>
