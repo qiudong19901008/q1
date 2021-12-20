@@ -31,9 +31,19 @@
   font-size: 14px;
   flex-grow: 1;
 }
+
+
+
 .siteHeader__navMenuContainer .menu li{
   margin-right:2rem;
 }
+
+.siteHeader__navMenuContainer .menu li::after{
+  content:"<";
+}
+
+
+
 
 
 

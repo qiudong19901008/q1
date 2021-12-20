@@ -3,28 +3,31 @@
   $footerMenuList = getQ1Option(Options::Q1_FOOTER_MENU_OPTION_NAME,'array');
   $footerLicenseList = getQ1Option(Options::Q1_FOOTER_LICENSE_OPTION_NAME,'array');
   $footerCopyright = getQ1Option(Options::Q1_FOOTER_COPYRIGHT_OPTION_NAME);
+  $friendLinkList = getQ1Option(Options::Q1_FRIEND_LINK_OPTION_NAME,'array');
 
 ?>
 
 
 <div class="siteFooter">
     <!-- 友情链接 -->
-    <div class="siteFooter__friendLink">
-      <div class="siteFooter__friendLinkTitle">
-        友情链接:
+    <?php if(count($friendLinkList) != 0): ?>
+
+      <div class="siteFooter__friendLink">
+        <div class="siteFooter__friendLinkTitle">
+          友情链接:
+        </div>
+        <ul class="siteFooter__friendLinkList">
+
+          <?php foreach($friendLinkList as $index => $link): ?>
+
+            <?php echo $link; ?>
+
+          <?php endforeach;?>
+
+        </ul>
       </div>
-      <ul class="siteFooter__friendLinkList">
-        <li class="siteFooter__friendLinkListItem">
-          <a href="#">百度</a>
-        </li>
-        <li class="siteFooter__friendLinkListItem">
-          <a href="#">百度</a>
-        </li>
-        <li class="siteFooter__friendLinkListItem">
-          <a href="#">百度</a>
-        </li>
-      </ul>
-    </div>
+
+    <?php endif; ?>
     
     <!-- menu -->
     <ul class="siteFooter__menu">

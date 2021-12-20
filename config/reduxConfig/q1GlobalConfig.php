@@ -67,6 +67,28 @@ Redux::set_field(
 ) ;
 
 
+/**
+ * 2. 友情链接设置
+ */
+$section = array(
+	'title'      => esc_html__( '友情链接', 'your-textdomain-here' ),
+	'desc'       => '',
+	'id'         => 'friend_link_setting',
+	'subsection' => true
+);
 
+Redux::set_section( $opt_name, $section );
 
-
+//版权许可
+Redux::set_field( 
+  $opt_name, 
+  'friend_link_setting', 
+  [
+    'id'=>Options::Q1_FRIEND_LINK_OPTION_NAME,
+    'type' => 'multi_text',
+    'title' => esc_html__('友情链接', 'your-textdomain-here'),
+    'subtitle' => esc_html__('友情链接', 'your-textdomain-here'),
+    'placeholder' => '<a href="#">百度</a>',
+    'desc' => esc_html__('友情链接', 'your-textdomain-here')
+  ]
+) ;

@@ -24,5 +24,10 @@ class Options{
    */
   public const Q1_FOOTER_LICENSE_OPTION_NAME = 'footer_license';
 
+  /**
+   * Q1主题的友情链接选项名
+   */
+  public const Q1_FRIEND_LINK_OPTION_NAME = 'friend_link';
+
 
 }

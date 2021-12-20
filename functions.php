@@ -100,5 +100,10 @@ function updatePostViewCount(){
 add_action('wp_head', 'updatePostViewCount');
 
 
+//禁止访问特定文件夹
+// function forbiden(){
+  
+// }
+// add_action('wp_head', 'forbiden');
 
 

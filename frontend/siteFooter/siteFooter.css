@@ -30,14 +30,17 @@
 
 .siteFooter__friendLinkList{
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.siteFooter__friendLinkListItem{
-  padding:1rem;
+
+.siteFooter__friendLinkList > *{
+  padding-right:1rem;
 }
 
 
-/* 补充信息 */
+
 .siteFooter__menu,
 .siteFooter__licence{
   display: flex;
