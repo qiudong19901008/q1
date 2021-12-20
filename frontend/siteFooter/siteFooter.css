@@ -38,20 +38,22 @@
 
 
 /* 补充信息 */
-.siteFooter__additionalInfo{
+.siteFooter__menu,
+.siteFooter__licence{
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
-.siteFooter__additionalInfoCutOff{
+.siteFooter__cutOff{
   margin:0 3px;
 }
 
 
 @media screen and (max-width:1000px) {
   .siteFooter__friendLink,
-  .siteFooter__additionalInfo{
+  .siteFooter__menu,
+  .siteFooter__licence{
     display: none;
   }
 }

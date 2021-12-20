@@ -104,9 +104,17 @@
 //   array_push($res,$likeCount);
 // }
 
-// var_dump($res);
+// $potions = [];
+// $options[] = ['abc'=>'121'];
 
-// var_dump($listAndCount);
+// $location = apply_filters( 'options_framework_location', array( 'config/options.php' ) );
+// $res = Redux::get_option('q1_option','footer_copyright');
+// // var_dump($res);
+// echo $res;
+
+//   $res = getQ1Option(Options::Q1_FOOTER_MENU_OPTION_NAME);
+
+// var_dump($res);
 
 ?>
 
