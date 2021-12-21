@@ -43,15 +43,46 @@ function getSeoTitle(){
 function getSeoDescription(){
   $siteDescription = get_option('blogdescription');
   if(is_home()){
-    
+    $res = $siteDescription;
   }else if(is_category()){
-    
+    $res = strip_tags(category_description());
+    // $res = category_description();
   }else if(is_tag()){
-    
+    $res = strip_tags(tag_description());
+    // $res = tag_description();
   }else if(is_search()){
     global $s;
-    
+    $res = $s;
   }else if(is_single()){
-    
+    $res = get_post_meta(get_the_ID(),Fields::POST_DESCRIPTION,true);
+    if(empty($res)){
+      $res = get_the_title();
+    }
   }
+  return $res;
+}
+
+/**
+ * 获取seo关键词
+ */
+function getSeoKeywords(){
+  $siteDescription = get_option('blogdescription');
+  if(is_home()){
+    $res = $siteDescription;
+  }else if(is_category()){
+    $res = strip_tags(category_description());
+    // $res = category_description();
+  }else if(is_tag()){
+    $res = strip_tags(tag_description());
+    // $res = tag_description();
+  }else if(is_search()){
+    global $s;
+    $res = $s;
+  }else if(is_single()){
+    $res = get_post_meta(get_the_ID(),Fields::POST_DESCRIPTION,true);
+    if(empty($res)){
+      $res = get_the_title();
+    }
+  }
+  return $res;
 }

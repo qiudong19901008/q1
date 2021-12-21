@@ -29,6 +29,8 @@ require_once plugin_dir_path(__FILE__) . '/lib/constant/Cookies.php';
 
 //metabox
 require_once plugin_dir_path(__FILE__) . '/lib/metaBox/PostMetaBoxList.php';
+require_once plugin_dir_path(__FILE__) . '/lib/metaBox/CategoryMetaBoxList.php';
+// CategoryMetaBoxList
 
 //帮助函数
 require_once plugin_dir_path(__FILE__) . '/lib/helper.php';
@@ -107,6 +109,7 @@ add_action('wp_head', 'updatePostViewCount');
 
 //加载post meta box list
 new PostMetaBoxList();
+new CategoryMetaBoxList();
 
 
 

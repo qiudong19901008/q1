@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title><?php echo getSeoTitle() ?></title>
-  <meta name="description" content="<?php bloginfo('description'); ?>">
+  <meta name="description" content="<?php echo getSeoDescription(); ?>">
   
   <?php wp_head(); ?>
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
