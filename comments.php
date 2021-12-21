@@ -116,6 +116,11 @@
 
 // var_dump($res);
 
+// $res = get_option('blogname');
+// echo $res;
+
+// $res = getSeoTitle();
+// var_dump($res);
 ?>
 
 

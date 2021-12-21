@@ -9,6 +9,14 @@
     <a href="<?php echo home_url(); ?>" class="siteHeader__logo">合道社</a>
     <!-- <i class="fa fa-angle-down"></i> -->
     <!-- 菜单 -->
+    <?php 
+      // get_template_part('frontend/common/menu/menu') 
+
+      // $res = wp_get_nav_menu_items('primary');
+      // var_dump($res);
+    ?>
+
+
     <div class="siteHeader__navMenuContainer">
       <?php
           wp_nav_menu( 

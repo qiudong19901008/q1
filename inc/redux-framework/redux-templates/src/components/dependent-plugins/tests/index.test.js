@@ -3,23 +3,23 @@ import {mount, shallow} from 'enzyme';
 import DependentPlugins from '..';
 import {SingleItemProvider} from '../../../contexts/SingleItemContext';
 
-window.redux-templates = {
-    supported_plugins: {
-        ugb: {
-            name: 'Stackable',
-            url: 'https://wpstackable.com/premium/#pricing-table',
-            has_pro: true,
-            slug: 'stackable-ultimate-gutenberg-blocks',
-            premium_slug: 'stackable-ultimate-gutenberg-blocks-premium'
-        },
-        qubely: {
-            name: 'Qubely',
-            url: 'https://www.themeum.com/qubely-pricing/',
-            has_pro: true,
-            premium_slug: 'qubely-pro'
-        }
-    }
-}
+// window.redux-templates = {
+//     supported_plugins: {
+//         ugb: {
+//             name: 'Stackable',
+//             url: 'https://wpstackable.com/premium/#pricing-table',
+//             has_pro: true,
+//             slug: 'stackable-ultimate-gutenberg-blocks',
+//             premium_slug: 'stackable-ultimate-gutenberg-blocks-premium'
+//         },
+//         qubely: {
+//             name: 'Qubely',
+//             url: 'https://www.themeum.com/qubely-pricing/',
+//             has_pro: true,
+//             premium_slug: 'qubely-pro'
+//         }
+//     }
+// }
 
 const singleMock = {
     data: {ID: 1, blocks: {}},

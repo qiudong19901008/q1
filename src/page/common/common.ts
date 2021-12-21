@@ -2,6 +2,10 @@ import * as $ from 'jquery';
 import 'font-awesome/css/font-awesome.min.css';
 import './common.css';
 
+// @import url('../../../frontend/widget/searchCard/searchCard.css');
+
+import '../../../frontend/common/menu/menu';
+
 
 class CommonView{
 

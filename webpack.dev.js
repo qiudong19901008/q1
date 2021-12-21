@@ -26,6 +26,12 @@ const config = {
 
   module:{
     rules:[
+      {
+        test: /\.js$/,
+        exclude: [
+          path.resolve(__dirname, 'inc'),
+        ]
+      },
       //打包ts
       {
         test: /\.tsx?$/,

@@ -27,6 +27,9 @@ require_once plugin_dir_path(__FILE__) . '/lib/constant/Fields.php';
 require_once plugin_dir_path(__FILE__) . '/lib/constant/Actions.php';
 require_once plugin_dir_path(__FILE__) . '/lib/constant/Cookies.php';
 
+//metabox
+require_once plugin_dir_path(__FILE__) . '/lib/metaBox/PostMetaBoxList.php';
+
 //帮助函数
 require_once plugin_dir_path(__FILE__) . '/lib/helper.php';
 
@@ -100,10 +103,11 @@ function updatePostViewCount(){
 add_action('wp_head', 'updatePostViewCount');
 
 
-//禁止访问特定文件夹
-// function forbiden(){
-  
-// }
-// add_action('wp_head', 'forbiden');
+
+
+//加载post meta box list
+new PostMetaBoxList();
+
+
 
 

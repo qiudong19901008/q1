@@ -24,7 +24,7 @@
   display: none;
 }
 
-/* 电脑菜单, wordpress生成 */
+/* 电脑菜单, wordpress生成 */ 
 .siteHeader__navMenuContainer .menu{
   margin-left: 3rem;
   display: flex;
@@ -36,10 +36,27 @@
 
 .siteHeader__navMenuContainer .menu li{
   margin-right:2rem;
+
 }
 
-.siteHeader__navMenuContainer .menu li::after{
-  content:"<";
+.siteHeader__navMenuContainer .menu li:hover{
+  margin-bottom: 2px solid rgb(128, 200, 252);
+  cursor: pointer;
+}
+
+.siteHeader__navMenuContainer .menu li a{
+  display: block;
+}
+
+.siteHeader__navMenuContainer .menu li a:hover{
+  color:#000;
+}
+
+
+.siteHeader__navMenuContainer .menu-item-has-children{
+  /* z-index: 1000;
+  display: block;
+  background-color: #000; */
 }
 
 
