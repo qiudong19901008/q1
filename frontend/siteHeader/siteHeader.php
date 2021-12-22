@@ -29,13 +29,14 @@
     </a>
   </div>
   <!-- 遮罩 -->
-  <div class="siteHeader__mask overlay"></div>
+  <div class="siteHeader__mask overlay hide"></div>
   <!-- 搜索框 -->
-  <form class="siteHeader__searchForm center hide">
+  <form class="siteHeader__searchForm center hide" action="<?php echo home_url();?>" method="get">
     <input
       class="siteHeader__searchFormInput"
       type="text" 
-      placeholder="输入关键字"
+      placeholder="搜点什么?"
+      name="s"
     >
     <button class="siteHeader__searchFormBtn">
       <i class="siteHeader__searchFormBtnIcon fa fa-search"></i>

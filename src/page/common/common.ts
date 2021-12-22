@@ -8,6 +8,8 @@ import '../../../frontend/common/menu/menu';
 
 import '../../../frontend/common/mobileMenu/mobileMenu';
 
+import '../../../frontend/siteHeader/siteHeader';
+
 
 class CommonView{
 

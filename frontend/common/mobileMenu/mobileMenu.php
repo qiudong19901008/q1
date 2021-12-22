@@ -5,49 +5,55 @@
   
 ?>
 
-
 <ul class="mobileMenu">
-  <li class="mobileMenu__item mobileMenu__item--active">
-    <a href="#" class="mobileMenu__link">
-      分类一
-      <i class="fa fa-angle-down mobileMenu__icon"></i>
-    </a>
-    <ul class="mobileMenu__submenu">
-      <li class="mobileMenu__subItem">
-        <a href="#" class="mobileMenu__subLink">子类一</a>
-      </li>
-      <li class="mobileMenu__subItem">
-        <a href="#" class="mobileMenu__subLink">sdfsdf</a>
-      </li>
-      <li class="mobileMenu__subItem">
-        <a href="#" class="mobileMenu__subLink">512132123</a>
-      </li>
-    </ul>
-  </li>
 
+<?php foreach($menuList as $menu): ?>
+  
   <li class="mobileMenu__item">
-    <a href="#" class="mobileMenu__link">
-      分类二
-    </a>
+
+    <?php if(count($menu['subMenuList']) != 0): ?>
+
+      <span class="mobileMenu__link">
+        <?php echo $menu['title'] ?>
+        <i class="fa fa-angle-down mobileMenu__icon"></i>
+      </span>
+
+    <?php else:?>
+    
+      <a href="<?php echo $menu['url']; ?>" class="mobileMenu__link">
+        <?php echo $menu['title'] ?>
+      </a>
+
+
+      <?php endif;?>
+     <!-- 二级菜单开始 -->
+
+     <?php if(count($menu['subMenuList']) != 0): ?>
+
+
+    <ul class="mobileMenu__submenu">
+
+
+      <?php foreach($menu['subMenuList'] as $subMenu): ?>
+
+        <li class="mobileMenu__subItem">
+          <a href="<?php echo $subMenu['url'] ?>" class="mobileMenu__subLink"><?php echo $subMenu['title'] ?></a>
+        </li>
+
+      <?php endforeach; ?>
+
+      
+    </ul>
+
+    <?php endif;?>
+    <!-- 二级菜单结束-->
   </li>
 
-  <li class="mobileMenu__item ">
-    <a href="#" class="mobileMenu__link">
-      分类三
-      <i class="fa fa-angle-down mobileMenu__icon"></i>
-    </a>
-    <ul class="mobileMenu__submenu">
-      <li class="mobileMenu__subItem">
-        <a href="#" class="mobileMenu_subLink">54545</a>
-      </li>
-      <li class="mobileMenu__subItem">
-        <a href="#" class="mobileMenu_subLink">s撒旦发射点dfsdf</a>
-      </li>
-      <li class="mobileMenu__subItem">
-        <a href="#" class="mobileMenu_subLink">士大夫</a>
-      </li>
-    </ul>
-  </li>
+ 
+
+  
+
+  <?php endforeach ?>
 
 </ul>
 

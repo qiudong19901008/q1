@@ -3,27 +3,28 @@
   display: flex;
   flex-direction: column;
   color:#fff;
-
   padding:3rem 0;
 }
 
 .mobileMenu__item{
   border: 1px solid rgb(50 162 252 / 30%);
-  margin:1rem 5rem;
+  margin:1rem 1rem;
   transition: all .3s ease;
 }
 
 .mobileMenu__item--active{
   background-color: rgb(50 162 252 / 30%);
+  /* transition: all .2s; */
 }
 
 .mobileMenu__item--active .mobileMenu__icon{
   transform: rotate(180deg);
+  /* transition: all .2s; */
 }
 
 .mobileMenu__item--active .mobileMenu__submenu{
   display: block;
-  
+  /* transition: all .2s; */
 }
 
 .mobileMenu__item:hover{
@@ -32,20 +33,23 @@
 
 
 .mobileMenu__link{
-  /* color:#fff; */
   display: block;
-  /* height:56px; */
   font-size: 16px;
-  /* padding:0 2rem; */
   text-align: center;
+  position: relative;
+  color:#000;
+  cursor: pointer;
 }
 
 .mobileMenu__link:hover{
-  color:#000;
+  /* color:#000; */
 }
 
 .mobileMenu__icon{
   /* margin-right: -.5rem; */
+  /* position:absolute;
+  left:0;
+  top:0; */
 }
 
 
