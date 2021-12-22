@@ -15,3 +15,6 @@ include('setting.php');
 
 //Q1主题全局设置
 include('q1GlobalConfig.php');
+
+//Q1主题首页设置
+include('q1HomeConfig.php');

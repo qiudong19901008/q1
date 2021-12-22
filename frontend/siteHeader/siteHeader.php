@@ -14,6 +14,10 @@
 
       // $res = wp_get_nav_menu_items('primary');
       // var_dump($res);
+
+      $menuId = getMenuId('primary');
+      getMenuByMenuId($menuId);
+      // var_dump($menuId);
     ?>
 
 

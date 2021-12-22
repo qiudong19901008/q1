@@ -29,5 +29,15 @@ class Options{
    */
   public const Q1_FRIEND_LINK_OPTION_NAME = 'friend_link';
 
+  //----------------首页设置---------------------
+
+  /**
+   * Q1主题-首页选项-seo描述
+   */
+  public const Q1_OPTION_HOME_DESCRIPTION = '_q1_option_home_description';
+   /**
+   * Q1主题-首页选项-seo关键词
+   */
+  public const Q1_OPTION_HOME_KEYWORDS = '_q1_option_home_keywords';
 
 }

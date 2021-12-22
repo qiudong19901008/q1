@@ -1,5 +1,7 @@
 <?php
 
+require_once plugin_dir_path(__FILE__) . '/GetMenuData.php';
+
 /**
  * @description 获取q1的配置项
  * @param string $optionName 选项名称
@@ -41,15 +43,18 @@ function getSeoTitle(){
  * 获取seo描述
  */
 function getSeoDescription(){
-  $siteDescription = get_option('blogdescription');
   if(is_home()){
-    $res = $siteDescription;
+    $res = getQ1Option(Options::Q1_OPTION_HOME_DESCRIPTION);
   }else if(is_category()){
     $res = strip_tags(category_description());
-    // $res = category_description();
+    if(empty($res)){
+      $res = single_cat_title('',false);
+    }
   }else if(is_tag()){
     $res = strip_tags(tag_description());
-    // $res = tag_description();
+    if(empty($res)){
+      $res = single_tag_title('',false);
+    }
   }else if(is_search()){
     global $s;
     $res = $s;
@@ -66,23 +71,55 @@ function getSeoDescription(){
  * 获取seo关键词
  */
 function getSeoKeywords(){
-  $siteDescription = get_option('blogdescription');
   if(is_home()){
-    $res = $siteDescription;
+    $res  = getQ1Option(Options::Q1_OPTION_HOME_KEYWORDS);
   }else if(is_category()){
-    $res = strip_tags(category_description());
-    // $res = category_description();
+    $res = single_cat_title('',false);
   }else if(is_tag()){
-    $res = strip_tags(tag_description());
-    // $res = tag_description();
+    $res = single_tag_title('',false);
   }else if(is_search()){
     global $s;
     $res = $s;
   }else if(is_single()){
-    $res = get_post_meta(get_the_ID(),Fields::POST_DESCRIPTION,true);
+    $res = get_post_meta(get_the_ID(),Fields::POST_KEYWORD,true);
     if(empty($res)){
       $res = get_the_title();
     }
   }
   return $res;
+}
+
+function getMenuDataByLocation(){
+  
+}
+
+/**
+ * 获取menu id
+ * @return int 
+ */
+function getMenuId($locationName){
+  $res = '';
+  $locationList = get_nav_menu_locations();
+  foreach($locationList as $name=>$id){
+    if($name == $locationName){
+      $res = $id;
+    }
+  }
+  if(empty($res)){
+    return null;
+  }
+  return $res;
+}
+
+function getMenuByMenuId($id){
+ $menuItemList = wp_get_nav_menu_items( $id );
+ foreach($menuItemList as $menuItem){
+   $title = $menuItem->title;
+   $url = $menuItem->url;
+   $parentId = $menuItem->menu_item_parent;
+   
+ }
+//  echo '<pre>';
+//  print_r($menuItemList);
+//  wp_die();
 }

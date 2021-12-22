@@ -7,6 +7,7 @@
   
   <title><?php echo getSeoTitle() ?></title>
   <meta name="description" content="<?php echo getSeoDescription(); ?>">
+  <meta name="keywords" content="<?php echo getSeoKeywords(); ?>">
   
   <?php wp_head(); ?>
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
