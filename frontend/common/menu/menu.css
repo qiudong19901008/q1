@@ -29,24 +29,29 @@
   position:absolute;
   background-color: white;
   padding:1rem 0;
-  margin-top:.2rem;
   left:50%;
   transform: translate(-50%,20px);
   opacity: 0;
   visibility: hidden;
-  transition: all .2s linear .2s;
+
+  font-size:14px;
+  text-align: center;
+  border:1px solid rgb(239, 241, 243);
 }
+
+
+
+
 
 .menu__item:hover .menu__submenu{
   transform: translate(-50%,0);
   opacity: 1;
   visibility: visible;
-  transition: all .2s linear .2s;
+  transition: transform .2s linear .2s,opacity .2s linear .2s;
 }
 
 .menu__item:hover .menu__link{
   border-bottom: 2px solid rgb(128, 200, 252);
-  /* transition: all .2s ease .2s; */
 }
 
 .menu__item:hover .menu__icon{
@@ -54,20 +59,26 @@
   transition: all .2s ease .2s;
 }
 
-
-
 .menu__submenuItem{
   height:36px; 
   line-height: 36px;
-  padding:0 1rem;
+  padding:0 2rem;
 }
+
+.menu__submenuLink{
+  white-space:nowrap;
+}
+
+
 
 .menu__submenuItem:hover{
   background-color: rgb(242, 242, 242);
+  /* background-color: #fff; */
 }
 
 .menu__submenuLink:hover{
   color:#000;
+  
 }
 
 

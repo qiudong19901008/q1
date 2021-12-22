@@ -89,37 +89,7 @@ function getSeoKeywords(){
   return $res;
 }
 
-function getMenuDataByLocation(){
-  
+function getMenuDataByLocation($location){
+  return GetMenuData::run($location);
 }
 
-/**
- * 获取menu id
- * @return int 
- */
-function getMenuId($locationName){
-  $res = '';
-  $locationList = get_nav_menu_locations();
-  foreach($locationList as $name=>$id){
-    if($name == $locationName){
-      $res = $id;
-    }
-  }
-  if(empty($res)){
-    return null;
-  }
-  return $res;
-}
-
-function getMenuByMenuId($id){
- $menuItemList = wp_get_nav_menu_items( $id );
- foreach($menuItemList as $menuItem){
-   $title = $menuItem->title;
-   $url = $menuItem->url;
-   $parentId = $menuItem->menu_item_parent;
-   
- }
-//  echo '<pre>';
-//  print_r($menuItemList);
-//  wp_die();
-}

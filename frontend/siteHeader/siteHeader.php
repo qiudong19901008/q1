@@ -6,43 +6,19 @@
       
     </a>
     <!-- logo -->
-    <a href="<?php echo home_url(); ?>" class="siteHeader__logo">合道社</a>
-    <!-- <i class="fa fa-angle-down"></i> -->
-    <!-- 菜单 -->
-    <?php 
-      // get_template_part('frontend/common/menu/menu') 
-
-      // $res = wp_get_nav_menu_items('primary');
-      // var_dump($res);
-
-      $menuId = getMenuId('primary');
-      getMenuByMenuId($menuId);
-      // var_dump($menuId);
-    ?>
-
-
-    <div class="siteHeader__navMenuContainer">
-      <?php
-          wp_nav_menu( 
-            [
-              'theme_location'   =>   'primary',
-              'menu_class' =>'menu',
-            ] 
-          );
+    <a href="<?php echo home_url(); ?>" class="siteHeader__logo"><?php echo get_option('blogname'); ?></a>
+    <!-- 电脑菜单 -->
+    <div class="siteHeader__menuWrap">
+      <?php 
+        $menuList = getMenuDataByLocation('primary');
+        get_template_part('frontend/common/menu/menu',null,[
+          'menuList'=>$menuList,
+        ]);
       ?>
     </div>
+
     
-    <!-- <ul class="menu">
-      <li>
-        <a href="#">分类一</a>
-      </li>
-      <li>
-        <a href="#">分类二</a>
-      </li>
-      <li>
-        <a href="#">分类三</a>
-      </li>
-    </ul> -->
+      
     <!-- 搜索按钮 -->
     <a href="#" class="siteHeader__toggleSearchFormBtn">
       <i class="fa fa-search"></i>
