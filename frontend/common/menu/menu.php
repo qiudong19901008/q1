@@ -15,7 +15,7 @@
     <li class="menu__item">
       <a href="<?php echo $menu['url']; ?>" class="menu__link">
         <?php echo $menu['title'] ?>
-
+          
         <?php if(count($menu['subMenuList']) != 0): ?>
           <i class="fa fa-angle-down menu__icon"></i>
         <?php endif;?>

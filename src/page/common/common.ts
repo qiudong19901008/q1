@@ -6,6 +6,8 @@ import './common.css';
 
 import '../../../frontend/common/menu/menu';
 
+import '../../../frontend/common/mobileMenu/mobileMenu';
+
 
 class CommonView{
 

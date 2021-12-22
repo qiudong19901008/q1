@@ -73,23 +73,25 @@
   cursor: pointer;
 }
 
-/* 手机菜单 , wordpress生成 */
-.siteHeader__mobileNavMenuContainer .mobile-menu{
-  background-color: #000;
+/* 手机菜单*/
+.siteHeader__mobileMenuWrap{
+  background-color: #fff;
+  /* background-color: rgb(0 0 0 / 100%); */
   position:fixed;
   top:0;
-  left:-60%;
+  left:0;
+  /* left:-60%; */
   width:60%;
   height:100%;
-  z-index: 999;
-  padding:3rem;
+  z-index: 3;
+  /* padding:3rem;
   padding-left:15%;
-  transition: left linear .3s;
+  transition: left linear .3s; */
 }
 
-.siteHeader__mobileNavMenuContainer .mobile-menu li a{
+/* .siteHeader__mobileNavMenuContainer .mobile-menu li a{
   color:rgb(255 255 255/70%);
-}
+} */
 
 /* 小于1000 */
 @media screen and (max-width:1000px) {

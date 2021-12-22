@@ -1,3 +1,7 @@
+<?php
+  $menuList = getMenuDataByLocation('primary');
+?>
+
 <div class="siteHeader">
   <div class="siteHeader__top">
     <!-- 菜单切换按钮 -->
@@ -10,7 +14,6 @@
     <!-- 电脑菜单 -->
     <div class="siteHeader__menuWrap">
       <?php 
-        $menuList = getMenuDataByLocation('primary');
         get_template_part('frontend/common/menu/menu',null,[
           'menuList'=>$menuList,
         ]);
@@ -26,7 +29,7 @@
     </a>
   </div>
   <!-- 遮罩 -->
-  <div class="siteHeader__mask overlay hide"></div>
+  <div class="siteHeader__mask overlay"></div>
   <!-- 搜索框 -->
   <form class="siteHeader__searchForm center hide">
     <input
@@ -39,31 +42,18 @@
     </button>
   </form>
   <!-- 手机菜单 -->
-  <div class="siteHeader__mobileNavMenuContainer">
-    <?php
-        wp_nav_menu( 
-          [
-            'theme_location'   =>   'primary',
-            'menu_class' =>'mobile-menu',
-          ] 
-        );
+  <div class="siteHeader__mobileMenuWrap">
+    <?php 
+      get_template_part('frontend/common/mobileMenu/mobileMenu',null,[
+        'menuList'=>$menuList,
+      ]);
     ?>
-    
   </div>
   
+ 
   
-  <!-- <ul class="mobile-menu">
-    <li>
-      <a href="#">分类一</a>
-    </li>
-    <li>
-      <a href="#">分类二</a>
-    </li>
-    <li>
-      <a href="#">分类三</a>
-    </li>
-  </ul> -->
   
+
   
 </div>
 

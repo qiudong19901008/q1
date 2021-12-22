@@ -184,9 +184,10 @@ a:hover{
 @import url('../../../frontend/common/postCard/postCard.css');
 /* 组件-common-pagination */
 @import url('../../../frontend/common/pagination/pagination.css');
-/* 组件-common-navigation */
+/* 组件-common-menu */
 @import url('../../../frontend/common/menu/menu.css');
-
+/* 组件-common-mobileMenu */
+@import url('../../../frontend/common/mobileMenu/mobileMenu.css');
 
 
 
