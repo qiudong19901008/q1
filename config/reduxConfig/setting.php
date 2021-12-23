@@ -35,7 +35,7 @@ $args = array(
 	'global_variable'           => '',
 
 	// Show the time the page took to load, etc.
-	'dev_mode'                  => true, //开发者模式
+	'dev_mode'                  => false, //开发者模式
 
 	// Enable basic customizer support.
 	'customizer'                => true, //
