@@ -32,6 +32,9 @@ Redux::set_field(
     'url'  => true,
     'title' => esc_html__('默认缩略图', 'your-textdomain-here'),
     'subtitle' => esc_html__('网站文章默认的缩略图', 'your-textdomain-here'),
+    // 'default'  =>[
+    //   'url'=>'https://s.wordpress.org/style/images/codeispoetry.png'
+    // ]
   ]
 ) ;
 

@@ -64,13 +64,14 @@ class BasePostDao{
     if(!$query->have_posts()){
       return $res;
     }
+    $defaultThumb = getQ1DefaultThumbUrl();
     while($query->have_posts()){
       $query->the_post();
       $myPost = [
         'id'=>get_the_ID(),
         'title'=>get_the_title(),
         'url'=>get_the_permalink(),
-        'thumbnail'=>get_the_post_thumbnail(),
+        'thumbnail'=>getPostThumbUrl($post,$defaultThumb),
         'excerpt'=>get_the_excerpt(),
         'content'=>get_the_content(),
         'update_time'=>get_the_modified_time('Y-m-d h:i:s'),
@@ -84,6 +85,7 @@ class BasePostDao{
     $res = BasePostDao::_injectOtherFields($res,$includeTableNameList,$metaNameList);
     return $res;
   }
+
 
   private static function _injectOtherFields($myPostList,$includeTableNameList,$metaNameList){
     

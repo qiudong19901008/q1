@@ -54,9 +54,8 @@
 
 
 @media screen and (max-width:1000px) {
-  .siteFooter__friendLink,
-  .siteFooter__menu,
-  .siteFooter__licence{
+  .siteFooter__friendLink
+  {
     display: none;
   }
 }

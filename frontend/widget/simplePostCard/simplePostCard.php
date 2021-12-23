@@ -6,7 +6,7 @@
 
 
 <div class="simplePostCard">
-  <a class="simplePostCard__thumbnail" href="#">
+  <a class="simplePostCard__thumbnail" href="<?php echo $myPost['url']; ?>">
     <img
       class="simplePostCard__thumbnailImg"
       src="<?php echo $myPost['thumbnail']; ?>" 

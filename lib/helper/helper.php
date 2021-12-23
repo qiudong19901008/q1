@@ -16,6 +16,11 @@ function getQ1Option($optionName,$type='string'){
   return $option;
 }
 
+function getQ1DefaultThumbUrl(){
+  $data = getQ1Option(Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMB);
+  return $data['url'];
+}
+
 /**
  * 获取网站title
  */
@@ -94,18 +99,22 @@ function getMenuDataByLocation($location){
   return GetMenuData::run($location);
 }
 
+function getPostThumbUrl($myPost,$default=''){
+  return GetPostThumbUrl::run($myPost,$default);
+}
+
 /**
  * 设置第一张图片为缩略图
  */
-function setFirstImgAsThumb() {
-  global $post;
-  $first_img_featured = '';
-  ob_start();
-  ob_end_clean();
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-  $first_img_featured = $matches [1] [0];
-  if(empty($first_img_featured)){ //Defines a default image
-  $first_img_featured = "/images/default.jpg";
-  }
-  return $first_img_featured;
-  }
+// function setFirstImgAsThumb() {
+//   global $post;
+//   $first_img_featured = '';
+//   ob_start();
+//   ob_end_clean();
+//   $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+//   $first_img_featured = $matches [1] [0];
+//   if(empty($first_img_featured)){ //Defines a default image
+//   $first_img_featured = "/images/default.jpg";
+//   }
+//   return $first_img_featured;
+//   }

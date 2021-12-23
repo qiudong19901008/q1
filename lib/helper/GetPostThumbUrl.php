@@ -2,7 +2,8 @@
 
 class GetPostThumbUrl{
 
-  public static function run($myPost){
+
+  public static function run($myPost,$default=''){
     $thumbUrl = get_the_post_thumbnail_url( $myPost->ID);
     if($thumbUrl){
       return $thumbUrl;
@@ -12,8 +13,12 @@ class GetPostThumbUrl{
     if(!empty($thumbUrl)){
       return $thumbUrl;
     }
+    //为了提高效率, 传入默认的缩略图, 这样就不用每次去取全局缩略图
+    if(!empty($default)){
+      return $default;
+    }
     //如果还找不到, 就获取全局缩略图
-    $thumbUrl = GetPostThumbUrl::_getGlobalThumbUrl();
+    $thumbUrl = getQ1DefaultThumbUrl();
     if(!empty($thumbUrl)){
       return $thumbUrl;
     }
@@ -24,10 +29,6 @@ class GetPostThumbUrl{
   private static function _getArticleFirstImgUrl($content){
     preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
     return $matches[1][0];
-  }
-
-  private static function _getGlobalThumbUrl(){
-    return getQ1Option(Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMB);
   }
 
 
