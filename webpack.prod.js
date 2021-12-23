@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 
 const publicPath = '/';
@@ -80,13 +81,13 @@ const config = {
       minSize: 1,  //提取出的chunk的最小大小
       cacheGroups: {
         //公用库
-        // default: {
-        //   name: 'base',
-        //   chunks: 'initial',
-        //   minChunks: 2,  //模块被引用2次以上的才抽离
-        //   priority: -20,
-        //   reuseExistingChunk: true,
-        // },
+        default: {
+          name: 'base',
+          chunks: 'initial',
+          minChunks: 2,  //模块被引用2次以上的才抽离
+          priority: -20,
+          reuseExistingChunk: true,
+        },
         //拆分第三方库（通过npm|yarn安装的库）
         vendors: {  
           test: /[\\/]node_modules[\\/]/,
@@ -104,6 +105,7 @@ const config = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
     }),
+    new CssMinimizerPlugin(),
   ],
 
 }
