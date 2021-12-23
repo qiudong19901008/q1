@@ -7,7 +7,7 @@ const outputPath = 'public';
 
 const config = {
 
-  mode:'development',
+  mode:'production',
 
   entry:{
     'common':path.resolve(__dirname, 'src/page/common/common.ts'), 

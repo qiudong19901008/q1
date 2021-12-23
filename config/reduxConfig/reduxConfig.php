@@ -18,3 +18,6 @@ include('q1GlobalConfig.php');
 
 //Q1主题首页设置
 include('q1HomeConfig.php');
+
+//Q1主题文章页设置
+include('q1PostConfig.php');

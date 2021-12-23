@@ -2,6 +2,8 @@
 
   // $postList = PostService::queryRecommendPostList(get_the_ID());
   $postList = PostService::queryPostPageRecommendPostList(get_the_ID());
+
+  
 ?>
 <div class="recommendCard">
   <div class="recommendCard__title">相关推荐</div>

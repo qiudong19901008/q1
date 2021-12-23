@@ -6,7 +6,7 @@
   "scripts": {
     "git": "git add . && git commit -m'1'",
     "postgit": "git push origin",
-    "prod": "webpack --mode production",
+    "prod": "webpack --config webpack.prod.js",
     "dev": "webpack --config webpack.dev.js --watch"
   },
   "keywords": [],

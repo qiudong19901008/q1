@@ -24,6 +24,9 @@ class PostService{
    * @return array [id,title,url]推荐的文章列表
    */
   public static function queryPostPageRecommendPostList($postId){
+
+    $count = (int)getQ1Option(Options::Q1_OPTION_POST_RECOMMEND_POST_COUNT);
+
     //找出该文章所属的分类
     $categoryList = CategoryDao::getCategoryListByPostId($postId,true);
     $category = $categoryList[0];
@@ -36,7 +39,7 @@ class PostService{
       'rand',
       '',
       1,
-      Configs::RECOMMEND_POST_COUNT,
+      $count,
       ''
     );
     return $listAndCount['list'];

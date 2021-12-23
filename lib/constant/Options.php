@@ -38,7 +38,7 @@ class Options{
    */
   public const Q1_FRIEND_LINK_OPTION_NAME = 'friend_link';
 
-  ////////////////////////首页-友情链接/////////////////////////
+  ////////////////////////首页-基本信息/////////////////////////
 
   /**
    * Q1主题-首页选项-seo描述
@@ -48,5 +48,13 @@ class Options{
    * Q1主题-首页选项-seo关键词
    */
   public const Q1_OPTION_HOME_KEYWORDS = '_q1_option_home_keywords';
+
+
+   ////////////////////////文章页-基本信息/////////////////////////
+
+   /**
+    * 推荐文章数量
+    */
+   public const Q1_OPTION_POST_RECOMMEND_POST_COUNT = '_q1_option_post_recommend_post_count';
 
 }

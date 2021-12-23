@@ -7,7 +7,6 @@
     <!-- 菜单切换按钮 -->
     <a href="#" class="siteHeader__toggleMenuBtn">
       <i class="fa fa-bars m-icon-nav"></i>
-      
     </a>
     <!-- logo -->
     <a href="<?php echo home_url(); ?>" class="siteHeader__logo"><?php echo get_option('blogname'); ?></a>

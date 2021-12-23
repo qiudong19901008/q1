@@ -5,7 +5,7 @@ $section = [
   'title' => __( '全局设置', 'your-textdomain-here' ),
 	'id'    => 'global_setting',
 	'desc'  => __( '这是网站的全局配置', 'your-textdomain-here' ),
-	'icon'  => 'el el-home',
+	'icon'  => 'el el-globe',
 ];
 
 Redux::set_section( $opt_name, $section );

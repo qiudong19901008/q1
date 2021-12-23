@@ -28,6 +28,9 @@ class GetPostThumbUrl{
 
   private static function _getArticleFirstImgUrl($content){
     preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+    if(empty($matches[1])){
+      return '';
+    }
     return $matches[1][0];
   }
 
