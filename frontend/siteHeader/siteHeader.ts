@@ -1,4 +1,4 @@
-
+import * as $ from 'jquery';
 
 //手机菜单按钮点击事件
 $('.siteHeader__toggleMenuBtn').on('click',(e)=>{

@@ -66,11 +66,15 @@ table {
 /* 全局设置 */
 html{
   font-size: 10px;
+  height:100%;
 }
 
 body{
   background: rgb(239, 241, 243);
-  font:1.6rem/1.5  tahoma, arial, Microsoft YaHei, sans-serif; 
+  font:1.6rem/1.5  tahoma, arial, Microsoft YaHei, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height:100%;
 }
 
 *{
@@ -239,10 +243,18 @@ a:hover{
   max-width:1200px;
   width:90%;
 }
+.indexPageWrap,
+.categoryPageWrap,
+.tagPageWrap,
+.searchPageWrap,
+.postPageWrap{
+  flex:1 0 auto;
+}
 
 .siteFooterWrapWrap{
   /* margin-bottom: 2rem; */
   background: #fff; 
+  flex-shrink: 0;
 }
 .siteFooterWrap{
   margin:0 auto;

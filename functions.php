@@ -104,6 +104,8 @@ function updatePostViewCount(){
 }
 add_action('wp_head', 'updatePostViewCount');
 
+//支持文章缩略图
+add_theme_support('post-thumbnails');
 
 
 

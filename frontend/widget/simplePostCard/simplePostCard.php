@@ -1,7 +1,7 @@
 
 <?php
   $myPost = $args['post'];
-  // var_dump($post);
+  // var_dump($myPost);
 ?>
 
 

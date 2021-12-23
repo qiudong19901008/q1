@@ -20,6 +20,15 @@
 
 
 <?php
+
+
+
+// $res =get_the_post_thumbnail();
+
+// $res = get_the_post_thumbnail_url();
+
+// var_dump($res);
+
 // $res = CommentDao::query(71,'comment_date','DESC',1,10);
 // var_dump($res);
 

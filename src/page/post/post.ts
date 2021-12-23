@@ -9,6 +9,7 @@ import {
 import PostModel from '../../model/PostModel';
 import CommentView from './CommentView';
 import CookieHandler from '../../lib/CookieHandler';
+import * as $ from 'jquery';
 
 const commentView = new CommentView();
 class PostView{

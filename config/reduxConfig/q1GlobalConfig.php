@@ -11,6 +11,33 @@ $section = [
 Redux::set_section( $opt_name, $section );
 
 /**
+ * 0. 通用设置
+ */
+
+$section = array(
+	'title'      => esc_html__( '通用设置', 'your-textdomain-here' ),
+	'desc'       => '',
+	'id'         => 'global_common_setting',
+	'subsection' => true
+);
+
+Redux::set_section( $opt_name, $section );
+
+Redux::set_field( 
+  $opt_name, 
+  'global_common_setting', 
+  [
+    'id'=>Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMB,
+    'type' => 'media',
+    'url'  => true,
+    'title' => esc_html__('默认缩略图', 'your-textdomain-here'),
+    'subtitle' => esc_html__('网站文章默认的缩略图', 'your-textdomain-here'),
+  ]
+) ;
+
+
+
+/**
  * 1. 页脚设置
  * 
  */

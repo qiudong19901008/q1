@@ -1,6 +1,7 @@
 <?php
 
 require_once plugin_dir_path(__FILE__) . '/GetMenuData.php';
+require_once plugin_dir_path(__FILE__) . '/GetPostThumbUrl.php';
 
 /**
  * @description 获取q1的配置项
@@ -93,3 +94,18 @@ function getMenuDataByLocation($location){
   return GetMenuData::run($location);
 }
 
+/**
+ * 设置第一张图片为缩略图
+ */
+function setFirstImgAsThumb() {
+  global $post;
+  $first_img_featured = '';
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+  $first_img_featured = $matches [1] [0];
+  if(empty($first_img_featured)){ //Defines a default image
+  $first_img_featured = "/images/default.jpg";
+  }
+  return $first_img_featured;
+  }
