@@ -12,6 +12,7 @@
 }
 
 .postPage__contentWrap{
+  max-width: 90rem;
   flex:1;
   width: 100%;
 }
