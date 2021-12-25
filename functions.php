@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * 定义常量
  */
@@ -10,11 +11,13 @@ define('VERSION','1.0');
 
 define('APP_HOME', '/app/');
 
+
 // 加载小工具
 require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetAuthor.php';
 require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetRecommendPosts.php';
 require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetSearch.php';
 require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetTagCloud.php';
+
 
 //主题支持
 require_once plugin_dir_path(__FILE__) . '/lib/registe/registeCssJs.php'; //加载css js
@@ -26,6 +29,7 @@ require_once plugin_dir_path(__FILE__) . '/lib/constant/Options.php';
 require_once plugin_dir_path(__FILE__) . '/lib/constant/Fields.php';
 require_once plugin_dir_path(__FILE__) . '/lib/constant/Actions.php';
 require_once plugin_dir_path(__FILE__) . '/lib/constant/Cookies.php';
+require_once plugin_dir_path(__FILE__) . '/lib/constant/ErrorCodes.php';
 
 //metabox
 require_once plugin_dir_path(__FILE__) . '/lib/metaBox/PostMetaBoxList.php';
@@ -37,7 +41,6 @@ require_once plugin_dir_path(__FILE__) . '/lib/helper/helper.php';
 
 
 //加载APP
-
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/helper.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'lib/Configs.php';
 
@@ -59,18 +62,13 @@ require_once plugin_dir_path(__FILE__) . APP_HOME . 'api/v1/commentApi.php';
 
 // redux
 if ( 
-    !class_exists( 'ReduxFramework' ) 
-    && file_exists( dirname( __FILE__ ) . '/inc/redux-framework/framework.php' )
-    && file_exists( dirname( __FILE__ ) . '/config/reduxConfig/reduxConfig.php')
+  !class_exists( 'ReduxFramework' ) 
+  && file_exists( dirname( __FILE__ ) . '/inc/redux-framework/framework.php' )
+  && file_exists( dirname( __FILE__ ) . '/config/reduxConfig/reduxConfig.php')
 ) {
-  require_once( dirname( __FILE__ ) . '/inc/redux-framework/framework.php' );
-  require_once( dirname( __FILE__ ) . '/config/reduxConfig/reduxConfig.php' );
+require_once( dirname( __FILE__ ) . '/inc/redux-framework/framework.php' );
+require_once( dirname( __FILE__ ) . '/config/reduxConfig/reduxConfig.php' );
 }
-
-
-/**
- * 功能增强
- */
 
 // 禁用古腾堡编辑器
 // disable for posts
@@ -80,13 +78,11 @@ add_filter('use_block_editor_for_post_type', '__return_false', 10);
 // Disables the block editor from managing widgets.
 add_filter( 'use_widgets_block_editor', '__return_false' );
 
-
 // 修改excerpt结尾
 function new_excerpt_more($more) {
   return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
-
 
 
 //更新文章浏览量
@@ -104,15 +100,8 @@ function updatePostViewCount(){
 }
 add_action('wp_head', 'updatePostViewCount');
 
+
 //支持文章缩略图
 add_theme_support('post-thumbnails');
 
-
-
-//加载post meta box list
 new PostMetaBoxList();
-// new CategoryMetaBoxList();
-
-
-
-

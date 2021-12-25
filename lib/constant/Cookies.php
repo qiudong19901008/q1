@@ -2,9 +2,10 @@
 
 class Cookies{
 
-  /**
-   * 文章已经点赞的cookie
+  
+   /**
+   * Q1主题-COOKIE-POST-已点赞文章
    */
-  public const POST_ALREADY_LIKE = 'q1_cookie_post_already_like';
+  public const Q1_COOKIE_POST_ALREADY_LIKE = 'q1_cookie_post_already_like';
 
 }

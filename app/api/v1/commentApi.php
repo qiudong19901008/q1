@@ -13,8 +13,8 @@ function getCommentListRouter(){
   $res = CommentDao::query($postId,'comment_date','DESC',$page,$size);
   json($res);
 }
-add_action('wp_ajax_nopriv_' . Actions::GET_COMMENT_LIST, 'getCommentListRouter');
-add_action('wp_ajax_' . Actions::GET_COMMENT_LIST, 'getCommentListRouter');
+add_action('wp_ajax_nopriv_' . Actions::Q1_API_COMMENT_GET_COMMENT_LIST, 'getCommentListRouter');
+add_action('wp_ajax_' . Actions::Q1_API_COMMENT_GET_COMMENT_LIST, 'getCommentListRouter');
 
 
 /**
@@ -33,10 +33,10 @@ function addOneCommentRouter(){
   $userId = $_POST["userId"]? $_POST["userId"]:0;
   $res = CommentDao::addOneComment($author,$content,$postId,$parentId,$email,$url,$userId);
   if($res){
-    success('POST',Actions::ADD_ONE_COMMENT);
+    success('POST',Actions::Q1_API_COMMENT_ADD_ONE_COMMENT);
   }else{
-    failed('POST',Actions::ADD_ONE_COMMENT);
+    failed('POST',Actions::Q1_API_COMMENT_ADD_ONE_COMMENT);
   }
 }
-add_action('wp_ajax_nopriv_' . Actions::ADD_ONE_COMMENT, 'addOneCommentRouter');
-add_action('wp_ajax_' . Actions::ADD_ONE_COMMENT, 'addOneCommentRouter');
+add_action('wp_ajax_nopriv_' . Actions::Q1_API_COMMENT_ADD_ONE_COMMENT, 'addOneCommentRouter');
+add_action('wp_ajax_' . Actions::Q1_API_COMMENT_ADD_ONE_COMMENT, 'addOneCommentRouter');

@@ -58,7 +58,7 @@ function success($method,$action,$msg='操作成功'){
  * msg: "操作失败"
  * requestUrl: "PUT /rws/siteType/update/8"
  */
-function failed($method,$action,$msg='操作失败',$errorCode=ErrorCodes::COMMON_ERROR){
+function failed($method,$action,$msg='操作失败',$errorCode=ErrorCodes::Q1_ERRCODE_COMMON){
   header('Content-Type:application/json');
   echo json_encode([
     'errorCode'=>$errorCode,

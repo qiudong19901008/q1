@@ -2,6 +2,7 @@
 
 require_once plugin_dir_path(__FILE__) . './BasePostDao.php';
 require_once plugin_dir_path(__FILE__) . './QueryPostList.php';
+require_once plugin_dir_path(__FILE__) . './AddOnePost.php';
 
 
 class PostDao extends BasePostDao{
@@ -49,6 +50,43 @@ class PostDao extends BasePostDao{
       $size,
       $orderByMetaKey,
     );
+  }
+
+
+  /**
+   * @description 新增一篇文章
+   * @param string title 文章标题
+   * @param string content 文章内容
+   * @param number authorId 作者id
+   * @param array categoryIdList 分类id列表
+   * @param array tagIdList 标签id列表
+   * @param string description seo描述
+   * @param string keywords seo关键词
+   * @param string status 文章状态 'publish', 'draft', 'future', 'private'
+   * @return 文章id, 如果不成功则返回0
+   */
+  public static function addOnePost(
+    $title, //标题
+    $content, //内容
+    $authorId, //作者id
+    $categoryIdList, //分类id列表
+    $tagIdList, //标签id列表
+    $description, //描述 meta
+    $keywords, //关键词 meta
+    $status='publish', //文章状态 
+  ){
+    $adder = new AddOnePost();
+    $res = $adder->run(
+      $title,
+      $content,
+      $authorId,
+      $categoryIdList,
+      $tagIdList,
+      $description,
+      $keywords,
+      $status,
+    );
+    return $res;
   }
 
 

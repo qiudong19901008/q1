@@ -46,9 +46,9 @@
     <div 
       class="postContent__like" 
       data-id="<?php the_ID(); ?>"
-      data-action="<?php echo Actions::LIKE_POST; ?>"
+      data-action="<?php echo Actions::Q1_API_POST_LIKE_POST; ?>"
       data-url="<?php echo admin_url('admin-ajax.php'); ?>"
-      data-cookie="<?php echo Cookies::POST_ALREADY_LIKE; ?>"
+      data-cookie="<?php echo Cookies::Q1_COOKIE_POST_ALREADY_LIKE; ?>"
     >
       <i class="fa fa-thumbs-up"></i>
       赞(<span class="postContent__likeCount"><?php echo $likeCount; ?></span>)
