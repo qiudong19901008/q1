@@ -63,6 +63,7 @@ class PostDao extends BasePostDao{
    * @param string description seo描述
    * @param string keywords seo关键词
    * @param string status 文章状态 'publish', 'draft', 'future', 'private'
+   * @param date create_time
    * @return 文章id, 如果不成功则返回0
    */
   public static function addOnePost(
@@ -73,7 +74,8 @@ class PostDao extends BasePostDao{
     $tagIdList, //标签id列表
     $description, //描述 meta
     $keywords, //关键词 meta
-    $status='publish' //文章状态 
+    $status='publish', //文章状态
+    $create_time=null, 
   ){
     $adder = new AddOnePost();
     $res = $adder->run(
@@ -85,6 +87,7 @@ class PostDao extends BasePostDao{
       $description,
       $keywords,
       $status,
+      $create_time,
     );
     return $res;
   }

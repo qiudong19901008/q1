@@ -12,6 +12,7 @@ class AddOnePost{
    * @param string description seo描述
    * @param string keywords seo关键词
    * @param string status 文章状态 'publish', 'draft', 'future', 'private'
+   * @param date create_time
    * @return 文章id, 如果不成功则返回0
    */
   public function run(
@@ -22,10 +23,11 @@ class AddOnePost{
     $tagIdList, //标签id列表
     $description, //描述 meta
     $keywords, //关键词 meta
-    $status='publish' //文章状态 
+    $status='publish', //文章状态 
+    $create_time=null //创建日期
   ){
 
-    $res = wp_insert_post([
+    $config = [
       'post_title'=>$title, //文章标题
       'post_content'=>$content, //文章内容
       'post_author'=>$authorId, //作者id
@@ -36,8 +38,13 @@ class AddOnePost{
         Fields::Q1_FIELD_POST_DESCRIPTION=>$description,
         Fields::Q1_FIELD_POST_KEYWORDS=>$keywords,
       ], //元信息
-    ]);
+    ];
 
+    if(!empty($create_time)){
+      $config['post_date'] = $create_time;
+    }
+
+    $res = wp_insert_post($config);
     return $res;
   }
 

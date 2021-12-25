@@ -60,6 +60,9 @@ require_once plugin_dir_path(__FILE__) . APP_HOME . 'service/CommentService/Comm
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'ajax/v1/postAjax.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'ajax/v1/commentAjax.php';
 
+//API
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'api/v1/postApi.php';
+
 // redux
 if ( 
   !class_exists( 'ReduxFramework' ) 
