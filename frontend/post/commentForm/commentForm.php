@@ -1,6 +1,6 @@
 <form class="commentForm" 
   data-postid="<?php the_ID(); ?>"
-  data-action="<?php echo Actions::Q1_API_COMMENT_ADD_ONE_COMMENT; ?>"
+  data-action="<?php echo Actions::Q1_ACTION_COMMENT_ADD_ONE_COMMENT; ?>"
   data-url="<?php echo admin_url('admin-ajax.php') ?>"
 >
   <!-- 提示信息 -->

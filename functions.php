@@ -56,9 +56,9 @@ require_once plugin_dir_path(__FILE__) . APP_HOME . 'dao/UserDao/UserDao.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'service/PostService/PostService.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'service/CommentService/CommentService.php';
 
-// api
-require_once plugin_dir_path(__FILE__) . APP_HOME . 'api/v1/postApi.php';
-require_once plugin_dir_path(__FILE__) . APP_HOME . 'api/v1/commentApi.php';
+// ajax
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'ajax/v1/postAjax.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'ajax/v1/commentAjax.php';
 
 // redux
 if ( 
@@ -103,5 +103,8 @@ add_action('wp_head', 'updatePostViewCount');
 
 //支持文章缩略图
 add_theme_support('post-thumbnails');
+
+
+
 
 new PostMetaBoxList();

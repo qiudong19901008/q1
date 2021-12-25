@@ -73,7 +73,7 @@ class PostDao extends BasePostDao{
     $tagIdList, //标签id列表
     $description, //描述 meta
     $keywords, //关键词 meta
-    $status='publish', //文章状态 
+    $status='publish' //文章状态 
   ){
     $adder = new AddOnePost();
     $res = $adder->run(

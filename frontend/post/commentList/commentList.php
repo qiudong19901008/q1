@@ -4,7 +4,7 @@
     echo admin_url('admin-ajax.php');
   ?>"
   data-action="<?php 
-    echo Actions::Q1_API_COMMENT_GET_COMMENT_LIST; 
+    echo Actions::Q1_ACTION_COMMENT_GET_COMMENT_LIST; 
   ?>"
   data-size="<?php 
     echo get_option('comments_per_page',10); 
