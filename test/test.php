@@ -10,7 +10,7 @@
 
 // $res = get_the_post_thumbnail_url();
 
-// $res = getQ1Option(Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMB);
+// $res = getQ1Option(Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL);
 
 // var_dump($res);
 
@@ -40,13 +40,13 @@
 // }
 // q1_field_post_view_count
 // $res = PostMetaDao::getPostMetaListByPostIdList([71],[
-//   Fields::COUNT_POST_LIKE,
-//   Fields::COUNT_POST_VIEW,
+//   Fields::Q1_FIELD_POST_LIKE_COUNT,
+//   Fields::Q1_FIELD_POST_VIEW_COUNT,
 // ]);
 
 // $res = substr("('abc','bdk',",0,-1);
 
-// $res = PostDao::queryPostList([],null,[71],['meta','author','category'],[Fields::COUNT_POST_LIKE,Fields::COUNT_POST_VIEW],'create_time','DESC',1,1);
+// $res = PostDao::queryPostList([],null,[71],['meta','author','category'],[Fields::Q1_FIELD_POST_LIKE_COUNT,Fields::Q1_FIELD_POST_VIEW_COUNT],'create_time','DESC',1,1);
 
 // $res = get_categories(); //默认只会查出有文章的分类
 
@@ -62,14 +62,14 @@
 //   [101],
 //   ['meta','author','category','tag'],
 //   [
-//     Fields::COUNT_POST_LIKE,
-//     Fields::COUNT_POST_VIEW,
+//     Fields::Q1_FIELD_POST_LIKE_COUNT,
+//     Fields::Q1_FIELD_POST_VIEW_COUNT,
 //   ],
 // );
 // $res = PostDao::queryRecommendPostList('like',6);
 // $res = PostMetaDao::getPostMetaListByPostIdList([71],[
-//   Fields::COUNT_POST_LIKE,
-//   Fields::COUNT_POST_VIEW,
+//   Fields::Q1_FIELD_POST_LIKE_COUNT,
+//   Fields::Q1_FIELD_POST_VIEW_COUNT,
 // ]);
 // $res = empty('');
 
@@ -85,12 +85,12 @@
 //   null,
 //   null,
 //   ['meta'],
-//   [Fields::COUNT_POST_VIEW],
+//   [Fields::Q1_FIELD_POST_VIEW_COUNT],
 //   '',
 //   'DESC',
 //   1,
 //   10,
-//   Fields::COUNT_POST_VIEW
+//   Fields::Q1_FIELD_POST_VIEW_COUNT
 // );
 // $res = [];
 // foreach($listAndCount['list'] as $one){
@@ -106,7 +106,7 @@
 // // var_dump($res);
 // echo $res;
 
-//   $res = getQ1Option(Options::Q1_FOOTER_MENU_OPTION_NAME);
+//   $res = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_MENU);
 
 // var_dump($res);
 

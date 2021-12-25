@@ -17,7 +17,7 @@ function getQ1Option($optionName,$type='string'){
 }
 
 function getQ1DefaultThumbUrl(){
-  $data = getQ1Option(Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMB);
+  $data = getQ1Option(Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL);
   return $data['url'];
 }
 
@@ -50,7 +50,7 @@ function getSeoTitle(){
  */
 function getSeoDescription(){
   if(is_home()){
-    $res = getQ1Option(Options::Q1_OPTION_HOME_DESCRIPTION);
+    $res = getQ1Option(Options::Q1_OPTION_HOME_BASIC_DESCRIPTION);
   }else if(is_category()){
     $res = strip_tags(category_description());
     if(empty($res)){
@@ -65,7 +65,7 @@ function getSeoDescription(){
     global $s;
     $res = $s;
   }else if(is_single()){
-    $res = get_post_meta(get_the_ID(),Fields::POST_DESCRIPTION,true);
+    $res = get_post_meta(get_the_ID(),Fields::Q1_FIELD_POST_DESCRIPTION,true);
     if(empty($res)){
       $res = get_the_title();
     }
@@ -78,7 +78,7 @@ function getSeoDescription(){
  */
 function getSeoKeywords(){
   if(is_home()){
-    $res  = getQ1Option(Options::Q1_OPTION_HOME_KEYWORDS);
+    $res  = getQ1Option(Options::Q1_OPTION_HOME_BASIC_KEYWORDS);
   }else if(is_category()){
     $res = single_cat_title('',false);
   }else if(is_tag()){
@@ -87,7 +87,7 @@ function getSeoKeywords(){
     global $s;
     $res = $s;
   }else if(is_single()){
-    $res = get_post_meta(get_the_ID(),Fields::POST_KEYWORD,true);
+    $res = get_post_meta(get_the_ID(),Fields::Q1_FIELD_POST_KEYWORDS,true);
     if(empty($res)){
       $res = get_the_title();
     }

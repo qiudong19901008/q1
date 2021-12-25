@@ -44,8 +44,8 @@ function getPostListRouter(){
       null,
       ['meta','author','category'],
       [
-        Fields::COUNT_POST_LIKE,
-        Fields::COUNT_POST_VIEW,
+        Fields::Q1_FIELD_POST_LIKE_COUNT,
+        Fields::Q1_FIELD_POST_VIEW_COUNT,
       ],
       $orderBy,
       'DESC',

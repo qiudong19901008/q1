@@ -17,9 +17,9 @@ Redux::set_section( $opt_name, $section );
  * 
  */
 $section = array(
-	'title'      => esc_html__( '首页基本信息', 'your-textdomain-here' ),
+	'title'      => esc_html__( '首页基本设置', 'your-textdomain-here' ),
 	'desc'       => '',
-	'id'         => 'home_basic_info_setting',
+	'id'         => 'home_basic_setting',
 	'subsection' => true
 );
 
@@ -28,9 +28,9 @@ Redux::set_section( $opt_name, $section );
 //首页描述
 Redux::set_field( 
   $opt_name, 
-  'home_basic_info_setting', 
+  'home_basic_setting', 
   [
-    'id'=>Options::Q1_OPTION_HOME_DESCRIPTION,
+    'id'=>Options::Q1_OPTION_HOME_BASIC_DESCRIPTION,
     'type' => 'textarea',
     'title' => esc_html__('首页描述', 'your-textdomain-here'),
     'subtitle' => esc_html__('首页描述', 'your-textdomain-here'),
@@ -42,9 +42,9 @@ Redux::set_field(
 //首页关键词
 Redux::set_field( 
   $opt_name, 
-  'home_basic_info_setting', 
+  'home_basic_setting', 
   [
-    'id'=>Options::Q1_OPTION_HOME_KEYWORDS,
+    'id'=>Options::Q1_OPTION_HOME_BASIC_KEYWORDS,
     'type' => 'text',
     'title' => esc_html__('首页关键词', 'your-textdomain-here'),
     'subtitle' => esc_html__('首页关键词', 'your-textdomain-here'),

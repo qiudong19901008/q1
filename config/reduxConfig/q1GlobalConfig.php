@@ -27,7 +27,7 @@ Redux::set_field(
   $opt_name, 
   'global_common_setting', 
   [
-    'id'=>Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMB,
+    'id'=>Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL,
     'type' => 'media',
     'url'  => true,
     'title' => esc_html__('默认缩略图', 'your-textdomain-here'),
@@ -58,7 +58,7 @@ Redux::set_field(
   $opt_name, 
   'global_footer_setting', 
   [
-    'id'=>Options::Q1_FOOTER_MENU_OPTION_NAME,
+    'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_MENU,
     'type' => 'multi_text',
     'title' => esc_html__('底部菜单', 'your-textdomain-here'),
     'subtitle' => esc_html__('可以放底部菜单', 'your-textdomain-here'),
@@ -73,7 +73,7 @@ Redux::set_field(
   $opt_name, 
   'global_footer_setting', 
   [
-    'id'=>Options::Q1_FOOTER_LICENSE_OPTION_NAME,
+    'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_LICENSE,
     'type' => 'multi_text',
     'title' => esc_html__('许可证', 'your-textdomain-here'),
     'subtitle' => esc_html__('可以放备案信息,公安备案信息等网络许可证', 'your-textdomain-here'),
@@ -87,7 +87,7 @@ Redux::set_field(
   $opt_name, 
   'global_footer_setting', 
   [
-    'id'=>Options::Q1_FOOTER_COPYRIGHT_OPTION_NAME,
+    'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_COPYRIGHT,
     'type' => 'text',
     'title' => esc_html__('版权信息', 'your-textdomain-here'),
     'subtitle' => esc_html__('版权信息', 'your-textdomain-here'),
@@ -97,24 +97,24 @@ Redux::set_field(
 ) ;
 
 
-/**
- * 2. 友情链接设置
- */
-$section = array(
-	'title'      => esc_html__( '友情链接', 'your-textdomain-here' ),
-	'desc'       => '',
-	'id'         => 'friend_link_setting',
-	'subsection' => true
-);
+// /**
+//  * 2. 友情链接设置
+//  */
+// $section = array(
+// 	'title'      => esc_html__( '友情链接', 'your-textdomain-here' ),
+// 	'desc'       => '',
+// 	'id'         => 'friend_link_setting',
+// 	'subsection' => true
+// );
 
-Redux::set_section( $opt_name, $section );
+// Redux::set_section( $opt_name, $section );
 
 //版权许可
 Redux::set_field( 
   $opt_name, 
-  'friend_link_setting', 
+  'global_footer_setting', 
   [
-    'id'=>Options::Q1_FRIEND_LINK_OPTION_NAME,
+    'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK,
     'type' => 'multi_text',
     'title' => esc_html__('友情链接', 'your-textdomain-here'),
     'subtitle' => esc_html__('友情链接', 'your-textdomain-here'),

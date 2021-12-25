@@ -99,8 +99,8 @@ function updatePostViewCount(){
   if(!$postId){
     return;
   }
-  $oldView = (int)get_post_meta($postId,Fields::COUNT_POST_VIEW,true);
-  update_post_meta($postId, Fields::COUNT_POST_VIEW, ($oldView+1));
+  $oldView = (int)get_post_meta($postId,Fields::Q1_FIELD_POST_VIEW_COUNT,true);
+  update_post_meta($postId, Fields::Q1_FIELD_POST_VIEW_COUNT, ($oldView+1));
 }
 add_action('wp_head', 'updatePostViewCount');
 

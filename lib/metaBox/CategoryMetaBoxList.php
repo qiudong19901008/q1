@@ -27,18 +27,18 @@ class CategoryMetaBoxList{
   // public function saveMetaBoxListValues(){
   //   global $post;
   //   //keyword
-  //   $keyword = get_post_meta($post->ID,Fields::POST_KEYWORD,true);
+  //   $keyword = get_post_meta($post->ID,Fields::Q1_FIELD_POST_KEYWORDS,true);
   //   if(empty($keyword)){
-  //     add_post_meta($post->ID,Fields::POST_KEYWORD,$_POST[Fields::POST_KEYWORD]);
+  //     add_post_meta($post->ID,Fields::Q1_FIELD_POST_KEYWORDS,$_POST[Fields::Q1_FIELD_POST_KEYWORDS]);
   //   }else{
-  //     update_post_meta($post->ID,Fields::POST_KEYWORD,$_POST[Fields::POST_KEYWORD]);
+  //     update_post_meta($post->ID,Fields::Q1_FIELD_POST_KEYWORDS,$_POST[Fields::Q1_FIELD_POST_KEYWORDS]);
   //   }
   //   //description
-  //   $keyword = get_post_meta($post->ID,Fields::POST_DESCRIPTION,true);
+  //   $keyword = get_post_meta($post->ID,Fields::Q1_FIELD_POST_DESCRIPTION,true);
   //   if(empty($keyword)){
-  //     add_post_meta($post->ID,Fields::POST_DESCRIPTION,$_POST[Fields::POST_DESCRIPTION]);
+  //     add_post_meta($post->ID,Fields::Q1_FIELD_POST_DESCRIPTION,$_POST[Fields::Q1_FIELD_POST_DESCRIPTION]);
   //   }else{
-  //     update_post_meta($post->ID,Fields::POST_DESCRIPTION,$_POST[Fields::POST_DESCRIPTION]);
+  //     update_post_meta($post->ID,Fields::Q1_FIELD_POST_DESCRIPTION,$_POST[Fields::Q1_FIELD_POST_DESCRIPTION]);
   //   }
   
   // }

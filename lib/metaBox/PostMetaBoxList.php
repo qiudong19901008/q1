@@ -27,18 +27,18 @@ class PostMetaBoxList{
   public function saveMetaBoxListValues(){
     global $post;
     //keyword
-    $keyword = get_post_meta($post->ID,Fields::POST_KEYWORD,true);
+    $keyword = get_post_meta($post->ID,Fields::Q1_FIELD_POST_KEYWORDS,true);
     if(empty($keyword)){
-      add_post_meta($post->ID,Fields::POST_KEYWORD,$_POST[Fields::POST_KEYWORD]);
+      add_post_meta($post->ID,Fields::Q1_FIELD_POST_KEYWORDS,$_POST[Fields::Q1_FIELD_POST_KEYWORDS]);
     }else{
-      update_post_meta($post->ID,Fields::POST_KEYWORD,$_POST[Fields::POST_KEYWORD]);
+      update_post_meta($post->ID,Fields::Q1_FIELD_POST_KEYWORDS,$_POST[Fields::Q1_FIELD_POST_KEYWORDS]);
     }
     //description
-    $keyword = get_post_meta($post->ID,Fields::POST_DESCRIPTION,true);
+    $keyword = get_post_meta($post->ID,Fields::Q1_FIELD_POST_DESCRIPTION,true);
     if(empty($keyword)){
-      add_post_meta($post->ID,Fields::POST_DESCRIPTION,$_POST[Fields::POST_DESCRIPTION]);
+      add_post_meta($post->ID,Fields::Q1_FIELD_POST_DESCRIPTION,$_POST[Fields::Q1_FIELD_POST_DESCRIPTION]);
     }else{
-      update_post_meta($post->ID,Fields::POST_DESCRIPTION,$_POST[Fields::POST_DESCRIPTION]);
+      update_post_meta($post->ID,Fields::Q1_FIELD_POST_DESCRIPTION,$_POST[Fields::Q1_FIELD_POST_DESCRIPTION]);
     }
   
   }
@@ -50,7 +50,7 @@ class PostMetaBoxList{
     $types = ['post'];
     foreach($types as $type){
       add_meta_box(
-        Fields::POST_KEYWORD, //Meta Box在前台页面中的id，可通过JS获取到该Meta Box  
+        Fields::Q1_FIELD_POST_KEYWORDS, //Meta Box在前台页面中的id，可通过JS获取到该Meta Box  
         'seo关键词', //显示的标题 
         [$this,'printKeywordMetaBoxHtml'], //调方法，用于输出Meta Box的HTML代码   
         $type, // 在哪种类型的页面中添加   
@@ -62,11 +62,11 @@ class PostMetaBoxList{
 
   public function printKeywordMetaBoxHtml(){
     global $post;
-    $value = get_post_meta( $post->ID, Fields::POST_KEYWORD, true );
+    $value = get_post_meta( $post->ID, Fields::Q1_FIELD_POST_KEYWORDS, true );
     ?> 
       <input 
         type="text" 
-        name="<?php echo Fields::POST_KEYWORD; ?>" 
+        name="<?php echo Fields::Q1_FIELD_POST_KEYWORDS; ?>" 
         value="<?php echo $value ?>"
         style="width:100%;"
       />
@@ -79,7 +79,7 @@ class PostMetaBoxList{
     $types = ['post'];
     foreach($types as $type){
       add_meta_box(
-        Fields::POST_DESCRIPTION, //Meta Box在前台页面中的id，可通过JS获取到该Meta Box  
+        Fields::Q1_FIELD_POST_DESCRIPTION, //Meta Box在前台页面中的id，可通过JS获取到该Meta Box  
         'seo描述', //显示的标题 
         [$this,'printDescriptionMetaBoxHtml'], //调方法，用于输出Meta Box的HTML代码   
         $type, // 在哪种类型的页面中添加   
@@ -91,12 +91,12 @@ class PostMetaBoxList{
 
   public function printDescriptionMetaBoxHtml(){
     global $post;
-    $value = get_post_meta( $post->ID, Fields::POST_DESCRIPTION, true );
+    $value = get_post_meta( $post->ID, Fields::Q1_FIELD_POST_DESCRIPTION, true );
     ?> 
       <textarea 
         type="text"
         style="width:100%;"
-        name="<?php echo Fields::POST_DESCRIPTION; ?>"
+        name="<?php echo Fields::Q1_FIELD_POST_DESCRIPTION; ?>"
         value="<?php 
         ?>"
         rows=8  

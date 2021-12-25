@@ -40,7 +40,7 @@ class BasePostDao{
    * @description 获取文章浏览量
    */
   public static function getPostViewCount($post_id){
-    $count = get_post_meta( $post_id, Fields::COUNT_POST_VIEW, true );
+    $count = get_post_meta( $post_id, Fields::Q1_FIELD_POST_VIEW_COUNT, true );
     return !empty($count)?$count:0;
   }
 
@@ -48,7 +48,7 @@ class BasePostDao{
    * @description 获取文章点赞数量
    */
   public static function getPostLikeCount($post_id){
-    $count = get_post_meta( $post_id, Fields::COUNT_POST_LIKE, true );
+    $count = get_post_meta( $post_id, Fields::Q1_FIELD_POST_LIKE_COUNT, true );
     return !empty($count)?$count:0;
   }
 

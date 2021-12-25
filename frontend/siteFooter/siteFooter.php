@@ -1,9 +1,9 @@
 <?php
 
-  $footerMenuList = getQ1Option(Options::Q1_FOOTER_MENU_OPTION_NAME,'array');
-  $footerLicenseList = getQ1Option(Options::Q1_FOOTER_LICENSE_OPTION_NAME,'array');
-  $footerCopyright = getQ1Option(Options::Q1_FOOTER_COPYRIGHT_OPTION_NAME);
-  $friendLinkList = getQ1Option(Options::Q1_FRIEND_LINK_OPTION_NAME,'array');
+  $footerMenuList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_MENU,'array');
+  $footerLicenseList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_LICENSE,'array');
+  $footerCopyright = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_COPYRIGHT);
+  $friendLinkList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK,'array');
 
 ?>
 

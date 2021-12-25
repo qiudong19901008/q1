@@ -8,13 +8,13 @@ class PostService{
    * @return int 点赞的总数量
    */
   public static function likePostById($id){
-    $likeCount= get_post_meta($id,Fields::COUNT_POST_LIKE,true);
+    $likeCount= get_post_meta($id,Fields::Q1_FIELD_POST_LIKE_COUNT,true);
     if(!$likeCount || !is_numeric($likeCount)){
-      update_post_meta($id, Fields::COUNT_POST_LIKE, 1);
+      update_post_meta($id, Fields::Q1_FIELD_POST_LIKE_COUNT, 1);
     }else{
-      update_post_meta($id, Fields::COUNT_POST_LIKE, ($likeCount + 1));
+      update_post_meta($id, Fields::Q1_FIELD_POST_LIKE_COUNT, ($likeCount + 1));
     }
-    $likeCount = (int)get_post_meta($id,Fields::COUNT_POST_LIKE,true);
+    $likeCount = (int)get_post_meta($id,Fields::Q1_FIELD_POST_LIKE_COUNT,true);
     return $likeCount;
   }
 
@@ -25,7 +25,7 @@ class PostService{
    */
   public static function queryPostPageRecommendPostList($postId){
 
-    $count = (int)getQ1Option(Options::Q1_OPTION_POST_RECOMMEND_POST_COUNT);
+    $count = (int)getQ1Option(Options::Q1_OPTION_POST_BASIC_RECOMMEND_POST_COUNT);
 
     //找出该文章所属的分类
     $categoryList = CategoryDao::getCategoryListByPostId($postId,true);
@@ -58,10 +58,10 @@ class PostService{
           $orderBy = 'comment_count';
           break;
         case 'view':
-          $orderByMetaKey = Fields::COUNT_POST_VIEW;
+          $orderByMetaKey = Fields::Q1_FIELD_POST_VIEW_COUNT;
           break;
         case 'like':
-          $orderByMetaKey = Fields::COUNT_POST_LIKE;
+          $orderByMetaKey = Fields::Q1_FIELD_POST_LIKE_COUNT;
           break;
       }
       //根据分类找出文章
@@ -71,8 +71,8 @@ class PostService{
         null,
         ['meta'],
         [
-          Fields::COUNT_POST_LIKE,
-          Fields::COUNT_POST_VIEW,
+          Fields::Q1_FIELD_POST_LIKE_COUNT,
+          Fields::Q1_FIELD_POST_VIEW_COUNT,
         ],
         $orderBy,
         'DESC',

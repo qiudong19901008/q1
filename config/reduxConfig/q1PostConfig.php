@@ -16,9 +16,9 @@ Redux::set_section( $opt_name, $section );
  * 
  */
 $section = array(
-	'title'      => esc_html__( '文章页基本信息', 'your-textdomain-here' ),
+	'title'      => esc_html__( '文章页基本设置', 'your-textdomain-here' ),
 	'desc'       => '',
-	'id'         => 'post_basic_info_setting',
+	'id'         => 'post_basic_setting',
 	'subsection' => true
 );
 
@@ -30,9 +30,9 @@ Redux::set_section( $opt_name, $section );
  */
 Redux::set_field( 
   $opt_name, 
-  'post_basic_info_setting',
+  'post_basic_setting',
   [
-    'id' => Options::Q1_OPTION_POST_RECOMMEND_POST_COUNT,
+    'id' => Options::Q1_OPTION_POST_BASIC_RECOMMEND_POST_COUNT,
     'type' => 'spinner',
     'title' => __( '推荐文章数量' , 'redux_docs_generator' ),
     'subtitle' => __( '推荐文章数量' , 'redux_docs_generator' ),

@@ -57,14 +57,14 @@ class WidgetRecommendPosts extends WP_Widget{
         $text = '';
         switch($type){
           case 'view':
-            $viewCount = $meta[Fields::COUNT_POST_VIEW];
+            $viewCount = $meta[Fields::Q1_FIELD_POST_VIEW_COUNT];
             $text = '浏览('.$viewCount.')';
             break;
           case 'comment':
             $text = '评论('.$post['commentCount'].')';
             break;
           case 'like':
-            $likeCount = $meta[Fields::COUNT_POST_LIKE];
+            $likeCount = $meta[Fields::Q1_FIELD_POST_LIKE_COUNT];
             $text = '点赞('.$likeCount.')';
             break;
         }
