@@ -1,5 +1,7 @@
 <?php
 
+require_once plugin_dir_path(__FILE__) . './PostAdder.php';
+
 class PostService{
 
   /**
@@ -83,6 +85,22 @@ class PostService{
       return $listAndCount['list'];
   }
 
+
+  /**
+   * 添加一篇文章
+   */
+  public static function addOne($one){
+    $postId = PostAdder::addOne($one);
+    return $postId;
+  }
+
+  /**
+   * 添加多篇文章
+   */
+  public static function addList($list){
+    $postIdList = PostAdder::addList($list);
+    return $postIdList;
+  }
 
 
 }

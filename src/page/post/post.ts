@@ -67,9 +67,7 @@ class PostView{
     $('.postContent__like').on('click',this.likePostHandler);
   }
 
- 
 
-  
 
 }
 

@@ -1,6 +1,25 @@
 <?php
 
-class CategoryDao{
+require_once plugin_dir_path(__FILE__) . './BaseCategoryDao.php';
+require_once plugin_dir_path(__FILE__) . './QueryCategoryList.php';
+
+class CategoryDao extends BaseCategoryDao{
+
+
+  /**
+   * @description 查询分类列表
+   * @param number $page
+   * @param number $size
+   */
+  public static function queryCategoryList(
+    $page=1,
+    $size=10
+  ){
+    $querier = new QueryCategoryList();
+    $res = $querier->run($page,$size);
+    return $res;
+  }
+  
 
 
    /**

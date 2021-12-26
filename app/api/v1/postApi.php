@@ -1,28 +1,35 @@
 <?php
 
+
+
 add_action( 'rest_api_init', function () {
+  //添加一篇文章
   register_rest_route( 'q1/v1', '/post/add', [
     'methods' => 'POST',
     'callback' => 'addOnePostRouter',
   ]);
+  //添加多篇文章
+  register_rest_route( 'q1/v1', '/post/addList', [
+    'methods' => 'POST',
+    'callback' => 'addListPostRouter',
+  ]);
+
 });
 
 function addOnePostRouter(){
-
-  $title = $_POST["title"]; //标题
-  $content = $_POST["content"]; //内容
-  $authorId = $_POST["authorId"]; //作者id
-  $categoryIdList = $_POST["categoryIdList"]; //分类id列表
-  $tagIdList = $_POST["tagIdList"]; //标签id列表
-  $description = $_POST["description"]; //描述 meta
-  $keywords = $_POST["keywords"]; //关键词 meta
-  $status = $_POST["status"]?$_POST["status"]:'publish'; //文章状态 
-  $create_time = $_POST["create_time"];
-
-  $postId = PostDao::addOnePost($title,$content,$authorId,$categoryIdList,$tagIdList,$description,$keywords,$status,$create_time);
-
+  $list = getPOSTValue('list');
+  $postId = PostService::addOne($list[0]);
   $res = json_encode([
-    'postId'=>$postId,
+    'postIdList'=>[$postId],
+  ]);
+  return $res;
+}
+
+function addListPostRouter(){
+  $list = getPOSTValue('list');
+  $postIdList = PostService::addList($list);
+  $res = json_encode([
+    'postIdList'=>$postIdList
   ]);
   return $res;
 }

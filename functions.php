@@ -62,6 +62,7 @@ require_once plugin_dir_path(__FILE__) . APP_HOME . 'ajax/v1/commentAjax.php';
 
 //API
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'api/v1/postApi.php';
+require_once plugin_dir_path(__FILE__) . APP_HOME . 'api/v1/categoryApi.php';
 
 // redux
 if ( 

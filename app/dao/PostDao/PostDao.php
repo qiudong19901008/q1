@@ -75,7 +75,7 @@ class PostDao extends BasePostDao{
     $description, //描述 meta
     $keywords, //关键词 meta
     $status='publish', //文章状态
-    $create_time=null, 
+    $create_time=null
   ){
     $adder = new AddOnePost();
     $res = $adder->run(

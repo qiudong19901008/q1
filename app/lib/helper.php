@@ -68,3 +68,19 @@ function failed($method,$action,$msg='操作失败',$errorCode=ErrorCodes::Q1_ER
   die;
 }
 
+/**
+ * @description 获取$_GET的参数
+ */
+function getGETValue($name,$default=null){ 
+  $val = !empty($_GET[$name]) ? $_GET[$name] : $default; 
+  return $val; 
+}
+
+
+/**
+ * @description 获取$_GET的参数
+ */
+function getPOSTValue($name,$default=null){ 
+  $val = !empty($_GET[$name]) ? $_GET[$name] : $default; 
+  return $val; 
+}
