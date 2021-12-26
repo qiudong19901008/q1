@@ -23,6 +23,16 @@ add_action( 'rest_api_init', function () {
     'methods' => 'POST',
     'callback' => 'updateListPostRouter',
   ]);
+  //删除一篇文章
+  register_rest_route( 'q1/v1', '/post/delete', [
+    'methods' => 'POST',
+    'callback' => 'deleteOnePostRouter',
+  ]);
+  //删除多篇文章
+  register_rest_route( 'q1/v1', '/post/deleteList', [
+    'methods' => 'POST',
+    'callback' => 'deleteListPostRouter',
+  ]);
 
 });
 
@@ -37,7 +47,6 @@ function addOnePostRouter(){
 
 function addListPostRouter(){
   $list = getPOSTValue('list');
-  // return $list;
   $postIdList = PostService::addList($list);
   $res = json_encode([
     'postIdList'=>$postIdList
@@ -56,7 +65,6 @@ function updateOnePostRouter(){
 
 function updateListPostRouter(){
   $list = getPOSTValue('list');
-  // return $list;
   $postIdList = PostService::updateList($list);
   $res = json_encode([
     'postIdList'=>$postIdList
@@ -64,6 +72,24 @@ function updateListPostRouter(){
   return $res;
 }
 
+
+function deleteOnePostRouter(){
+  $list = getPOSTValue('list');
+  $result = PostService::deleteOne($list[0]);
+  $res = json_encode([
+    'zeroOrOneList'=>[$result],
+  ]);
+  return $res;
+}
+
+function deleteListPostRouter(){
+  $list = getPOSTValue('list');
+  $zeroOrOneList = PostService::deleteList($list);
+  $res = json_encode([
+    'zeroOrOneList'=>$zeroOrOneList
+  ]);
+  return $res;
+}
 
 
 

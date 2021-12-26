@@ -4,6 +4,7 @@ require_once plugin_dir_path(__FILE__) . './BasePostDao.php';
 require_once plugin_dir_path(__FILE__) . './QueryPostList.php';
 require_once plugin_dir_path(__FILE__) . './AddOnePost.php';
 require_once plugin_dir_path(__FILE__) . './UpdateOnePost.php';
+require_once plugin_dir_path(__FILE__) . './DeleteOnePost.php';
 
 
 class PostDao extends BasePostDao{
@@ -96,7 +97,7 @@ class PostDao extends BasePostDao{
 
 
    /**
-   * @description 新增一篇文章
+   * @description 更新一篇文章
    * @param number id 文章id
    * @param string title 文章标题
    * @param string content 文章内容
@@ -134,6 +135,18 @@ class PostDao extends BasePostDao{
     return $res;
   }
 
+
+  
+   /**
+   * @description 删除一篇
+   * @param number id 文章id
+   * @return 0|1 删除失败则返回0, 成功则是1
+   */
+  public static function deleteOnePost($id){
+    $deleter = new DeleteOnePost();
+    $res = $deleter->run($id);
+    return $res;
+  }
 
 
   

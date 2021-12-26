@@ -2,6 +2,7 @@
 
 require_once plugin_dir_path(__FILE__) . './PostAdder.php';
 require_once plugin_dir_path(__FILE__) . './PostUpdater.php';
+require_once plugin_dir_path(__FILE__) . './PostDeleter.php';
 
 class PostService{
 
@@ -117,6 +118,22 @@ class PostService{
   public static function updateList($list){
     $postIdList = PostUpdater::updateList($list);
     return $postIdList;
+  }
+
+  /**
+   * 删除一篇文章
+   */
+  public static function deleteOne($one){
+    $res = PostDeleter::deleteOne($one);
+    return $res;
+  }
+
+  /**
+   * 删除多篇文章
+   */
+  public static function deleteList($list){
+    $res = PostDeleter::deleteList($list);
+    return $res;
   }
 
 
