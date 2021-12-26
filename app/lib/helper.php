@@ -81,6 +81,6 @@ function getGETValue($name,$default=null){
  * @description 获取$_GET的参数
  */
 function getPOSTValue($name,$default=null){ 
-  $val = !empty($_GET[$name]) ? $_GET[$name] : $default; 
+  $val = !empty($_POST[$name]) ? $_POST[$name] : $default; 
   return $val; 
 }

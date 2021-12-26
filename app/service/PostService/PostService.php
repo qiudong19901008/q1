@@ -1,6 +1,7 @@
 <?php
 
 require_once plugin_dir_path(__FILE__) . './PostAdder.php';
+require_once plugin_dir_path(__FILE__) . './PostUpdater.php';
 
 class PostService{
 
@@ -101,6 +102,23 @@ class PostService{
     $postIdList = PostAdder::addList($list);
     return $postIdList;
   }
+
+  /**
+   * 更新一篇文章
+   */
+  public static function updateOne($one){
+    $postId = PostUpdater::updateOne($one);
+    return $postId;
+  }
+
+  /**
+   * 更新多篇文章
+   */
+  public static function updateList($list){
+    $postIdList = PostUpdater::updateList($list);
+    return $postIdList;
+  }
+
 
 
 }

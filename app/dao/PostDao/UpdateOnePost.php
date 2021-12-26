@@ -1,9 +1,11 @@
 <?php
 
-class AddOnePost{
+
+class UpdateOnePost{
 
   /**
    * @description 新增一篇文章
+   * @param number id 文章id
    * @param string title 文章标题
    * @param string content 文章内容
    * @param number authorId 作者id
@@ -12,10 +14,10 @@ class AddOnePost{
    * @param string description seo描述
    * @param string keywords seo关键词
    * @param string status 文章状态 'publish', 'draft', 'future', 'private'
-   * @param date create_time
    * @return 文章id, 如果不成功则返回0
    */
   public function run(
+    $id, //文章id
     $title, //标题
     $content, //内容
     $authorId, //作者id
@@ -23,11 +25,11 @@ class AddOnePost{
     $tagIdList, //标签id列表
     $description, //描述 meta
     $keywords, //关键词 meta
-    $status='publish', //文章状态 
-    $create_time=null //创建日期
+    $status='publish' //文章状态 
   ){
 
     $config = [
+      'ID'=>$id,
       'post_title'=>$title, //文章标题
       'post_content'=>$content, //文章内容
       'post_author'=>$authorId, //作者id
@@ -40,11 +42,7 @@ class AddOnePost{
       ], //元信息
     ];
 
-    if(!empty($create_time)){
-      $config['post_date'] = $create_time;
-    }
-
-    $res = (int)wp_insert_post($config);
+    $res = (int)wp_update_post($config);
     return $res;
   }
 

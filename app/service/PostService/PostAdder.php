@@ -1,6 +1,14 @@
 <?php
 
-
+// $title = $one->title;
+//     $content = $one->content;
+//     $authorId = $one->authorId;
+//     $categoryIdList = $one->categoryIdList;
+//     $tagIdList = $one->tagIdList;
+//     $description = $one->description;
+//     $keywords = $one->keywords;
+//     $status = $one->status;
+//     $create_time = $one->create_time;
 
 class PostAdder{
 
