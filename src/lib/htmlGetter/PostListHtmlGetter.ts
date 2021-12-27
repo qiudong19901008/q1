@@ -71,7 +71,7 @@ class PostListHtmlGetter{
         </time>
         <span class="postCard__author">
           <i class="fa fa-user"></i>
-          <span href="#">秋冬</span>
+          <span href="#">${post.authorName}</span>
         </span>
         <span class="postCard__viewCount">
           <i class="fa fa-eye"></i>
