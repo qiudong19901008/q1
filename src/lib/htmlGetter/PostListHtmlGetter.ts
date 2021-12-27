@@ -32,7 +32,7 @@ class PostListHtmlGetter{
           ${this._renderPostHeader(post)}
           ${this._renderPostMeta(post)}
           <div class="postCard__excerpt">
-            双击放大看 双击放大看 双击放大看
+          ${post.excerpt}
           </div>
         </div>
       </div>
