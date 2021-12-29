@@ -27,12 +27,14 @@ class AddOnePost{
     $create_time=null //创建日期
   ){
 
+    
+
     $config = [
       'post_title'=>$title, //文章标题
       'post_content'=>$content, //文章内容
       'post_author'=>$authorId, //作者id
       'post_category'=>$categoryIdList, //文章所属分类id列表
-      'tags_input'=>$tagIdList, //文章标签列表, 可以是name, slug 或ID
+      'tags_input'=>$this->_getTagIdList($tagIdList), //文章标签列表, 可以是name, slug 或ID
       'post_status'=>$status, //文章状态, 默认draft
       'meta_input'=>[
         Fields::Q1_FIELD_POST_DESCRIPTION=>$description,
@@ -45,6 +47,16 @@ class AddOnePost{
     }
 
     $res = (int)wp_insert_post($config);
+    return $res;
+  }
+
+
+  private function _getTagIdList($tagIdList){
+    $res = [];
+    //把$tagIdList里面的元素转化为数字, 否则会被当成字符串新建一个标签
+    foreach($tagIdList as $tagId){
+      array_push($res,(int)$tagId);
+    }
     return $res;
   }
 
