@@ -42,7 +42,15 @@ class PostListHtmlGetter{
 
 
   private static _renderPostHeader(post:any){
-    const category = post.categoryList[0];
+    const categoryList = post.categoryList;
+    //取最后一个分类, 因为分类越后面越细
+    let category = categoryList[categoryList.length-1];
+    if(!category){
+      category = {
+        url:'#',
+        name:'没有分类',
+      }
+    }
 
     return `
     <div class="postCard__header">
