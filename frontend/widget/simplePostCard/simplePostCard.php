@@ -1,4 +1,3 @@
-
 <?php
   $myPost = $args['post'];
   // var_dump($myPost);

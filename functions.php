@@ -33,9 +33,6 @@ require_once plugin_dir_path(__FILE__) . '/lib/constant/ErrorCodes.php';
 
 //metabox
 require_once plugin_dir_path(__FILE__) . '/lib/metaBox/PostMetaBoxList.php';
-require_once plugin_dir_path(__FILE__) . '/lib/metaBox/CategoryMetaBoxList.php';
-// CategoryMetaBoxList
-
 //帮助函数
 require_once plugin_dir_path(__FILE__) . '/lib/helper/helper.php';
 
@@ -112,3 +109,4 @@ add_theme_support('post-thumbnails');
 
 
 new PostMetaBoxList();
+
