@@ -26,7 +26,7 @@
     
       </h1>
       <div class="postContent__meta">
-        <span>发布日期：<time><?php the_time('Y-m-d h:i:s') ?></time></span>
+        <span>发布日期：<time><?php the_time('Y-m-d H:i:s') ?></time></span>
         <span>分类:<a href="<?php echo $category['url'] ?>"><?php echo $category['name'] ?></a></span>
         <span>阅读(<span><?php echo $viewCount ?></span>)</span>
         <span>评论(<span><?php echo $commentCount; ?></span>)</span>

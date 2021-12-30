@@ -12,8 +12,6 @@
 
 <?php
 
-// $res = (int)getQ1Option(Options::Q1_OPTION_POST_BASIC_RECOMMEND_POST_COUNT);
-// var_dump($res);
 ?>
 
 
