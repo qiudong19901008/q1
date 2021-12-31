@@ -12,7 +12,6 @@
     <div class="postPageContent__recommendWrap">
       
       <?php 
-      
         get_template_part('frontend/post/recommendCard/recommendCard'); 
       ?>
     </div>

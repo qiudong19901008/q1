@@ -24,9 +24,10 @@
 
 .commentForm__contentWrap{
   display: flex;
+  flex-direction: column;
 }
 .commentForm__contentLabel{
-  width: 10% !important;
+  /* width: 10% !important; */
 }
 
 .commentForm__operation{

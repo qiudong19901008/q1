@@ -33,7 +33,7 @@
         <span>点赞(<span class="postContent__likeCount"><?php echo $likeCount; ?></span>)</span>
       </div>
   </div>
-  <div class="postContent__content">
+  <div class="postContent__content" id="github">
     <?php 
       the_content();
     ?>

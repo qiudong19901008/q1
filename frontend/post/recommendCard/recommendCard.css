@@ -38,3 +38,9 @@
 .recommendCard__postLink:hover{
   color:#6ac5f9;
 }
+
+@media screen and (max-width:1000px) {
+  .recommendCard__post{
+    width: 100%;
+  }
+}
