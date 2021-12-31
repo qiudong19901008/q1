@@ -39,10 +39,10 @@
 .siteHeader__searchForm{
   /* display: flex; */
   background-color: #fff;
-  z-index: 3;
-  width: 90%;
+  z-index: 4;
+  width: 100%;
   /* padding:1rem; */
-  height:50px;
+  height:60px;
 }
 
 .siteHeader__searchFormInput{
@@ -50,10 +50,10 @@
   color: #999;
   border: solid 1px #ddd;
   width: 85%;
-  height: 50px;
+  height: 100%;
   padding: 4px 12px;
   border-right: none;
-  font-size: 16px;
+  font-size: 20px;
   border-radius: 2px 0 0 2px;
   outline: none;
   vertical-align: top;
@@ -64,8 +64,9 @@
   color: #fff;
   border: none;
   background: #45B6F7;
-  height: 50px;
-  font-size: 16px;
+  height: 100%;
+  font-size: 20px;
+  line-height: 20px;
   padding: 0 12px;
   border-radius: 0 2px 2px 0;
   width: 15%;
@@ -75,12 +76,13 @@
 
 /* 手机菜单*/
 .siteHeader__mobileMenuWrap{
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: rgb(69, 188, 249);
   position:fixed;
   top:0;
-  left:0;
-  left:-60%;
-  width:60%;
+  /* left:0; */
+  left:-80%;
+  width:80%;
   height:100%;
   z-index: 3;
   transition: left .3s linear;
@@ -88,10 +90,6 @@
   padding-left:15%;
   transition: left linear .3s; */
 }
-
-/* .siteHeader__mobileNavMenuContainer .mobile-menu li a{
-  color:rgb(255 255 255/70%);
-} */
 
 /* 小于1000 */
 @media screen and (max-width:1000px) {

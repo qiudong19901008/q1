@@ -29,7 +29,7 @@ $('.siteHeader__mask').on('click',(e)=>{
   // 允许滑动
   $('body').css('overflow','auto');
   // 关闭菜单栏, 搜索框和遮罩
-  $('.siteHeader__mobileMenuWrap').css('left','-60%');
+  $('.siteHeader__mobileMenuWrap').css('left','-80%');
   $('.siteHeader__searchForm').addClass('hide');
   $('.siteHeader__mask').addClass('hide');
   // 图标还原 搜索

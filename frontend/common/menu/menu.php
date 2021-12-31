@@ -13,7 +13,7 @@
   <?php foreach($menuList as $menu): ?>
 
     <li class="menu__item">
-      <a href="<?php echo $menu['url']; ?>" class="menu__link">
+      <a href="<?php echo $menu['url']; ?>" class="menu__itemLink">
         <?php echo $menu['title'] ?>
           
         <?php if(count($menu['subMenuList']) != 0): ?>
@@ -32,7 +32,7 @@
           <?php foreach($menu['subMenuList'] as $subMenu): ?>
 
             <li class="menu__submenuItem">
-              <a href="<?php echo $subMenu['url'] ?>" class="menu__submenuLink"><?php echo $subMenu['title'] ?></a>
+              <a href="<?php echo $subMenu['url'] ?>" class="menu__submenuItemLink"><?php echo $subMenu['title'] ?></a>
             </li>
         
           <?php endforeach; ?>

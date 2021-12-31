@@ -9,7 +9,7 @@
 
 
 
-.menu__link{
+.menu__itemLink{
   display: block;
   height:56px;
   font-size: 1.4rem;
@@ -20,7 +20,7 @@
 
 
 
-.menu__link:hover{
+.menu__itemLink:hover{
   color:#000;
 }
 
@@ -50,7 +50,7 @@
   transition: transform .2s linear .2s,opacity .2s linear .2s;
 }
 
-.menu__item:hover .menu__link{
+.menu__item:hover .menu__itemLink{
   border-bottom: 2px solid rgb(128, 200, 252);
 }
 
@@ -65,18 +65,18 @@
   padding:0 2rem;
 }
 
-.menu__submenuLink{
+.menu__submenuItemLink{
   white-space:nowrap;
 }
 
 
 
-.menu__submenuItem:hover{
+.menu__submenuItemLink:hover{
   background-color: rgb(242, 242, 242);
   /* background-color: #fff; */
 }
 
-.menu__submenuLink:hover{
+.menu__submenuItemLink:hover{
   color:#000;
   
 }

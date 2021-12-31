@@ -7,68 +7,87 @@
 }
 
 .mobileMenu__item{
-  border: 1px solid rgb(50 162 252 / 30%);
-  margin:1rem 1rem;
+  /* border: 1px solid rgb(50 162 252 / 30%); */
+  /* margin:1rem 1rem; */
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* padding:0 1rem; */
+  border-bottom: 1px solid rgb(48, 175, 238);
+  padding-left: 1rem;
+  transition: all .3s ease;
+
+}
+
+
+
+
+.mobileMenu__itemLink{
+  display: block;
+  font-size: 16px;
+  color:#fff;
+  cursor: pointer;
+  flex:1;
+}
+.mobileMenu__itemLink:active{
+  color:#fff;
+}
+
+
+.mobileMenu__itemIcon{
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  font-size:20px;
+  padding:0 2rem;
   transition: all .3s ease;
 }
 
-.mobileMenu__item--active{
-  background-color: rgb(50 162 252 / 30%);
-  /* transition: all .2s; */
-}
 
-.mobileMenu__item--active .mobileMenu__icon{
-  transform: rotate(180deg);
-  /* transition: all .2s; */
-}
-
-.mobileMenu__item--active .mobileMenu__submenu{
-  display: block;
-  /* transition: all .2s; */
-}
-
-.mobileMenu__item:hover{
-  background-color: rgb(50 162 252 / 30%);
-}
-
-
-.mobileMenu__link{
-  display: block;
-  font-size: 16px;
-  text-align: center;
-  position: relative;
-  color:#000;
-  cursor: pointer;
-}
-
-.mobileMenu__link:hover{
-  /* color:#000; */
-}
-
-.mobileMenu__icon{
-  /* margin-right: -.5rem; */
-  /* position:absolute;
-  left:0;
-  top:0; */
-}
 
 
 .mobileMenu__submenu{
-  background-color: #fff;
-  text-align: center;
-  display:none;
+  height: 0;
+  visibility:hidden;
+  opacity: 0;
+  background-color: rgb(48, 175, 238);
+  width: 100%;
+  padding-left: 1rem;
+  transition: opacity .3s ease;
 }
 
-.mobileMenu__subItem{
+.mobileMenu__submenuItem{
   /* text-align: center; */
   /* height:0; */
 }
 
-.mobileMenu__subLink{
+.mobileMenu__submenuItemLink{
   display: block;
+  color:#fff;
 }
 
-.mobileMenu__subLink:hover{
-  color:#000;
-  background-color: rgb(50 162 252 / 10%);
+.mobileMenu__submenuItemLink:hover{
+  /* color:#000; */
+  /* background-color: rgb(50 162 252 / 10%); */
+}
+
+
+
+.mobileMenu__item--active{
+  /* background-color: rgb(50 162 252 / 30%); */
+  background-color: rgb(69 188 249 / 70%);
+
+  background-color: rgb(48, 175, 238);
+}
+
+.mobileMenu__item--active .mobileMenu__itemIcon{
+  transform: rotate(180deg);
+}
+
+.mobileMenu__item--active .mobileMenu__submenu{
+  /* display: block; */
+  height: 100%;
+  visibility:visible;
+  opacity: 1;
 }

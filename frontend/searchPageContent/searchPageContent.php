@@ -16,7 +16,7 @@
     </div>
   </div>
   <!-- 分页 -->
-  <div class="searchPageContent__paginationWrap">
+  <div class="searchPageContent__paginationWrap paginationWrap">
     <?php 
       get_template_part('frontend/common/pagination/pagination'); 
     ?>

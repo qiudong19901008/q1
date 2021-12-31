@@ -20,7 +20,7 @@
     
   </div>
   <!-- 分页 -->
-  <div class="categoryPageContent__paginationWrap">
+  <div class="categoryPageContent__paginationWrap paginationWrap">
     <?php get_template_part('frontend/common/pagination/pagination'); ?>
   </div>
   

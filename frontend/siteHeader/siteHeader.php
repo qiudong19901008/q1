@@ -31,6 +31,7 @@
   <form class="siteHeader__searchForm center hide" action="<?php echo home_url();?>" method="get">
     <input
       class="siteHeader__searchFormInput"
+      autocomplete="off"
       type="text" 
       placeholder="搜点什么?"
       name="s"
@@ -45,6 +46,7 @@
       get_template_part('frontend/common/mobileMenu/mobileMenu',null,[
         'menuList'=>$menuList,
       ]);
+      // get_template_part('frontend/common/mobileMenu/mobileMenu');
     ?>
   </div>
   

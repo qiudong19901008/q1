@@ -116,6 +116,12 @@ a:hover{
 .radius-big{
   border-radius: 8px;
 }
+.paginationWrap{
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 4px;
+}
 
 /* 表单 */
 .form-group{
