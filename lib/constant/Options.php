@@ -17,7 +17,19 @@ class Options{
   public const Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL = '_q1_option_global_common_defaultThumbnail';
 
   
+  ////////////////////////全局-页头/////////////////////////
+
+  /**
+   * Q1主题-选项-全局-页头-自定义代码
+   */
+  public const Q1_OPTION_GLOBAL_HEADER_CUSTOM_CODE = '_q1_option_global_header_customCode';
+
   ////////////////////////全局-页脚/////////////////////////
+
+  /**
+   * Q1主题-选项-全局-页脚-友情链接
+   */
+  public const Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK = '_q1_option_global_footer_friendLink';
   /**
    * Q1主题-选项-全局-页脚-版权 
    */         
@@ -34,9 +46,10 @@ class Options{
   public const Q1_OPTION_GLOBAL_FOOTER_LICENSE = '_q1_option_global_footer_license';
 
   /**
-   * Q1主题-选项-全局-页脚-友情链接
+   * Q1主题-选项-全局-页脚-自定义代码
    */
-  public const Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK = '_q1_option_global_footer_friendLink';
+  public const Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE = '_q1_option_global_footer_customCode';
+  
   
 
   ////////////////////////首页-基本信息/////////////////////////

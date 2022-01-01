@@ -103,3 +103,16 @@ function getPostThumbUrl($myPost,$default=''){
   return GetPostThumbUrl::run($myPost,$default);
 }
 
+/**
+ * 获取自定义头部代码, 该区域可以放一些脚本, 比如谷歌广告代码
+ */
+function getHeaderCustomCode(){
+  return getQ1Option(Options::Q1_OPTION_GLOBAL_HEADER_CUSTOM_CODE);
+}
+
+/**
+ * 获取自定义头部代码, 该区域可以放一些脚本, 比如百度统计
+ */
+function getFooterCustomCode(){
+  return getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE);
+}

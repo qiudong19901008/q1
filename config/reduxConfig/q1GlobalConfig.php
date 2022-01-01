@@ -38,10 +38,35 @@ Redux::set_field(
   ]
 ) ;
 
+/**
+ * 1. 页头设置
+ */
+$section = array(
+	'title'      => esc_html__( '页头设置', 'your-textdomain-here' ),
+	'desc'       => '自定义头部, 可以放第三方代码, 比如广告联盟的js',
+	'id'         => 'global_header_setting',
+	'subsection' => true
+);
+
+Redux::set_section( $opt_name, $section );
+
+//头部自定义代码
+Redux::set_field( 
+  $opt_name, 
+  'global_header_setting', 
+  [
+    'id'=>Options::Q1_OPTION_GLOBAL_HEADER_CUSTOM_CODE,
+    'type' => 'textarea',
+    'title' => esc_html__('头部自定义代码', 'your-textdomain-here'),
+    'subtitle' => esc_html__('头部自定义代码', 'your-textdomain-here'),
+    'placeholder' => '',
+    'desc' => esc_html__('头部自定义代码', 'your-textdomain-here')
+  ]
+) ;
 
 
 /**
- * 1. 页脚设置
+ * 2. 页脚设置
  * 
  */
 $section = array(
@@ -52,6 +77,20 @@ $section = array(
 );
 
 Redux::set_section( $opt_name, $section );
+
+//友情链接
+Redux::set_field( 
+  $opt_name, 
+  'global_footer_setting', 
+  [
+    'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK,
+    'type' => 'multi_text',
+    'title' => esc_html__('友情链接', 'your-textdomain-here'),
+    'subtitle' => esc_html__('友情链接', 'your-textdomain-here'),
+    'placeholder' => '<a href="#">百度</a>',
+    'desc' => esc_html__('友情链接', 'your-textdomain-here')
+  ]
+) ;
 
 //底部菜单
 Redux::set_field( 
@@ -96,29 +135,16 @@ Redux::set_field(
   ]
 ) ;
 
-
-// /**
-//  * 2. 友情链接设置
-//  */
-// $section = array(
-// 	'title'      => esc_html__( '友情链接', 'your-textdomain-here' ),
-// 	'desc'       => '',
-// 	'id'         => 'friend_link_setting',
-// 	'subsection' => true
-// );
-
-// Redux::set_section( $opt_name, $section );
-
-//版权许可
+//页脚自定义代码
 Redux::set_field( 
   $opt_name, 
   'global_footer_setting', 
   [
-    'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK,
-    'type' => 'multi_text',
-    'title' => esc_html__('友情链接', 'your-textdomain-here'),
-    'subtitle' => esc_html__('友情链接', 'your-textdomain-here'),
-    'placeholder' => '<a href="#">百度</a>',
-    'desc' => esc_html__('友情链接', 'your-textdomain-here')
+    'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE,
+    'type' => 'textarea',
+    'title' => esc_html__('页脚自定义代码', 'your-textdomain-here'),
+    'subtitle' => esc_html__('页脚自定义代码', 'your-textdomain-here'),
+    'placeholder' => '',
+    'desc' => esc_html__('页脚自定义代码', 'your-textdomain-here')
   ]
 ) ;

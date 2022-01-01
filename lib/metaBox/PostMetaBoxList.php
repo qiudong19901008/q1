@@ -10,7 +10,7 @@ class PostMetaBoxList{
     //加载文章时, 创建meta boxes
     add_action( 'add_meta_boxes', [$this,'addPostCustomMetaBoxList'] );
     //保存文章时, 保存meta boxes里面的值
-    add_action('save_post', [$this,'saveMetaBoxListValues']);
+    // add_action('save_post', [$this,'saveMetaBoxListValues']);
   }
 
   /**
@@ -24,24 +24,26 @@ class PostMetaBoxList{
   /**
    * 保存meta box list 里面的值
    */
-  public function saveMetaBoxListValues(){
-    global $post;
-    //keyword
-    $keyword = get_post_meta($post->ID,Fields::Q1_FIELD_POST_KEYWORDS,true);
-    if(empty($keyword)){
-      add_post_meta($post->ID,Fields::Q1_FIELD_POST_KEYWORDS,$_POST[Fields::Q1_FIELD_POST_KEYWORDS]);
-    }else{
-      update_post_meta($post->ID,Fields::Q1_FIELD_POST_KEYWORDS,$_POST[Fields::Q1_FIELD_POST_KEYWORDS]);
-    }
-    //description
-    $keyword = get_post_meta($post->ID,Fields::Q1_FIELD_POST_DESCRIPTION,true);
-    if(empty($keyword)){
-      add_post_meta($post->ID,Fields::Q1_FIELD_POST_DESCRIPTION,$_POST[Fields::Q1_FIELD_POST_DESCRIPTION]);
-    }else{
-      update_post_meta($post->ID,Fields::Q1_FIELD_POST_DESCRIPTION,$_POST[Fields::Q1_FIELD_POST_DESCRIPTION]);
-    }
+  // public function saveMetaBoxListValues($postId){
+  //   //keyword
+  //   $keyword = get_post_meta($postId,Fields::Q1_FIELD_POST_KEYWORDS,true);
+  //   if(empty($keyword)){
+  //     // echo '空的'; 'hidden_post_status'
+  //     // add_post_meta($postId,Fields::Q1_FIELD_POST_KEYWORDS,getPOSTValue(Fields::Q1_FIELD_POST_KEYWORDS,''));
+  //     add_post_meta($postId,Fields::Q1_FIELD_POST_KEYWORDS,json_encode($_POST));
+  //   }else{
+  //     update_post_meta($postId,Fields::Q1_FIELD_POST_KEYWORDS,getPOSTValue(Fields::Q1_FIELD_POST_KEYWORDS,''));
+  //   }
+  //   //description
+  //   $keyword = get_post_meta($postId,Fields::Q1_FIELD_POST_DESCRIPTION,true);
+  //   if(empty($keyword)){
+  //     sanitize_text_field('');
+  //     add_post_meta($postId,Fields::Q1_FIELD_POST_DESCRIPTION,getPOSTValue(Fields::Q1_FIELD_POST_DESCRIPTION));
+  //   }else{
+  //     update_post_meta($postId,Fields::Q1_FIELD_POST_DESCRIPTION,getPOSTValue(Fields::Q1_FIELD_POST_DESCRIPTION));
+  //   }
   
-  }
+  // }
 
 
   // --------------------------------------------keyword-----------------

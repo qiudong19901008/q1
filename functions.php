@@ -105,6 +105,22 @@ add_action('wp_head', 'updatePostViewCount');
 //支持文章缩略图
 add_theme_support('post-thumbnails');
 
+//新建文章，保存自定义字段 
+//publish_post：参数一个（$post_ID），点击发布文章时就会被触发
+add_action( 'publish_post', 'addCustomPostMetaValuesToPost',20,1);
+function addCustomPostMetaValuesToPost($postId){
+  add_post_meta($postId,Fields::Q1_FIELD_POST_KEYWORDS,getPOSTValue(Fields::Q1_FIELD_POST_KEYWORDS,''),true);
+  add_post_meta($postId,Fields::Q1_FIELD_POST_DESCRIPTION,getPOSTValue(Fields::Q1_FIELD_POST_DESCRIPTION,''),true);
+}
+//更新文章，保存自定义字段
+// edit_post：参数两个（$post_ID, $post），只要编辑已经存在的文章就会被触发
+add_action( 'edit_post', 'updateCustomPostMetaValuesToPost',20,2);
+function updateCustomPostMetaValuesToPost($postId,$post){
+  update_post_meta($postId,Fields::Q1_FIELD_POST_KEYWORDS,getPOSTValue(Fields::Q1_FIELD_POST_KEYWORDS,''));
+  update_post_meta($postId,Fields::Q1_FIELD_POST_DESCRIPTION,getPOSTValue(Fields::Q1_FIELD_POST_DESCRIPTION,''));
+}
+
+
 
 
 
