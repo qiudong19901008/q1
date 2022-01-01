@@ -88,7 +88,7 @@ Redux::set_field(
     'title' => esc_html__('友情链接', 'your-textdomain-here'),
     'subtitle' => esc_html__('友情链接', 'your-textdomain-here'),
     'placeholder' => '<a href="#">百度</a>',
-    'desc' => esc_html__('友情链接', 'your-textdomain-here')
+    'desc' => esc_html__('友情链接', 'your-textdomain-here'),
   ]
 ) ;
 
@@ -102,7 +102,7 @@ Redux::set_field(
     'title' => esc_html__('底部菜单', 'your-textdomain-here'),
     'subtitle' => esc_html__('可以放底部菜单', 'your-textdomain-here'),
     'placeholder' => '<a href="#">菜单一</a>',
-    'desc' => esc_html__('可以放底部菜单', 'your-textdomain-here')
+    'desc' => esc_html__('可以放底部菜单', 'your-textdomain-here'),
   ]
 ) ;
 
@@ -117,7 +117,7 @@ Redux::set_field(
     'title' => esc_html__('许可证', 'your-textdomain-here'),
     'subtitle' => esc_html__('可以放备案信息,公安备案信息等网络许可证', 'your-textdomain-here'),
     'placeholder' => '<a href="#">备案号001</a>',
-    'desc' => esc_html__('可以放备案信息,公安备案信息等网络许可证', 'your-textdomain-here')
+    'desc' => esc_html__('可以放备案信息,公安备案信息等网络许可证', 'your-textdomain-here'),
   ]
 ) ;
 
@@ -131,7 +131,8 @@ Redux::set_field(
     'title' => esc_html__('版权信息', 'your-textdomain-here'),
     'subtitle' => esc_html__('版权信息', 'your-textdomain-here'),
     'placeholder' => '<a href="#">@我的版权</a>',
-    'desc' => esc_html__('版权信息', 'your-textdomain-here')
+    'desc' => esc_html__('版权信息', 'your-textdomain-here'),
+    'class' => 'large-text',
   ]
 ) ;
 

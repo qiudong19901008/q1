@@ -1,1 +1,33 @@
-.tagPageWrap{margin-bottom:2rem}.tagPage{display:flex;justify-content:space-between;margin:2rem auto;max-width:1200px}.tagPage__contentWrap{flex:1;max-width:90rem;width:100%}.tagPage__sidebar{margin-left:2rem;width:30rem}@media screen and (max-width:1000px){.tagPage__sidebar{display:none}}
+/*!****************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./src/page/tag/tag.css ***!
+  \****************************************************************************************************/
+.tagPageWrap{
+  margin-bottom:2rem;
+}
+.tagPage{
+  display: flex;
+  justify-content: space-between;
+  margin:2rem auto;
+  max-width: 1200px;
+}
+
+.tagPage__contentWrap{
+  max-width: 90rem;
+  flex:1;
+  width: 100%;
+}
+
+.tagPage__sidebar{
+  width:30rem;
+  margin-left:2rem;
+}
+
+/* 小于1000 */
+@media screen and (max-width:1000px) {
+  .tagPage__sidebar{
+    display: none;
+  }
+}
+
+
+

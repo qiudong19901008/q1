@@ -70,3 +70,15 @@
 }
 
 
+@media screen and (max-width:1000px) {
+  .commentForm{
+    padding:1rem;
+  }
+  .commentForm__authorInfo{
+    flex-direction: column;
+  }
+
+  .commentForm__authorInfo > *{
+    width: 100%;
+  }
+}
