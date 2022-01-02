@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "git": "git add . && git commit -m'1'",
-    "postgit": "git push origin",
-    "push": "ts-node script/pushToGit.ts",
+    "git": "ts-node script/pushToGit.ts",
     "prod": "webpack --config webpack.prod.js",
     "dev": "webpack --config webpack.dev.js --watch"
   },
