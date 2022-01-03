@@ -13,7 +13,17 @@ class PostUpdater{
     $description = $one['description'];
     $keywords = $one['keywords'];
     $status = $one['status'];
-    $postId = PostDao::updateOnePost($id,$title,$content,$authorId,$categoryIdList,$tagIdList,$description,$keywords,$status);
+    $postId = PostDao::updateOnePost(
+      $id,
+      $title,
+      $content,
+      $authorId,
+      $categoryIdList,
+      $tagIdList,
+      $description,
+      $keywords,
+      $status
+    );
     return $postId;
   }
 

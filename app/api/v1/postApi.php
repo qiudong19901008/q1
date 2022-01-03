@@ -65,6 +65,7 @@ function updateOnePostRouter(){
 
 function updateListPostRouter(){
   $list = getPOSTValue('list');
+  // return json_encode($list);
   $postIdList = PostService::updateList($list);
   $res = json_encode([
     'postIdList'=>$postIdList

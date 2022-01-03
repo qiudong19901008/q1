@@ -36,13 +36,17 @@ class UpdateOnePost{
       'post_category'=>$categoryIdList, //文章所属分类id列表
       'tags_input'=>$this->_getTagIdList($tagIdList), //文章标签列表, 可以是name, slug 或ID
       'post_status'=>$status, //文章状态, 默认draft
-      'meta_input'=>[
-        Fields::Q1_FIELD_POST_DESCRIPTION=>$description,
-        Fields::Q1_FIELD_POST_KEYWORDS=>$keywords,
-      ], //元信息
+      // 'meta_input'=>[
+      //   Fields::Q1_FIELD_POST_DESCRIPTION=>$description,
+      //   Fields::Q1_FIELD_POST_KEYWORDS=>$keywords,
+      // ], //元信息
     ];
 
+    //使用这个更新postmeta 会置空 postmeta, 所以必须单独更新postmeta
     $res = (int)wp_update_post($config);
+    update_post_meta($id,Fields::Q1_FIELD_POST_DESCRIPTION,$description);
+    update_post_meta($id,Fields::Q1_FIELD_POST_KEYWORDS,$keywords);
+
     return $res;
   }
 
