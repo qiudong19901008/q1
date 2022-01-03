@@ -11,6 +11,8 @@
   
   <?php wp_head(); ?>
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+
   <?php echo getHeaderCustomCode(); ?>
 </head>
 <body>

@@ -31,6 +31,8 @@
         <span>阅读(<span><?php echo $viewCount ?></span>)</span>
         <span>评论(<span><?php echo $commentCount; ?></span>)</span>
         <span>点赞(<span class="postContent__likeCount"><?php echo $likeCount; ?></span>)</span>
+        <?php edit_post_link(__('[编辑]')); ?>
+        
       </div>
   </div>
   <div class="postContent__content" id="github">

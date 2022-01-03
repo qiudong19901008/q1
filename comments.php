@@ -12,6 +12,10 @@
 
 <?php
 
+  $res = current_user_can( 'edit_posts' );
+
+  var_dump($res);
+
 ?>
 
 

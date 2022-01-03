@@ -3,9 +3,6 @@ import {
   getCookie,
   isAlreadyLike,
 } from '../../lib/helper';
-import {
-  getCommentListHtml,
-} from '../../lib/htmlGetter';
 import PostModel from '../../model/PostModel';
 import CommentView from './CommentView';
 import CookieHandler from '../../lib/CookieHandler';
@@ -16,7 +13,6 @@ class PostView{
 
   /**
    * 页面初始化
-   * 
    */
   public async initral(){
     const cookieKey = $('.postContent__like').data('cookie');
@@ -34,7 +30,7 @@ class PostView{
   /**
    * 给文章点赞事件处理函数
    */
-   protected async likePostHandler(){
+  protected async likePostHandler(){
     const postId = $('.postContent__like').data('id');
     const cookieKey = $('.postContent__like').data('cookie');
     if(isAlreadyLike(cookieKey)){
@@ -62,9 +58,11 @@ class PostView{
   }
 
 
+
   private _bindEvents(){
     //点赞事件
     $('.postContent__like').on('click',this.likePostHandler);
+
   }
 
 
