@@ -9,6 +9,10 @@
   $tagList = TagDao::getTagListByPostId(get_the_ID(),false);
   $commentCount = $post->comment_count;
 
+
+  $openPostBelongToAnnoncement = (bool)getQ1Option(Options::Q1_OPTION_POST_BASIC_OPEN_POST_BELONG_TO_ANNONCEMENT);
+
+
 ?>
 <div class="postContent">
   <div class="postContent__crumbs">
@@ -39,6 +43,25 @@
     <?php 
       the_content();
     ?>
+
+    <!-- 开启首发声明 -->
+
+    <?php if($openPostBelongToAnnoncement): ?>
+
+      <blockquote
+        style="font-size:16px;color:#000;"
+      > 
+        本文首发于:
+        <a 
+          href="<?php the_permalink(); ?>"
+          style="color:#000;text-decoration:none;cursor:default;"
+        ><?php echo getSeoTitle();  ?></a>
+      </blockquote >
+
+    <?php endif; ?>
+
+
+
   </div>
   <p class="postContent__cutOff">
     结束

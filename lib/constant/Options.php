@@ -71,4 +71,8 @@ class Options{
     */
    public const Q1_OPTION_POST_BASIC_RECOMMEND_POST_COUNT = '_q1_option_post_basic_recommendPostCount';
 
+   /**
+    * Q1主题-文章页-基本-开启文章归属(首发)声明
+    */
+    public const Q1_OPTION_POST_BASIC_OPEN_POST_BELONG_TO_ANNONCEMENT = '_q1_option_post_basic_openPostBelongToAnnoncement';
 }

@@ -120,6 +120,10 @@ function updateCustomPostMetaValuesToPost($postId,$post){
   update_post_meta($postId,Fields::Q1_FIELD_POST_DESCRIPTION,getPOSTValue(Fields::Q1_FIELD_POST_DESCRIPTION,''));
 }
 
+//禁用自动处理p标签
+// remove_filter( 'the_content', 'wpautop' );
+// remove_filter( 'the_excerpt', 'wpautop' );
+
 
 
 
