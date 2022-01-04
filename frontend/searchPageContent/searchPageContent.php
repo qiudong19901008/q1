@@ -8,13 +8,12 @@
     <?php get_template_part('frontend/common/pageTitleCard/pageTitleCard') ?>
   </div>
   <!-- 文章列表 -->
-  <div class="searchPageContent__postList">
-    <div class="searchPageContent__postListWrap">
+  <div class="searchPageContent__postListWrap">
       <?php 
         get_template_part('frontend/common/postList/postList'); 
       ?>
-    </div>
   </div>
+  
   <!-- 分页 -->
   <div class="searchPageContent__paginationWrap paginationWrap">
     <?php 

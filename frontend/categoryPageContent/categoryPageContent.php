@@ -12,13 +12,10 @@
     <?php get_template_part('frontend/common/pageTitleCard/pageTitleCard') ?>
   </div>
   <!-- 文章列表 -->
-  <div class="categoryPageContent__postList">
-    
-    <div class="categoryPageContent__postListWrap">
-      <?php get_template_part('frontend/common/postList/postList'); ?>
-    </div>
-    
+  <div class="categoryPageContent__postListWrap">
+    <?php get_template_part('frontend/common/postList/postList'); ?>
   </div>
+
   <!-- 分页 -->
   <div class="categoryPageContent__paginationWrap paginationWrap">
     <?php get_template_part('frontend/common/pagination/pagination'); ?>

@@ -21,7 +21,9 @@ class CommentView{
    * 2. 绑定事件
    */
    protected pagedHandler = async(e:JQuery.ClickEvent<HTMLElement, undefined, HTMLElement, HTMLElement>)=>{
-     this._openLoading();
+     
+    this._openLoading();
+    e.preventDefault();
     const page = e.currentTarget.innerText;
     const className = e.currentTarget.className;
     if(this.isCurrentPage(className)){
@@ -185,7 +187,7 @@ class CommentView{
     }
     const {list,count} = await PostModel.getCommentList(url,params,page,parseInt(size));
     const commentListHtml = getCommentListHtml(list,url,action,size,postId);
-    const paginationHtml = getPaginationHtml(page,count,size);
+    const paginationHtml = getPaginationHtml(page,count,size,'');
     $('.commentSection__listWrap').html(commentListHtml);
     $('.commentSection__paginationWrap').html(paginationHtml);
   }

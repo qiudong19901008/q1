@@ -25,6 +25,9 @@ abstract class BasePostListPageView{
    * 2. 绑定事件
    */
   protected pagedHandler = async(e:JQuery.ClickEvent<HTMLElement, undefined, HTMLElement, HTMLElement>)=>{
+    //0 阻止页面跳转
+    e.preventDefault();
+    //0.1
     const page = e.currentTarget.innerText;
     const className = e.currentTarget.className;
     if(this.isCurrentPage(className)){
@@ -99,7 +102,7 @@ abstract class BasePostListPageView{
     }
     const {list,count} = await PostModel.getPostList(url,params,page,parseInt(size));
     const postListHtml = getPostListHtml(list,url,action,size,pageUrl);
-    const paginationHtml = getPaginationHtml(page,count,size);
+    const paginationHtml = getPaginationHtml(page,count,size,pageUrl);
     this.updatePageStructure(postListHtml,paginationHtml);
   }
 

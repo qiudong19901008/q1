@@ -12,10 +12,8 @@
     <?php get_template_part('frontend/common/pageTitleCard/pageTitleCard') ?>
   </div>
   <!-- 文章列表 -->
-  <div class="tagPageContent__postList">
-    <div class="tagPageContent__postListWrap">
+  <div class="tagPageContent__postListWrap">
       <?php get_template_part('frontend/common/postList/postList'); ?>
-    </div>
   </div>
   <!-- 分页 -->
   <div class="tagPageContent__paginationWrap paginationWrap">
