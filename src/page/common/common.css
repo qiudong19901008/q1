@@ -123,6 +123,12 @@ a:hover{
   border-radius: 4px;
 }
 
+.container{
+  padding:20px;
+  margin:0 auto;
+  max-width: 1200px;
+}
+
 /* 表单 */
 .form-group{
   padding: .6rem;
@@ -238,6 +244,10 @@ a:hover{
 
 /* 组件-postPageContent */
 @import url('../../../frontend/postPageContent/postPageContent.css');
+
+/* 组件-page-themeIntro */
+@import url('../../../frontend/page/themeIntro/themeIntro.css');
+
 
 
 .siteHeaderWrapWrap{

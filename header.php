@@ -17,8 +17,13 @@
 </head>
 <body>
    <!-- 页头 -->
+
+  <?php if(!is_page()): ?>
+
   <div class="siteHeaderWrapWrap">
     <div class="siteHeaderWrap">
       <?php get_template_part( 'frontend/siteHeader/siteHeader' ); ?>
     </div>
   </div>
+
+  <?php endif; ?>

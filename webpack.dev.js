@@ -16,6 +16,7 @@ const config = {
     'tag':path.resolve(__dirname, 'src/page/tag/tag.ts'), 
     'search':path.resolve(__dirname, 'src/page/search/search.ts'),
     'post':path.resolve(__dirname, 'src/page/post/post.ts'), 
+    'page':path.resolve(__dirname, 'src/page/page/page.ts'), 
   },
 
   output: {

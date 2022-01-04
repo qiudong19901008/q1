@@ -1300,6 +1300,173 @@
 
 
 
+/*!***********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./frontend/page/themeIntro/themeIntro.css ***!
+  \***********************************************************************************************************************/
+
+.themeIntro{
+  /* height:1000px; */
+
+  background-color: #fff;
+}
+
+.themeIntro__container{
+  padding:20px;
+  margin:0 auto;
+  max-width: 1200px;
+}
+
+.themeIntro__header{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-size: cover;
+  background-position: 50%;
+  /* display: flex; */
+  
+  flex-direction: column;
+}
+
+.themeIntro__headerContainer{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    /* flex-direction: column; */
+    min-height: 400px;
+    /* align-items: ; */
+}
+
+.themeIntro__headerLeft,.themeIntro__headerRight{
+  flex-basis: 50%;
+}
+
+
+
+
+.themeIntro__title{
+  margin-top: 11px;
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 44px;
+  letter-spacing: 3px;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.themeIntro__description{
+  margin-bottom: 25px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #666;
+}
+
+.themeIntro__version{
+  margin-bottom: 25px;
+}
+
+
+.themeIntro__interaction{
+  display: flex;
+  flex-wrap:wrap;
+  /* justify-content: space-around; */
+}
+
+
+
+
+.themeIntro__btn {
+  width: 200px;
+  font-size: 16px;
+  border-radius: 20px;
+  color: #FFF;
+  user-select: none;
+  border: none;
+  background-color: #197dff;
+  padding: 11px 20px;
+  line-height: 16px;
+  cursor: pointer;
+  display: inline-block;
+  /* outline: none; */
+  text-align: center;
+  margin:0 1rem 1rem 0;
+}
+
+.themeIntro__btn:hover{
+  color:#fff;
+  background-color: rgb(25 125 255 / 80%);
+}
+
+.themeIntro__btn--tutorial{
+  /* background-color: red; */
+}
+
+.themeIntro__abilityTitle{
+  font-family: "seriftitle", serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  color: #333;
+  text-align: center;
+  position: relative;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  user-select: none;
+}
+
+.themeIntro__abilityTitle::after{
+    width: 24px;
+    height: 6px;
+    background: #1a6dff;
+    border-radius: 5px;
+    content: '';
+    display: inline-block;
+    left: calc(50% - 12px);
+    position: absolute;
+    bottom: -20px;
+}
+
+.themeIntro__abilityOne{
+  display: flex;
+  margin-top: 20px;
+  padding: 20px 0;
+}
+
+.themeIntro__abilityOne > div{
+  width:50%;
+}
+
+.themeIntro__abilityOneImg{
+  max-width: 500px;
+}
+
+.themeIntro__abilityOneText{
+  padding:0 30px;
+}
+
+.themeIntro__abilityOneImgContainer--reverse{
+  order:10; 
+  display: flex;
+  justify-content: flex-end;
+}
+
+.themeIntro__abilityOneTitle{
+  font-family: "seriftitle", serif;
+  margin: 30px 0 20px;
+  font-size: 26px;
+  line-height: 34px;
+  color: #333;  
+  font-weight: 600;
+  user-select: none;
+}
+
+.themeIntro__abilityOneDescription{
+  color:#666;
+}
+
+
 /*!**********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./src/page/common/common.css ***!
   \**********************************************************************************************************/
@@ -1428,6 +1595,12 @@ a:hover{
   border-radius: 4px;
 }
 
+.container{
+  padding:20px;
+  margin:0 auto;
+  max-width: 1200px;
+}
+
 /* 表单 */
 .form-group{
   padding: .6rem;
@@ -1518,6 +1691,9 @@ a:hover{
 /* 组件-searchPageContent */
 
 /* 组件-postPageContent */
+
+/* 组件-page-themeIntro */
+
 
 
 .siteHeaderWrapWrap{

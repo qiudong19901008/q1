@@ -33,6 +33,9 @@ function load_difference_css_js(){
   }else if(is_tag()){
     wp_enqueue_style('tag', CSS_HOME . 'tag.css',  ['my-common'], VERSION, 'all');
     wp_enqueue_script('tag', JS_HOME . 'tag.js',['my-common'],VERSION,true);
+  }else if(is_page()){
+    wp_enqueue_style('page', CSS_HOME . 'page.css',  ['my-common'], VERSION, 'all');
+    wp_enqueue_script('page', JS_HOME . 'page.js',['my-common'],VERSION,true);
   }
 }
 
