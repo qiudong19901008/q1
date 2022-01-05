@@ -202,14 +202,6 @@ class CommentView{
 
    // 只绑定一次事件, 因为这些dom元素不会改变, 不需要重复绑定
    protected bindOnlyOnceEvents(){
-    // 内容输入框失去焦点事件
-    // $('.commentForm__content').on('blur',this.contentInputBoxBlurHandler);
-    // 输入框获得焦点事件
-    // $('.commentForm__authorNickname').on('focus',this.inputBoxFocusHandler);
-    // $('.commentForm__authorEmail').on('focus',this.inputBoxFocusHandler);
-    // $('.commentForm__authorWebsite').on('focus',this.inputBoxFocusHandler);
-    // $('.commentForm__content').on('focus',this.inputBoxFocusHandler);
-    
     // 评论表单提交事件
     $('.commentSection .commentForm__submitBtn').on('click',this.submitFormHandler);
     // 重置表单事件

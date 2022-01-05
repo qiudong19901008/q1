@@ -10,8 +10,9 @@ define('CSS_HOME',get_template_directory_uri() . '/public/css/');
 define('JS_HOME',get_template_directory_uri() . '/public/js/');
 define('ROOT_URI',get_template_directory_uri() . '/');
 define('HEDAO_VERSION','1.0');
+define('Q1_VERSION','1.0');
 
-define('APP_HOME', '/app/');
+define('APP_HOME', '/@app/');
 
 /**
  * 合道主题本地根路径
@@ -19,6 +20,10 @@ define('APP_HOME', '/app/');
 if(!define('HEDAO_DIR_PATH',get_template_directory())){
   define('HEDAO_DIR_PATH',get_template_directory());
 }
+if(!define('HEDAO_ROOT_URL',get_template_directory_uri())){
+  define('HEDAO_ROOT_URL',get_template_directory_uri());
+}
+
 
 require_once HEDAO_DIR_PATH . '/core/autoloader.php';
 
@@ -27,14 +32,14 @@ require_once HEDAO_DIR_PATH . '/core/autoloader.php';
 /**
  * 加载合道主题函数
  */
-function getHedaoThemeInstance(){
-  \hedao\core\boot\HedaoTheme::getInstance();
+function getQ1ThemeInstance(){
+  \hedao\core\boot\Q1Theme::getInstance();
   // HedaoTheme::getInstance();
 }
 /**
  * 加载合道主题
  */
-getHedaoThemeInstance();
+getQ1ThemeInstance();
 
 
 // 加载小工具
@@ -45,7 +50,7 @@ require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetTagCloud.php';
 
 
 //主题支持
-require_once plugin_dir_path(__FILE__) . '/lib/registe/registeCssJs.php'; //加载css js
+// require_once plugin_dir_path(__FILE__) . '/lib/registe/registeCssJs.php'; //加载css js
 require_once plugin_dir_path(__FILE__) . '/lib/registe/registeWidget.php'; //加载小工具
 require_once plugin_dir_path(__FILE__) . '/lib/registe/registeMenu.php'; //加载菜单
 

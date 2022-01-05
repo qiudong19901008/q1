@@ -11,7 +11,7 @@
   transform:translateX(-50%) translateY(-50%);
 }
 .hide{
-  display: none;
+  display: none !important;
 }
 .mb-2{
   margin-bottom: 2rem;
