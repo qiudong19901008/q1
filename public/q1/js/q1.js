@@ -181,7 +181,7 @@ eval("\r\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _argume
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! font-awesome/css/font-awesome.min.css */ \"./node_modules/font-awesome/css/font-awesome.min.css\");\r\n__webpack_require__(/*! ./q1.css */ \"./@src/q1/q1.css\");\r\n__webpack_require__(/*! ../../frontend/common/menu/menu */ \"./frontend/common/menu/menu.ts\");\r\n__webpack_require__(/*! ../../frontend/common/mobileMenu/mobileMenu */ \"./frontend/common/mobileMenu/mobileMenu.ts\");\r\n__webpack_require__(/*! ../../frontend/siteHeader/siteHeader */ \"./frontend/siteHeader/siteHeader.ts\");\r\nconst index_1 = __webpack_require__(/*! ./view/index */ \"./@src/q1/view/index/index.ts\");\r\nconst category_1 = __webpack_require__(/*! ./view/category/category */ \"./@src/q1/view/category/category.ts\");\r\nconst tag_1 = __webpack_require__(/*! ./view/tag/tag */ \"./@src/q1/view/tag/tag.ts\");\r\nconst post_1 = __webpack_require__(/*! ./view/post/post */ \"./@src/q1/view/post/post.ts\");\r\nconst search_1 = __webpack_require__(/*! ./view/search/search */ \"./@src/q1/view/search/search.ts\");\r\n//判断是哪个页面, 然后执行对应页面的初始化工作\r\nconst initralQ1 = () => {\r\n    const pageType = $('.siteHeaderWrapWrap').data('pagetype');\r\n    switch (pageType) {\r\n        case 'category':\r\n            new category_1.default().initral();\r\n            break;\r\n        case 'tag':\r\n            new tag_1.default().initral();\r\n            break;\r\n        case 'post':\r\n            new post_1.default().initral();\r\n            break;\r\n        case 'search':\r\n            new search_1.default().initral();\r\n            break;\r\n        case 'index':\r\n        default:\r\n            new index_1.default().initral();\r\n    }\r\n};\r\n$(function () {\r\n    console.log('aaaaaaaaaaaa');\r\n    initralQ1();\r\n});\r\n\n\n//# sourceURL=webpack://q1/./@src/q1/q1.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! font-awesome/css/font-awesome.min.css */ \"./node_modules/font-awesome/css/font-awesome.min.css\");\r\n__webpack_require__(/*! ./q1.css */ \"./@src/q1/q1.css\");\r\n__webpack_require__(/*! ../../q1/component/common/menu/menu */ \"./q1/component/common/menu/menu.ts\");\r\n__webpack_require__(/*! ../../q1/component/common/mobileMenu/mobileMenu */ \"./q1/component/common/mobileMenu/mobileMenu.ts\");\r\n__webpack_require__(/*! ../../q1/component/siteHeader/siteHeader */ \"./q1/component/siteHeader/siteHeader.ts\");\r\nconst index_1 = __webpack_require__(/*! ./view/index */ \"./@src/q1/view/index/index.ts\");\r\nconst category_1 = __webpack_require__(/*! ./view/category/category */ \"./@src/q1/view/category/category.ts\");\r\nconst tag_1 = __webpack_require__(/*! ./view/tag/tag */ \"./@src/q1/view/tag/tag.ts\");\r\nconst post_1 = __webpack_require__(/*! ./view/post/post */ \"./@src/q1/view/post/post.ts\");\r\nconst search_1 = __webpack_require__(/*! ./view/search/search */ \"./@src/q1/view/search/search.ts\");\r\n//判断是哪个页面, 然后执行对应页面的初始化工作\r\nconst initralQ1 = () => {\r\n    const pageType = $('.siteHeaderWrapWrap').data('pagetype');\r\n    switch (pageType) {\r\n        case 'category':\r\n            new category_1.default().initral();\r\n            break;\r\n        case 'tag':\r\n            new tag_1.default().initral();\r\n            break;\r\n        case 'post':\r\n            new post_1.default().initral();\r\n            break;\r\n        case 'search':\r\n            new search_1.default().initral();\r\n            break;\r\n        case 'index':\r\n        default:\r\n            new index_1.default().initral();\r\n    }\r\n};\r\n$(function () {\r\n    initralQ1();\r\n});\r\n\n\n//# sourceURL=webpack://q1/./@src/q1/q1.ts?");
 
 /***/ }),
 
@@ -262,36 +262,36 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\n
 
 /***/ }),
 
-/***/ "./frontend/common/menu/menu.ts":
-/*!**************************************!*\
-  !*** ./frontend/common/menu/menu.ts ***!
-  \**************************************/
+/***/ "./q1/component/common/menu/menu.ts":
+/*!******************************************!*\
+  !*** ./q1/component/common/menu/menu.ts ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\n// $('.menu__item').on('mouseover',(e)=>{\r\n//   // const $item = $(e.currentTarget);\r\n//   // $item.find('.menu__link').css('border-bottom','2px solid rgb(128, 200, 252)');\r\n//   // $item.find('.menu__link').css('color','rgb(255, 255, 254)');\r\n//   // $item.find('.menu__icon').css('transform','rotateX(180deg)');\r\n//   // // 255, 255, 254\r\n//   // $item.find('.menu__submenu').removeClass('hide');\r\n// })\r\n// $('.menu__item').on('mouseout',(e)=>{\r\n//   // const $item = $(e.currentTarget);\r\n//   // $item.find('.menu__link').css('border-bottom','none');\r\n//   // $item.find('.menu__link').css('color','rgb(0,0,0)');\r\n//   // $item.find('.menu__icon').css('transform','rotateX(0)');\r\n//   // $item.find('.menu__submenu').addClass('hide');\r\n// })\r\n\n\n//# sourceURL=webpack://q1/./frontend/common/menu/menu.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\n// $('.menu__item').on('mouseover',(e)=>{\r\n//   // const $item = $(e.currentTarget);\r\n//   // $item.find('.menu__link').css('border-bottom','2px solid rgb(128, 200, 252)');\r\n//   // $item.find('.menu__link').css('color','rgb(255, 255, 254)');\r\n//   // $item.find('.menu__icon').css('transform','rotateX(180deg)');\r\n//   // // 255, 255, 254\r\n//   // $item.find('.menu__submenu').removeClass('hide');\r\n// })\r\n// $('.menu__item').on('mouseout',(e)=>{\r\n//   // const $item = $(e.currentTarget);\r\n//   // $item.find('.menu__link').css('border-bottom','none');\r\n//   // $item.find('.menu__link').css('color','rgb(0,0,0)');\r\n//   // $item.find('.menu__icon').css('transform','rotateX(0)');\r\n//   // $item.find('.menu__submenu').addClass('hide');\r\n// })\r\n\n\n//# sourceURL=webpack://q1/./q1/component/common/menu/menu.ts?");
 
 /***/ }),
 
-/***/ "./frontend/common/mobileMenu/mobileMenu.ts":
-/*!**************************************************!*\
-  !*** ./frontend/common/mobileMenu/mobileMenu.ts ***!
-  \**************************************************/
+/***/ "./q1/component/common/mobileMenu/mobileMenu.ts":
+/*!******************************************************!*\
+  !*** ./q1/component/common/mobileMenu/mobileMenu.ts ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n$('.mobileMenu__itemIcon').on('click', (e) => {\r\n    const icon = $(e.currentTarget);\r\n    const item = icon.parent();\r\n    item.siblings().removeClass('mobileMenu__item--active');\r\n    if (item.hasClass('mobileMenu__item--active')) {\r\n        item.removeClass('mobileMenu__item--active');\r\n    }\r\n    else {\r\n        item.addClass('mobileMenu__item--active');\r\n    }\r\n});\r\n\n\n//# sourceURL=webpack://q1/./frontend/common/mobileMenu/mobileMenu.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n$('.mobileMenu__itemIcon').on('click', (e) => {\r\n    const icon = $(e.currentTarget);\r\n    const item = icon.parent();\r\n    item.siblings().removeClass('mobileMenu__item--active');\r\n    if (item.hasClass('mobileMenu__item--active')) {\r\n        item.removeClass('mobileMenu__item--active');\r\n    }\r\n    else {\r\n        item.addClass('mobileMenu__item--active');\r\n    }\r\n});\r\n\n\n//# sourceURL=webpack://q1/./q1/component/common/mobileMenu/mobileMenu.ts?");
 
 /***/ }),
 
-/***/ "./frontend/siteHeader/siteHeader.ts":
-/*!*******************************************!*\
-  !*** ./frontend/siteHeader/siteHeader.ts ***!
-  \*******************************************/
+/***/ "./q1/component/siteHeader/siteHeader.ts":
+/*!***********************************************!*\
+  !*** ./q1/component/siteHeader/siteHeader.ts ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n//手机菜单按钮点击事件\r\n$('.siteHeader__toggleMenuBtn').on('click', (e) => {\r\n    e.preventDefault();\r\n    // 禁止滑动\r\n    $('body').css('overflow', 'hidden');\r\n    // 显示遮罩\r\n    $('.siteHeader__mask').removeClass('hide');\r\n    // 显示菜单栏\r\n    $('.siteHeader__mobileMenuWrap').css('left', 0);\r\n});\r\n// 点击弹出搜索框\r\n$('.siteHeader__toggleSearchFormBtn').on('click', (e) => {\r\n    e.preventDefault();\r\n    // 禁止滑动\r\n    $('body').css('overflow', 'hidden');\r\n    // 显示搜索框和遮罩\r\n    $('.siteHeader__searchForm').removeClass('hide');\r\n    $('.siteHeader__mask').removeClass('hide');\r\n    // 图标变 X\r\n    $('.siteHeader__searchFormBtnIcon').addClass('fa-remove');\r\n});\r\n// 遮罩点击事件\r\n$('.siteHeader__mask').on('click', (e) => {\r\n    // 允许滑动\r\n    $('body').css('overflow', 'auto');\r\n    // 关闭菜单栏, 搜索框和遮罩\r\n    $('.siteHeader__mobileMenuWrap').css('left', '-80%');\r\n    $('.siteHeader__searchForm').addClass('hide');\r\n    $('.siteHeader__mask').addClass('hide');\r\n    // 图标还原 搜索\r\n    $('.siteHeader__searchFormBtnIcon').removeClass('fa-remove');\r\n});\r\n\n\n//# sourceURL=webpack://q1/./frontend/siteHeader/siteHeader.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n//手机菜单按钮点击事件\r\n$('.siteHeader__toggleMenuBtn').on('click', (e) => {\r\n    e.preventDefault();\r\n    // 禁止滑动\r\n    $('body').css('overflow', 'hidden');\r\n    // 显示遮罩\r\n    $('.siteHeader__mask').removeClass('hide');\r\n    // 显示菜单栏\r\n    $('.siteHeader__mobileMenuWrap').css('left', 0);\r\n});\r\n// 点击弹出搜索框\r\n$('.siteHeader__toggleSearchFormBtn').on('click', (e) => {\r\n    e.preventDefault();\r\n    // 禁止滑动\r\n    $('body').css('overflow', 'hidden');\r\n    // 显示搜索框和遮罩\r\n    $('.siteHeader__searchForm').removeClass('hide');\r\n    $('.siteHeader__mask').removeClass('hide');\r\n    // 图标变 X\r\n    $('.siteHeader__searchFormBtnIcon').addClass('fa-remove');\r\n});\r\n// 遮罩点击事件\r\n$('.siteHeader__mask').on('click', (e) => {\r\n    // 允许滑动\r\n    $('body').css('overflow', 'auto');\r\n    // 关闭菜单栏, 搜索框和遮罩\r\n    $('.siteHeader__mobileMenuWrap').css('left', '-80%');\r\n    $('.siteHeader__searchForm').addClass('hide');\r\n    $('.siteHeader__mask').addClass('hide');\r\n    // 图标还原 搜索\r\n    $('.siteHeader__searchFormBtnIcon').removeClass('fa-remove');\r\n});\r\n\n\n//# sourceURL=webpack://q1/./q1/component/siteHeader/siteHeader.ts?");
 
 /***/ }),
 

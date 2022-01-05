@@ -2,9 +2,9 @@ import * as $ from 'jquery';
 import 'font-awesome/css/font-awesome.min.css';
 import './q1.css';
 
-import '../../frontend/common/menu/menu';
-import '../../frontend/common/mobileMenu/mobileMenu';
-import '../../frontend/siteHeader/siteHeader';
+import '../../q1/component/common/menu/menu';
+import '../../q1/component/common/mobileMenu/mobileMenu';
+import '../../q1/component/siteHeader/siteHeader';
 
 import IndexView from './view/index';
 import CategoryView from './view/category/category';
@@ -37,7 +37,6 @@ const initralQ1 = ()=>{
 }
 
 $(function(){
-  console.log('aaaaaaaaaaaa')
   initralQ1();
 })
 

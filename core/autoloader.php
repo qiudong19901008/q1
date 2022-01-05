@@ -4,7 +4,8 @@
  * Autoloader file for theme.
  */
 
-namespace hedao\core;
+namespace hedao;
+
 
 
 /**
@@ -17,7 +18,7 @@ namespace hedao\core;
 
 function autoloader( $resource = '' ) {
 	$resource_path  = false;
-	$namespace_root = 'hedao\\';
+	$namespace_root = 'q1\\';
 	$resource       = trim( $resource, '\\' );
 
   // 如果不是我们的资源路径则退出 Not our namespace, bail out.
@@ -53,32 +54,11 @@ function autoloader( $resource = '' ) {
 	$directory = '';
 	$file_name = '';
 
-	if ( 'core' === $path[0] ) {
-
-		switch ( $path[1] ) {
-			case 'enhance':
-				$directory = 'enhance';
-				$file_name = $path[2];
-				break;
-
-			case 'widgets':
-			// case 'blocks': // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
-			// 	/**
-			// 	 * If there is class name provided for specific directory then load that.
-			// 	 * otherwise find in inc/ directory.
-			// 	 */
-			// 	if ( ! empty( $path[2] ) ) {
-			// 		$directory = sprintf( 'classes/%s', $path[1] );
-			// 		$file_name = sprintf( 'class-%s', trim( strtolower( $path[2] ) ) );
-			// 		break;
-			// 	}
-			default:
-				$directory = 'boot';
-				$file_name = $path[2];
-				break;
-		}
-
-		$resource_path = sprintf( '%s/core/%s/%s.php', untrailingslashit( HEDAO_DIR_PATH ), $directory, $file_name );
+	if ( 'register' === $path[0] ) {
+		$directory = 'q1/register';
+		$file_name = $path[1];
+	
+		$resource_path = sprintf( '%s/%s/register/%s.php', untrailingslashit( HEDAO_DIR_PATH ), $directory, $file_name );
 
 	}
 
@@ -94,4 +74,4 @@ function autoloader( $resource = '' ) {
 
 }
 
-spl_autoload_register( '\hedao\core\autoloader' ); 
+spl_autoload_register( '\hedao\autoloader' ); 

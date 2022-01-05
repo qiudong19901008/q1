@@ -27,32 +27,29 @@ if(!define('HEDAO_ROOT_URL',get_template_directory_uri())){
 
 require_once HEDAO_DIR_PATH . '/core/autoloader.php';
 
-// require_once HEDAO_DIR_PATH . '/core/boot/HedaoTheme.php';
 
-/**
- * 加载合道主题函数
- */
+
 function getQ1ThemeInstance(){
-  \hedao\core\boot\Q1Theme::getInstance();
-  // HedaoTheme::getInstance();
+  \q1\register\Q1Theme::getInstance();
 }
 /**
- * 加载合道主题
+ * 加载Q1主题
  */
 getQ1ThemeInstance();
 
 
 // 加载小工具
-require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetAuthor.php';
-require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetRecommendPosts.php';
-require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetSearch.php';
-require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetTagCloud.php';
+// require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetAuthor.php';
+// require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetRecommendPosts.php';
+// require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetSearch.php';
+// require_once plugin_dir_path(__FILE__) . '/lib/widget/WidgetTagCloud.php';
 
 
 //主题支持
 // require_once plugin_dir_path(__FILE__) . '/lib/registe/registeCssJs.php'; //加载css js
-require_once plugin_dir_path(__FILE__) . '/lib/registe/registeWidget.php'; //加载小工具
-require_once plugin_dir_path(__FILE__) . '/lib/registe/registeMenu.php'; //加载菜单
+// require_once plugin_dir_path(__FILE__) . '/lib/registe/registeWidget.php'; //加载小工具
+// require_once plugin_dir_path(__FILE__) . '/lib/registe/registeMenu.php'; //加载菜单
+// require_once plugin_dir_path(__FILE__) . '/lib/metaBox/PostMetaBoxList.php';
 
 //常量
 require_once plugin_dir_path(__FILE__) . '/lib/constant/Options.php';
@@ -61,8 +58,7 @@ require_once plugin_dir_path(__FILE__) . '/lib/constant/Actions.php';
 require_once plugin_dir_path(__FILE__) . '/lib/constant/Cookies.php';
 require_once plugin_dir_path(__FILE__) . '/lib/constant/ErrorCodes.php';
 
-//metabox
-require_once plugin_dir_path(__FILE__) . '/lib/metaBox/PostMetaBoxList.php';
+
 //帮助函数
 require_once plugin_dir_path(__FILE__) . '/lib/helper/helper.php';
 
@@ -161,5 +157,5 @@ function updateCustomPostMetaValuesToPost($postId,$post){
 
 
 
-new PostMetaBoxList();
+// new PostMetaBoxList();
 

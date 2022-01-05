@@ -22,75 +22,74 @@
 
 
 
-
 /* 组件-widget-tagCloudCard */
-@import url('../../frontend/widget/tagCloudCard/tagCloudCard.css');
+@import url('../../q1/component/widget/tagCloudCard/tagCloudCard.css');
 /* 组件-widget-authorCard */
-@import url('../../frontend/widget/authorCard/authorCard.css');
+@import url('../../q1/component/widget/authorCard/authorCard.css');
 /* 组件-widget-searchCard */
-@import url('../../frontend/widget/searchCard/searchCard.css');
+@import url('../../q1/component/widget/searchCard/searchCard.css');
 /* 组件-widget-simplePostCard */
-@import url('../../frontend/widget/simplePostCard/simplePostCard.css');
+@import url('../../q1/component/widget/simplePostCard/simplePostCard.css');
 /* 组件-widget-widgetRecommendCard */
-@import url('../../frontend/widget/widgetRecommendCard/widgetRecommendCard.css');
+@import url('../../q1/component/widget/widgetRecommendCard/widgetRecommendCard.css');
 
 
 
 /* 组件-common-pageTitleCard */
-@import url('../../frontend/common/pageTitleCard/pageTitleCard.css');
+@import url('../../q1/component/common/pageTitleCard/pageTitleCard.css');
 /* 组件-common-postList */
-@import url('../../frontend/common/postList/postList.css');
+@import url('../../q1/component/common/postList/postList.css');
 /* 组件-common-postCard */
-@import url('../../frontend/common/postCard/postCard.css');
+@import url('../../q1/component/common/postCard/postCard.css');
 /* 组件-common-pagination */
-@import url('../../frontend/common/pagination/pagination.css');
+@import url('../../q1/component/common/pagination/pagination.css');
 /* 组件-common-menu */
-@import url('../../frontend/common/menu/menu.css');
+@import url('../../q1/component/common/menu/menu.css');
 /* 组件-common-mobileMenu */
-@import url('../../frontend/common/mobileMenu/mobileMenu.css');
+@import url('../../q1/component/common/mobileMenu/mobileMenu.css');
 
 
 
 /* 组件-post-commentCard */
-@import url('../../frontend/post/commentCard/commentCard.css');
+@import url('../../q1/component/post/commentCard/commentCard.css');
 /* 组件-post-commentList */
-@import url('../../frontend/post/commentList/commentList.css');
+@import url('../../q1/component/post/commentList/commentList.css');
 /* 组件-post-prevNextCard */
-@import url('../../frontend/post/prevNextCard/prevNextCard.css');
+@import url('../../q1/component/post/prevNextCard/prevNextCard.css');
 /* 组件-post-postContent */
-@import url('../../frontend/post/postContent/postContent.css');
+@import url('../../q1/component/post/postContent/postContent.css');
 /* 组件-post-recommendCard */
-@import url('../../frontend/post/recommendCard/recommendCard.css');
+@import url('../../q1/component/post/recommendCard/recommendCard.css');
 /* 组件-post-commentSection */
-@import url('../../frontend/post/commentSection/commentSection.css');
+@import url('../../q1/component/post/commentSection/commentSection.css');
 /* 组件-post-commentForm */
-@import url('../../frontend/post/commentForm/commentForm.css');
+@import url('../../q1/component/post/commentForm/commentForm.css');
 
 
 
 /* 组件-siteHeader */
-@import url('../../frontend/siteHeader/siteHeader.css');
+@import url('../../q1/component/siteHeader/siteHeader.css');
 
 /* 组件-siteFooter */
-@import url('../../frontend/siteFooter/siteFooter.css');
+@import url('../../q1/component/siteFooter/siteFooter.css');
 
 /* 组件-indexPageContent */
-@import url('../../frontend/indexPageContent/indexPageContent.css');
+@import url('../../q1/component/indexPageContent/indexPageContent.css');
 
 /* 组件-categoryPageContent */
-@import url('../../frontend/categoryPageContent/categoryPageContent.css');
+@import url('../../q1/component/categoryPageContent/categoryPageContent.css');
 
 /* 组件-tagPageContent */
-@import url('../../frontend/tagPageContent/tagPageContent.css');
+@import url('../../q1/component/tagPageContent/tagPageContent.css');
 
 /* 组件-searchPageContent */
-@import url('../../frontend/searchPageContent/searchPageContent.css');
+@import url('../../q1/component/searchPageContent/searchPageContent.css');
 
 /* 组件-postPageContent */
-@import url('../../frontend/postPageContent/postPageContent.css');
+@import url('../../q1/component/postPageContent/postPageContent.css');
 
 /* 组件-page-themeIntro */
-@import url('../../frontend/page/themeIntro/themeIntro.css');
+@import url('../../q1/component/page/themeIntro/themeIntro.css');
 
 
 
