@@ -10,7 +10,6 @@ function load_common_js_css(){
   wp_enqueue_style('vendor', CSS_HOME . 'vendor.css',  [], VERSION, 'all');
   wp_enqueue_script('vendor', JS_HOME . 'vendor.js',[],VERSION,true);
 
-  wp_enqueue_style('base', CSS_HOME . 'base.css',  [], VERSION, 'all');
   wp_enqueue_script('base', JS_HOME . 'base.js',[],VERSION,true);
 
   wp_enqueue_style('my-common', CSS_HOME . 'common.css',  ['vendor'], VERSION, 'all');

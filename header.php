@@ -20,7 +20,7 @@
 
   <?php if(!is_page()): ?>
 
-  <div class="siteHeaderWrapWrap">
+  <div class="siteHeaderWrapWrap" data-pagetype="<?php echo getPageType(); ?>">
     <div class="siteHeaderWrap">
       <?php get_template_part( 'frontend/siteHeader/siteHeader' ); ?>
     </div>

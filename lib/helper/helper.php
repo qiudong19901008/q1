@@ -116,3 +116,22 @@ function getHeaderCustomCode(){
 function getFooterCustomCode(){
   return getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE);
 }
+
+/**
+ * 获取页面类型
+ */
+function getPageType(){
+  $res = '';
+  if(is_home()){
+    $res = 'index';
+  }else if(is_category()){
+    $res = 'category';
+  }else if(is_tag()){
+    $res = 'tag';
+  }else if(is_single()){
+    $res = 'post';
+  }else if(is_search()){
+    $res = 'search';
+  }
+  return $res;
+}

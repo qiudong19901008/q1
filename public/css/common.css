@@ -1399,9 +1399,9 @@
   background-color: rgb(25 125 255 / 80%);
 }
 
-.themeIntro__btn--tutorial{
-  /* background-color: red; */
-}
+/* .themeIntro__btn--tutorial{
+  background-color: red;
+} */
 
 .themeIntro__abilityTitle{
   font-family: "seriftitle", serif;

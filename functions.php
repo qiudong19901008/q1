@@ -4,12 +4,37 @@
 /**
  * 定义常量
  */
+
+
 define('CSS_HOME',get_template_directory_uri() . '/public/css/');
 define('JS_HOME',get_template_directory_uri() . '/public/js/');
 define('ROOT_URI',get_template_directory_uri() . '/');
-define('VERSION','1.0');
+define('HEDAO_VERSION','1.0');
 
 define('APP_HOME', '/app/');
+
+/**
+ * 合道主题本地根路径
+ */
+if(!define('HEDAO_DIR_PATH',get_template_directory())){
+  define('HEDAO_DIR_PATH',get_template_directory());
+}
+
+require_once HEDAO_DIR_PATH . '/core/autoloader.php';
+
+// require_once HEDAO_DIR_PATH . '/core/boot/HedaoTheme.php';
+
+/**
+ * 加载合道主题函数
+ */
+function getHedaoThemeInstance(){
+  \hedao\core\boot\HedaoTheme::getInstance();
+  // HedaoTheme::getInstance();
+}
+/**
+ * 加载合道主题
+ */
+getHedaoThemeInstance();
 
 
 // 加载小工具
@@ -61,7 +86,7 @@ require_once plugin_dir_path(__FILE__) . APP_HOME . 'ajax/v1/commentAjax.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'api/v1/postApi.php';
 require_once plugin_dir_path(__FILE__) . APP_HOME . 'api/v1/categoryApi.php';
 
-// redux
+// redux框架
 if ( 
   !class_exists( 'ReduxFramework' ) 
   && file_exists( dirname( __FILE__ ) . '/inc/redux-framework/framework.php' )
@@ -70,6 +95,9 @@ if (
 require_once( dirname( __FILE__ ) . '/inc/redux-framework/framework.php' );
 require_once( dirname( __FILE__ ) . '/config/reduxConfig/reduxConfig.php' );
 }
+
+// codestar框架
+// require_once get_theme_file_path() .'/inc/codestar-framework/codestar-framework.php';
 
 // 禁用古腾堡编辑器
 // disable for posts
