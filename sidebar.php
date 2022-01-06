@@ -1,2 +1,6 @@
-<?php dynamic_sidebar('right-sidebar') ?>
 
+
+
+<?php 
+  // get_template_part('q1/sidebar'); 
+?>

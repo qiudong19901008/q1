@@ -15,7 +15,7 @@ class Menu{
   }
 
   protected function setupHook(){
-    add_action( 'after_setup_theme', 'registerMenu' );
+    add_action( 'after_setup_theme', [$this,'registerMenu'] );
   }
 
  

@@ -1,6 +1,6 @@
 <?php
 
-namespace q1;
+namespace q1\constant;
 
 class Cookies{
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace q1;
+namespace q1\widget;
 
 class WidgetAuthor extends \WP_Widget {
  

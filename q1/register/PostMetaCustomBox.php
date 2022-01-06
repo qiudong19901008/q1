@@ -4,9 +4,15 @@
 namespace q1\register;
 
 use hedao\TSingleton;
-use q1\Fields;
+use q1\constant\Fields;
 
-class PostMetaBox{
+/**
+ * @description 自定义的文章元数据盒子
+ * 1. 编辑界面创建box
+ * 2. 新增保存
+ * 3. 编辑保存
+ */
+class PostMetaCustomBox{
 
   use TSingleton;
 
@@ -16,20 +22,42 @@ class PostMetaBox{
   }
 
   protected function setupHook(){
-    //加载文章时, 创建meta boxes
-    add_action('add_meta_boxes', [$this,'addPostCustomMetaBoxList'] );
+    //1. 编辑界面创建box
+    add_action('add_meta_boxes', [$this,'addCustomPostMetaBoxList'] );
+    //2. 新增保存
+    add_action( 'publish_post', [$this,'addCustomPostMetaValuesToPost'],20,1);
+    //3. 编辑保存
+    add_action( 'edit_post', [$this,'updateCustomPostMetaValuesToPost'],20,2);
   }
 
   /**
    * 添加meta box list
+   * 1. 关键词
+   * 2. 描述
    */
-  public function addPostCustomMetaBoxList(){
+  public function addCustomPostMetaBoxList(){
     $this->addKeywordMetaBox();
     $this->addDescriptionMetaBox();
   }
 
+  /**
+   * 新增保存
+   * publish_post：参数一个（$post_ID），点击发布文章时就会被触发
+   */
+  public function addCustomPostMetaValuesToPost($postId){
+    add_post_meta($postId,Fields::Q1_FIELD_POST_KEYWORDS,getPOSTValue(Fields::Q1_FIELD_POST_KEYWORDS,''),true);
+    add_post_meta($postId,Fields::Q1_FIELD_POST_DESCRIPTION,getPOSTValue(Fields::Q1_FIELD_POST_DESCRIPTION,''),true);
+  }
 
-  // --------------------------------------------keyword-----------------
+  /**
+   * 编辑保存
+   * edit_post：参数两个（$post_ID, $post），只要编辑已经存在的文章就会被触发
+   */
+  public function updateCustomPostMetaValuesToPost($postId,$post){
+    update_post_meta($postId,Fields::Q1_FIELD_POST_KEYWORDS,getPOSTValue(Fields::Q1_FIELD_POST_KEYWORDS,''));
+    update_post_meta($postId,Fields::Q1_FIELD_POST_DESCRIPTION,getPOSTValue(Fields::Q1_FIELD_POST_DESCRIPTION,''));
+  }
+
 
   public function addKeywordMetaBox(){
     $types = ['post'];

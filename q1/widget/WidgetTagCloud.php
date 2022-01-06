@@ -1,6 +1,6 @@
 <?php
 
-namespace q1;
+namespace q1\widget;
 
 class WidgetTagCloud extends \WP_Widget{
   function __construct() {

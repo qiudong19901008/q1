@@ -5,6 +5,11 @@
 namespace q1\register;
 
 use hedao\TSingleton;
+use q1\widget\WidgetAuthor;
+use q1\widget\WidgetRecommendPosts;
+use q1\widget\WidgetSearch;
+use q1\widget\WidgetTagCloud;
+
 
 class Widget{
 
@@ -16,8 +21,9 @@ class Widget{
   }
 
   protected function setupHook(){
-    add_action( 'widgets_init', [$this,'registeWidgetSection'] );
     add_action( 'widgets_init', [$this,'registeWidgetTools'] );
+    add_action( 'widgets_init', [$this,'registeWidgetSection'] );
+    
   }
 
   public function registeWidgetSection(){
@@ -35,10 +41,10 @@ class Widget{
   }
 
   public function registeWidgetTools(){
-    register_widget( 'WidgetAuthor' ); //作者卡片
-    register_widget( 'WidgetRecommendPosts' ); //推荐文章
-    register_widget( 'WidgetSearch' ); //搜索框
-    register_widget( 'WidgetTagCloud'); //标签云
+    register_widget( new \q1\widget\WidgetAuthor() ); //作者卡片
+    register_widget( new WidgetRecommendPosts() ); //推荐文章
+    register_widget( new WidgetSearch() ); //搜索框
+    register_widget( new WidgetTagCloud()); //标签云
   }
 
   

@@ -1,77 +1,102 @@
 <?php
 
-/**
- * Autoloader file for theme.
- */
 
 namespace hedao;
 
 
+class Autoloader{
+
+	public static function run($resource,$themeTypeArr){
+
+		//资源路径不存在
+		if(empty($resource)){
+			return;
+		}
+		//资源路径分隔符不正确
+		if(strpos( $resource, '\\' ) === false ){
+			return;
+		}
+		$themeType = Autoloader::getThemeType($resource,$themeTypeArr);
+		//路径初始位置找不到主题类型
+		if($themeType === ''){
+			return;
+		}
+
+		$pathChipArr = Autoloader::getPathChipArr($resource,$themeType);
+
+		$resourcePath = Autoloader::getResourcePath($pathChipArr,$themeType);
+		//没找到路径
+		if($resourcePath === ''){
+			return;
+		}
+		
+		$isOk = Autoloader::isResourceValid($resourcePath);
+		//路径文件不对
+		if(!$isOk){
+			return;
+		}
+		//终于能引入了
+		require_once( $resourcePath );	
+	}
+
+	public static function getThemeType($resource,$themeTypeArr){
+		$res = '';
+		foreach($themeTypeArr as $themeType){
+			//如果该主题类型位于路径的初始位置
+			if(strpos( $resource, $themeType ) === 0){
+				$res = $themeType;
+				break;
+			}
+		}
+		return $res;
+	}
+
+	public static function getPathChipArr($resource,$themeType){
+		//移除namespace根路径
+		$resource = str_replace( $themeType.'\\', '', $resource );
+		// 把剩余路径根据 \\ 进行分割
+		$pathChipArr = explode( '\\',	$resource );
+		return $pathChipArr;
+	}
+
+	public static function getResourcePath($pathChipArr,$themeType){
+		$res = '';
+		// 路径不正确 
+		if ( empty( $pathChipArr[0] ) || empty( $pathChipArr[1] ) ) {
+			return '';
+		}
+
+		// <主题路径>/<主题文件夹>/<主题功能文件夹>/classname;
+		$res = sprintf( '%s/%s/%s/%s.php', HEDAO_DIR_PATH, $themeType, $pathChipArr[0], $pathChipArr[1] );
+		// if ( 'register' === $pathChipArr[0] ) {
+		// }
+		return $res;
+	}
+
+	public static function isResourceValid($resourcePath){
+		// 文件不存在
+		if(!file_exists( $resourcePath )){
+			return false;
+		}
+		$fileStatus = validate_file( $resourcePath );
+		// 文件状态不对
+		if(0 !== $fileStatus && 2 !== $fileStatus){
+			return false;
+		}
+		return true;
+	}
+}
+
+
 
 /**
- * Auto loader function.
- *
- * @param string $resource Source namespace.
- *
- * @return void
+ * @description 自动加载类函数
+ * @resource 完全限定名的命名空间文件路径
  */
-
-function autoloader( $resource = '' ) {
-	$resource_path  = false;
-	$namespace_root = 'q1\\';
-	$resource       = trim( $resource, '\\' );
-
-  // 如果不是我们的资源路径则退出 Not our namespace, bail out.
-	if ( 
-      empty( $resource ) //如果资源路径为空
-      || strpos( $resource, '\\' ) === false //如果没有找到 \\ 分隔符
-      || strpos( $resource, $namespace_root ) !== 0 //如果资源路径没包含 Q1\\
-  ) {
-		return;
-	}
-
-	// Remove our root namespace.
-	$resource = str_replace( $namespace_root, '', $resource );
-
-  // 把路径根据 \\ 进行分割
-	$path = explode(
-		'\\',
-		str_replace( '_', '-', strtolower( $resource ) )
-	);
-
-	/**
-   * 我们的自动加载类是在 Q1\core\autoloader 路径下面, 如果 core和 autoloader路径名不存在 则代表路径有问题, 退出
-   * 
-	 * Time to determine which type of resource path it is,
-	 * so that we can deduce the correct file path for it.
-	 */
-	if ( empty( $path[0] ) || empty( $path[1] ) ) {
-		return;
-	}
-
-  //下面进行正确解析
-
-	$directory = '';
-	$file_name = '';
-
-	if ( 'register' === $path[0] ) {
-		$directory = 'q1/register';
-		$file_name = $path[1];
-	
-		$resource_path = sprintf( '%s/%s/register/%s.php', untrailingslashit( HEDAO_DIR_PATH ), $directory, $file_name );
-
-	}
-
-	/**
-	 * If $is_valid_file has 0 means valid path or 2 means the file path contains a Windows drive path.
-	 */
-	$is_valid_file = validate_file( $resource_path );
-
-	if ( ! empty( $resource_path ) && file_exists( $resource_path ) && ( 0 === $is_valid_file || 2 === $is_valid_file ) ) {
-		// We already making sure that file is exists and valid.
-		require_once( $resource_path ); // phpcs:ignore
-	}
-
+function autoloader($resource){
+	$themeTypeArr = ['q1'];
+	Autoloader::run($resource,$themeTypeArr);
 }
+
 
 spl_autoload_register( '\hedao\autoloader' ); 

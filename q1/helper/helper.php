@@ -1,10 +1,9 @@
 <?php
 
-// require_once plugin_dir_path(__FILE__) . '/GetMenuData.php';
-// require_once plugin_dir_path(__FILE__) . '/GetPostThumbUrl.php';
 
-namespace q1;
-
+namespace q1\helper;
+use \q1\constant\Options;
+use \q1\constant\Fields;
 
 /**
  * @description 获取q1的配置项

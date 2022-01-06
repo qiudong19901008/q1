@@ -1,7 +1,8 @@
 <?php
 
-namespace q1;
+namespace q1\widget;
 
+use q1\constant\Fields;
 
 class WidgetRecommendPosts extends \WP_Widget{
 
