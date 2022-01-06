@@ -8,7 +8,11 @@ use q1\constant\{
   Options,
 };
 
-use function q1\helper\getQ1DefaultThumbUrl;
+
+use function q1\helper\{
+  getQ1DefaultThumbUrl,
+  getQ1Option,
+};
 
 class PostService{
 
@@ -197,6 +201,8 @@ class PostService{
   public static function correctPostListThumbnail($myPostList){
     $res = [];
     $defaultThumbUrl = getQ1DefaultThumbUrl();
+    // echo  $defaultThumbUrl;
+    // var_dump($myPostList);
     foreach($myPostList as $myPost){
       if($myPost['thumbnail'] === ''){
         $myPost['thumbnail'] = $defaultThumbUrl;

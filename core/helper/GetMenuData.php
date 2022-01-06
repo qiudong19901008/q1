@@ -1,7 +1,5 @@
 <?php
 
-namespace q1\helper;
-
 class GetMenuData{
 
   public static function run($locationName){

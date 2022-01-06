@@ -97,9 +97,9 @@ function getSeoKeywords(){
   return $res;
 }
 
-function getMenuDataByLocation($location){
-  return GetMenuData::run($location);
-}
+// function getMenuDataByLocation($location){
+//   return GetMenuData::run($location);
+// }
 
 // function getPostThumbUrl($myPost,$default=''){
 //   return GetPostThumbUrl::run($myPost,$default);

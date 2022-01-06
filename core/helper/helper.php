@@ -1,5 +1,7 @@
 <?php
 
+require_once HEDAO_DIR_PATH . '/core/helper/GetPostThumbUrl.php';
+require_once HEDAO_DIR_PATH . '/core/helper/GetMenuData.php';
 
 /**
  * 获取值, 没有则使用默认值
@@ -86,6 +88,13 @@ function getPOSTValue($name,$default=null){
 /**
  * 获取文章缩略图
  */
-function getPostThumbUrl($myPost,$default){
-  GetPostThumbUrl::run($myPost,$default);
+function getPostThumbUrl($myPost,$default=''){
+  return GetPostThumbUrl::run($myPost,$default);
+}
+
+/**
+ * 
+ */
+function getMenuDataByLocation($location){
+  return GetMenuData::run($location);
 }

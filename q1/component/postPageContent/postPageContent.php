@@ -18,7 +18,8 @@
 
     <!-- 评论模板 -->
     <?php 
-      comments_template();
+      get_template_part('q1/comments'); 
+      // comments_template();
     ?>
   
 </div>

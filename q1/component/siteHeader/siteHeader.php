@@ -1,8 +1,8 @@
 <?php
 
-  use function q1\helper\{
-    getMenuDataByLocation
-  };
+  // use function q1\helper\{
+  //   getMenuDataByLocation
+  // };
 
   $menuList = getMenuDataByLocation('primary');
 ?>
