@@ -2,6 +2,8 @@
 
 require_once plugin_dir_path(__FILE__) . './CommentQuery.php';
 
+// namespace hedao\core\dao;
+
 class CommentDao{
 
    /**

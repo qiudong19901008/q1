@@ -25,23 +25,7 @@ require_once HEDAO_DIR_PATH . '/core/dao/TagDao/TagDao.php';
 require_once HEDAO_DIR_PATH . '/core/dao/UserDao/UserDao.php';
 
 
-// require_once HEDAO_DIR_PATH . '/q1/constant/Actions.php';
-// require_once HEDAO_DIR_PATH . '/q1/constant/Cookies.php';
-// require_once HEDAO_DIR_PATH . '/q1/constant/ErrorCodes.php';
-// require_once HEDAO_DIR_PATH . '/q1/constant/Fields.php';
-// require_once HEDAO_DIR_PATH . '/q1/constant/Options.php';
 
-// require_once HEDAO_DIR_PATH . '/q1/helper/GetMenuData.php';
-// require_once HEDAO_DIR_PATH . '/q1/helper/GetPostThumbUrl.php';
-require_once HEDAO_DIR_PATH . '/q1/helper/helper.php';
-
-// require_once HEDAO_DIR_PATH . '/q1/service/CategoryService.php';
-// require_once HEDAO_DIR_PATH . '/q1/service/PostService.php';
-
-
-/**
- * 加载主题
- */
 loadTheme();
 
 

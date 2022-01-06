@@ -1,5 +1,7 @@
 <?php
 
+// namespace hedao\core\dao;
+
 class CommentQuery{
 
   /**

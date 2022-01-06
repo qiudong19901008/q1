@@ -1,5 +1,8 @@
 <?php
 
+
+// namespace hedao\core\dao;
+
 class QueryCategoryList extends BaseCategoryDao{
 
   /**

@@ -73,7 +73,7 @@ public function addOneCommentAjax(){
  */
 public function likePostRouter(){
   $id = $_POST["postId"];
-  $likeCount = \PostService::likePostById($id);
+  $likeCount = PostService::likePostById($id);
   json([
     'likeCount'=>$likeCount,
   ]);

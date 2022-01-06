@@ -6,11 +6,15 @@ namespace q1\register;
 use hedao\TSingleton;
 use q1\constant\Fields;
 
+
+
 class Q1Theme{
 
   use TSingleton;
 
   protected function __construct(){
+
+    require_once HEDAO_DIR_PATH . '/q1/helper/helper.php';
 
     Assets::getInstance();
     //文章元数据自定义盒子
@@ -24,6 +28,9 @@ class Q1Theme{
   }
 
   protected function setupHook(){
+
+
+
     //支持文章缩略图
     add_theme_support('post-thumbnails');
 

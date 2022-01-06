@@ -64,11 +64,18 @@ class Autoloader{
 		if ( empty( $pathChipArr[0] ) || empty( $pathChipArr[1] ) ) {
 			return '';
 		}
-
-		// <主题根路径>/<主题文件夹>/<主题功能文件夹>/classname;
-		$res = sprintf( '%s/%s/%s/%s.php', HEDAO_DIR_PATH, $themeType, $pathChipArr[0], $pathChipArr[1] );
-		// if ( 'register' === $pathChipArr[0] ) {
-		// }
+		// echo 
+		// helper文件夹比较特殊
+		if($pathChipArr[0] === 'helper'){
+			echo $pathChipArr[0];
+			$res = sprintf( '%s/%s/%s/%s.php', HEDAO_DIR_PATH, $themeType, $pathChipArr[0], 'helper' );
+		}else{
+			// <主题根路径>/<主题文件夹>/<主题功能文件夹>/classname;
+			$res = sprintf( '%s/%s/%s/%s.php', HEDAO_DIR_PATH, $themeType, $pathChipArr[0], $pathChipArr[1] );
+		}
+			// q1/helper/helper.php
+		
+		
 		return $res;
 	}
 
