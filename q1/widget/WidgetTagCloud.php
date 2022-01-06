@@ -31,7 +31,7 @@ class WidgetTagCloud extends \WP_Widget{
     $count = getValue($instance[ 'count' ],10);
     $tags = \TagDao::getTagList($count);
 
-    get_template_part('frontend/widget/tagCloudCard/tagCloudCard',null,[
+    get_template_part('q1/component/widget/tagCloudCard/tagCloudCard',null,[
       'name'=>$name,
       'tags'=>$tags,
     ]);

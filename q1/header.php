@@ -1,3 +1,8 @@
+<?php
+  use function q1\helper\getSeoDescription;
+  use function q1\helper\getSeoKeywords;
+  use function q1\helper\getPageType;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -2,5 +2,5 @@
 
 
 <?php 
-  get_template_part('q1/tag'); 
+  get_template_part(CURRENT_THEME. '/tag');
 ?>

@@ -1,6 +1,11 @@
 <?php
 
 
+namespace q1\setting;
+
+use \Redux;
+use q1\constant\Options;
+
 $section = [
   'title' => __( '首页设置', 'your-textdomain-here' ),
 	'id'    => 'home_setting',

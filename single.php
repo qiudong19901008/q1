@@ -1,4 +1,4 @@
 
 <?php 
-  get_template_part('q1/post'); 
+  get_template_part(CURRENT_THEME. '/post');
 ?>

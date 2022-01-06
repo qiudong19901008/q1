@@ -1,4 +1,6 @@
 <?php 
+      
+      
       get_template_part('q1/header')  
     ?>
     
@@ -13,7 +15,6 @@
         </div>
         <!-- 侧边栏 -->
         <div class="indexPage__sidebar">
-          111
           <?php 
             get_template_part('q1/sidebar'); 
           ?>

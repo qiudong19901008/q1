@@ -1,4 +1,7 @@
-
+<?php
+  use function q1\helper\getFooterCustomCode;
+?>
+ 
  <!-- 页脚 -->
  <div class="siteFooterWrapWrap">
     <div class="siteFooterWrap">

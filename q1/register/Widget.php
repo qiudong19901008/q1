@@ -41,7 +41,7 @@ class Widget{
   }
 
   public function registeWidgetTools(){
-    register_widget( new \q1\widget\WidgetAuthor() ); //作者卡片
+    register_widget( new WidgetAuthor() ); //作者卡片
     register_widget( new WidgetRecommendPosts() ); //推荐文章
     register_widget( new WidgetSearch() ); //搜索框
     register_widget( new WidgetTagCloud()); //标签云

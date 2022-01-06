@@ -1,5 +1,5 @@
 import {exec} from 'shelljs';
-import { getLocalDateStr } from './helper';
+import { getLocalDateStr } from '.';
 
 
 const pushToGit = ()=>{

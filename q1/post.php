@@ -20,7 +20,9 @@
         </div>
         <!-- 侧边栏 -->
         <div class="postPage__sidebar">
-          <?php get_sidebar(); ?>
+          <?php 
+            get_template_part('q1/sidebar'); 
+          ?>
         </div>
       </div>
 

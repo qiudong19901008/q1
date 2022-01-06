@@ -1,6 +1,9 @@
 <?php
 
+namespace q1\setting;
 
+use \Redux;
+use q1\constant\Options;
 
 $section = [
   'title' => __( '全局设置', 'your-textdomain-here' ),
@@ -9,7 +12,7 @@ $section = [
 	'icon'  => 'el el-globe',
 ];
 
-Redux::set_section( $opt_name, $section );
+\Redux::set_section( $opt_name, $section );
 
 /**
  * 0. 通用设置

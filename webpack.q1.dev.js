@@ -3,8 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 const publicPath = '/';
-const outputPath = 'public';
-const prefix = 'q1';
+const outputPath = 'q1/assets';
 
 const config = {
 
@@ -17,7 +16,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, outputPath),
     publicPath,
-    filename:`${prefix}/js/[name].js`,
+    filename:`js/[name].js`,
   },
 
   module:{
@@ -54,7 +53,7 @@ const config = {
           {
             loader:"url-loader",
             options:{
-              name:`${prefix}/resource/[name].[ext]`,
+              name:`resource/[name].[ext]`,
               limit: 40960,
               emitFile:true,
               esModule: false,
@@ -98,7 +97,7 @@ const config = {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: `q1/css/[name].css`,
+      filename: `css/[name].css`,
     }),
   ],
 

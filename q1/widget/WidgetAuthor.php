@@ -33,7 +33,7 @@ class WidgetAuthor extends \WP_Widget {
     $nickname = getValue($instance[ 'nickname' ],'古今合道士');
     $description = getValue($instance[ 'description' ],'享生活，分享好看的电影，好听的音乐和好用的工具，可能也会分享一些技术文章');
     $contactWay = getValue($instance[ 'contactWay' ],'<a href="#"><i class="fab fa-github"></i></a>');
-    get_template_part('frontend/widget/authorCard/authorCard',null,[
+    get_template_part('q1/component/widget/authorCard/authorCard',null,[
       'portrait'=>$portrait,
       'nickname'=>$nickname,
       'description'=>$description,

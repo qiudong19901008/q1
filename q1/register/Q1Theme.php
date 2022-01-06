@@ -17,6 +17,7 @@ class Q1Theme{
     PostMetaCustomBox::getInstance();
     Widget::getInstance();
     Menu::getInstance();
+    Ajax::getInstance();
 
     $this->setupHook();
   }

@@ -1,17 +1,13 @@
 <?php
 
 
-// namespace hedao;
 
-// class Config{
+/**
+ * 主题类型
+ */
+const THEME_TYPE_ARR = ['q1'];
 
-//    /**
-//    * 主题类型
-//    */
-//   public static $THEME_TYPE_ARR = ['q1'];
-
-
-// }
-
-
-
+/**
+ * 当前主题
+ */
+const CURRENT_THEME = 'q1';

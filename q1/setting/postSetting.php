@@ -1,6 +1,11 @@
 <?php
 
 
+namespace q1\setting;
+
+use \Redux;
+use q1\constant\Options;
+
 $section = [
   'title' => __( '文章页设置', 'your-textdomain-here' ),
 	'id'    => 'post_setting',

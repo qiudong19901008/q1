@@ -35,7 +35,6 @@ class Autoloader{
 		if(!$isOk){
 			return;
 		}
-		//终于能引入了
 		require_once( $resourcePath );	
 	}
 
@@ -87,15 +86,12 @@ class Autoloader{
 	}
 }
 
-
-
 /**
  * @description 自动加载类函数
  * @resource 完全限定名的命名空间文件路径
  */
 function autoloader($resource){
-	$themeTypeArr = ['q1'];
-	Autoloader::run($resource,$themeTypeArr);
+	Autoloader::run($resource,THEME_TYPE_ARR);
 }
 
 
