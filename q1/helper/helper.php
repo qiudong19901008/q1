@@ -101,9 +101,9 @@ function getMenuDataByLocation($location){
   return GetMenuData::run($location);
 }
 
-function getPostThumbUrl($myPost,$default=''){
-  return GetPostThumbUrl::run($myPost,$default);
-}
+// function getPostThumbUrl($myPost,$default=''){
+//   return GetPostThumbUrl::run($myPost,$default);
+// }
 
 /**
  * 获取自定义头部代码, 该区域可以放一些脚本, 比如谷歌广告代码
@@ -137,3 +137,19 @@ function getPageType(){
   }
   return $res;
 }
+
+  /**
+   * @description 获取文章浏览量
+   */
+  function getPostViewCount($post_id){
+    $count = get_post_meta( $post_id, Fields::Q1_FIELD_POST_VIEW_COUNT, true );
+    return !empty($count)?$count:0;
+  }
+
+  /**
+   * @description 获取文章点赞数量
+   */
+  function getPostLikeCount($post_id){
+    $count = get_post_meta( $post_id, Fields::Q1_FIELD_POST_LIKE_COUNT, true );
+    return !empty($count)?$count:0;
+  }

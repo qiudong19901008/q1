@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * 被设置的缩略图->文章第一张图片->传入的默认值
+ */
 class GetPostThumbUrl{
 
 
@@ -18,10 +21,10 @@ class GetPostThumbUrl{
       return $default;
     }
     //如果还找不到, 就获取全局缩略图
-    $thumbUrl = getQ1DefaultThumbUrl();
-    if(!empty($thumbUrl)){
-      return $thumbUrl;
-    }
+    // $thumbUrl = getQ1DefaultThumbUrl();
+    // if(!empty($thumbUrl)){
+    //   return $thumbUrl;
+    // }
     //如果还没有则返回空
     return '';
   }

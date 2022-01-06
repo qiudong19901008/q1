@@ -1,8 +1,14 @@
 <?php
 
-require_once plugin_dir_path(__FILE__) . './PostAdder.php';
-require_once plugin_dir_path(__FILE__) . './PostUpdater.php';
-require_once plugin_dir_path(__FILE__) . './PostDeleter.php';
+
+namespace q1\service;
+
+use q1\constant\{
+  Fields,
+  Options,
+};
+
+use function q1\helper\getQ1DefaultThumbUrl;
 
 class PostService{
 
@@ -32,9 +38,9 @@ class PostService{
     $count = (int)getQ1Option(Options::Q1_OPTION_POST_BASIC_RECOMMEND_POST_COUNT);
 
     //找出该文章所属的分类
-    $categoryList = CategoryDao::getCategoryListByPostId($postId,true);
+    $categoryList = \CategoryDao::getCategoryListByPostId($postId,true);
     $category = $categoryList[0];
-    $listAndCount = PostDao::queryPostList(
+    $listAndCount = \PostDao::queryPostList(
       ['categoryId'=>$category['id']],
       [$postId],
       null,
@@ -46,6 +52,9 @@ class PostService{
       $count,
       ''
     );
+
+    $listAndCount['list'] = PostService::correctPostListThumbnail($listAndCount['list']);
+
     return $listAndCount['list'];
   }
 
@@ -69,7 +78,7 @@ class PostService{
           break;
       }
       //根据分类找出文章
-      $listAndCount = PostDao::queryPostList(
+      $listAndCount = \PostDao::queryPostList(
         [],
         null,
         null,
@@ -84,59 +93,117 @@ class PostService{
         $count,
         $orderByMetaKey
       );
+
+      $listAndCount['list'] = PostService::correctPostListThumbnail($listAndCount['list']);
+
       return $listAndCount['list'];
   }
 
 
-  /**
-   * 添加一篇文章
-   */
   public static function addOne($one){
-    $postId = PostAdder::addOne($one);
+    $title = $one['title'];
+    $content = $one['content'];
+    $authorId = $one['authorId'];
+    $categoryIdList = $one['categoryIdList'];
+    $tagIdList = $one['tagIdList'];
+    $description = $one['description'];
+    $keywords = $one['keywords'];
+    $status = $one['status'];
+    $create_time = $one['create_time'];
+
+    $metaList = [
+      'description'=>$description,
+      'keywords'=>$keywords
+    ];
+
+    $postId = \PostDao::addOnePost(
+      $title,
+      $content,
+      $authorId,
+      $categoryIdList,
+      $tagIdList,
+      $metaList,
+      $status,
+      $create_time
+    );
     return $postId;
   }
 
-  /**
-   * 添加多篇文章
-   */
   public static function addList($list){
-    $postIdList = PostAdder::addList($list);
-    return $postIdList;
+    $res = [];
+    foreach($list as $one){
+      $postId = \PostAdder::addOne($one);
+      array_push($res,$postId);
+    }
+    return $res;
   }
 
-  /**
-   * 更新一篇文章
-   */
+
   public static function updateOne($one){
-    $postId = PostUpdater::updateOne($one);
+    $id = $one['id'];
+    $title = $one['title'];
+    $content = $one['content'];
+    $authorId = $one['authorId'];
+    $categoryIdList = $one['categoryIdList'];
+    $tagIdList = $one['tagIdList'];
+    $description = $one['description'];
+    $keywords = $one['keywords'];
+    $status = $one['status'];
+
+    $metaList = [
+      'description'=>$description,
+      'keywords'=>$keywords
+    ];
+
+    $postId = \PostDao::updateOnePost(
+      $id,
+      $title,
+      $content,
+      $authorId,
+      $categoryIdList,
+      $tagIdList,
+      $metaList,
+      $status
+    );
     return $postId;
   }
 
-  /**
-   * 更新多篇文章
-   */
   public static function updateList($list){
-    $postIdList = PostUpdater::updateList($list);
-    return $postIdList;
+    $res = [];
+    foreach($list as $one){
+      $postId = \PostUpdater::updateOne($one);
+      array_push($res,$postId);
+    }
+    return $res;
   }
 
-  /**
-   * 删除一篇文章
-   */
+
   public static function deleteOne($one){
-    $res = PostDeleter::deleteOne($one);
+    $id = $one['id'];
+    $res = \PostDao::deleteOnePost($id);
     return $res;
   }
 
-  /**
-   * 删除多篇文章
-   */
   public static function deleteList($list){
-    $res = PostDeleter::deleteList($list);
+    $res = [];
+    foreach($list as $one){
+      $zeroOrOne = \PostDeleter::deleteOne($one);
+      array_push($res,$zeroOrOne);
+    }
     return $res;
   }
 
 
+  public static function correctPostListThumbnail($myPostList){
+    $res = [];
+    $defaultThumbUrl = getQ1DefaultThumbUrl();
+    foreach($myPostList as $myPost){
+      if($myPost['thumbnail'] === ''){
+        $myPost['thumbnail'] = $defaultThumbUrl;
+      }
+      array_push($res,$myPost);
+    }
+    return $res;
+  }
 
 }
-

@@ -1,3 +1,6 @@
+<?php
+  use q1\constant\Actions;
+?>
 <form class="commentForm" 
   data-postid="<?php the_ID(); ?>"
   data-action="<?php echo Actions::Q1_ACTION_COMMENT_ADD_ONE_COMMENT; ?>"

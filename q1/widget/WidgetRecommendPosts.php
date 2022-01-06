@@ -3,6 +3,7 @@
 namespace q1\widget;
 
 use q1\constant\Fields;
+use q1\service\PostService;
 
 class WidgetRecommendPosts extends \WP_Widget{
 
@@ -35,7 +36,7 @@ class WidgetRecommendPosts extends \WP_Widget{
       $name = getValue($instance['name'],'推荐文章');
       $size = getValue($instance['size'],6);
       $type = getValue($instance['type'],'view');
-      $postList = \PostService::queryWidgetRecommendPostList($type,$size);
+      $postList = PostService::queryWidgetRecommendPostList($type,$size);
       if(count($postList) > 0){
         $postList = $this->_addPostMetaHtml($postList,$type);
         get_template_part('q1/component/widget/widgetRecommendCard/widgetRecommendCard',null,[

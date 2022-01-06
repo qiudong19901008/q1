@@ -5,7 +5,6 @@
     $term = get_queried_object();
     echo $term->slug;
   ?>"  
-  
 >
   <!-- 页面提示 -->
   <div class="categoryPageContent__pageTitleCardWrap">

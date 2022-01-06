@@ -65,7 +65,7 @@ class Autoloader{
 			return '';
 		}
 
-		// <主题路径>/<主题文件夹>/<主题功能文件夹>/classname;
+		// <主题根路径>/<主题文件夹>/<主题功能文件夹>/classname;
 		$res = sprintf( '%s/%s/%s/%s.php', HEDAO_DIR_PATH, $themeType, $pathChipArr[0], $pathChipArr[1] );
 		// if ( 'register' === $pathChipArr[0] ) {
 		// }

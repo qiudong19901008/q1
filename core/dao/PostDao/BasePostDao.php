@@ -36,21 +36,6 @@ class BasePostDao{
     return $res;
   }
 
-  /**
-   * @description 获取文章浏览量
-   */
-  public static function getPostViewCount($post_id){
-    $count = get_post_meta( $post_id, Fields::Q1_FIELD_POST_VIEW_COUNT, true );
-    return !empty($count)?$count:0;
-  }
-
-  /**
-   * @description 获取文章点赞数量
-   */
-  public static function getPostLikeCount($post_id){
-    $count = get_post_meta( $post_id, Fields::Q1_FIELD_POST_LIKE_COUNT, true );
-    return !empty($count)?$count:0;
-  }
 
 
    /**
@@ -64,14 +49,14 @@ class BasePostDao{
     if(!$query->have_posts()){
       return $res;
     }
-    $defaultThumb = getQ1DefaultThumbUrl();
+    // $defaultThumb = getQ1DefaultThumbUrl();
     while($query->have_posts()){
       $query->the_post();
       $myPost = [
         'id'=>get_the_ID(),
         'title'=>get_the_title(),
         'url'=>get_the_permalink(),
-        'thumbnail'=>getPostThumbUrl($post,$defaultThumb),
+        'thumbnail'=>getPostThumbUrl($post),
         'excerpt'=>get_the_excerpt(),
         'content'=>get_the_content(),
         'update_time'=>get_the_modified_time('Y-m-d H:i:s'),

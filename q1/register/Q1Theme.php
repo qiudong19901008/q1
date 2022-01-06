@@ -18,6 +18,7 @@ class Q1Theme{
     Widget::getInstance();
     Menu::getInstance();
     Ajax::getInstance();
+    Api::getInstance();
 
     $this->setupHook();
   }
@@ -39,10 +40,13 @@ class Q1Theme{
     
     // 更新文章浏览量
     add_action('wp_head', [$this,'updatePostViewCount']);
+
+    // 加载redux框架
+    $this->loadReduxFramework();
   }
 
   // 修改excerpt结尾
-  function modifyExcerptEnding($more) {
+  public function modifyExcerptEnding($more) {
     return '...';
   }
 
@@ -60,6 +64,18 @@ class Q1Theme{
     update_post_meta($postId, Fields::Q1_FIELD_POST_VIEW_COUNT, ($oldView+1));
   }
 
+  //加载redux框架
+  public function loadReduxFramework(){
+    // redux框架
+    if ( 
+      !class_exists( 'ReduxFramework' ) 
+      && file_exists( HEDAO_DIR_PATH . '/inc/redux-framework/framework.php' )
+      && file_exists( HEDAO_DIR_PATH . '/q1/setting/setting.php')
+    ) {
+    require_once( HEDAO_DIR_PATH . '/inc/redux-framework/framework.php' );
+    require_once( HEDAO_DIR_PATH . '/q1/setting/setting.php' );
+    }
+  }
 
 
 

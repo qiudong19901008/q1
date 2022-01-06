@@ -1,5 +1,10 @@
 <?php
 
+  use q1\constant\Options;
+  use function q1\helper\{
+    getQ1Option,
+  };
+
   $footerMenuList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_MENU,'array');
   $footerLicenseList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_LICENSE,'array');
   $footerCopyright = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_COPYRIGHT);

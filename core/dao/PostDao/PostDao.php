@@ -74,8 +74,7 @@ class PostDao extends BasePostDao{
     $authorId, //作者id
     $categoryIdList, //分类id列表
     $tagIdList, //标签id列表
-    $description, //描述 meta
-    $keywords, //关键词 meta
+    $metaList, //元信息列表
     $status='publish', //文章状态
     $create_time=null
   ){
@@ -86,8 +85,7 @@ class PostDao extends BasePostDao{
       $authorId,
       $categoryIdList,
       $tagIdList,
-      $description,
-      $keywords,
+      $metaList,
       $status,
       $create_time,
     );
@@ -104,8 +102,7 @@ class PostDao extends BasePostDao{
    * @param number authorId 作者id
    * @param array categoryIdList 分类id列表
    * @param array tagIdList 标签id列表
-   * @param string description seo描述
-   * @param string keywords seo关键词
+   * @param array metaList 元信息列表
    * @param string status 文章状态 'publish', 'draft', 'future', 'private'
    * @return 文章id, 如果不成功则返回0
    */
@@ -116,8 +113,7 @@ class PostDao extends BasePostDao{
     $authorId, //作者id
     $categoryIdList, //分类id列表
     $tagIdList, //标签id列表
-    $description, //描述 meta
-    $keywords, //关键词 meta
+    $metaList, //元信息列表
     $status='publish' //文章状态
   ){
     $updater = new UpdateOnePost();
@@ -128,8 +124,7 @@ class PostDao extends BasePostDao{
       $authorId,
       $categoryIdList,
       $tagIdList,
-      $description,
-      $keywords,
+      $metaList,
       $status,
     );
     return $res;

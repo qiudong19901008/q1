@@ -82,3 +82,10 @@ function getPOSTValue($name,$default=null){
   $val = !empty($_POST[$name]) ? $_POST[$name] : $default; 
   return $val; 
 }
+
+/**
+ * 获取文章缩略图
+ */
+function getPostThumbUrl($myPost,$default){
+  GetPostThumbUrl::run($myPost,$default);
+}

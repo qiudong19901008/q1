@@ -1,11 +1,25 @@
 <?php
 
-  global $post;
+  use q1\constant\{
+    Options,
+    Actions,
+    Cookies,
+  };
+
+  use function q1\helper\{
+    getQ1Option,
+    getSeoTitle,
+    getPostViewCount,
+    getPostLikeCount,
+  };
+
+
+global $post;
 
   $categoryList = CategoryDao::getCategoryListByPostId(get_the_ID());
   $category = $categoryList[0];
-  $likeCount = PostDao::getPostLikeCount(get_the_ID());
-  $viewCount = PostDao::getPostViewCount(get_the_ID());
+  $likeCount = getPostLikeCount(get_the_ID());
+  $viewCount = getPostViewCount(get_the_ID());
   $tagList = TagDao::getTagListByPostId(get_the_ID(),false);
   $commentCount = $post->comment_count;
 

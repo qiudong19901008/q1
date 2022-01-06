@@ -8,6 +8,7 @@ use q1\constant\Fields;
 use q1\constant\ErrorCodes;
 
 use hedao\TSingleton;
+use q1\service\PostService;
 
 class Ajax{
 
@@ -109,6 +110,8 @@ public function getPostListRouter(){
       $page,
       $size
   );
+
+  $res['list'] = PostService::correctPostListThumbnail($res['list']);
 
   json($res);
 }
