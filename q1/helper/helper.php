@@ -5,18 +5,6 @@ namespace q1\helper;
 use \q1\constant\Options;
 use \q1\constant\Fields;
 
-/**
- * @description 获取q1的配置项
- * @param string $optionName 选项名称
- * @param mix $type 类型 string,number,array,boolean
- */
-function getQ1Option($optionName,$type='string'){
-  $option = \Redux::get_option(Options::Q1_OPTION_PREFIX,$optionName);
-  if($option == '' && $type == 'array'){
-    $option = [];
-  }
-  return $option;
-}
 
 function getQ1DefaultThumbUrl(){
   $data = getQ1Option(Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL);

@@ -48,9 +48,8 @@ class Q1Theme{
     // 更新文章浏览量
     add_action('wp_head', [$this,'updatePostViewCount']);
 
-    // 加载redux框架
-    $this->loadReduxFramework();
-    // require_once HEDAO_DIR_PATH .'/inc/codestar-framework/codestar-framework.php';
+    // 加载后台框架
+    $this->loadBackendFramework();
   }
 
   // 修改excerpt结尾
@@ -73,16 +72,34 @@ class Q1Theme{
   }
 
   //加载redux框架
-  public function loadReduxFramework(){
-    // redux框架
+  public function loadBackendFramework(){
+    $backendFramework = Q1_THEME_CONFIG['backendFramework'];
+    switch($backendFramework){
+      case 'redux':
+        $this->_loadRedux();
+        break;
+      case 'codestar':
+        $this->_loadCodestar();
+        break;
+      default:
+        $this->_loadRedux();
+    }
+  }
+
+  private function _loadRedux(){
     if ( 
       !class_exists( 'ReduxFramework' ) 
       && file_exists( HEDAO_DIR_PATH . '/inc/redux-framework/framework.php' )
       && file_exists( HEDAO_DIR_PATH . '/q1/setting/redux/setting.php')
     ) {
-    require_once( HEDAO_DIR_PATH . '/inc/redux-framework/framework.php' );
-    require_once( HEDAO_DIR_PATH . '/q1/setting/redux/setting.php' );
+      require_once( HEDAO_DIR_PATH . '/inc/redux-framework/framework.php' );
+      require_once( HEDAO_DIR_PATH . '/q1/setting/redux/setting.php' );
     }
+  }
+
+  private function _loadCodestar(){
+    require_once HEDAO_DIR_PATH .'/inc/codestar-framework/codestar-framework.php';
+    require_once HEDAO_DIR_PATH .'/q1/setting/codestar/setting.php';
   }
 
 
