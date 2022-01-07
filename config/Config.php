@@ -13,8 +13,13 @@ const THEME_TYPE_ARR = ['q1'];
 const CURRENT_THEME = 'q1';
 
 /**
- * Q1主题配置
+ * 当前后台框架
  */
-const Q1_THEME_CONFIG = [
-  'backendFramework'=>'codestar', // redux codestar
-];
+const CURRENT_BACKEND_FRAMEWORK = 'codestar'; // redux codestar
+
+// /**
+//  * Q1主题配置
+//  */
+// const Q1_THEME_CONFIG = [
+//   'backendFramework'=>'codestar', // redux codestar
+// ];

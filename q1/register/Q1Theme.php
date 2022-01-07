@@ -73,8 +73,7 @@ class Q1Theme{
 
   //加载redux框架
   public function loadBackendFramework(){
-    $backendFramework = Q1_THEME_CONFIG['backendFramework'];
-    switch($backendFramework){
+    switch(CURRENT_BACKEND_FRAMEWORK){
       case 'redux':
         $this->_loadRedux();
         break;

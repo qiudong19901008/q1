@@ -9,18 +9,18 @@ use q1\constant\Options;
 
 
 // CSF::createSection( $prefix, array(
-//   'id' => 'post_setting',
-//   'title'  => '文章页设置',
+//   'id' => 'page_setting',
+//   'title'  => '页面设置',
 //   'icon' => 'fa fa-diamond',
 // ) );
 
 /**
- * 1. 文章页基本信息
+ * 1. 主题介绍页面设置
  */
 CSF::createSection( $prefix, array(
   'parent'	=> 'post_setting',
   // 'id' => 'home_basic_setting',
-  'title'  => '文章页基本设置',
+  'title'  => '主题介绍页面设置',
   'icon' => 'fa fa-diamond',
   'fields' => [
     //推荐文章数量
@@ -44,5 +44,4 @@ CSF::createSection( $prefix, array(
    
   ]
 ) );
-
 
