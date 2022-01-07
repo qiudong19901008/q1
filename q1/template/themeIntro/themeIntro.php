@@ -3,7 +3,7 @@
 
   get_template_part('q1/template/themeIntro/header');
 
-  echo the_ID();
+  // echo the_ID();
 
 ?>
 

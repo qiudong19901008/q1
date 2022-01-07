@@ -45,6 +45,14 @@ namespace q1\setting{
 		'icon' => 'fa fa-diamond',
 	) );
 	include('postSetting.php');
+
+	//页面设置
+	CSF::createSection( $prefix, array(
+  'id' => 'page_setting',
+  'title'  => '页面设置',
+  'icon' => 'fa fa-diamond',
+	));
+	include('pageSetting.php');
 }
 
 
