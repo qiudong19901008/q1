@@ -5,10 +5,11 @@
     getQ1Option,
   };
 
-  $footerMenuList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_MENU,'array');
-  $footerLicenseList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_LICENSE,'array');
+  $footerMenuList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_MENU,[]);
+  // var_dump($footerMenuList);
+  $footerLicenseList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_LICENSE,[]);
   $footerCopyright = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_COPYRIGHT);
-  $friendLinkList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK,'array');
+  $friendLinkList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK,[]);
 
 ?>
 
@@ -25,7 +26,7 @@
 
           <?php foreach($friendLinkList as $index => $link): ?>
 
-            <?php echo $link; ?>
+            <?php echo $link['item']; ?>
 
           <?php endforeach;?>
 
@@ -42,12 +43,12 @@
 
           <?php if($index+1 === count($footerMenuList)): ?>
             <?php 
-              echo $menu;
+              echo $menu['item'];
               break; 
             ?>
           <?php endif;  ?>
         
-          <?php echo $menu; ?>
+          <?php echo $menu['item'] ?>
           <span class="siteFooter__cutOff">|</span>
         <!-- <a href="#">关于我们</a>
         <span class="siteFooter__cutOff">|</span>
@@ -70,12 +71,12 @@
 
       <?php if($index+1 === count($footerLicenseList)): ?>
         <?php 
-          echo $license;
+          echo $license['item'];
           break; 
         ?>
       <?php endif;  ?>
 
-      <?php echo $license; ?>
+      <?php echo $license['item']; ?>
       <span class="siteFooter__cutOff">|</span>
 
       <!-- <a href="#">公安备案</a>

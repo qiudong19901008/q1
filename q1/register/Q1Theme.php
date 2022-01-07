@@ -99,7 +99,9 @@ class Q1Theme{
 
   private function _loadCodestar(){
     require_once HEDAO_DIR_PATH .'/inc/codestar-framework/codestar-framework.php';
+    // require_once HEDAO_DIR_PATH .'/inc/codestar-framework/samples/admin-options.php';
     require_once HEDAO_DIR_PATH .'/q1/setting/codestar/setting.php';
+    // admin-options
   }
 
 

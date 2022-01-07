@@ -9,16 +9,42 @@ namespace q1\setting{
 	}
 
 	//选项前缀
-	$opt_name = Options::Q1_OPTION_PREFIX;
+	$prefix = Options::Q1_OPTION_PREFIX;
 
 	//主题信息
 	$theme = wp_get_theme();
 
-	CSF::createOptions( $opt_name, array(
-		'menu_title' => 'Q1主题',
-		'menu_slug'  => 'q1theme',
-	));
+	
+	include('basicSetting.php');
 
+	// include('demoSetting.php');
+
+	//全局设置
+	CSF::createSection( $prefix, array(
+		'id' => 'global_setting',
+		'title'  => '全局设置',
+		'icon' => 'fa fa-diamond',
+		'description' => '全局设置',
+	) );
+
+	include('globalSetting.php');
+
+	//首页设置
+	CSF::createSection( $prefix, array(
+		'id' => 'home_setting',
+		'title'  => '首页设置',
+		'icon' => 'fa fa-diamond',
+	) );
+
+	include('homeSetting.php');
+
+	//文章页设置
+	CSF::createSection( $prefix, array(
+		'id' => 'post_setting',
+		'title'  => '文章页设置',
+		'icon' => 'fa fa-diamond',
+	) );
+	include('postSetting.php');
 }
 
 
@@ -30,17 +56,12 @@ namespace q1\helper{
 	/**
  * @description 获取q1的配置项
  * @param string $optionName 选项名称
- * @param mix $type 类型 string,number,array,boolean
+ * @param string $default 
  */
-	function getQ1Option($optionName,$type='string'){
-		// $options = get_option( Options::Q1_OPTION_PREFIX );
-		// ( isset( $options[$optionName] ) ) ? $options[$optionName] : '';
-		// // $option = \Redux::get_option(Options::Q1_OPTION_PREFIX,$optionName);
-
-		// if($option == '' && $type == 'array'){
-		// 	$option = [];
-		// }
-		// return $option;
+	function getQ1Option($optionName,$default=''){
+		$options = get_option( Options::Q1_OPTION_PREFIX );
+		$option = isset( $options[$optionName] )  ? $options[$optionName] : $default;
+		return $option;
 	}
 
 }

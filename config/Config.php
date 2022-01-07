@@ -16,5 +16,5 @@ const CURRENT_THEME = 'q1';
  * Q1主题配置
  */
 const Q1_THEME_CONFIG = [
-  'backendFramework'=>'redux', // redux codestar
+  'backendFramework'=>'codestar', // redux codestar
 ];
