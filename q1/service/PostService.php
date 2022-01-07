@@ -136,7 +136,7 @@ class PostService{
   public static function addList($list){
     $res = [];
     foreach($list as $one){
-      $postId = \PostAdder::addOne($one);
+      $postId = PostService::addOne($one);
       array_push($res,$postId);
     }
     return $res;
@@ -175,7 +175,7 @@ class PostService{
   public static function updateList($list){
     $res = [];
     foreach($list as $one){
-      $postId = \PostUpdater::updateOne($one);
+      $postId = PostService::updateOne($one);
       array_push($res,$postId);
     }
     return $res;
@@ -191,7 +191,7 @@ class PostService{
   public static function deleteList($list){
     $res = [];
     foreach($list as $one){
-      $zeroOrOne = \PostDeleter::deleteOne($one);
+      $zeroOrOne = PostService::deleteOne($one);
       array_push($res,$zeroOrOne);
     }
     return $res;

@@ -1,20 +1,27 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {
+  getPublicPath,
+  getOutputPath,
+} = require('./config');
 
+// http://localhost/zixuehu/wp-content/themes/hedao/q1/assets
+const publicPath = getPublicPath();
+const outputPath = getOutputPath();
 
-const publicPath = '/';
-const outputPath = 'q1/assets';
+// process.cwd();
 
 const config = {
 
   mode:'development',
 
   entry:{
-    'q1':path.resolve(__dirname, '@src/q1/q1.ts'), 
+
+    'q1':path.resolve(process.cwd(), '@src/q1/q1.ts'), 
   },
 
   output: {
-    path: path.resolve(__dirname, outputPath),
+    path: path.resolve(process.cwd(), outputPath),
     publicPath,
     filename:`js/[name].js`,
   },
@@ -24,14 +31,17 @@ const config = {
       {
         test: /\.js$/,
         exclude: [
-          path.resolve(__dirname, 'inc'),
+          /inc/,
         ]
       },
       //打包ts
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: [
+          /node_modules/,
+          /inc/,
+        ]
       },
       //单独打包出 css
       { 
@@ -44,6 +54,9 @@ const config = {
               esModule: false, //这个搞死人
             }
           },
+        ],
+        exclude: [
+          /inc/,
         ]
       },
        //url-loader打包图片字体
@@ -54,13 +67,16 @@ const config = {
             loader:"url-loader",
             options:{
               name:`resource/[name].[ext]`,
-              limit: 40960,
+              limit: 1024*8,
               emitFile:true,
               esModule: false,
               publicPath,
             },
           }
         ],
+        exclude: [
+          /inc/,
+        ]
       },
     ]
   },

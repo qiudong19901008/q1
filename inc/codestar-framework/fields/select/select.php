@@ -66,12 +66,7 @@ if ( ! class_exists( 'CSF_Field_select' ) ) {
 
             echo '<select name="'. $field_name .'" class="csf-hide-select hidden"'. $multiple_attr . $field_attr .'>';
             foreach ( $this->value as $option_key ) {
-              if ($maybe_options == 'categories') {
-                $is_cid = get_term($option_key,'category');
-                if (!empty($is_cid)) {
-                  echo '<option value="'. esc_attr( $option_key ) .'" selected>'. esc_attr( $option_key ) .'</option>';
-                }
-              }
+              echo '<option value="'. esc_attr( $option_key ) .'" selected>'. esc_attr( $option_key ) .'</option>';
             }
             echo '</select>';
 

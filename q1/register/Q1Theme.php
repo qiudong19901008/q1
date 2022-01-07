@@ -50,6 +50,7 @@ class Q1Theme{
 
     // 加载redux框架
     $this->loadReduxFramework();
+    // require_once HEDAO_DIR_PATH .'/inc/codestar-framework/codestar-framework.php';
   }
 
   // 修改excerpt结尾
@@ -77,10 +78,10 @@ class Q1Theme{
     if ( 
       !class_exists( 'ReduxFramework' ) 
       && file_exists( HEDAO_DIR_PATH . '/inc/redux-framework/framework.php' )
-      && file_exists( HEDAO_DIR_PATH . '/q1/setting/setting.php')
+      && file_exists( HEDAO_DIR_PATH . '/q1/setting/redux/setting.php')
     ) {
     require_once( HEDAO_DIR_PATH . '/inc/redux-framework/framework.php' );
-    require_once( HEDAO_DIR_PATH . '/q1/setting/setting.php' );
+    require_once( HEDAO_DIR_PATH . '/q1/setting/redux/setting.php' );
     }
   }
 

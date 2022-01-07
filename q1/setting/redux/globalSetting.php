@@ -12,7 +12,7 @@ $section = [
 	'icon'  => 'el el-globe',
 ];
 
-\Redux::set_section( $opt_name, $section );
+Redux::set_section( $opt_name, $section );
 
 /**
  * 0. 通用设置
