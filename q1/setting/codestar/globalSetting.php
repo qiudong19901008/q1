@@ -118,7 +118,7 @@ CSF::createSection( $prefix, array(
     array(
       'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE,
       'type'  => 'code_editor', //code_editor
-      'title' => '头部自定义代码',
+      'title' => '页脚自定义代码',
       'settings' => [
         'theme' => 'dracula',
         // 'mode'  => 'javascript',
