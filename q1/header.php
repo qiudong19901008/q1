@@ -33,6 +33,10 @@
 
   <?php 
     echo getHeaderCustomCode(); 
+
+    $options = get_option( \q1\constant\Options::Q1_OPTION_PREFIX );
+
+    var_dump($options);
   ?>
 </head>
 <body>
