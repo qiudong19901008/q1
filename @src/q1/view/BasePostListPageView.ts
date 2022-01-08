@@ -103,8 +103,32 @@ abstract class BasePostListPageView{
     const postListHtml = getPostListHtml(list,url,action,size,pageUrl);
     const paginationHtml = getPaginationHtml(page,count,size,pageUrl);
     this.updatePageStructure(postListHtml,paginationHtml);
+    // 同时要修改标题
+    this._modifyTitle(page);
   }
 
+  private _modifyTitle(page:number){
+    const title = $('title').text();
+    let newTitle = '';
+    if(page === 1){
+      newTitle = title.replace(/ - 第\d+页/,'');
+      $('title').text(newTitle)
+    }else{
+      
+      newTitle = `${title} - 第${page}页`;
+      const re = / - 第\d+页/;
+
+      if(re.test(title)){
+        newTitle = title.replace(re,` - 第${page}页`);
+      }else{
+        newTitle = `${title} - 第${page}页`;
+      }
+      $('title').text(newTitle);
+    }
+
+
+    // console.log(newTitle);
+  }
   
 
   /**
