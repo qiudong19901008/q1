@@ -8,6 +8,7 @@ import CommentView from './CommentView';
 import CookieHandler from '../../../inc/CookieHandler';
 import * as $ from 'jquery';
 
+
 const commentView = new CommentView();
 class PostView{
 
@@ -20,8 +21,12 @@ class PostView{
       $('.postContent__like').addClass('postContent__like--done');
     }
     this._bindEvents();
-    await commentView.initral();
-    
+
+    //是否需要开启评论
+    const commentStatus = $('.postPageContent').data('commentstatus');
+    if(commentStatus == '1'){
+      await commentView.initral();
+    }
   }
 
 

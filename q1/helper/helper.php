@@ -134,7 +134,7 @@ function getPageType(){
     return !empty($count)?$count:0;
   }
 
-  function getThemeIntro($pageId){
+  function getThemeIntroData($pageId){
     $res = [];
     $themeIntroList = getQ1Option(Options::Q1_OPTION_PAGE_THEME_INTRO);
     foreach($themeIntroList as $themeIntro){
@@ -143,4 +143,16 @@ function getPageType(){
       }
     }
     return $res;
+  }
+
+  /**
+   * 0表示不开启
+   * 1表示开启
+   */
+  function isOpenComment(){
+    $open = getQ1Option(Options::Q1_OPTION_POST_BASIC_OPEN_COMMENT);
+    if($open == '1'){
+      return true;
+    }
+    return false;
   }

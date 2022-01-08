@@ -20,8 +20,8 @@ use q1\constant\Options;
 CSF::createSection( $prefix, array(
   'parent'	=> 'page_setting',
   // 'id' => 'home_basic_setting',
-  'title'  => '主题介绍页面设置',
-  'icon' => 'fa fa-diamond',
+  'title'  => '——主题介绍页面设置',
+  // 'icon' => 'fa fa-diamond',
   'fields' => [
     //页面id
     array(
@@ -34,6 +34,24 @@ CSF::createSection( $prefix, array(
           'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_PAGE_ID,
           'type'        => 'text',
           'title'       => '页面ID',
+        ),
+        // seo标题
+        array(
+          'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_SEO_TITLE,
+          'type'        => 'text',
+          'title'       => 'SEO标题',
+        ),
+        // SEO描述
+        array(
+          'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_SEO_DESCRIPTION,
+          'type'        => 'text',
+          'title'       => 'SEO描述',
+        ),
+        // SEO关键词
+        array(
+          'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_SEO_KEYWORDS,
+          'type'        => 'text',
+          'title'       => 'SEO关键词',
         ),
         //头部图片
         array(

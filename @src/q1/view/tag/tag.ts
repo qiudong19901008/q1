@@ -3,6 +3,8 @@ import './tag.css';
 import * as $ from 'jquery';
 import BasePostListPageView from '../BasePostListPageView';
 
+(window as any)['jQuery'] = $; (window as any)['$'] = $;
+
 class TagView extends BasePostListPageView{
   
 

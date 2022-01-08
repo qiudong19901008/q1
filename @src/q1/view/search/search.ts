@@ -2,6 +2,7 @@ import './search.css';
 import * as $ from 'jquery';
 import BasePostListPageView from '../BasePostListPageView';
 
+
 class SearchView extends BasePostListPageView{
   
 

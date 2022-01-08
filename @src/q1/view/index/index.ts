@@ -2,6 +2,7 @@ import './index.css';
 import * as $ from 'jquery';
 import BasePostListPageView from '../BasePostListPageView';
 
+
 class IndexView extends BasePostListPageView{
   
   

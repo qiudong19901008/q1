@@ -6,7 +6,6 @@ import {
 } from '../lib/helper';
 
 
-
 abstract class BasePostListPageView{
 
   /**

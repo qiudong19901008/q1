@@ -2,6 +2,7 @@ import './category.css';
 import * as $ from 'jquery';
 import BasePostListPageView from '../BasePostListPageView';
 
+
 class CategoryView extends BasePostListPageView{
   
 

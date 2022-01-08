@@ -20,9 +20,16 @@ use q1\constant\Options;
 CSF::createSection( $prefix, array(
   'parent'	=> 'post_setting',
   // 'id' => 'home_basic_setting',
-  'title'  => '文章页基本设置',
-  'icon' => 'fa fa-diamond',
+  'title'  => '——文章页基本设置',
+  // 'icon' => 'fa fa-diamond',
   'fields' => [
+    //开启评论
+    array(
+      'id' => Options::Q1_OPTION_POST_BASIC_OPEN_COMMENT,
+      'type'  => 'switcher',
+      'title' => '开启评论',
+      'desc' => '',
+    ),
     //推荐文章数量
     array(
       'id' => Options::Q1_OPTION_POST_BASIC_RECOMMEND_POST_COUNT,

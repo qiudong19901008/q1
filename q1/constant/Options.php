@@ -66,6 +66,11 @@ class Options{
 
    ////////////////////////文章页-基本信息/////////////////////////
 
+  /**
+  * Q1主题-文章页-基本-开启评论
+  */
+  public const Q1_OPTION_POST_BASIC_OPEN_COMMENT = '_q1_option_post_basic_openComment';
+
    /**
     * Q1主题-文章页-基本-推荐文章数量
     */
@@ -89,6 +94,21 @@ class Options{
     * Q1主题-页面-主题介绍页-页面id
     */
     public const Q1_OPTION_PAGE_THEME_INTRO_PAGE_ID = '_q1_option_page_themeIntro_pageId';
+
+    /**
+    * Q1主题-页面-主题介绍页-页面id
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_SEO_TITLE = '_q1_option_page_themeIntro_seoTitle';
+
+    /**
+    * Q1主题-页面-主题介绍页-页面id
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_SEO_DESCRIPTION = '_q1_option_page_themeIntro_seoDescription';
+
+    /**
+    * Q1主题-页面-主题介绍页-页面id
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_SEO_KEYWORDS= '_q1_option_page_themeIntro_seoKeywords';
 
     /**
     * Q1主题-页面-主题介绍页-头图

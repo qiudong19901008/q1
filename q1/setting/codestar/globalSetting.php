@@ -16,12 +16,12 @@ use q1\constant\Options;
 /**
  * 0. 通用设置
  */
-
+// commentstatus
 CSF::createSection( $prefix, array(
   'parent'	=> 'global_setting',
   // 'id' => 'global_common_setting',
-  'title'  => '通用设置',
-  'icon' => 'fa fa-diamond',
+  'title'  => '——通用设置',
+  // 'icon' => 'fa fa-th-large',
   'description' => '通用设置',
   'fields' => [
     //全局缩略图
@@ -40,8 +40,8 @@ CSF::createSection( $prefix, array(
 CSF::createSection( $prefix, array(
   'parent'	=> 'global_setting',
   // 'id' => 'global_header_setting',
-  'title'  => '页头设置',
-  'icon' => 'fa fa-diamond',
+  'title'  => '——页头设置',
+  // 'icon' => 'fa fa-header',
   'description' => '自定义头部, 可以放第三方代码, 比如广告联盟的js',
   'fields' => [
     //头部自定义代码
@@ -60,8 +60,8 @@ CSF::createSection( $prefix, array(
 CSF::createSection( $prefix, array(
   'parent'	=> 'global_setting',
   // 'id' => 'global_footer_setting',
-  'title'  => '页脚设置',
-  'icon' => 'fa fa-diamond',
+  'title'  => '——页脚设置',
+  // 'icon' => 'fa fa-step-forward',
   // 'description' => '自定义头部, 可以放第三方代码, 比如广告联盟的js',
   'fields' => [
     //友情链接

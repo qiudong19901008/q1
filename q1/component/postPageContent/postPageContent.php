@@ -1,5 +1,11 @@
+<?php
+  use function q1\helper\isOpenComment;
 
-<div class="postPageContent">
+  $open = isOpenComment();
+  
+?>
+
+<div class="postPageContent" data-commentstatus="<?php echo $open?'1':'0'; ?>">
    
     <div class="postPageContent__contentWrap">
       <?php get_template_part('q1/component/post/postContent/postContent'); ?>
@@ -18,8 +24,11 @@
 
     <!-- 评论模板 -->
     <?php 
-      get_template_part('q1/comments'); 
-      // comments_template();
+
+       $open = isOpenComment();
+        if($open){
+          get_template_part('q1/comments'); 
+        }
     ?>
   
 </div>

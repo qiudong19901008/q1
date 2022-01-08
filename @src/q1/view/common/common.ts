@@ -13,6 +13,7 @@ import PostView from '../post/post';
 import SearchView from '../search/search';
 import { PageTypeType } from '../../lib/type';
 
+
 class CommonView{
 
   //判断是哪个页面, 然后执行对应页面的初始化工作

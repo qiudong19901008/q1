@@ -5,6 +5,7 @@ import {
   getPaginationHtml,
 } from '../../lib/helper';
 
+
 class CommentView{
 
   public async initral(){
@@ -175,6 +176,12 @@ class CommentView{
    * @param page 第几页
    */
    protected async getDataThenUpdatePageStructure(page=1){
+
+    //先检测是否开启了评论, 0:未开启, 1:开启
+    const commentStatus = $('.commentSection').data('open');
+    if(commentStatus == '0'){
+      return;
+    }
 
     const postId = $('.commentList').data('postid');
     const url = $('.commentList').data('url');

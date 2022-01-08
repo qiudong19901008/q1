@@ -21,8 +21,8 @@ class Assets{
   }
 
   public function registerStyles(){
-    wp_enqueue_style('q1-vendor',HEDAO_ROOT_URL . '/q1/assets/css/vendor.css',[],Q1_VERSION,'all');
-    wp_enqueue_style('q1',HEDAO_ROOT_URL . '/q1/assets/css/q1.css',['q1-vendor'],Q1_VERSION,'all');
+    // wp_enqueue_style('q1-vendor',HEDAO_ROOT_URL . '/q1/assets/css/vendor.css',[],Q1_VERSION,'all');
+    wp_enqueue_style('q1',HEDAO_ROOT_URL . '/q1/assets/css/q1.css',[],Q1_VERSION,'all');
   }
 
   public function registerScripts(){

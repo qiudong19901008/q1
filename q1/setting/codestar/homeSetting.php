@@ -21,8 +21,8 @@ use q1\constant\Options;
 CSF::createSection( $prefix, array(
   'parent'	=> 'home_setting',
   // 'id' => 'home_basic_setting',
-  'title'  => '首页基本设置',
-  'icon' => 'fa fa-diamond',
+  'title'  => '——首页基本设置',
+  // 'icon' => 'fa fa-th-large',
   'fields' => [
     //首页描述
     array(

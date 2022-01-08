@@ -1,14 +1,14 @@
 const config = {
 
-  secondaryThemeDirName:'zixuehu',
+  secondaryThemeDirName:'',
   defaultPublicPath:'/wp-content/themes/hedao/q1/assets',
   defaultOutputPath:'q1/assets',
 
 }
 
-const getPublicPath = ()=>{
+const getPublicPath = (secondaryThemeDirName)=>{
   let res = config.defaultPublicPath;
-  if(config.secondaryThemeDirName){
+  if(secondaryThemeDirName){
     res = `/${config.secondaryThemeDirName}${config.defaultPublicPath}`;
   }
   return res;

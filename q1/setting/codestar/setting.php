@@ -23,7 +23,7 @@ namespace q1\setting{
 	CSF::createSection( $prefix, array(
 		'id' => 'global_setting',
 		'title'  => '全局设置',
-		'icon' => 'fa fa-diamond',
+		'icon' => 'fa fa-globe',
 		'description' => '全局设置',
 	) );
 
@@ -33,7 +33,7 @@ namespace q1\setting{
 	CSF::createSection( $prefix, array(
 		'id' => 'home_setting',
 		'title'  => '首页设置',
-		'icon' => 'fa fa-diamond',
+		'icon' => 'fa fa-shopping-cart',
 	) );
 
 	include('homeSetting.php');
@@ -42,7 +42,7 @@ namespace q1\setting{
 	CSF::createSection( $prefix, array(
 		'id' => 'post_setting',
 		'title'  => '文章页设置',
-		'icon' => 'fa fa-diamond',
+		'icon' => 'fa fa-file-text',
 	) );
 	include('postSetting.php');
 
@@ -50,7 +50,7 @@ namespace q1\setting{
 	CSF::createSection( $prefix, array(
   'id' => 'page_setting',
   'title'  => '页面设置',
-  'icon' => 'fa fa-diamond',
+  'icon' => 'fa fa-file-o',
 	));
 	include('pageSetting.php');
 }

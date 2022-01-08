@@ -1,5 +1,5 @@
 import * as $ from 'jquery';
-import 'font-awesome/css/font-awesome.min.css';
+// import 'font-awesome/css/font-awesome.min.css';
 import './q1.css';
 
 import '../../q1/component/common/menu/menu';
@@ -12,6 +12,7 @@ import TagView from './view/tag/tag';
 import PostView from './view/post/post';
 import SearchView from './view/search/search';
 import { PageTypeType } from './lib/type';
+
 
 //判断是哪个页面, 然后执行对应页面的初始化工作
 
