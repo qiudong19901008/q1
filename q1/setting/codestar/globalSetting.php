@@ -47,13 +47,14 @@ CSF::createSection( $prefix, array(
     //头部自定义代码
     array(
       'id'=>Options::Q1_OPTION_GLOBAL_HEADER_CUSTOM_CODE,
-      'type'  => 'textarea', //code_editor
+      'type'  => 'code_editor', //code_editor
       'title' => '头部自定义代码',
+      'settings' => [
+        'theme' => 'dracula',
+        // 'mode'  => 'javascript',
+      ],
+      'sanitize' => false,
     ),
-
-    // 'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_DESCRIPTION,
-    //       'type'        => 'textarea',
-    //       'title'       => '头部描述',
   ]
 ) );
 
@@ -116,8 +117,13 @@ CSF::createSection( $prefix, array(
     //页脚自定义代码
     array(
       'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE,
-      'type' => 'textarea', //code_editor
-      'title' => '页脚自定义代码',
+      'type'  => 'code_editor', //code_editor
+      'title' => '头部自定义代码',
+      'settings' => [
+        'theme' => 'dracula',
+        // 'mode'  => 'javascript',
+      ],
+      'sanitize' => false,
     ),
   ]
 ) );
