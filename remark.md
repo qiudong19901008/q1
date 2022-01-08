@@ -26,3 +26,4 @@ q1_cookie
 2. syntax error, unexpected 'class' (T_CLASS), expecting identifier (T_STRING)
 原因: php版本号太低
 解决: 更换一个高版本php
+
