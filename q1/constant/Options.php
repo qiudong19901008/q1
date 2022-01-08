@@ -75,4 +75,79 @@ class Options{
     * Q1主题-文章页-基本-开启文章归属(首发)声明
     */
     public const Q1_OPTION_POST_BASIC_OPEN_POST_BELONG_TO_ANNONCEMENT = '_q1_option_post_basic_openPostBelongToAnnoncement';
+
+
+
+    ////////////////////////页面-主题介绍页/////////////////////////
+
+    /**
+    * Q1主题-页面-主题介绍页
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO = '_q1_option_page_themeIntro';
+
+    /**
+    * Q1主题-页面-主题介绍页-页面id
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_PAGE_ID = '_q1_option_page_themeIntro_pageId';
+
+    /**
+    * Q1主题-页面-主题介绍页-头图
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_HEAD_IMAGE = '_q1_option_page_themeIntro_headImage';
+
+    /**
+    * Q1主题-页面-主题介绍页-标题
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_TITLE = '_q1_option_page_themeIntro_title';
+
+    /**
+    * Q1主题-页面-主题介绍页-描述
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_DESCRIPTION = '_q1_option_page_themeIntro_description';
+
+    /**
+    * Q1主题-页面-主题介绍页-主题版本
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_THEME_VERSION = '_q1_option_page_themeIntro_themeVersion';
+
+    /**
+    * Q1主题-页面-主题介绍页-功能按钮组
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_FUNCTION_BUTTON_GROUP = '_q1_option_page_themeIntro_functionButtonGroup';
+
+    /**
+    * Q1主题-页面-主题介绍页-按钮链接
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_BUTTION_LINK = '_q1_option_page_themeIntro_buttonLink';
+
+    /**
+    * Q1主题-页面-主题介绍页-按钮文本
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_BUTTION_TEXT = '_q1_option_page_themeIntro_buttonText';
+
+    /**
+    * Q1主题-页面-主题介绍页-主题详情标题
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_THEME_DETAIL_TITLE= '_q1_option_page_themeIntro_themeDetailTitle';
+
+    /**
+    * Q1主题-页面-主题介绍页-能力组
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_ABILITY_GROUP= '_q1_option_page_themeIntro_abilityGroup';
+
+    /**
+    * Q1主题-页面-主题介绍页-能力标题
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_ABILITY_TITLE= '_q1_option_page_themeIntro_abilityTitle';
+
+    /**
+    * Q1主题-页面-主题介绍页-能力描述
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_ABILITY_DESCRIPTION= '_q1_option_page_themeIntro_abilityDescription';
+
+    /**
+    * Q1主题-页面-主题介绍页-能力图片
+    */
+    public const Q1_OPTION_PAGE_THEME_INTRO_ABILITY_IMAGE= '_q1_option_page_themeIntro_abilityImage';
+
 }

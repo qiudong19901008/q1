@@ -1,10 +1,25 @@
 
 <?php
 
-  get_template_part('q1/template/themeIntro/header');
+use function q1\helper\getQ1Option;
+use q1\constant\Options;
+
+get_template_part('q1/template/themeIntro/header');
 
   // echo the_ID();
+  $themeIntroList = getQ1Option(Options::Q1_OPTION_PAGE_THEME_INTRO);
 
+  $pageId = get_the_ID();
+  $res = [];
+  foreach($themeIntroList as $themeIntro){
+    if($pageId == $themeIntro[Options::Q1_OPTION_PAGE_THEME_INTRO_PAGE_ID]){
+      $res = $themeIntro;
+    }
+  }
+  if(empty($res)){
+    return;
+  }
+  var_dump($themeIntroList);
 ?>
 
 <div class="themeIntro" >

@@ -11,36 +11,13 @@
 
 
 <?php
-
-// the_content();
-
-  // $content = get_the_content();
-
-  // $content = apply_filters( 'the_content', $content );
-  // $content = str_replace( ']]>', ']]&gt;', $content );
-
-  // esc_attr($content );
-
-  // function getTextBetweenTags($string, $tagname) {
-  //   $pattern = "/<$tagname ?.*>(.*)<\/$tagname>/";
-  //   preg_match($pattern, $string, $matches);
-  //   return $matches;
-  // }
-  // $content = '<p>打个比方，你购买了盗版课程，感觉不错，有付费支持正版意识的，肯定会去支持正版。</p>';
-
- 
-
-  // var_dump($content);
+// use function q1\helper\getQ1Option;
+// use q1\constant\Options;
 
 
-  // $res = getTextBetweenTags($content,'p');
+// $themeIntroList = getQ1Option(Options::Q1_OPTION_PAGE_THEME_INTRO);
 
-  // var_dump($res);
-
-  // $str = '<textformat leading="2"><p align="left"><font size="10">get me</font></p></textformat>';
-  // $txt = getTextBetweenTags($str, "font");
-  // echo $txt;
-  // echo $str;
+//   var_dump($themeIntroList);
 
 ?>
 
