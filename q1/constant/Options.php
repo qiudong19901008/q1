@@ -111,9 +111,9 @@ class Options{
     public const Q1_OPTION_PAGE_THEME_INTRO_THEME_VERSION = '_q1_option_page_themeIntro_themeVersion';
 
     /**
-    * Q1主题-页面-主题介绍页-功能按钮组
+    * Q1主题-页面-主题介绍页-按钮组
     */
-    public const Q1_OPTION_PAGE_THEME_INTRO_FUNCTION_BUTTON_GROUP = '_q1_option_page_themeIntro_functionButtonGroup';
+    public const Q1_OPTION_PAGE_THEME_INTRO_BUTTON_GROUP = '_q1_option_page_themeIntro_buttonGroup';
 
     /**
     * Q1主题-页面-主题介绍页-按钮链接
@@ -126,9 +126,9 @@ class Options{
     public const Q1_OPTION_PAGE_THEME_INTRO_BUTTION_TEXT = '_q1_option_page_themeIntro_buttonText';
 
     /**
-    * Q1主题-页面-主题介绍页-主题详情标题
+    * Q1主题-页面-主题介绍页-能力组标题
     */
-    public const Q1_OPTION_PAGE_THEME_INTRO_THEME_DETAIL_TITLE= '_q1_option_page_themeIntro_themeDetailTitle';
+    public const Q1_OPTION_PAGE_THEME_INTRO_ABILITY_GROUP_TITLE= '_q1_option_page_themeIntro_abilityGroupTitle';
 
     /**
     * Q1主题-页面-主题介绍页-能力组

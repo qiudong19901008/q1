@@ -59,10 +59,10 @@ function success($msg='操作成功'){
  * msg: "操作失败"
  * requestUrl: "PUT /rws/siteType/update/8"
  */
-function failed($msg='操作失败',$errorCode=ErrorCodes::Q1_ERRCODE_COMMON){
+function failed($msg='操作失败',$errorCode=null){
   header('Content-Type:application/json');
   echo json_encode([
-    'errorCode'=>$errorCode,
+    'errorCode'=>$errorCode?$errorCode:9999,
     'msg'=>$msg,
   ]);
   die;
@@ -98,3 +98,15 @@ function getPostThumbUrl($myPost,$default=''){
 function getMenuDataByLocation($location){
   return GetMenuData::run($location);
 }
+
+
+/**
+ * 是否是奇数
+ */
+
+ function isOddNumber($num){
+  if($num%2 == 1){
+    return true;
+  }
+  return false;
+ }

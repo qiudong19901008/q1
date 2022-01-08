@@ -133,3 +133,14 @@ function getPageType(){
     $count = get_post_meta( $post_id, Fields::Q1_FIELD_POST_LIKE_COUNT, true );
     return !empty($count)?$count:0;
   }
+
+  function getThemeIntro($pageId){
+    $res = [];
+    $themeIntroList = getQ1Option(Options::Q1_OPTION_PAGE_THEME_INTRO);
+    foreach($themeIntroList as $themeIntro){
+      if($pageId == $themeIntro[Options::Q1_OPTION_PAGE_THEME_INTRO_PAGE_ID]){
+        $res = $themeIntro;
+      }
+    }
+    return $res;
+  }

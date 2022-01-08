@@ -26,7 +26,7 @@ CSF::createSection( $prefix, array(
     //页面id
     array(
       'id'=>Options::Q1_OPTION_PAGE_THEME_INTRO,
-      'type' => 'repeater',
+      'type' => 'group',
       'title' => '主题介绍页',
       'fields' => [
         // 页面id
@@ -59,18 +59,18 @@ CSF::createSection( $prefix, array(
           'type'        => 'text',
           'title'       => '主题版本',
         ),
-        //功能按钮组
+        //按钮组
         array(
-          'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_FUNCTION_BUTTON_GROUP,
+          'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_BUTTON_GROUP,
           'type'        => 'repeater',
           'title'       => '功能按钮组',
           'fields' => getThemeIntroPageButtonGroup(),
         ),
-        //主题详情标题
+        //能力组标题
         array(
-          'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_ABILITY_TITLE,
+          'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_ABILITY_GROUP_TITLE,
           'type'        => 'text',
-          'title'       => '主题详情标题',
+          'title'       => '主题能力组标题',
         ),
         //主题能力组
         array(
