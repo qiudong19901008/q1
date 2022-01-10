@@ -17,6 +17,8 @@ class ErrorCodes{
    */
   public const Q1_ERRCODE_POST_ADD_ONE_FAILED = '20001';
 
+  ////////////////////////文章/////////////////////////
+  public const Q1_ERRCODE_USER_LOGIN_FAILED = '30001';
 
 
   ////////////////////////通用/////////////////////////

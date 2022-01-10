@@ -1,0 +1,12 @@
+{
+  "repositories": [
+    {
+         "type": "composer", 
+         "url": "https://packagist.org"
+    },
+    { "packagist": false }
+  ],
+  "require": {
+    "firebase/php-jwt": "^5.5"
+  }
+}

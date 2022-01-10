@@ -27,3 +27,6 @@ q1_cookie
 原因: php版本号太低
 解决: 更换一个高版本php
 
+3. git bash找不到composer命令
+原因：git bash必须识别全名称，也就是composer.bat无效
+解决：新建composer文件，把执行composer.bat的脚本写进去

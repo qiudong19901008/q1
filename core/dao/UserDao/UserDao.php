@@ -22,4 +22,5 @@ class UserDao{
     return $wpdb->get_results($sql);
   }
 
+
 }

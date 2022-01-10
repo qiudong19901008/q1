@@ -4,7 +4,9 @@
 namespace q1\register;
 
 use hedao\TSingleton;
+use q1\constant\ErrorCodes;
 use q1\service\PostService;
+use q1\service\UserService;
 
 class Api{
 
@@ -17,6 +19,13 @@ class Api{
 
   protected function setupHook(){
     add_action( 'rest_api_init', function () {
+
+      //获取token
+      register_rest_route( 'q1/v1', '/token/get', [
+        'methods' => 'POST',
+        'callback' => [$this,'getTokenRouter'],
+      ]);
+
       //添加一篇文章
       register_rest_route( 'q1/v1', '/post/add', [
         'methods' => 'POST',
@@ -55,6 +64,23 @@ class Api{
       ]);
     
     });
+  }
+
+  /**
+   * 1. 获取用户id
+   * 2. 根据id获取token
+   */
+  public function getTokenRouter(){
+    $username = getPOSTValue('username');
+    $password = getPOSTValue('password');
+    $userId = UserService::getUserId($username,$password);
+    if(!$userId){
+      return json_encode([
+        'errorCode'=>ErrorCodes::Q1_ERRCODE_USER_LOGIN_FAILED,
+        'msg'=>'用户名密码错误!',
+      ]);
+    }
+
   }
 
   public function addListPostRouter(){

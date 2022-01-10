@@ -4,6 +4,7 @@ const {
   getPublicPath,
   getOutputPath,
 } = require('./config');
+
 const webpack = require('webpack');
 
 // http://localhost/zixuehu/wp-content/themes/hedao/q1/assets

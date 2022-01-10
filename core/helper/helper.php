@@ -2,6 +2,7 @@
 
 require_once HEDAO_DIR_PATH . '/core/helper/GetPostThumbUrl.php';
 require_once HEDAO_DIR_PATH . '/core/helper/GetMenuData.php';
+require_once HEDAO_DIR_PATH . '/core/helper/JwtAuth.php';
 
 /**
  * 获取值, 没有则使用默认值
@@ -109,4 +110,13 @@ function getMenuDataByLocation($location){
     return true;
   }
   return false;
+ }
+
+ /**
+ * @param int $uid 用户id
+ * @param int $howLongExpire 多久过期
+ * @param int $salt 盐
+ */
+ function generateToken($uid,$howLongExpire,$salt){
+   return JwtAuth::generateToken($uid,$howLongExpire,$salt);
  }

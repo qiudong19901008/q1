@@ -4,13 +4,7 @@
 
 get_template_part('q1/component/post/commentSection/commentSection'); 
 
-  // use function q1\helper\isOpenComment;
-
-  // $open = isOpenComment();
-
-  // if($open){
-    
-  // }
+  
 ?>
 
 
@@ -18,13 +12,15 @@ get_template_part('q1/component/post/commentSection/commentSection');
 
 
 <?php
-// use function q1\helper\getQ1Option;
-// use q1\constant\Options;
 
+// $res = UserDao::login('qiud',555);
 
-// $themeIntroList = getQ1Option(Options::Q1_OPTION_PAGE_THEME_INTRO);
+$res = generateToken(1,60*60,'abd');
 
-//   var_dump($themeIntroList);
+var_dump($res);
+// // 
+// get_template_part('test/jwt.php'); 
+
 
 ?>
 
