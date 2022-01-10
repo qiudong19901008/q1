@@ -17,8 +17,15 @@ class ErrorCodes{
    */
   public const Q1_ERRCODE_POST_ADD_ONE_FAILED = '20001';
 
-  ////////////////////////文章/////////////////////////
+  ////////////////////////用户/////////////////////////
+   /**
+   * Q1主题-ERRCODE-USER-登录失败
+   */
   public const Q1_ERRCODE_USER_LOGIN_FAILED = '30001';
+  /**
+   * Q1主题-ERRCODE-USER-token验证失败
+   */
+  public const Q1_ERRCODE_USER_TOKEN_INVALID = '30002';
 
 
   ////////////////////////通用/////////////////////////

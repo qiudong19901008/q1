@@ -7,6 +7,10 @@ use hedao\TSingleton;
 use q1\constant\ErrorCodes;
 use q1\service\PostService;
 use q1\service\UserService;
+use const q1\config\{
+  TOKEN_SALT,
+  TOKEN_EXPIRE_SECONDS,
+};
 
 class Api{
 
@@ -24,6 +28,12 @@ class Api{
       register_rest_route( 'q1/v1', '/token/get', [
         'methods' => 'POST',
         'callback' => [$this,'getTokenRouter'],
+      ]);
+
+      //验证token
+      register_rest_route( 'q1/v1', '/token/verify', [
+        'methods' => 'POST',
+        'callback' => [$this,'verifyTokenRouter'],
       ]);
 
       //添加一篇文章
@@ -74,13 +84,36 @@ class Api{
     $username = getPOSTValue('username');
     $password = getPOSTValue('password');
     $userId = UserService::getUserId($username,$password);
+    
     if(!$userId){
-      return json_encode([
+      $data = json_encode([
         'errorCode'=>ErrorCodes::Q1_ERRCODE_USER_LOGIN_FAILED,
         'msg'=>'用户名密码错误!',
       ]);
+      return new \WP_REST_Response($data,401);
     }
+    $res = generateToken($userId,TOKEN_EXPIRE_SECONDS,TOKEN_SALT);
+    return new \WP_REST_Response($res,200);
 
+  }
+
+  public function verifyTokenRouter(){
+    $token = getPOSTValue('token');
+    $pass = verifyToken($token,TOKEN_SALT);
+    
+    if(!$pass){
+      $data = json_encode([
+        'errorCode'=>ErrorCodes::Q1_ERRCODE_USER_TOKEN_INVALID,
+        'msg'=>'token失效!',
+      ]);
+      return new \WP_REST_Response($data,401);
+    }else{
+      return json_encode([
+        'errorCode'=>0,
+        'msg'=>'',
+      ]);
+    }
+    
   }
 
   public function addListPostRouter(){

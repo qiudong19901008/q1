@@ -7,7 +7,6 @@ use hedao\TSingleton;
 use q1\constant\Fields;
 
 
-
 class Q1Theme{
 
   use TSingleton;
@@ -15,6 +14,7 @@ class Q1Theme{
   protected function __construct(){
 
     require_once HEDAO_DIR_PATH . '/q1/helper/helper.php';
+    require_once HEDAO_DIR_PATH . '/q1/config/config.php';
 
     Assets::getInstance();
     //文章元数据自定义盒子

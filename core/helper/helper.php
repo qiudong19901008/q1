@@ -115,8 +115,18 @@ function getMenuDataByLocation($location){
  /**
  * @param int $uid 用户id
  * @param int $howLongExpire 多久过期
- * @param int $salt 盐
+ * @param string $salt 盐
  */
  function generateToken($uid,$howLongExpire,$salt){
    return JwtAuth::generateToken($uid,$howLongExpire,$salt);
  }
+
+ /**
+ * @param string $token 令牌
+ * @param string $salt 盐
+ * @param int $uid 用户id
+ */
+function verifyToken($token,$salt){
+  $res = JwtAuth::verifyToken($token,$salt);
+  return $res;
+}

@@ -9,6 +9,7 @@ class JwtAuth{
    * @param int $uid 用户id
    * @param int $howLongExpire 多久过期
    * @param int $salt 盐
+   * @return array [expireTime:int(seconds),token:string]
    */
   public static function generateToken(
     $uid, //用户id
@@ -26,7 +27,24 @@ class JwtAuth{
       "exp" => $now + $howLongExpire,
     ];
 
-    return JWT::encode($payload, $salt, 'HS256');
+    $token = JWT::encode($payload, $salt, 'HS256');
+    return [
+      'token'=>$token,
+      'expireTime'=>$now + $howLongExpire,
+    ];
+
+  }
+
+
+  public static function verifyToken($token,$salt){
+    try{
+      $decoded = JWT::decode($token, new Key($salt, 'HS256'));
+      return true;
+    }catch(Exception $e){
+      return false;
+    }
+
+    return true;
 
   }
   
