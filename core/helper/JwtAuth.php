@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: lhl
+ * @Date: 2022-01-10 10:33:45
+ * @LastEditors: lhl
+ * @LastEditTime: 2022-01-11 14:09:12
+ */
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -32,20 +40,17 @@ class JwtAuth{
       'token'=>$token,
       'expireTime'=>$now + $howLongExpire,
     ];
-
   }
 
-
-  public static function verifyToken($token,$salt){
+  public static function getUidFromToken($token,$salt){
     try{
-      $decoded = JWT::decode($token, new Key($salt, 'HS256'));
-      return true;
+      $decoded = (array)JWT::decode($token, new Key($salt, 'HS256'));
+      $uid = (int)$decoded['uid'];
     }catch(Exception $e){
-      return false;
+      return 0;
     }
-
-    return true;
-
+    return $uid;
+  
   }
   
 

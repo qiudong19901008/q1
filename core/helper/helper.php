@@ -124,10 +124,9 @@ function getMenuDataByLocation($location){
  /**
  * @param string $token 令牌
  * @param string $salt 盐
- * @param int $uid 用户id
  */
-function verifyToken($token,$salt){
-  $res = JwtAuth::verifyToken($token,$salt);
+function getUidFromToken($token,$salt){
+  $res = JwtAuth::getUidFromToken($token,$salt);
   return $res;
 }
 

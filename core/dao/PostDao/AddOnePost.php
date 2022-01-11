@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: lhl
+ * @Date: 2022-01-08 16:57:38
+ * @LastEditors: lhl
+ * @LastEditTime: 2022-01-11 14:58:20
+ */
 
 class AddOnePost{
 
@@ -40,7 +48,7 @@ class AddOnePost{
     if(!empty($create_time)){
       $config['post_date'] = $create_time;
     }
-
+    
     $res = (int)wp_insert_post($config);
     return $res;
   }

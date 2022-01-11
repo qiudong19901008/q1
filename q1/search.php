@@ -1,5 +1,14 @@
 <?php 
+/*
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: lhl
+ * @Date: 2022-01-08 16:57:40
+ * @LastEditors: lhl
+ * @LastEditTime: 2022-01-11 15:11:52
+ */
   get_template_part('q1/header')  
+  
 ?>
     
     <div class="searchPageWrap">

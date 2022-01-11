@@ -14,6 +14,7 @@ class QueryPostList extends BasePostDao{
    * @param Array $dynamicConditionList [$categoryId=0,$tagId=0,$s='',$categorySlug='',$tagSlug='']
    * @param Array $excludePostIdList 需要排除的文章id列表
    * @param Array $includePostIdList 需要包含的文章id列表
+   * @param Array $includeAuthorIdList 需要包含的作者id列表
    * @param array ['author'|'category'|'meta'|'tag'] — $includeTableNameList 包含的额外表名列表
    * @param array $metaNameList — 额外字段的名字列表, 如果没有包含meta表则会忽略该选项, 留空数组也会忽略
    * @param 'create_time'|'update_time'|'rand'|'comment_count' $orderBy 需要排序的字段 默认创建时间
@@ -27,6 +28,7 @@ class QueryPostList extends BasePostDao{
       $dynamicConditionList=[],
       $excludePostIdList=null,
       $includePostIdList=null,
+      $includeAuthorIdList=null,
       $includeTableNameList=[],
       $metaNameList=[],
       $orderBy='create_time',
@@ -37,6 +39,7 @@ class QueryPostList extends BasePostDao{
   ){
     $res = [];
     $args = [
+      'author__in' => $includeAuthorIdList,
       'post__not_in'=>$excludePostIdList,
       'post__in'=>$includePostIdList,
       'post_type'=>'post',

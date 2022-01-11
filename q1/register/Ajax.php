@@ -100,6 +100,7 @@ public function getPostListRouter(){
       $dynamicConditionList,
       null,
       null,
+      null,
       ['meta','author','category'],
       [
         Fields::Q1_FIELD_POST_LIKE_COUNT,

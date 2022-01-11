@@ -7,7 +7,6 @@ use hedao\TSingleton;
 use q1\constant\ErrorCodes;
 use q1\service\PostService;
 use q1\service\UserService;
-use WP_Http;
 
 use const q1\config\{
   TOKEN_SALT,
@@ -86,15 +85,11 @@ class Api{
 
   public function interceptIllegalRequest($request){
     $token = getBasicToken($request,':');
-    $pass = verifyToken($token,TOKEN_SALT);
-    if(!$pass){
-      // $data = json_encode([
-      //   'errorCode'=>ErrorCodes::Q1_ERRCODE_USER_TOKEN_INVALID,
-      //   'msg'=>'token失效!',
-      // ]);
-      // return new \WP_REST_Response($data,401);
+    $uid = getUidFromToken($token,TOKEN_SALT);
+    if($uid == 0){
       return false;
     }
+    $request->set_header('uid',$uid);
     return true;
   }
 
@@ -107,7 +102,6 @@ class Api{
     $username = getPOSTValue('username');
     $password = getPOSTValue('password');
     $userId = UserService::getUserId($username,$password);
-    
     if(!$userId){
       $data = json_encode([
         'errorCode'=>ErrorCodes::Q1_ERRCODE_USER_LOGIN_FAILED,
@@ -122,9 +116,8 @@ class Api{
 
   public function verifyTokenRouter($request){
     $token = getPOSTValue('token');
-    $pass = verifyToken($token,TOKEN_SALT);
-    
-    if(!$pass){
+    $uid = getUidFromToken($token,TOKEN_SALT);
+    if($uid == 0){
       $data = json_encode([
         'errorCode'=>ErrorCodes::Q1_ERRCODE_USER_TOKEN_INVALID,
         'msg'=>'token失效!',
@@ -139,12 +132,12 @@ class Api{
   }
 
   public function addOnePostRouter($request){
+    $uid = $request->get_header('uid');
     $list = getPOSTValue('list');
-    $postIdList = PostService::addOne($list[0]);
-    $res = json_encode([
+    $postIdList = PostService::addOne($list[0],$uid);
+    return [
       'postIdList'=>$postIdList
-    ]);
-    return $res;
+    ];
   }
 
 
@@ -153,50 +146,52 @@ class Api{
    * @param \WP_REST_Request $request
    */
   public function addListPostRouter($request){
+    $uid = $request->get_header('uid');
     $list = getPOSTValue('list');
-    $postIdList = PostService::addList($list);
-    $res = json_encode([
+    // return [
+    //   'list'=>$list,
+    // ];
+    $postIdList = PostService::addList($list,$uid);
+    return [
       'postIdList'=>$postIdList
-    ]);
-    return $res;
+    ];
   }
   
   public function updateOnePostRouter($request){
+    $uid = $request->get_header('uid');
     $list = getPOSTValue('list');
-    $postId = PostService::updateOne($list[0]);
-    $res = json_encode([
+    $postId = PostService::updateOne($list[0],$uid);
+    return [
       'postIdList'=>[$postId],
-    ]);
-    return $res;
+    ];
   }
   
-  public function updateListPostRouter(){
+  public function updateListPostRouter($request){
+    $uid = $request->get_header('uid');
     $list = getPOSTValue('list');
-    $postIdList = PostService::updateList($list);
-    $res = json_encode([
+    $postIdList = PostService::updateList($list,$uid);
+    return [
       'postIdList'=>$postIdList
-    ]);
-    return $res;
+    ];
   }
   
   
-  public function deleteOnePostRouter(){
+  public function deleteOnePostRouter($request){
+    $uid = $request->get_header('uid');
     $list = getPOSTValue('list');
-    $result = PostService::deleteOne($list[0]);
-    $res = json_encode([
-      'zeroOrOneList'=>[$result],
-    ]);
-    return $res;
+    $zeroOrOneList = PostService::deleteList($list,$uid);
+    return [
+      'zeroOrOneList'=>$zeroOrOneList,
+    ];
   }
   
-  public function deleteListPostRouter(){
-    
+  public function deleteListPostRouter($request){
+    $uid = $request->get_header('uid');
     $list = getPOSTValue('list');
-    $zeroOrOneList = PostService::deleteList($list);
-    $res = json_encode([
+    $zeroOrOneList = PostService::deleteList($list,$uid);
+    return [
       'zeroOrOneList'=>$zeroOrOneList
-    ]);
-    return $res;
+    ];
   }
   
 

@@ -104,10 +104,10 @@ class PostService{
   }
 
 
-  public static function addOne($one){
+  public static function addOne($one,$uid){
     $title = $one['title'];
     $content = $one['content'];
-    $authorId = $one['authorId'];
+    $authorId = $uid;
     $categoryIdList = $one['categoryIdList'];
     $tagIdList = $one['tagIdList'];
     $description = $one['description'];
@@ -133,21 +133,21 @@ class PostService{
     return $postId;
   }
 
-  public static function addList($list){
+  public static function addList($list,$uid){
     $res = [];
     foreach($list as $one){
-      $postId = PostService::addOne($one);
+      $postId = PostService::addOne($one,$uid);
       array_push($res,$postId);
     }
     return $res;
   }
 
 
-  public static function updateOne($one){
+  public static function updateOne($one,$uid){
     $id = $one['id'];
     $title = $one['title'];
     $content = $one['content'];
-    $authorId = $one['authorId'];
+    $authorId = $uid;
     $categoryIdList = $one['categoryIdList'];
     $tagIdList = $one['tagIdList'];
     $description = $one['description'];
@@ -172,26 +172,32 @@ class PostService{
     return $postId;
   }
 
-  public static function updateList($list){
+  public static function updateList($list,$uid){
     $res = [];
     foreach($list as $one){
-      $postId = PostService::updateOne($one);
+      $postId = PostService::updateOne($one,$uid);
       array_push($res,$postId);
     }
     return $res;
   }
 
 
-  public static function deleteOne($one){
-    $id = $one['id'];
-    $res = \PostDao::deleteOnePost($id);
+  public static function deleteOne($one,$postList){
+    $res = 0;
+    foreach($postList as $myPost){
+      if($one['id'] == $myPost['id']){
+        $res = \PostDao::deleteOnePost($one['id']);
+        break;
+      }
+    }
     return $res;
   }
 
-  public static function deleteList($list){
+  public static function deleteList($list,$uid){
+    $listAndCount = \PostDao::queryPostList([],null,null,[$uid],[],[],'create_time','DESC',1,10000);
     $res = [];
     foreach($list as $one){
-      $zeroOrOne = PostService::deleteOne($one);
+      $zeroOrOne = PostService::deleteOne($one,$listAndCount['list']);
       array_push($res,$zeroOrOne);
     }
     return $res;
@@ -201,8 +207,6 @@ class PostService{
   public static function correctPostListThumbnail($myPostList){
     $res = [];
     $defaultThumbUrl = getQ1DefaultThumbUrl();
-    // echo  $defaultThumbUrl;
-    // var_dump($myPostList);
     foreach($myPostList as $myPost){
       if($myPost['thumbnail'] === ''){
         $myPost['thumbnail'] = $defaultThumbUrl;
