@@ -130,3 +130,26 @@ function verifyToken($token,$salt){
   $res = JwtAuth::verifyToken($token,$salt);
   return $res;
 }
+
+/**
+ * @description 解码basic的header, 获取token
+ * @param string $basicValue 头部authention的值
+ * @param string $suffix 后缀,可以弄一些加密字符
+ */
+function getTokenFromBasicAuth($basicValue,$suffix=''){
+  // `Basic ${Base64.encode(token+':')}`;
+  $res = ltrim($basicValue,'Basic ');
+  $res = base64_decode($res);
+  return rtrim($res,$suffix);
+}
+
+/**
+ * @param \WP_REST_Request $request
+ */
+function getBasicToken($request,$suffix=''){
+  $basicAuth = $request->get_header('authorization');
+  if(!$basicAuth){
+    return '';
+  }
+  return getTokenFromBasicAuth($basicAuth,$suffix);
+}
