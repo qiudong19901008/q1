@@ -31,6 +31,8 @@ function getSeoTitle(){
   }else if(is_single()){
     $postTitle = get_the_title();
     $title = $postTitle . $connector . $siteName;
+  }else if(is_404()){
+    $title = '404';
   }
   return $title;
 }
@@ -59,6 +61,8 @@ function getSeoDescription(){
     if(empty($res)){
       $res = get_the_title();
     }
+  }else if(is_404()){
+    $res = '404';
   }
   return $res;
 }
@@ -81,6 +85,8 @@ function getSeoKeywords(){
     if(empty($res)){
       $res = get_the_title();
     }
+  }else if(is_404()){
+    $res = '404';
   }
   return $res;
 }
