@@ -17,9 +17,3 @@ const CURRENT_THEME = 'q1';
  */
 const CURRENT_BACKEND_FRAMEWORK = 'codestar'; // redux codestar
 
-// /**
-//  * Q1主题配置
-//  */
-// const Q1_THEME_CONFIG = [
-//   'backendFramework'=>'codestar', // redux codestar
-// ];

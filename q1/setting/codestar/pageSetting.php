@@ -5,7 +5,7 @@ namespace q1\setting;
 
 use \CSF;
 use q1\constant\Options;
-
+use const q1\config\DEFAULT_THEME_INTRO_DATA;
 
 
 // CSF::createSection( $prefix, array(
@@ -40,55 +40,64 @@ CSF::createSection( $prefix, array(
           'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_SEO_TITLE,
           'type'        => 'text',
           'title'       => 'SEO标题',
+          'default'     => DEFAULT_THEME_INTRO_DATA[Options::Q1_OPTION_PAGE_THEME_INTRO_SEO_TITLE]
         ),
         // SEO描述
         array(
           'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_SEO_DESCRIPTION,
           'type'        => 'text',
           'title'       => 'SEO描述',
+          'default'     => DEFAULT_THEME_INTRO_DATA[Options::Q1_OPTION_PAGE_THEME_INTRO_SEO_DESCRIPTION]
         ),
         // SEO关键词
         array(
           'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_SEO_KEYWORDS,
           'type'        => 'text',
           'title'       => 'SEO关键词',
+          'default'     => DEFAULT_THEME_INTRO_DATA[Options::Q1_OPTION_PAGE_THEME_INTRO_SEO_KEYWORDS]
         ),
         //头部图片
         array(
           'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_HEAD_IMAGE,
           'type'        => 'text',
           'title'       => '头部背景图',
+          'default'     => DEFAULT_THEME_INTRO_DATA[Options::Q1_OPTION_PAGE_THEME_INTRO_HEAD_IMAGE]
         ),
         //标题
         array(
           'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_TITLE,
           'type'        => 'text',
           'title'       => '头部标题',
+          'default'     => DEFAULT_THEME_INTRO_DATA[Options::Q1_OPTION_PAGE_THEME_INTRO_TITLE]
         ),
         //描述
         array(
           'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_DESCRIPTION,
           'type'        => 'textarea',
           'title'       => '头部描述',
+          'default'     => DEFAULT_THEME_INTRO_DATA[Options::Q1_OPTION_PAGE_THEME_INTRO_DESCRIPTION]
         ),
         //主题版本
         array(
           'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_THEME_VERSION,
           'type'        => 'text',
           'title'       => '主题版本',
+          'default'     => DEFAULT_THEME_INTRO_DATA[Options::Q1_OPTION_PAGE_THEME_INTRO_THEME_VERSION]
         ),
         //按钮组
         array(
           'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_BUTTON_GROUP,
           'type'        => 'repeater',
           'title'       => '功能按钮组',
-          'fields' => getThemeIntroPageButtonGroup(),
+          'fields'   => getThemeIntroPageButtonGroup(),
+          'default'  => DEFAULT_THEME_INTRO_DATA[Options::Q1_OPTION_PAGE_THEME_INTRO_BUTTON_GROUP]
         ),
         //能力组标题
         array(
           'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_ABILITY_GROUP_TITLE,
           'type'        => 'text',
           'title'       => '主题能力组标题',
+          'default'  => DEFAULT_THEME_INTRO_DATA[Options::Q1_OPTION_PAGE_THEME_INTRO_ABILITY_GROUP_TITLE]
         ),
         //主题能力组
         array(
@@ -96,6 +105,7 @@ CSF::createSection( $prefix, array(
           'type'        => 'repeater',
           'title'       => '主题能力组',
           'fields' => getThemeIntroPageThemeAbilityGroup(),
+          'default'  => DEFAULT_THEME_INTRO_DATA[Options::Q1_OPTION_PAGE_THEME_INTRO_ABILITY_GROUP]
         ),
       
 
@@ -112,6 +122,7 @@ function getThemeIntroPageButtonGroup(){
       'id'          => Options::Q1_OPTION_PAGE_THEME_INTRO_BUTTION_LINK,
       'type'        => 'text',
       'title'       => '按钮链接',
+
     ),
     //按钮文本
     array(

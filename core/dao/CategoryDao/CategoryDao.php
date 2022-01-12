@@ -1,6 +1,5 @@
 <?php
 
-// namespace hedao\core\dao;
 
 require_once plugin_dir_path(__FILE__) . './BaseCategoryDao.php';
 require_once plugin_dir_path(__FILE__) . './QueryCategoryList.php';
