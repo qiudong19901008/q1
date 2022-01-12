@@ -94,6 +94,8 @@
 
     </ul>
     
+
+
     <!-- copyright -->
     <div class="copyright">
 
@@ -102,8 +104,13 @@
       <!-- ©2021 <a href="#">srcmini</a> -->
     </div>
     
-    <p style="text-align:right;position:absolute;bottom:10px;right:10px;">
+    <p style="text-align:right;position:absolute;bottom:30px;right:10px;">
         <?php printf('%d 次查询, 耗时 %s 秒', get_num_queries(), timer_stop(0, 3)); ?>
     </p>
+
+    <p style="text-align:right;position:absolute;bottom:10px;right:10px;">
+        <?php echo 'powerd by <a href="w2fenx.com" style="font-size:6px;">合道社</a>'  ?>
+    </p>
+    
     
 </div>
