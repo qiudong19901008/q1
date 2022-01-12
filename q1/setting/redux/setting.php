@@ -37,9 +37,9 @@ namespace q1\helper{
  * @param string $optionName 选项名称
  * @param mix $type 类型 string,number,array,boolean
  */
-	function getQ1Option($optionName,$default=''){
-		$option = \Redux::get_option(Options::Q1_OPTION_PREFIX,$optionName);
-		return isset($option) ? $option: $default;
-	}
+	// function getQ1Option($optionName,$default=''){
+	// 	$option = \Redux::get_option(Options::Q1_OPTION_PREFIX,$optionName);
+	// 	return isset($option) ? $option: $default;
+	// }
 
 }

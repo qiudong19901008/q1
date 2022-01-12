@@ -77,9 +77,11 @@ class WidgetRecommendPosts extends \WP_Widget{
 
     // Widget Backend 
     public function form( $instance ) {
-      $name = getValue($instance['name'],'推荐文章');
-      $size = getValue($instance['size'],6);
-      $type = getValue($instance['type'],'like');
+      
+      $name = getArrValueByKey($instance,'name','推荐文章');
+      $size = getArrValueByKey($instance,'size',6);
+      $type = getArrValueByKey($instance,'type','like');
+
     ?>
     
     <p>

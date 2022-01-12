@@ -5,10 +5,17 @@ namespace q1\helper;
 use \q1\constant\Options;
 use \q1\constant\Fields;
 
+use const q1\config\DEFAULT_THEME_INTRO_DATA;
 
 function getQ1DefaultThumbUrl(){
-  $data = getQ1Option(Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL);
-  return $data['url'];
+  $data = getQ1Option(
+    Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL,
+    []
+  );
+  if(!empty($data) && !empty($data['url'])){
+    return $data['url'];
+  }
+  return HEDAO_ROOT_URL . '/q1/assets/image/thumb.jpg';
 }
 
 /**
@@ -142,11 +149,16 @@ function getPageType(){
 
   function getThemeIntroData($pageId){
     $res = [];
-    $themeIntroList = getQ1Option(Options::Q1_OPTION_PAGE_THEME_INTRO);
+    $themeIntroList = getQ1Option(Options::Q1_OPTION_PAGE_THEME_INTRO,[]);
+    // var_dump($themeIntroList);
+    // die;
     foreach($themeIntroList as $themeIntro){
       if($pageId == $themeIntro[Options::Q1_OPTION_PAGE_THEME_INTRO_PAGE_ID]){
         $res = $themeIntro;
       }
+    }
+    if(empty($res)){
+      return DEFAULT_THEME_INTRO_DATA;
     }
     return $res;
   }

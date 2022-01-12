@@ -96,17 +96,17 @@ class Options{
     public const Q1_OPTION_PAGE_THEME_INTRO_PAGE_ID = '_q1_option_page_themeIntro_pageId';
 
     /**
-    * Q1主题-页面-主题介绍页-页面id
+    * Q1主题-页面-主题介绍页-seo标题
     */
     public const Q1_OPTION_PAGE_THEME_INTRO_SEO_TITLE = '_q1_option_page_themeIntro_seoTitle';
 
     /**
-    * Q1主题-页面-主题介绍页-页面id
+    * Q1主题-页面-主题介绍页-seo描述
     */
     public const Q1_OPTION_PAGE_THEME_INTRO_SEO_DESCRIPTION = '_q1_option_page_themeIntro_seoDescription';
 
     /**
-    * Q1主题-页面-主题介绍页-页面id
+    * Q1主题-页面-主题介绍页-seo关键词
     */
     public const Q1_OPTION_PAGE_THEME_INTRO_SEO_KEYWORDS= '_q1_option_page_themeIntro_seoKeywords';
 

@@ -86,6 +86,7 @@ class PostService{
         [],
         null,
         null,
+        null,
         ['meta'],
         [
           Fields::Q1_FIELD_POST_LIKE_COUNT,
@@ -94,7 +95,7 @@ class PostService{
         $orderBy,
         'DESC',
         1,
-        $count,
+        (int)$count,
         $orderByMetaKey
       );
 

@@ -1,5 +1,6 @@
 <?php
   use function q1\helper\getFooterCustomCode;
+
 ?>
  
  <!-- 页脚 -->

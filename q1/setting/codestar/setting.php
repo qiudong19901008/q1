@@ -67,9 +67,12 @@ namespace q1\helper{
  * @param string $default 
  */
 	function getQ1Option($optionName,$default=''){
+		$res = $default;
 		$options = get_option( Options::Q1_OPTION_PREFIX );
-		$option = isset( $options[$optionName] )  ? $options[$optionName] : $default;
-		return $option;
+		if(isset($options[$optionName]) && $options[$optionName] != ''){
+			$res = $options[$optionName];
+		}
+		return $res;
 	}
 
 }

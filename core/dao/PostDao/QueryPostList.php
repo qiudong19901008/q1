@@ -97,6 +97,9 @@ class QueryPostList extends BasePostDao{
   
 
   private function _getoffset($page,$size){
+    // var_dump($page);
+    // var_dump($size);
+    // die;
     return ($page-1)*$size;    
   }
 

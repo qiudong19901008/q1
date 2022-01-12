@@ -11,6 +11,16 @@ require_once HEDAO_DIR_PATH . '/core/helper/JwtAuth.php';
   return !empty($value)?$value:$default;
  }
 
+ /**
+  * @description 根据键获取数组中对应的值, 不存在则返回默认
+  * @param array $arr
+  * @param string $key
+  * @param mix $default 默认值
+  */
+ function getArrValueByKey($arr,$key,$default){
+  return isset($arr[$key])?$arr[$key]:$default;
+ }
+
 
 /**
  * cookie是否包含某个值

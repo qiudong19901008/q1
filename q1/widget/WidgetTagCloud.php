@@ -41,9 +41,8 @@ class WidgetTagCloud extends \WP_Widget{
   // Widget Backend 
   public function form( $instance ) {
     
-    $name = getValue($instance[ 'name' ],'标签云');
-    $count = getValue($instance[ 'count' ],10);
-
+    $name = getArrValueByKey($instance,'name','标签云');
+    $count = getArrValueByKey($instance,'count',10);
     
 
     ?>

@@ -10,6 +10,11 @@
   $footerLicenseList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_LICENSE,[]);
   $footerCopyright = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_COPYRIGHT);
   $friendLinkList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK,[]);
+  // var_dump($friendLinkList);
+
+  // $options = get_option( Options::Q1_OPTION_PREFIX );
+  // $option = $options[Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK];
+  // var_dump($option);
 
 ?>
 
@@ -93,7 +98,12 @@
     <div class="copyright">
 
       <?php echo $footerCopyright; ?>
-
+      
       <!-- ©2021 <a href="#">srcmini</a> -->
     </div>
+    
+    <p style="text-align:right;position:absolute;bottom:10px;right:10px;">
+        <?php printf('%d 次查询, 耗时 %s 秒', get_num_queries(), timer_stop(0, 3)); ?>
+    </p>
+    
 </div>

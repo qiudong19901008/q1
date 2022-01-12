@@ -41,9 +41,9 @@ class WidgetSearch extends \WP_Widget{
   // Widget Backend 
   public function form( $instance ) {
     
-    $placeholder = getValue($instance[ 'placeholder' ],'搜点什么呢?');
-    $btnInnerHtml = getValue($instance[ 'btnInnerHtml' ],'<i class="fa fa-search" ></i>');
-    $color = getValue($instance[ 'color' ],'#6ac5f9');
+    $placeholder = getArrValueByKey($instance,'placeholder','搜点什么呢?');
+    $btnInnerHtml = getArrValueByKey($instance,'btnInnerHtml','<i class="fa fa-search" ></i>');
+    $color = getArrValueByKey($instance,'color','#6ac5f9');
 
     ?>
        
