@@ -2,6 +2,7 @@ import * as $ from 'jquery';
 // import 'font-awesome/css/font-awesome.min.css';
 import './q1.css';
 
+import '../../q1/component/common/carousel/carousel';
 import '../../q1/component/common/menu/menu';
 import '../../q1/component/common/mobileMenu/mobileMenu';
 import '../../q1/component/siteHeader/siteHeader';

@@ -1,6 +1,13 @@
+
+
+.indexPageContent__carouselWrap{
+  margin-bottom: 2rem;
+}
+
 .indexPageContent__topPost{
   margin-bottom: 2rem;
 }
+
 
 .indexPageContent__topPostTitle,
 .indexPageContent__postListTitle{

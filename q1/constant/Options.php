@@ -63,6 +63,23 @@ class Options{
    */
   public const Q1_OPTION_HOME_BASIC_KEYWORDS = '_q1_option_home_basic_keywords';
 
+  /**
+   * Q1主题-首页-基本-轮播图 
+   */
+  public const Q1_OPTION_HOME_BASIC_CAROUSEL = '_q1_option_home_basic_carousel';
+  /**
+   * Q1主题-首页-基本-轮播图item链接
+   */
+  public const Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_LINK = '_q1_option_home_basic_carouselItemLink';
+  /**
+   * Q1主题-首页-基本-轮播图item图片
+   */
+  public const Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE = '_q1_option_home_basic_carouselItemImage';
+
+  /**
+   * Q1主题-首页-基本-轮播图高度
+   */
+  public const Q1_OPTION_HOME_BASIC_CAROUSEL_HEIGHT = '_q1_option_home_basic_carouselHeight';
 
    ////////////////////////文章页-基本信息/////////////////////////
 
