@@ -1,61 +1,100 @@
 <?php
 
-require_once plugin_dir_path(__FILE__) . './BasePostDao.php';
 require_once plugin_dir_path(__FILE__) . './QueryPostList.php';
 require_once plugin_dir_path(__FILE__) . './AddOnePost.php';
 require_once plugin_dir_path(__FILE__) . './UpdateOnePost.php';
-require_once plugin_dir_path(__FILE__) . './DeleteOnePost.php';
 
 
-class PostDao extends BasePostDao{
-
- 
-
+class PostDao{
 
   /**
-   * @description 查询文章
-   * @param Array $dynamicConditionList [$categoryId=0,$tagId=0,$s='',$categorySlug='',$tagSlug='']
-   * @param Array $excludePostIdList 需要排除的文章id列表
-   * @param Array $includePostIdList 需要包含的文章id列表
-   * @param Array $includeAuthorIdList 需要包含的作者id列表
-   * @param array ['author'|'category'|'meta'|'tag']— $includeTableNameList 包含的额外表名列表
-   * @param array $metaNameList — 额外字段的名字列表, 如果没有包含meta表则会忽略该选项
-   * @param 'create_time'|'update_time'|'rand' $orderBy 需要排序的字段 默认创建时间
-   * @param 'ASC'|'DESC' 升序或降序,默认降序
-   * @param int $page 页码
-   * @param int $size 数量
-   * @param string $orderByMetaKey 需要被排序的metaKey, 如果传入了$orderBy则会忽略该配置, 如果metaNameList没包含也会忽略
-   * @return Array
+   * @param array $categoryConditionList [categoryIdListIn:int[], categoryIdListAnd:int[], categoryIdListNotIn:int[], categorySlugListIn:string[], categorySlugListAnd:string[]]
+   * @param array $tagConditionList [tagIdListIn:int[], tagIdListAnd:int[], tagIdListNotIn:int[], tagSlugListIn:string[], tagSlugListAnd:string[]]
+   * @param array $authorConditionList [authorIdListIn:int[], authorIdListNotIn:int[], authorNickname:string]
+   * @param array $postConditionList [postIdListIn:int[], postIdListNotIn:int[]]
+   * @param string $orderBy 'create_time'|'update_time'|'comment_count'|'rand'|$meta_key
+   * @param string $order 'DESC'|'ASC'
+   * @param int $page 
+   * @param int $size 
+   * @param array $includeTableNameList 包含的额外表名列表('author'|'category'|'meta'|'tag')[]
+   * @param array $metaNameList string[]
    */
   public static function queryPostList(
-      $dynamicConditionList,
-      $excludePostIdList=null,
-      $includePostIdList=null,
-      $includeAuthorIdList=null,
-      $includeTableNameList=[],
-      $metaNameList=[],
-      $orderBy='create_time',
-      $order='DESC',
-      $page=1,
-      $size=10,
-      $orderByMetaKey=''
-    ){
-
-    $querier = new QueryPostList();
-    return $querier->run(
-      $dynamicConditionList,
-      $excludePostIdList,
-      $includePostIdList,
-      $includeAuthorIdList,
-      $includeTableNameList,
-      $metaNameList,
+    $categoryConditionList,
+    $tagConditionList,
+    $authorConditionList,
+    $postConditionList,
+    $s,
+    $orderBy,
+    $order,
+    $page,
+    $size,
+    $includeTableNameList=[],
+    $metaNameList=[]
+  ){
+    $worker = new QueryPostList();
+    return $worker->run(
+      $categoryConditionList,
+      $tagConditionList,
+      $authorConditionList,
+      $postConditionList,
+      $s,
       $orderBy,
       $order,
       $page,
       $size,
-      $orderByMetaKey,
+      $includeTableNameList,
+      $metaNameList
     );
   }
+
+ 
+
+
+  // /**
+  //  * @description 查询文章
+  //  * @param Array $dynamicConditionList [$categoryId=0,$tagId=0,$s='',$categorySlug='',$tagSlug='']
+  //  * @param Array $excludePostIdList 需要排除的文章id列表
+  //  * @param Array $includePostIdList 需要包含的文章id列表
+  //  * @param Array $includeAuthorIdList 需要包含的作者id列表
+  //  * @param Array  $includeTableNameList 包含的额外表名列表: ['author'|'category'|'meta'|'tag']
+  //  * @param array $metaNameList  额外字段的名字列表, 如果没有包含meta表则会忽略该选项
+  //  * @param 'create_time'|'update_time'|'rand' $orderBy 需要排序的字段 默认创建时间
+  //  * @param 'ASC'|'DESC' $order 升序或降序,默认降序
+  //  * @param int $page 页码
+  //  * @param int $size 数量
+  //  * @param string $orderByMetaKey 需要被排序的metaKey, 如果传入了$orderBy则会忽略该配置, 如果metaNameList没包含也会忽略
+  //  * @return Array
+  //  */
+  // public static function queryPostList(
+  //     $dynamicConditionList,
+  //     $excludePostIdList=null,
+  //     $includePostIdList=null,
+  //     $includeAuthorIdList=null,
+  //     $includeTableNameList=[],
+  //     $metaNameList=[],
+  //     $orderBy='',
+  //     $order='',
+  //     $page=1,
+  //     $size=10,
+  //     $orderByMetaKey=''
+  //   ){
+
+  //   $querier = new QueryPostList();
+  //   return $querier->run(
+  //     $dynamicConditionList,
+  //     $excludePostIdList,
+  //     $includePostIdList,
+  //     $includeAuthorIdList,
+  //     $includeTableNameList,
+  //     $metaNameList,
+  //     $orderBy,
+  //     $order,
+  //     $page,
+  //     $size,
+  //     $orderByMetaKey,
+  //   );
+  // }
 
 
   /**
@@ -134,18 +173,53 @@ class PostDao extends BasePostDao{
   }
 
 
-  
-   /**
+  /**
    * @description 删除一篇
    * @param number id 文章id
    * @return 0|1 删除失败则返回0, 成功则是1
    */
   public static function deleteOnePost($id){
-    $deleter = new DeleteOnePost();
-    $res = $deleter->run($id);
+    $res = 0;
+    $result = wp_delete_post($id,true); //WP_POST|null|false 成功则返回被删除的数据, 失败则null|false
+    if($result){
+      $res = 1;
+    }
     return $res;
   }
+  
 
+
+   /**
+   * @description 获取上一篇或下一篇文章, 默认获取上一篇
+   * @param boolean $isNext 是否是下一篇
+   * @param number $postId 文章id, 如果不传入则使用当前的文章id
+   * @return Array 
+   */
+  public static function getPrevOrNextPostInfo( $isNext=false,$postId=0) {
+    global $post;
+    $originGlobalPost = $post;
+    //使用传入id的文章
+    if($postId !== 0){
+      $post = get_post( $postId );
+    }
+    if($isNext){
+      $resPost = get_next_post();
+    }else{
+      $resPost = get_previous_post();
+    }
+    if ( empty($resPost) ) {
+      return [];
+    }
+    //把前一篇文章赋值给当前文章
+    $post=$resPost;
+    $res = [
+      'title'=>get_the_title(),
+      'url'=>get_the_permalink(),
+    ];
+    //把最初的文章赋值给当前文章
+    $post=$originGlobalPost;
+    return $res;
+  }
 
   
 

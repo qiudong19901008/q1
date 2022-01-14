@@ -96,25 +96,71 @@ public function getPostListRouter(){
     'tagSlug'=>$_GET["tagSlug"],
   ];
 
+  // $res = \PostDao::queryPostList(
+  //     $dynamicConditionList,
+  //     null,
+  //     null,
+  //     null,
+  //     ['meta','author','category'],
+  //     [
+  //       Fields::Q1_FIELD_POST_LIKE_COUNT,
+  //       Fields::Q1_FIELD_POST_VIEW_COUNT,
+  //     ],
+  //     $orderBy,
+  //     'DESC',
+  //     $page,
+  //     $size
+  // );
+
   $res = \PostDao::queryPostList(
-      $dynamicConditionList,
-      null,
-      null,
-      null,
-      ['meta','author','category'],
-      [
-        Fields::Q1_FIELD_POST_LIKE_COUNT,
-        Fields::Q1_FIELD_POST_VIEW_COUNT,
-      ],
-      $orderBy,
-      'DESC',
-      $page,
-      $size
+    [
+      'categoryIdListIn'=>[$_GET["categoryId"]],
+      'categorySlugListIn'=>[$_GET["categorySlug"]]
+    ],
+    [
+      'tagIdListIn'=>[$_GET["tagId"]],
+      'tagSlugListIn'=>[$_GET["tagSlug"]]
+    ],
+    [],
+    [],
+    $_GET["s"],
+    $orderBy,
+    'DESC',
+    $page,
+    $size,
+    ['meta','author','category'],
+    [
+      Fields::Q1_FIELD_POST_LIKE_COUNT,
+      Fields::Q1_FIELD_POST_VIEW_COUNT,
+    ]
   );
 
   $res['list'] = PostService::correctPostListThumbnail($res['list']);
 
-  json($res);
+  json(
+    [
+      [
+        'categoryIdListIn'=>[$_GET["categoryId"]],
+        'categorySlugListIn'=>[$_GET["categorySlug"]]
+        ],
+        [
+          'tagIdListIn'=>[$_GET["tagId"]],
+          'tagSlugListIn'=>[$_GET["tagSlug"]]
+        ],
+        [],
+        [],
+        $_GET["s"],
+        $orderBy,
+        'DESC',
+        $page,
+        $size,
+        ['meta','author','category'],
+        [
+          Fields::Q1_FIELD_POST_LIKE_COUNT,
+          Fields::Q1_FIELD_POST_VIEW_COUNT,
+        ]
+    ]
+  );
 }
 
 

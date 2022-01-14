@@ -116,7 +116,6 @@ function getMenuDataByLocation($location){
 /**
  * 是否是奇数
  */
-
  function isOddNumber($num){
   if($num%2 == 1){
     return true;
@@ -163,4 +162,13 @@ function getBasicToken($request,$suffix=''){
     return '';
   }
   return getTokenFromBasicAuth($basicAuth,$suffix);
+}
+
+
+function isNotEmptyArr(&$value){
+  return isset($value) && is_array($value) && !empty($value);
+}
+
+function isNotEmptyStr(&$value){
+  return isset($value) && is_string($value) && !empty($value);
 }

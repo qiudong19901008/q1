@@ -30,3 +30,7 @@ q1_cookie
 3. git bash找不到composer命令
 原因：git bash必须识别全名称，也就是composer.bat无效
 解决：新建composer文件，把执行composer.bat的脚本写进去
+
+## 知识点
+
+1. 如果`$res=null`, 当使用isset($res)时, 结果是false

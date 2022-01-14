@@ -44,17 +44,33 @@ class PostService{
     //找出该文章所属的分类
     $categoryList = \CategoryDao::getCategoryListByPostId($postId,true);
     $category = $categoryList[0];
+    // $listAndCount = \PostDao::queryPostList(
+    //   ['categoryId'=>$category['id']],
+    //   [$postId],
+    //   null,
+    //   null,
+    //   [],
+    //   [],
+    //   'rand',
+    //   '',
+    //   1,
+    //   $count,
+    //   ''
+    // );
     $listAndCount = \PostDao::queryPostList(
-      ['categoryId'=>$category['id']],
-      [$postId],
+      [
+        'categoryIdListIn'=>[$category['id']],
+      ],
+      [],
+      [],
+      [
+        'postIdListNotIn'=>[$postId]
+      ],
       null,
-      [],
-      [],
       'rand',
-      '',
+      'DESC',
       1,
-      $count,
-      ''
+      $count
     );
 
     $listAndCount['list'] = PostService::correctPostListThumbnail($listAndCount['list']);
@@ -68,35 +84,64 @@ class PostService{
    * @param number $count
    */
   public static function queryWidgetRecommendPostList($orderByType,$count=6){
+      // $orderBy = '';
+      // $orderByMetaKey = '';
+      // switch($orderByType){
+      //   case 'comment':
+      //     $orderBy = 'comment_count';
+      //     break;
+      //   case 'view':
+      //     $orderByMetaKey = Fields::Q1_FIELD_POST_VIEW_COUNT;
+      //     break;
+      //   case 'like':
+      //     $orderByMetaKey = Fields::Q1_FIELD_POST_LIKE_COUNT;
+      //     break;
+      // }
+      // //根据分类找出文章
+      // $listAndCount = \PostDao::queryPostList(
+      //   [],
+      //   null,
+      //   null,
+      //   null,
+      //   ['meta'],
+      //   [
+      //     Fields::Q1_FIELD_POST_LIKE_COUNT,
+      //     Fields::Q1_FIELD_POST_VIEW_COUNT,
+      //   ],
+      //   $orderBy,
+      //   'DESC',
+      //   1,
+      //   $count,
+      //   $orderByMetaKey
+      // );
       $orderBy = '';
-      $orderByMetaKey = '';
       switch($orderByType){
         case 'comment':
           $orderBy = 'comment_count';
           break;
         case 'view':
-          $orderByMetaKey = Fields::Q1_FIELD_POST_VIEW_COUNT;
+          $orderBy = Fields::Q1_FIELD_POST_VIEW_COUNT;
           break;
         case 'like':
-          $orderByMetaKey = Fields::Q1_FIELD_POST_LIKE_COUNT;
+          $orderBy = Fields::Q1_FIELD_POST_LIKE_COUNT;
           break;
       }
-      //根据分类找出文章
+
       $listAndCount = \PostDao::queryPostList(
         [],
+        [],
+        [],
+        [],
         null,
-        null,
-        null,
+        $orderBy,
+        'DESC',
+        1,
+        $count,
         ['meta'],
         [
           Fields::Q1_FIELD_POST_LIKE_COUNT,
           Fields::Q1_FIELD_POST_VIEW_COUNT,
-        ],
-        $orderBy,
-        'DESC',
-        1,
-        (int)$count,
-        $orderByMetaKey
+        ]
       );
 
       $listAndCount['list'] = PostService::correctPostListThumbnail($listAndCount['list']);
@@ -195,7 +240,20 @@ class PostService{
   }
 
   public static function deleteList($list,$uid){
-    $listAndCount = \PostDao::queryPostList([],null,null,[$uid],[],[],'create_time','DESC',1,10000);
+    // $listAndCount = \PostDao::queryPostList([],null,null,[$uid],[],[],'create_time','DESC',1,10000);
+    $listAndCount = \PostDao::queryPostList(
+      [],
+      [],
+      [
+        'authorIdListIn'=>[$uid]
+      ],
+      [],
+      null,
+      'create_time',
+      'DESC',
+      1,
+      10000
+    );
     $res = [];
     foreach($list as $one){
       $zeroOrOne = PostService::deleteOne($one,$listAndCount['list']);

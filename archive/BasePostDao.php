@@ -4,37 +4,7 @@
 class BasePostDao{
 
 
-  /**
-   * @description 获取上一篇或下一篇文章, 默认获取上一篇
-   * @param boolean $isNext 是否是下一篇
-   * @param number $postId 文章id, 如果不传入则使用当前的文章id
-   * @return Array 
-   */
-  public static function getPrevOrNextPostInfo( $isNext=false,$postId=0) {
-    global $post;
-    $originGlobalPost = $post;
-    //使用传入id的文章
-    if($postId !== 0){
-      $post = get_post( $postId );
-    }
-    if($isNext){
-      $resPost = get_next_post();
-    }else{
-      $resPost = get_previous_post();
-    }
-    if ( empty($resPost) ) {
-      return [];
-    }
-    //把前一篇文章赋值给当前文章
-    $post=$resPost;
-    $res = [
-      'title'=>get_the_title(),
-      'url'=>get_the_permalink(),
-    ];
-    //把最初的文章赋值给当前文章
-    $post=$originGlobalPost;
-    return $res;
-  }
+ 
 
 
 
