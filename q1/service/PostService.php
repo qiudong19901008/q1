@@ -44,19 +44,7 @@ class PostService{
     //找出该文章所属的分类
     $categoryList = \CategoryDao::getCategoryListByPostId($postId,true);
     $category = $categoryList[0];
-    // $listAndCount = \PostDao::queryPostList(
-    //   ['categoryId'=>$category['id']],
-    //   [$postId],
-    //   null,
-    //   null,
-    //   [],
-    //   [],
-    //   'rand',
-    //   '',
-    //   1,
-    //   $count,
-    //   ''
-    // );
+
     $listAndCount = \PostDao::queryPostList(
       [
         'categoryIdListIn'=>[$category['id']],

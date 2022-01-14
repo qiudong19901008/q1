@@ -172,3 +172,7 @@ function isNotEmptyArr(&$value){
 function isNotEmptyStr(&$value){
   return isset($value) && is_string($value) && !empty($value);
 }
+
+function isNotEmptyParamInGet($key){
+  return isset($_Get[$key]) && !empty($_Get[$key]);
+}

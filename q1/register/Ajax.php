@@ -88,39 +88,27 @@ public function getPostListRouter(){
   $orderBy = $_GET["orderBy"]?$_GET["orderBy"]:'create_time';
   $page = $_GET["page"];
   $size = $_GET["size"];
-  $dynamicConditionList = [
-    'categoryId'=>$_GET["categoryId"],
-    'tagId'=>$_GET["tagId"],
-    's'=>$_GET["s"],
-    'categorySlug'=>$_GET["categorySlug"],
-    'tagSlug'=>$_GET["tagSlug"],
-  ];
 
-  // $res = \PostDao::queryPostList(
-  //     $dynamicConditionList,
-  //     null,
-  //     null,
-  //     null,
-  //     ['meta','author','category'],
-  //     [
-  //       Fields::Q1_FIELD_POST_LIKE_COUNT,
-  //       Fields::Q1_FIELD_POST_VIEW_COUNT,
-  //     ],
-  //     $orderBy,
-  //     'DESC',
-  //     $page,
-  //     $size
-  // );
+  $categoryConditionList = [];
+  if(isNotEmptyParamInGet('categoryId')){
+    $categoryConditionList['categoryIdListIn'] = [$_GET["categoryId"]];
+  }
+  if(isNotEmptyParamInGet('categorySlug')){
+    $categoryConditionList['categorySlugListIn'] = [$_GET["categorySlug"]];
+  }
+
+  $tagConditionList = [];
+  if(isNotEmptyParamInGet('tagId')){
+    $tagConditionList['tagIdListIn'] = [$_GET["tagId"]];
+  }
+  if(isNotEmptyParamInGet('tagSlug')){
+    $tagConditionList['tagSlugListIn'] = [$_GET["tagSlug"]];
+  }
+
 
   $res = \PostDao::queryPostList(
-    [
-      'categoryIdListIn'=>[$_GET["categoryId"]],
-      'categorySlugListIn'=>[$_GET["categorySlug"]]
-    ],
-    [
-      'tagIdListIn'=>[$_GET["tagId"]],
-      'tagSlugListIn'=>[$_GET["tagSlug"]]
-    ],
+    $categoryConditionList,
+    $tagConditionList,
     [],
     [],
     $_GET["s"],
@@ -137,30 +125,8 @@ public function getPostListRouter(){
 
   $res['list'] = PostService::correctPostListThumbnail($res['list']);
 
-  json(
-    [
-      [
-        'categoryIdListIn'=>[$_GET["categoryId"]],
-        'categorySlugListIn'=>[$_GET["categorySlug"]]
-        ],
-        [
-          'tagIdListIn'=>[$_GET["tagId"]],
-          'tagSlugListIn'=>[$_GET["tagSlug"]]
-        ],
-        [],
-        [],
-        $_GET["s"],
-        $orderBy,
-        'DESC',
-        $page,
-        $size,
-        ['meta','author','category'],
-        [
-          Fields::Q1_FIELD_POST_LIKE_COUNT,
-          Fields::Q1_FIELD_POST_VIEW_COUNT,
-        ]
-    ]
-  );
+  json($res);
+    
 }
 
 

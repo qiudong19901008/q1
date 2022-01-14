@@ -1,0 +1,111 @@
+.postCardTwo{
+  border: 1px solid #eaeaea;
+  padding:2rem;
+  overflow: hidden;
+  background-color: #fff;
+  color: #999;
+  font-size: 1.2rem;
+
+  display: flex;
+}
+
+.postCardTwo:hover{
+  background-color: rgb(251, 251, 251)  ;
+}
+
+.postCardTwo__left{
+  margin-right:2rem;
+  width:200px;
+  height:150px;
+}
+
+.postCardTwo__thumb{
+  display: block;
+  width: 100%;
+  height:100%;
+}
+
+.postCardTwo__thumbImg{
+  border-radius: 4px;
+  width:100%;
+  height:100%;
+}
+
+.postCardTwo__right{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.postCardTwo__thumbImg{
+  /* width:200px;
+  height:150px; */
+}
+
+
+.postCardTwo__rightHeader{
+  /* margin:0 0 1rem; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.postCardTwo__categoryList{
+  display: flex;
+
+}
+
+.postCardTwo__category{
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.postCardTwo__categoryDot{
+  display: inline-block;
+  border-radius: 50%;
+  height: 6px;
+  margin-right: 5px;
+  width: 6px;
+  background-color: #45BCF9;
+}
+
+.postCardTwo__title{
+  display: inline;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.postCardTwo__meta{
+  display: flex;
+  justify-content: space-between;
+}
+
+.postCardTwo__meta > *{
+  margin-right:1rem;
+}
+
+.postCardTwo__metaLeft > * {
+  margin-right:1rem;
+}
+
+.postCardTwo__metaRight{
+  margin-right:0;
+}
+
+.postCardTwo__metaRight > *{
+  margin-left:1rem;
+}
+
+
+.postCardTwo__excerpt{
+  word-wrap: break-word;
+  line-height: 2rem;
+  margin-bottom: 4rem;
+  /* 最多显示两行 */
+  max-height:4rem;
+  overflow: hidden;
+}
+
