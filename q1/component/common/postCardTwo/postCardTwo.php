@@ -52,9 +52,6 @@
           <i class="fa fa-thumbs-up"></i> <span class="postCardTwo__likeCount">0</span>
         </span>
       </div>
-      
     </div>
-    
   </div>
-  
 </div>

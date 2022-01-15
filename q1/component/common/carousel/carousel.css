@@ -79,13 +79,14 @@
   right:5px;
 }
 
-/* .carousel__indicatorContainer{
+.carousel__indicatorContainer{
 
   position:absolute;
-  left:10px;
+  left:0px;
   bottom:10px;
   width:100%;
   z-index: 10;
+  text-align: center;
 }
 
 .carousel__indicator {
@@ -94,10 +95,12 @@
   display: inline-block;
   border-radius: 100%;
   background: #000;
-  opacity: .2;
+  opacity: .4;
+  cursor: pointer;
 }
 
 .carousel__indicator--active{
-  background-color:aquamarine;
-} */
+  background-color:#45BCF9;
+  opacity: 0.8;
+}
 

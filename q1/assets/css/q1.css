@@ -568,6 +568,10 @@ a:hover{
   border-radius: 4px;
   width:100%;
   height:100%;
+  transition: .2s ease-out;
+}
+.postCardTwo__thumbImg:hover{
+  transform: scale(1.01);
 }
 
 .postCardTwo__right{
@@ -577,10 +581,7 @@ a:hover{
   justify-content: space-between;
 }
 
-.postCardTwo__thumbImg{
-  /* width:200px;
-  height:150px; */
-}
+
 
 
 .postCardTwo__rightHeader{
@@ -648,7 +649,26 @@ a:hover{
   overflow: hidden;
 }
 
-
+@media screen and (max-width:1000px) {
+    
+  .postCardTwo__left{
+    margin-right:2rem;
+    width:150px;
+    height:100px;
+  }
+  .postCardTwo__excerpt{
+    display: none;
+  }
+  .postCardTwo__author{
+    display: none;
+  }
+  .postCardTwo__categoryList{
+    display: none;
+  }
+  .postCardTwo__title{
+    font-size: 1.5rem;
+  }
+}
 /*!*****************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./q1/component/common/pagination/pagination.css ***!
   \*****************************************************************************************************************************/
@@ -957,13 +977,14 @@ a:hover{
   right:5px;
 }
 
-/* .carousel__indicatorContainer{
+.carousel__indicatorContainer{
 
   position:absolute;
-  left:10px;
+  left:0px;
   bottom:10px;
   width:100%;
   z-index: 10;
+  text-align: center;
 }
 
 .carousel__indicator {
@@ -972,12 +993,14 @@ a:hover{
   display: inline-block;
   border-radius: 100%;
   background: #000;
-  opacity: .2;
+  opacity: .4;
+  cursor: pointer;
 }
 
 .carousel__indicator--active{
-  background-color:aquamarine;
-} */
+  background-color:#45BCF9;
+  opacity: 0.8;
+}
 
 
 /*!*****************************************************************************************************************************!*\
@@ -1971,6 +1994,7 @@ a:hover{
 .searchPageWrap,
 .postPageWrap{
   flex:1 0 auto;
+  padding:0 5px;
 }
 
 .siteFooterWrapWrap{

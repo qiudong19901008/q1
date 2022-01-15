@@ -12,7 +12,7 @@ abstract class BasePostListPageView{
    * 页面初始化
    */
   public initral(){
-    // this.pageFreshHandler();
+    this.pageFreshHandler();
   }
   
   /***事件处理函数 */

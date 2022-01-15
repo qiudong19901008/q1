@@ -112,6 +112,7 @@
 .searchPageWrap,
 .postPageWrap{
   flex:1 0 auto;
+  padding:0 5px;
 }
 
 .siteFooterWrapWrap{

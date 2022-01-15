@@ -109,7 +109,7 @@
     </p>
 
     <p style="text-align:right;position:absolute;bottom:10px;right:10px;">
-        <?php echo 'powerd by <a href="w2fenx.com" style="font-size:6px;">合道社</a>'  ?>
+        <?php echo 'powerd by <a href="https://w2fenx.com" style="font-size:6px;">合道社</a>'  ?>
     </p>
     
     

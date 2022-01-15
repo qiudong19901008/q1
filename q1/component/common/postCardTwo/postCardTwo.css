@@ -29,6 +29,10 @@
   border-radius: 4px;
   width:100%;
   height:100%;
+  transition: .2s ease-out;
+}
+.postCardTwo__thumbImg:hover{
+  transform: scale(1.01);
 }
 
 .postCardTwo__right{
@@ -38,10 +42,7 @@
   justify-content: space-between;
 }
 
-.postCardTwo__thumbImg{
-  /* width:200px;
-  height:150px; */
-}
+
 
 
 .postCardTwo__rightHeader{
@@ -109,3 +110,23 @@
   overflow: hidden;
 }
 
+@media screen and (max-width:1000px) {
+    
+  .postCardTwo__left{
+    margin-right:2rem;
+    width:150px;
+    height:100px;
+  }
+  .postCardTwo__excerpt{
+    display: none;
+  }
+  .postCardTwo__author{
+    display: none;
+  }
+  .postCardTwo__categoryList{
+    display: none;
+  }
+  .postCardTwo__title{
+    font-size: 1.5rem;
+  }
+}
