@@ -119,14 +119,16 @@
 @media screen and (max-width:1000px) {
     
   .postCardTwo__left{
-    margin-right:2rem;
-    width:150px;
-    height:100px;
+    margin-right:1rem;
+    width:120px;
+    height:80px;
   }
   .postCardTwo__excerpt{
     display: none;
   }
-  .postCardTwo__author{
+  .postCardTwo__author,
+  .postCardTwo__comment,
+  .postCardTwo__like{
     display: none;
   }
   .postCardTwo__categoryList{
