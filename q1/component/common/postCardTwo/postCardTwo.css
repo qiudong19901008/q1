@@ -17,6 +17,7 @@
   margin-right:2rem;
   width:200px;
   height:150px;
+  flex-shrink: 0;
 }
 
 .postCardTwo__thumb{
@@ -48,16 +49,16 @@
 .postCardTwo__rightHeader{
   /* margin:0 0 1rem; */
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .postCardTwo__categoryList{
   display: flex;
-
+  margin-bottom: 1rem;
 }
 
 .postCardTwo__category{
-  margin-left: 8px;
+  margin-right: 8px;
   display: flex;
   align-items: center;
 }
@@ -77,6 +78,11 @@
   line-height: 1.4;
   margin-top: 0;
   font-weight: bold;
+}
+.postCardTwo__titleLink{
+  /* word-wrap:break-word; 
+  word-break:normal; */
+  word-break:break-all;
 }
 
 .postCardTwo__meta{

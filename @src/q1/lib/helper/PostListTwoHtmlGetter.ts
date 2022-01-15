@@ -51,8 +51,8 @@ class PostListTwoHtmlGetter{
     return `
     <div class="postCardTwo__right">
       <div class="postCardTwo__rightHeader">
-        ${this._renderPostTitle(post)}
         ${this._renderPostCategoryList(post)}
+        ${this._renderPostTitle(post)}
       </div>
       <!-- 简介 -->
       <p class="postCardTwo__excerpt">
@@ -87,16 +87,19 @@ class PostListTwoHtmlGetter{
 
   private static _renderPostTitle(post:any){
     return `
-      <h2 class="postCardTwo__title"><a href="${post.url}">${post.title}</a></h2>
+      <h2 class="postCardTwo__title"><a href="${post.url}" class="postCardTwo__titleLink">${post.title}</a></h2>
     `;
   }
 
   private static _renderPostCategoryList(post:any){
     const categoryList = post.categoryList;
     let res = '<div class="postCardTwo__categoryList">';
-    for(let category of categoryList){
-      res+=this._renderPostOneCategory(category);
+    for(let i=categoryList.length-1;i>=0;i--){
+      res+=this._renderPostOneCategory(categoryList[i]);
     }
+    // for(let category of categoryList){
+    //   res+=this._renderPostOneCategory(category);
+    // }
     res+='</div>';
     return res;
   }
@@ -110,62 +113,6 @@ class PostListTwoHtmlGetter{
   }
 
 
-  // private static _renderPostHeader(post:any){
-  //   const categoryList = post.categoryList;
-  //   //取最后一个分类, 因为分类越后面越细
-  //   let category = categoryList[categoryList.length-1];
-  //   if(!category){
-  //     category = {
-  //       url:'#',
-  //       name:'没有分类',
-  //     }
-  //   }
-
-  //   return `
-  //   <div class="postCard__header">
-  //     <a href="${category.url}" class="postCard__category">
-  //       ${category.name}
-  //       <i class="postCard__categoryIcon"></i>
-  //     </a>
-  //     <h2 class="postCard__title">
-  //       <a href="${post.url}" title="">
-  //         ${post.title}
-  //       </a>
-  //     </h2>
-  //   </div>
-  //   `;
-  // }
-
-  // private static _renderPostMeta(post:any){
-
-  //   const meta = post.meta;
-
-  //   return `
-  //     <div class="postCard__meta">
-  //       <time class="postCard__createTime">
-  //         <i class="fa fa-clock"></i>
-  //         ${post.create_date}
-  //       </time>
-  //       <span class="postCard__author">
-  //         <i class="fa fa-user"></i>
-  //         <span href="#">${post.authorName}</span>
-  //       </span>
-  //       <span class="postCard__viewCount">
-  //         <i class="fa fa-eye"></i>
-  //         阅读(${meta._q1_field_post_viewCount})
-  //       </span>
-  //       <span class="postCard__commentCount">
-  //         <i class="fa fa-comments"></i>
-  //         评论(${post.commentCount})
-  //       </span>
-  //       <span href="#" class="postCard__likeCount">
-  //         <i class="fa fa-thumbs-up"></i>
-  //         赞(${meta._q1_field_post_likeCount})
-  //       </span>
-  //     </div>
-    
-  //   `
-  // }
 
 
 

@@ -9,9 +9,6 @@
   </div>
   <div class="postCardTwo__right">
     <div class="postCardTwo__rightHeader">
-      
-      <!-- 标题 -->
-      <h2 class="postCardTwo__title"><a href="#">标题一</a></h2>
       <!-- 分类列表 -->
       <div class="postCardTwo__categoryList">
         <a href="#" class="postCardTwo__category">
@@ -23,6 +20,9 @@
           分类二
         </a>
       </div>
+      <!-- 标题 -->
+      <h2 class="postCardTwo__title"><a href="#" class="postCardTwo__titleLink">sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</a></h2>
+      
     </div>
     <!-- 简介 -->
     <p class="postCardTwo__excerpt">
