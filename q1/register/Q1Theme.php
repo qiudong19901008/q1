@@ -50,6 +50,7 @@ class Q1Theme{
 
     // 加载后台框架
     $this->loadBackendFramework();
+
   }
 
   // 修改excerpt结尾

@@ -72,36 +72,6 @@ class PostService{
    * @param number $count
    */
   public static function queryWidgetRecommendPostList($orderByType,$count=6){
-      // $orderBy = '';
-      // $orderByMetaKey = '';
-      // switch($orderByType){
-      //   case 'comment':
-      //     $orderBy = 'comment_count';
-      //     break;
-      //   case 'view':
-      //     $orderByMetaKey = Fields::Q1_FIELD_POST_VIEW_COUNT;
-      //     break;
-      //   case 'like':
-      //     $orderByMetaKey = Fields::Q1_FIELD_POST_LIKE_COUNT;
-      //     break;
-      // }
-      // //根据分类找出文章
-      // $listAndCount = \PostDao::queryPostList(
-      //   [],
-      //   null,
-      //   null,
-      //   null,
-      //   ['meta'],
-      //   [
-      //     Fields::Q1_FIELD_POST_LIKE_COUNT,
-      //     Fields::Q1_FIELD_POST_VIEW_COUNT,
-      //   ],
-      //   $orderBy,
-      //   'DESC',
-      //   1,
-      //   $count,
-      //   $orderByMetaKey
-      // );
       $orderBy = '';
       switch($orderByType){
         case 'comment':
@@ -137,8 +107,9 @@ class PostService{
       return $listAndCount['list'];
   }
 
-
+  //插入有两种情况, 一种是指定了id, 另一种没指定id
   public static function addOne($one,$uid){
+    $id = $one['id'];
     $title = $one['title'];
     $content = $one['content'];
     $authorId = $uid;
@@ -155,6 +126,7 @@ class PostService{
     ];
 
     $postId = \PostDao::addOnePost(
+      $id,
       $title,
       $content,
       $authorId,

@@ -12,6 +12,7 @@ class AddOnePost{
 
   /**
    * @description 新增一篇文章
+   * @param int $id 文章ID, 0表示不指定id的新增, 其他则表示指定id的新增
    * @param string title 文章标题
    * @param string content 文章内容
    * @param number authorId 作者id
@@ -23,6 +24,7 @@ class AddOnePost{
    * @return 文章id, 如果不成功则返回0
    */
   public function run(
+    $id, //ID
     $title, //标题
     $content, //内容
     $authorId, //作者id
@@ -32,8 +34,6 @@ class AddOnePost{
     $status='publish', //文章状态 
     $create_time=null //创建日期
   ){
-
-    
 
     $config = [
       'post_title'=>$title, //文章标题
@@ -48,7 +48,13 @@ class AddOnePost{
     if(!empty($create_time)){
       $config['post_date'] = $create_time;
     }
-    
+
+    //如果是翻新的插入则指定id
+    if($id != 0){
+      $config['import_id'] = $id;
+    }
+    // 'import_id'         =>  3333,
+    // $res = (int)wp_insert_post($config);
     $res = (int)wp_insert_post($config);
     return $res;
   }
