@@ -9,6 +9,7 @@ define('HEDAO_DIR_PATH',get_template_directory());
 define('HEDAO_ROOT_URL',get_template_directory_uri());
 
 define('Q1_VERSION','1.0');
+define('Q5_VERSION','1.0');
 
 
 require_once get_template_directory() . '/vendor/autoload.php';

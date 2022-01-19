@@ -5,7 +5,7 @@
 /**
  * 主题类型
  */
-const THEME_TYPE_ARR = ['q1'];
+const THEME_TYPE_ARR = ['q1','q5'];
 
 /**
  * 当前主题
