@@ -5,7 +5,7 @@ import {
 } from '../../lib/helper';
 import PostModel from '../../model/PostModel';
 import CommentView from './CommentView';
-import CookieHandler from '../../../inc/CookieHandler';
+import CookieHandler from '../../lib/CookieHandler';
 import * as $ from 'jquery';
 
 

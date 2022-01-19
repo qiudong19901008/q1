@@ -1,6 +1,5 @@
 
-
-
 <?php 
-  // get_template_part('q1/sidebar'); 
+
+  dynamic_sidebar('right-sidebar') 
 ?>

@@ -3,7 +3,7 @@ import CommentListHtmlGetter from "./CommentListHtmlGetter";
 // import PostListHtmlGetter from "./PostListHtmlGetter";
 import PostListHtmlGetter from "./PostListTwoHtmlGetter";
 import PaginationHtmlGetter from "./PaginationHtmlGetter";
-import CookieHandler from "../../../inc/CookieHandler";
+import CookieHandler from "../CookieHandler";
 
 
 

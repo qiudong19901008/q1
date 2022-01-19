@@ -1,30 +1,31 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const {
   getPublicPath,
   getOutputPath,
-} = require('./config');
+} = require('./q1/config');
+
 const webpack = require('webpack');
 
-
-
 // http://localhost/zixuehu/wp-content/themes/hedao/q1/assets
-const publicPath = getPublicPath();
+const publicPath = getPublicPath('zixuehu');
 const outputPath = getOutputPath();
+
+// process.cwd();
 
 const config = {
 
-  mode:'production',
+  mode:'development',
 
   entry:{
-    'q5':path.resolve(process.cwd(), '@src/q5/q5.ts'), 
+
+    'q1':path.resolve(process.cwd(), '@src/q1/q1.ts'), 
   },
 
   output: {
     path: path.resolve(process.cwd(), outputPath),
     publicPath,
-    filename:'js/[name].js',
+    filename:`js/[name].js`,
   },
 
   module:{
@@ -67,11 +68,11 @@ const config = {
           {
             loader:"url-loader",
             options:{
-              name:'resource/[name].[ext]',
-              limit: 40960,
+              name:`resource/[name].[ext]`,
+              limit: 1024*8,
               emitFile:true,
               esModule: false,
-              // publicPath, 不能加, 否则变绝对路径反而错误
+              // publicPath,
             },
           }
         ],
@@ -95,13 +96,13 @@ const config = {
       minSize: 1,  //提取出的chunk的最小大小
       cacheGroups: {
         //公用库
-        default: {
-          name: 'base',
-          chunks: 'initial',
-          minChunks: 2,  //模块被引用2次以上的才抽离
-          priority: -20,
-          reuseExistingChunk: true,
-        },
+        // default: {
+        //   name: 'base',
+        //   chunks: 'initial',
+        //   minChunks: 2,  //模块被引用2次以上的才抽离
+        //   priority: -20,
+        //   reuseExistingChunk: true,
+        // },
         //拆分第三方库（通过npm|yarn安装的库）
         vendors: {  
           test: /[\\/]node_modules[\\/]/,
@@ -121,9 +122,8 @@ const config = {
       jQuery: 'jquery'
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
+      filename: `css/[name].css`,
     }),
-    new CssMinimizerPlugin(),
   ],
 
 }

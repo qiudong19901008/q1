@@ -2,12 +2,12 @@ import * as $ from 'jquery';
 // import 'font-awesome/css/font-awesome.min.css';
 import './q1.css';
 
-import '../../q1/component/common/carousel/carousel';
-import '../../q1/component/common/menu/menu';
-import '../../q1/component/common/mobileMenu/mobileMenu';
-import '../../q1/component/siteHeader/siteHeader';
+import './components/common/carousel/carousel';
+import './components/common/menu/menu';
+import './components/common/mobileMenu/mobileMenu';
+import './components/siteHeader/siteHeader';
 
-import IndexView from './view/index';
+import IndexView from './view/index/index';
 import CategoryView from './view/category/category';
 import TagView from './view/tag/tag';
 import PostView from './view/post/post';

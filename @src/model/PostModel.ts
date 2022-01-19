@@ -1,5 +1,5 @@
 import BaseModel from "./BaseModel";
-import HttpHandler from "../../lib/HttpHandler";
+import HttpHandler from "../lib/HttpHandler";
 const httpHandler = new HttpHandler();
 
 export type GetCommentListType = {
