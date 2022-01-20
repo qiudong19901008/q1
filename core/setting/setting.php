@@ -16,7 +16,7 @@ namespace q1\core\setting{
 
 		// include('demoSetting.php');
 
-	//基础设置, 对框架的配置
+	//基础设置
 	include('basicSetting.php');
 
 	//全局设置
@@ -65,15 +65,11 @@ namespace q1\core\helper{
 	/**
  * @description 获取q1的配置项
  * @param string $optionName 选项名称
- * @param mixed  $default 
+ * @param string $default 
  */
 	function getQ1Option($optionName,$default=''){
-		$res = $default;
 		$options = get_option( Options::Q1_OPTION_PREFIX );
-		if(empty($options[$optionName])){
-			return '';
-		}
-		return $res;
+		return empty($options[$optionName]) ? $default:$options[$optionName];
 	}
 
 }

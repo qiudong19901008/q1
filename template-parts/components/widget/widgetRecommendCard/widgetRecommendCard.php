@@ -14,7 +14,7 @@
         <div class="widgetRecommendCard__postWrap">
 
           <?php 
-            get_template_part('q1/component/widget/simplePostCard/simplePostCard',null,[
+            get_template_part('template-parts/components/widget/simplePostCard/simplePostCard',null,[
               'post'=>$myPost,
             ]);
           ?>

@@ -2,6 +2,10 @@
 
 namespace hedao\dao;
 
+use function hedao\lib\helper\{
+  getPostThumbUrl,
+};
+
 class GetNeedData{
 
   /**

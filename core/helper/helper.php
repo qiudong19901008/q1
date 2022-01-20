@@ -12,10 +12,11 @@ function getQ1DefaultThumbUrl(){
     Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL,
     []
   );
+  // var_dump($data);
   if(!empty($data) && !empty($data['url'])){
     return $data['url'];
   }
-  return Q1_DIR_PATH . '/assets/image/thumb.jpg';
+  return Q1_ROOT_URL . '/assets/image/thumb.jpg';
 }
 
 /**

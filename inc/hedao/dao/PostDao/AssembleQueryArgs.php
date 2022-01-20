@@ -2,6 +2,11 @@
 
 namespace hedao\dao;
 
+use function hedao\lib\helper\{
+  isNotEmptyArr,
+  isNotEmptyStr,
+};
+
 class AssembleQueryArgs{
 
 

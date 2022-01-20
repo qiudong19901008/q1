@@ -18,7 +18,7 @@
     <!-- 电脑菜单 -->
     <div class="siteHeader__menuWrap">
       <?php 
-        get_template_part('q1/component/common/menu/menu',null,[
+        get_template_part('template-parts/components/common/menu/menu',null,[
           'menuList'=>$menuList,
         ]);
       ?>
@@ -48,7 +48,7 @@
   <!-- 手机菜单 -->
   <div class="siteHeader__mobileMenuWrap">
     <?php 
-      get_template_part('q1/component/common/mobileMenu/mobileMenu',null,[
+      get_template_part('template-parts/components/common/mobileMenu/mobileMenu',null,[
         'menuList'=>$menuList,
       ]);
       // get_template_part('q1/component/common/mobileMenu/mobileMenu');

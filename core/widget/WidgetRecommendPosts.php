@@ -44,7 +44,7 @@ class WidgetRecommendPosts extends \WP_Widget{
       $postList = PostService::queryWidgetRecommendPostList($type,$size);
       if(count($postList) > 0){
         $postList = $this->_addPostMetaHtml($postList,$type);
-        get_template_part('q1/component/widget/widgetRecommendCard/widgetRecommendCard',null,[
+        get_template_part('template-parts/components/widget/widgetRecommendCard/widgetRecommendCard',null,[
           'name'=>$name,
           'postList'=>$postList,
         ]);

@@ -8,6 +8,9 @@ use hedao\lib\traits\TSingleton;
 use q1\core\constant\Fields;
 
 
+require_once Q1_DIR_PATH . '/core/helper/helper.php';
+require_once Q1_DIR_PATH . '/config/config.php';
+
 class Q1Theme{
 
   use TSingleton;
@@ -47,6 +50,7 @@ class Q1Theme{
     add_action('wp_head', [$this,'updatePostViewCount']);
 
     // 加载后台框架
+    // require_once Q1_DIR_PATH .'/inc/codestar-framework/codestar-framework.php';
     $this->_loadBackendFramework();
 
   }
@@ -70,8 +74,9 @@ class Q1Theme{
     update_post_meta($postId, Fields::Q1_FIELD_POST_VIEW_COUNT, ($oldView+1));
   }
 
-  private function _loadBackendFramework(){
+  public function _loadBackendFramework(){
     require_once Q1_DIR_PATH .'/inc/codestar-framework/codestar-framework.php';
+    require_once Q1_DIR_PATH .'/core/setting/setting.php';
   }
 
 

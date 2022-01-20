@@ -3,9 +3,6 @@
 
 namespace q1;
 
-require_once __DIR__ . '/helper/helper.php';
-require_once __DIR__ . '/setting/setting.php';
-
 class Autoload{
 
 	// core/constant
@@ -17,9 +14,6 @@ class Autoload{
 		$fp='';
 
 		switch($pathChipArr[0]){
-			case 'config':
-				$fp = sprintf( Q1_DIR_PATH . '/config/config.php');
-				break;
 			case 'core':
 				$fp = sprintf( __DIR__ . '/%s/%s.php',$pathChipArr[1],$pathChipArr[2] );
 				break;

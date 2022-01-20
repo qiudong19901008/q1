@@ -36,7 +36,7 @@ class WidgetSearch extends \WP_Widget{
     $btnInnerHtml = getValue($instance[ 'btnInnerHtml' ],'<i class="fa fa-search" ></i>');
     $color = getValue($instance[ 'color' ],'#6ac5f9');
 
-    get_template_part('q1/component/widget/searchCard/searchCard',null,[
+    get_template_part('template-parts/components/widget/searchCard/searchCard',null,[
       'placeholder'=>$placeholder,
       'btnInnerHtml'=>$btnInnerHtml,
       'color'=>$color,

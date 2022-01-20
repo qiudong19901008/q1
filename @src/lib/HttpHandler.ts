@@ -1,5 +1,5 @@
 import AxiosStatic,{AxiosRequestConfig,AxiosResponse,AxiosInstance,Method } from 'axios';
-import config from '../config/config'
+import config from '../config/config';
 import LocalStorager from './LocalStorager';
 import * as qs from 'qs';
 

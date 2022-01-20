@@ -45,7 +45,7 @@ class QueryPostList{
       $size
     );
     //2. 查询
-    $query = new WP_Query($args);
+    $query = new \WP_Query($args);
     //3. 获取需要的数据
     $list = GetNeedData::run($query,$includeTableNameList,$metaNameList);
     $count = $query->found_posts;
