@@ -1,6 +1,11 @@
 <?php
 
-namespace q1\widget;
+namespace q1\core\widget;
+
+use function hedao\lib\helper\{
+  getValue,
+  getValueFromArrByKey,
+};
 
 class WidgetSearch extends \WP_Widget{
   function __construct() {
@@ -41,9 +46,9 @@ class WidgetSearch extends \WP_Widget{
   // Widget Backend 
   public function form( $instance ) {
     
-    $placeholder = getArrValueByKey($instance,'placeholder','搜点什么呢?');
-    $btnInnerHtml = getArrValueByKey($instance,'btnInnerHtml','<i class="fa fa-search" ></i>');
-    $color = getArrValueByKey($instance,'color','#6ac5f9');
+    $placeholder = getValueFromArrByKey($instance,'placeholder','搜点什么呢?');
+    $btnInnerHtml = getValueFromArrByKey($instance,'btnInnerHtml','<i class="fa fa-search" ></i>');
+    $color = getValueFromArrByKey($instance,'color','#6ac5f9');
 
     ?>
        

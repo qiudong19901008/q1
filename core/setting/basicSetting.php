@@ -1,8 +1,7 @@
 <?php
 
-namespace q1\setting;
+namespace q1\core\setting;
 
-// wp_get_theme()->
 
 \CSF::createOptions( $prefix, array(
     'framework_title' => $theme->get( 'Name' ) .' <small>V' .$theme->get('Version'). '</small>',
@@ -12,7 +11,7 @@ namespace q1\setting;
 		'menu_title' => 'Q1主题',
 		'menu_slug'  => 'q1theme',
     'footer_text' => '运行在： WordPress '. get_bloginfo('version') .' / PHP '. PHP_VERSION,
-    'footer_credit'   => '感谢您使用 <a href="https://w2fenx.com/" target="_blank">合道社</a> 的WordPress主题',
+    'footer_credit'   => '感谢您使用 <a href="https://hedaoshe.com/" target="_blank">合道社</a> 的WordPress主题',
     'show_all_options' => false,
 ));
 

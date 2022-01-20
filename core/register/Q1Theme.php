@@ -1,10 +1,11 @@
 <?php
 
 
-namespace q1\register;
+namespace q1\core\register;
 
-use hedao\TSingleton;
-use q1\constant\Fields;
+use hedao\lib\traits\TSingleton;
+
+use q1\core\constant\Fields;
 
 
 class Q1Theme{
@@ -12,9 +13,6 @@ class Q1Theme{
   use TSingleton;
 
   protected function __construct(){
-
-    require_once HEDAO_DIR_PATH . '/q1/helper/helper.php';
-    require_once HEDAO_DIR_PATH . '/q1/config/config.php';
 
     Assets::getInstance();
     //文章元数据自定义盒子
@@ -49,7 +47,7 @@ class Q1Theme{
     add_action('wp_head', [$this,'updatePostViewCount']);
 
     // 加载后台框架
-    $this->loadBackendFramework();
+    $this->_loadBackendFramework();
 
   }
 
@@ -72,32 +70,8 @@ class Q1Theme{
     update_post_meta($postId, Fields::Q1_FIELD_POST_VIEW_COUNT, ($oldView+1));
   }
 
-  //加载redux框架
-  public function loadBackendFramework(){
-    switch(CURRENT_BACKEND_FRAMEWORK){
-      // case 'redux':
-      //   $this->_loadRedux();
-      //   break;
-      case 'codestar':
-        $this->_loadCodestar();
-        break;
-    }
-  }
-
-  // private function _loadRedux(){
-  //   if ( 
-  //     !class_exists( 'ReduxFramework' ) 
-  //     && file_exists( HEDAO_DIR_PATH . '/inc/redux-framework/framework.php' )
-  //     && file_exists( HEDAO_DIR_PATH . '/q1/setting/redux/setting.php')
-  //   ) {
-  //     require_once( HEDAO_DIR_PATH . '/inc/redux-framework/framework.php' );
-  //     require_once( HEDAO_DIR_PATH . '/q1/setting/redux/setting.php' );
-  //   }
-  // }
-
-  private function _loadCodestar(){
-    require_once HEDAO_DIR_PATH .'/inc/codestar-framework/codestar-framework.php';
-    require_once HEDAO_DIR_PATH .'/q1/setting/codestar/setting.php';
+  private function _loadBackendFramework(){
+    require_once Q1_DIR_PATH .'/inc/codestar-framework/codestar-framework.php';
   }
 
 

@@ -1,6 +1,10 @@
 <?php
 
-namespace q1\widget;
+namespace q1\core\widget;
+use function hedao\lib\helper\{
+  getValue,
+  getValueFromArrByKey
+};
 
 class WidgetAuthor extends \WP_Widget {
  
@@ -44,10 +48,10 @@ class WidgetAuthor extends \WP_Widget {
   // Creating widget Backend 
   public function form( $instance ) {
 
-    $portrait = getArrValueByKey($instance,'portrait','https://rcbb-public.oss-cn-guangzhou.aliyuncs.com/rcbb.cc.logo.white.png');
-    $nickname = getArrValueByKey($instance,'nickname','古今合道士');
-    $description = getArrValueByKey($instance,'description','享生活，分享好看的电影，好听的音乐和好用的工具，可能也会分享一些技术文章');
-    $contactWay = getArrValueByKey($instance,'contactWay','<a href="#"><i class="fab fa-github"></i></a>');
+    $portrait = getValueFromArrByKey($instance,'portrait','https://rcbb-public.oss-cn-guangzhou.aliyuncs.com/rcbb.cc.logo.white.png');
+    $nickname = getValueFromArrByKey($instance,'nickname','古今合道士');
+    $description = getValueFromArrByKey($instance,'description','享生活，分享好看的电影，好听的音乐和好用的工具，可能也会分享一些技术文章');
+    $contactWay = getValueFromArrByKey($instance,'contactWay','<a href="#"><i class="fab fa-github"></i></a>');
     
     $args = [
       'portrait'=>$portrait,

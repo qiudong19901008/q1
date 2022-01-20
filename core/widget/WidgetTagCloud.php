@@ -1,6 +1,13 @@
 <?php
 
-namespace q1\widget;
+namespace q1\core\widget;
+
+use hedao\dao\TagDao;
+
+use function hedao\lib\helper\{
+  getValue,
+  getValueFromArrByKey,
+};
 
 class WidgetTagCloud extends \WP_Widget{
   function __construct() {
@@ -29,7 +36,7 @@ class WidgetTagCloud extends \WP_Widget{
   private function _widget($instance){
     $name = getValue($instance[ 'name' ],'标签云');
     $count = getValue($instance[ 'count' ],10);
-    $tags = \TagDao::getTagList($count);
+    $tags = TagDao::getTagList($count);
 
     get_template_part('q1/component/widget/tagCloudCard/tagCloudCard',null,[
       'name'=>$name,
@@ -41,8 +48,8 @@ class WidgetTagCloud extends \WP_Widget{
   // Widget Backend 
   public function form( $instance ) {
     
-    $name = getArrValueByKey($instance,'name','标签云');
-    $count = getArrValueByKey($instance,'count',10);
+    $name = getValueFromArrByKey($instance,'name','标签云');
+    $count = getValueFromArrByKey($instance,'count',10);
     
 
     ?>

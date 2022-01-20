@@ -1,9 +1,9 @@
 <?php
 
-namespace q1\setting;
+namespace q1\core\setting;
 
 use \CSF;
-use q1\constant\Options;
+use q1\core\constant\Options;
 
 
 // CSF::createSection( $prefix, array(

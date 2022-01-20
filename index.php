@@ -8,9 +8,9 @@
 
 // $res = CategoryDao::queryCategoryList(1,10);
 
-$res = getUidFromToken('sjdkfdksf','sjd');
+// $res = getUidFromToken('sjdkfdksf','sjd');
 
-var_dump($res);
+// var_dump($res);
 
 ?>
     

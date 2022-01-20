@@ -1,9 +1,14 @@
 <?php
 
-namespace q1\widget;
+namespace q1\core\widget;
 
-use q1\constant\Fields;
-use q1\service\PostService;
+use function hedao\lib\helper\{
+  getValue,
+  getValueFromArrByKey,
+};
+
+use q1\core\constant\Fields;
+use q1\core\service\PostService;
 
 class WidgetRecommendPosts extends \WP_Widget{
 
@@ -78,9 +83,9 @@ class WidgetRecommendPosts extends \WP_Widget{
     // Widget Backend 
     public function form( $instance ) {
       
-      $name = getArrValueByKey($instance,'name','推荐文章');
-      $size = getArrValueByKey($instance,'size',6);
-      $type = getArrValueByKey($instance,'type','like');
+      $name = getValueFromArrByKey($instance,'name','推荐文章');
+      $size = getValueFromArrByKey($instance,'size',6);
+      $type = getValueFromArrByKey($instance,'type','like');
 
     ?>
     

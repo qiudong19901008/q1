@@ -10,20 +10,20 @@ namespace hedao\lib\helper;
 
 
 /**
- * 获取值, 没有则使用默认值
+ * @description 获取值, 空则使用默认值
  */
  function getValue(&$value,$default){
   return !empty($value)?$value:$default;
  }
 
  /**
-  * @description 根据键获取数组中对应的值, 不存在则返回默认
+  * @description 根据键获取数组中对应的值, 空则返回默认
   * @param array $arr
   * @param string $key
   * @param mix $default 默认值
   */
- function getArrValueByKey(&$arr,$key,$default){
-  return isset($arr[$key])?$arr[$key]:$default;
+ function getValueFromArrByKey(&$arr,$key,$default){
+  return !empty($arr[$key])?$arr[$key]:$default;
  }
 
 

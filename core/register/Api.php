@@ -1,12 +1,21 @@
 <?php
 
 
-namespace q1\register;
+namespace q1\core\register;
 
-use hedao\TSingleton;
-use q1\constant\ErrorCodes;
-use q1\service\PostService;
-use q1\service\UserService;
+use hedao\lib\traits\TSingleton;
+use hedao\dao\CategoryDao;
+use function hedao\lib\helper\{
+  getBasicToken,
+  getUidFromToken,
+  generateToken,
+  getPOSTValue,
+  getGETValue
+}; 
+
+use q1\core\constant\ErrorCodes;
+use q1\core\service\PostService;
+use q1\core\service\UserService;
 
 use const q1\config\{
   TOKEN_SALT,
@@ -198,7 +207,7 @@ class Api{
     // $req->get_header('')
     $page = getGETValue('page',1);
     $size = getGETValue('size',10);
-    $res = \CategoryDao::queryCategoryList($page,$size);
+    $res = CategoryDao::queryCategoryList($page,$size);
     return json_encode($res);
   }
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace q1\service;
+namespace q1\core\service;
 
 class UserService{
 

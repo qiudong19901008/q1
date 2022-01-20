@@ -2,13 +2,13 @@
 
 
 
-namespace q1\register;
+namespace q1\core\register;
 
-use hedao\TSingleton;
-use q1\widget\WidgetAuthor;
-use q1\widget\WidgetRecommendPosts;
-use q1\widget\WidgetSearch;
-use q1\widget\WidgetTagCloud;
+use hedao\lib\traits\TSingleton;
+use q1\core\widget\WidgetAuthor;
+use q1\core\widget\WidgetRecommendPosts;
+use q1\core\widget\WidgetSearch;
+use q1\core\widget\WidgetTagCloud;
 
 
 class Widget{

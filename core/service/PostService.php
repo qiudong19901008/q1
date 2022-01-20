@@ -13,7 +13,6 @@ use q1\core\constant\{
   Options,
 };
 
-
 use function q1\core\helper\{
   getQ1DefaultThumbUrl,
   getQ1Option,
@@ -170,7 +169,7 @@ class PostService{
       'keywords'=>$keywords
     ];
 
-    $postId = \PostDao::updateOnePost(
+    $postId = PostDao::updateOnePost(
       $id,
       $title,
       $content,
@@ -197,7 +196,7 @@ class PostService{
     $res = 0;
     foreach($postList as $myPost){
       if($one['id'] == $myPost['id']){
-        $res = \PostDao::deleteOnePost($one['id']);
+        $res = PostDao::deleteOnePost($one['id']);
         break;
       }
     }
@@ -206,7 +205,7 @@ class PostService{
 
   public static function deleteList($list,$uid){
     // $listAndCount = \PostDao::queryPostList([],null,null,[$uid],[],[],'create_time','DESC',1,10000);
-    $listAndCount = \PostDao::queryPostList(
+    $listAndCount = PostDao::queryPostList(
       [],
       [],
       [

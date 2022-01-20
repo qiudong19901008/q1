@@ -1,6 +1,6 @@
 <?php
 
- namespace q1\setting;
+namespace q1\core\setting;
 
  use \CSF;
 

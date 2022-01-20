@@ -1,8 +1,8 @@
 <?php
 
-namespace q1\setting{
+namespace q1\core\setting{
 	use \CSF;
-	use q1\constant\Options;
+	use q1\core\constant\Options;
 
 	if ( ! class_exists( 'CSF' ) ) {
 		return null;
@@ -14,10 +14,10 @@ namespace q1\setting{
 	//主题信息
 	$theme = wp_get_theme();
 
-	
-	include('basicSetting.php');
+		// include('demoSetting.php');
 
-	// include('demoSetting.php');
+	//基础设置, 对框架的配置
+	include('basicSetting.php');
 
 	//全局设置
 	CSF::createSection( $prefix, array(
@@ -53,24 +53,25 @@ namespace q1\setting{
   'icon' => 'fa fa-file-o',
 	));
 	include('pageSetting.php');
+
 }
 
 
 
-namespace q1\helper{
+namespace q1\core\helper{
 
-	use q1\constant\Options;
+	use q1\core\constant\Options;
 
 	/**
  * @description 获取q1的配置项
  * @param string $optionName 选项名称
- * @param string $default 
+ * @param mix $default 
  */
 	function getQ1Option($optionName,$default=''){
 		$res = $default;
 		$options = get_option( Options::Q1_OPTION_PREFIX );
-		if(isset($options[$optionName]) && $options[$optionName] != ''){
-			$res = $options[$optionName];
+		if(empty($options[$optionName])){
+			return '';
 		}
 		return $res;
 	}

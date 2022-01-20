@@ -2,7 +2,7 @@
 
 namespace q1\config;
 
-use q1\constant\Options;
+use q1\core\constant\Options;
 
 const TOKEN_SALT = 'SDFSdfjskdg';
 

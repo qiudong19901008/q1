@@ -5,10 +5,18 @@ namespace q1\core\register;
 
 use hedao\lib\traits\TSingleton;
 use hedao\dao\CommentDao;
+use hedao\dao\PostDao;
+use function hedao\lib\helper\{
+  json,
+  success,
+  failed,
+  isNotEmptyParamInGet,
+};
 
 use q1\core\constant\Actions;
 use q1\core\constant\Fields;
 use q1\core\constant\ErrorCodes;
+use q1\core\service\PostService;
 
 
 
@@ -108,7 +116,7 @@ public function getPostListRouter(){
   }
 
 
-  $res = \PostDao::queryPostList(
+  $res = PostDao::queryPostList(
     $categoryConditionList,
     $tagConditionList,
     [],

@@ -1,10 +1,15 @@
 <?php
 
 
-namespace q1\register;
+namespace q1\core\register;
 
-use hedao\TSingleton;
-use q1\constant\Fields;
+use hedao\lib\traits\TSingleton;
+use function hedao\lib\helper\{
+  getPOSTValue
+};
+
+use q1\core\constant\Fields;
+
 
 /**
  * @description 自定义的文章元数据盒子

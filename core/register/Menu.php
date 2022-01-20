@@ -1,9 +1,9 @@
 <?php
 
 
-namespace q1\register;
+namespace q1\core\register;
 
-use hedao\TSingleton;
+use hedao\lib\traits\TSingleton;
 
 class Menu{
 

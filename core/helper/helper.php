@@ -1,9 +1,9 @@
 <?php
 
 
-namespace q1\helper;
-use \q1\constant\Options;
-use \q1\constant\Fields;
+namespace q1\core\helper;
+use \q1\core\constant\Options;
+use \q1\core\constant\Fields;
 
 use const q1\config\DEFAULT_THEME_INTRO_DATA;
 
@@ -15,7 +15,7 @@ function getQ1DefaultThumbUrl(){
   if(!empty($data) && !empty($data['url'])){
     return $data['url'];
   }
-  return HEDAO_ROOT_URL . '/q1/assets/image/thumb.jpg';
+  return Q1_DIR_PATH . '/assets/image/thumb.jpg';
 }
 
 /**
@@ -150,8 +150,6 @@ function getPageType(){
   function getThemeIntroData($pageId){
     $res = [];
     $themeIntroList = getQ1Option(Options::Q1_OPTION_PAGE_THEME_INTRO,[]);
-    // var_dump($themeIntroList);
-    // die;
     foreach($themeIntroList as $themeIntro){
       if($pageId == $themeIntro[Options::Q1_OPTION_PAGE_THEME_INTRO_PAGE_ID]){
         $res = $themeIntro;

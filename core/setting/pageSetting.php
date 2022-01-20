@@ -1,10 +1,10 @@
 <?php
 
 
-namespace q1\setting;
+namespace q1\core\setting;
 
 use \CSF;
-use q1\constant\Options;
+use q1\core\constant\Options;
 use const q1\config\DEFAULT_THEME_INTRO_DATA;
 
 
