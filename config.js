@@ -1,8 +1,7 @@
 const config = {
 
   secondaryThemeDirName:'',
-  defaultPublicPath:'/wp-content/themes/hedao/q1/assets',
-  defaultOutputPath:'q1/assets',
+  defaultPublicPath:'/wp-content/themes/q1/assets',
 
 }
 
@@ -14,11 +13,7 @@ const getPublicPath = (secondaryThemeDirName)=>{
   return res;
 }
 
-const getOutputPath = ()=>{
-  return config.defaultOutputPath;
-}
 
 module.exports = {
   getPublicPath,
-  getOutputPath,
 }

@@ -2,10 +2,10 @@ import * as $ from 'jquery';
 // import 'font-awesome/css/font-awesome.min.css';
 import './q1.css';
 
-import './components/common/carousel/carousel';
-import './components/common/menu/menu';
-import './components/common/mobileMenu/mobileMenu';
-import './components/siteHeader/siteHeader';
+import './components/carousel/carousel';
+import './components/menu/menu';
+import './components/mobileMenu/mobileMenu';
+import '../template-parts/components/siteHeader/siteHeader';
 
 import IndexView from './view/index/index';
 import CategoryView from './view/category/category';

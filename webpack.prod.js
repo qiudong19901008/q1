@@ -4,7 +4,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const {
   getPublicPath,
   getOutputPath,
-} = require('./q1/config');
+} = require('./config');
 const webpack = require('webpack');
 
 // http://localhost/zixuehu/wp-content/themes/hedao/q1/assets

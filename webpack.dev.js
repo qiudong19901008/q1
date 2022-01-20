@@ -2,14 +2,20 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {
   getPublicPath,
-  getOutputPath,
-} = require('./q1/config');
+} = require('./config');
 
 const webpack = require('webpack');
 
-// http://localhost/zixuehu/wp-content/themes/hedao/q1/assets
+/**
+ * 样式http路径
+ * http://localhost/zixuehu/wp-content/themes/q1/assets
+ */
 const publicPath = getPublicPath('zixuehu');
-const outputPath = getOutputPath();
+
+/**
+ * 样式输入路径
+ */
+const outputPath = path.resolve(process.cwd(), 'assets'); 
 
 // process.cwd();
 
@@ -23,7 +29,7 @@ const config = {
   },
 
   output: {
-    path: path.resolve(process.cwd(), outputPath),
+    path:outputPath,
     publicPath,
     filename:`js/[name].js`,
   },
