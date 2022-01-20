@@ -1,5 +1,5 @@
 <?php 
-  get_template_part('q1/header')  
+  get_header()  
 ?>
     
     <div class="tagPageWrap">
@@ -21,6 +21,6 @@
 
     
 <?php 
-  get_template_part('q1/footer');
+  get_footer();
 ?>
  

@@ -1,5 +1,7 @@
 <?php 
 
+  use hedao\dao\PostDao;
+
   $prev = PostDao::getPrevOrNextPostInfo();
   $next = PostDao::getPrevOrNextPostInfo(true);
 ?>

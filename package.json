@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "git": "ts-node script/pushToGit.ts",
-    "dev:q1": "webpack --config webpack.dev.js --watch",
-    "prod:q1": "webpack --config webpack.prod.js"
+    "dev": "webpack --config webpack.dev.js --watch",
+    "prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",

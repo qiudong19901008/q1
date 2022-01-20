@@ -21,7 +21,7 @@
     data-carouselcount="<?php echo $count; ?>"
   >
     <?php 
-      get_template_part('q1/component/common/carousel/carousel',null,[
+      get_template_part('template-parts/components/index/carousel/carousel',null,[
       'carouselItemList'=>$carouselItemList,
       'carouselHeight' => $carouselHeight,
       ]); 
@@ -49,7 +49,7 @@
     </div>
     <div class="indexPageContent__postListWrap">
       <?php 
-        get_template_part('q1/component/common/postList/postList'); 
+        get_template_part('template-parts/components/common/postList/postList'); 
       ?>
     </div>
     
@@ -57,7 +57,7 @@
   <!-- 分页 -->
   <div class="indexPageContent__paginationWrap">
     <?php 
-      get_template_part('q1/component/common/pagination/pagination'); 
+      get_template_part('template-parts/components/common/pagination/pagination'); 
     ?>
   </div>
 

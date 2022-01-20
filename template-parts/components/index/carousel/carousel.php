@@ -1,12 +1,11 @@
 <?php
 
-  use q1\constant\Options;
+  use q1\core\constant\Options;
 
   $carouselItemList = $args['carouselItemList'];
   $carouselHeight = $args['carouselHeight'];
   $count = count($carouselItemList);
 
-  // var_dump($carouselHeight);
 
 ?>
 

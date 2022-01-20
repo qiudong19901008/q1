@@ -1,6 +1,6 @@
 <?php 
 
-  use q1\service\PostService;
+  use q1\core\service\PostService;
 
   // $postList = PostService::queryRecommendPostList(get_the_ID());
   $postList = PostService::queryPostPageRecommendPostList(get_the_ID());

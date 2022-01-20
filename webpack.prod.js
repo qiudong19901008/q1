@@ -16,7 +16,7 @@ const config = {
   mode:'production',
 
   entry:{
-    'q1':path.resolve(process.cwd(), '@src/q1/q1.ts'), 
+    'q1':path.resolve(process.cwd(), '@src/q1.ts'), 
   },
 
   output: {

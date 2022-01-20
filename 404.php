@@ -1,5 +1,5 @@
 <?php 
-  get_template_part('q1/header')  
+  get_header(); 
 ?>
 
 <style>
@@ -31,6 +31,6 @@
 
     
 <?php 
-  get_template_part('q1/footer');
+  get_footer();
 ?>
  

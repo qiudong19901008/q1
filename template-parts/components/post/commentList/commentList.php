@@ -1,6 +1,6 @@
 <?php
 
-    use q1\constant\Actions;
+    use q1\core\constant\Actions;
 
 ?>
 

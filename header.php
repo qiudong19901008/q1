@@ -1,5 +1,5 @@
 <?php
-  use function q1\helper\{
+  use function q1\core\helper\{
     getSeoTitle,
     getSeoKeywords,
     getSeoDescription,
@@ -49,7 +49,7 @@
   ?>">
     <div class="siteHeaderWrap">
       <?php 
-        get_template_part( 'q1/component/siteHeader/siteHeader' ); 
+        get_template_part( 'template-parts/components/common/siteHeader/siteHeader' ); 
       ?>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <?php
-  use function q1\helper\isOpenComment;
+  use function q1\core\helper\isOpenComment;
 
   $open = isOpenComment();
   

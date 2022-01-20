@@ -1,7 +1,7 @@
 <?php
 
-  use q1\constant\Options;
-  use function q1\helper\{
+  use q1\core\constant\Options;
+  use function q1\core\helper\{
     getQ1Option,
   };
 
@@ -109,7 +109,7 @@
     </p>
 
     <p style="text-align:right;position:absolute;bottom:10px;right:5px;font-size:6px;">
-        <?php echo 'powerd by <a href="https://w2fenx.com" style="font-size:8px;">合道社</a>'  ?>
+        <?php echo 'powerd by <a href="https://hedaoshe.com" style="font-size:8px;">合道社</a>'  ?>
     </p>
     
     

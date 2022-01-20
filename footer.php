@@ -1,12 +1,12 @@
 <?php
-  use function q1\helper\getFooterCustomCode;
+  use function q1\core\helper\getFooterCustomCode;
 
 ?>
  
  <!-- 页脚 -->
  <div class="siteFooterWrapWrap">
     <div class="siteFooterWrap">
-      <?php get_template_part( 'q1/component/siteFooter/siteFooter' ); ?>
+      <?php get_template_part( 'template-parts/components/common/siteFooter/siteFooter' ); ?>
     </div>
     
   </div>

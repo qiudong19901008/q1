@@ -1,12 +1,17 @@
 <?php
 
-  use q1\constant\{
+  use hedao\dao\{
+    CategoryDao,
+    TagDao,
+  };
+
+  use q1\core\constant\{
     Options,
     Actions,
     Cookies,
   };
 
-  use function q1\helper\{
+  use function q1\core\helper\{
     getQ1Option,
     getSeoTitle,
     getPostViewCount,
