@@ -65,7 +65,7 @@ namespace q1\core\helper{
 	/**
  * @description 获取q1的配置项
  * @param string $optionName 选项名称
- * @param mix $default 
+ * @param mixed  $default 
  */
 	function getQ1Option($optionName,$default=''){
 		$res = $default;

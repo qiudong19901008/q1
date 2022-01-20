@@ -1,6 +1,6 @@
 <?php 
-  use function q1\helper\getQ1Option;
-  use q1\constant\Options;
+  use function q1\core\helper\getQ1Option;
+  use q1\core\constant\Options;
   
   $carouselItemList = getQ1Option(Options::Q1_OPTION_HOME_BASIC_CAROUSEL,[]);
   $count = count($carouselItemList);
@@ -60,6 +60,7 @@
       get_template_part('q1/component/common/pagination/pagination'); 
     ?>
   </div>
+
   
   
 </div>
