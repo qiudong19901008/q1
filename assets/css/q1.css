@@ -907,7 +907,7 @@ a:hover{
 
 .carousel{
   /* border:2px solid red; */
-  min-height: 225px;
+  min-height: 100px;
   position: relative;
   display: flex;
   flex-direction: row;

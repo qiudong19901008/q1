@@ -10,7 +10,7 @@
 ?>
 
 
-<div class="carousel" style="<?php echo $carouselHeight == 'auto'?'':'height:' . $carouselHeight . 'px'; ?>">
+<div class="carousel" style="<?php echo 'height:' . $carouselHeight . 'px'; ?>">
   <div class="carousel__slider" style="width: <?php echo $count*100; ?>%;">
 
 

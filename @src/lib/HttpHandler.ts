@@ -5,7 +5,7 @@ import * as qs from 'qs';
 
 
 const defaultConfig:AxiosRequestConfig  = {
-  baseURL:config.requestConfig.baseURL, //基础url
+  // baseURL:config.requestConfig.baseURL, //基础url
   timeout: config.requestConfig.timeout, //超时时间
   validateStatus(status:number) { // return true或者设置为null或undefined，promise将resolved,否则将rejected
     return status >= 200 && status < 510

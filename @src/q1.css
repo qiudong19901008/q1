@@ -11,17 +11,17 @@
 
 
 /* reset */
-@import url('./assets/css/reset.css');
+@import url('./style/reset.css');
 
 /* 全局设置 */
-@import url('./assets/css/globalStyle.css');
+@import url('./style/globalStyle.css');
 
 
 /* css样式类 */
-@import url('./assets/css/styleClass.css');
+@import url('./style/styleClass.css');
 
 
-
+/* widget */
 /* 组件-widget-tagCloudCard */
 @import url('../template-parts/components/widget/tagCloudCard/tagCloudCard.css');
 /* 组件-widget-authorCard */
@@ -34,7 +34,7 @@
 @import url('../template-parts/components/widget/widgetRecommendCard/widgetRecommendCard.css');
 
 
-
+/* common */
 /* 组件-common-pageTitleCard */
 @import url('../template-parts/components/common/pageTitleCard/pageTitleCard.css');
 /* 组件-common-postList */
@@ -51,9 +51,13 @@
 @import url('../template-parts/components/common/mobileMenu/mobileMenu.css');
 /* 组件-common-carousel */
 @import url('../template-parts/components/index/carousel/carousel.css');
+/* 组件-common-siteHeader */
+@import url('../template-parts/components/common/siteHeader/siteHeader.css');
+/* 组件-common-siteFooter */
+@import url('../template-parts/components/common/siteFooter/siteFooter.css');
 
 
-
+/* post */
 /* 组件-post-commentCard */
 @import url('../template-parts/components/post/commentCard/commentCard.css');
 /* 组件-post-commentList */
@@ -68,32 +72,37 @@
 @import url('../template-parts/components/post/commentSection/commentSection.css');
 /* 组件-post-commentForm */
 @import url('../template-parts/components/post/commentForm/commentForm.css');
-
-
-
-/* 组件-siteHeader */
-@import url('../template-parts/components/common/siteHeader/siteHeader.css');
-
-/* 组件-siteFooter */
-@import url('../template-parts/components/common/siteFooter/siteFooter.css');
-
-/* 组件-indexPageContent */
-@import url('../template-parts/components/index/indexPageContent/indexPageContent.css');
-
-/* 组件-categoryPageContent */
-@import url('../template-parts/components/category/categoryPageContent/categoryPageContent.css');
-
-/* 组件-tagPageContent */
-@import url('../template-parts/components/tag/tagPageContent/tagPageContent.css');
-
-/* 组件-searchPageContent */
-@import url('../template-parts/components/search/searchPageContent/searchPageContent.css');
-
 /* 组件-postPageContent */
 @import url('../template-parts/components/post/postPageContent/postPageContent.css');
 
+/* index */
+/* 组件-indexPageContent */
+@import url('../template-parts/components/index/indexPageContent/indexPageContent.css');
+
+/* category */
+/* 组件-categoryPageContent */
+@import url('../template-parts/components/category/categoryPageContent/categoryPageContent.css');
+
+/* tag */
+/* 组件-tagPageContent */
+@import url('../template-parts/components/tag/tagPageContent/tagPageContent.css');
+
+/* search */
+/* 组件-searchPageContent */
+@import url('../template-parts/components/search/searchPageContent/searchPageContent.css');
+
+/* page */
 /* 组件-page-themeIntro */
-/* @import url('../../q1/template/themeIntro/themeIntro.css'); */
+@import url('../template-parts/components/page/themeIntro/themeIntro.css');
+
+
+
+
+
+
+
+
+
 
 
 

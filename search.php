@@ -9,13 +9,13 @@
         <!-- 分类页内容 -->
         <div class="searchPage__contentWrap">
           <?php 
-            get_template_part('q1/component/searchPageContent/searchPageContent') 
+            get_template_part('template-parts/components/search/searchPageContent/searchPageContent') 
           ?>
         </div>
         <!-- 侧边栏 -->
         <div class="searchPage__sidebar">
           <?php 
-            get_template_part('q1/sidebar'); 
+            get_sidebar();
           ?>
         </div>
       </div>

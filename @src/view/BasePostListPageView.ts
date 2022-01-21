@@ -14,6 +14,13 @@ abstract class BasePostListPageView{
   public initral(){
     this.pageFreshHandler();
   }
+
+  // /**
+  //  * 初始化钩子，不同页面的差异化初始化操作可以写入这里
+  //  */
+  // protected abstract initralHooks(){
+
+  // }
   
   /***事件处理函数 */
 

@@ -8,6 +8,9 @@ const carouselSlider = $('.carousel__slider');
 const carousel = $('.carousel');
 
 const carouselCount = $('.indexPageContent__carouselWrap').data('carouselcount');
+const carouselInterval = $('.indexPageContent__carouselWrap').data('carouselinterval');
+
+console.log(carouselInterval);
 
 const carouselNextFunc = ()=>{
   carouselDirection = 1;
@@ -17,7 +20,7 @@ const carouselNextFunc = ()=>{
 
 let carouselDirection = 1; //1表示next方向, -1表示prev方向
 
-let timer = setInterval(carouselNextFunc,3000);
+let timer = setInterval(carouselNextFunc,carouselInterval*1000);
 
 carouselPrev.on('click',()=>{
   carouselDirection = -1;
@@ -47,7 +50,7 @@ carousel.on('mouseover',()=>{
 })
 
 carousel.on('mouseout',()=>{
-  timer = setInterval(carouselNextFunc,3000);
+  timer = setInterval(carouselNextFunc,carouselInterval*1000);
   // console.log('bbb')
 })
 

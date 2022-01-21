@@ -5,10 +5,9 @@
   $carouselItemList = getQ1Option(Options::Q1_OPTION_HOME_BASIC_CAROUSEL,[]);
   $count = count($carouselItemList);
 
-  $carouselHeight= getQ1Option(Options::Q1_OPTION_HOME_BASIC_CAROUSEL_HEIGHT);
-  if($carouselHeight != 'auto' && !is_numeric($carouselHeight)){
-    $carouselHeight = 'auto';
-  }
+  $carouselHeight= getQ1Option(Options::Q1_OPTION_HOME_BASIC_CAROUSEL_HEIGHT,300);
+  $interval= getQ1Option(Options::Q1_OPTION_HOME_BASIC_CAROUSEL_INTERVAL,4);
+  
 
 ?>
 
@@ -19,6 +18,7 @@
   <!-- 轮播图 -->
   <div class="indexPageContent__carouselWrap" 
     data-carouselcount="<?php echo $count; ?>"
+    data-carouselinterval="<?php echo $interval; ?>"
   >
     <?php 
       get_template_part('template-parts/components/index/carousel/carousel',null,[

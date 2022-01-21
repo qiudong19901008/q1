@@ -39,10 +39,18 @@ CSF::createSection( $prefix, array(
     //轮播图高度
     array(
       'id'=>Options::Q1_OPTION_HOME_BASIC_CAROUSEL_HEIGHT,
-      'type'  => 'text',
+      'type'  => 'spinner',
       'title' => '轮播图高度',
-      'description' => '指定数字, 例如300, 单位像素, 默认根据图片自适应',
-      'default' => 'auto',
+      'desc' => '单位像素, 默认300像素',
+      'default' => 300,
+    ),
+    //轮播图播放间隔时间
+    array(
+      'id'=>Options::Q1_OPTION_HOME_BASIC_CAROUSEL_INTERVAL,
+      'type'  => 'spinner',
+      'title' => '轮播图播放间隔',
+      'desc' => '默认4秒',
+      'default' => 4,
     ),
     //首页轮播图
     array(

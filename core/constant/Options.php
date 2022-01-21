@@ -81,6 +81,11 @@ class Options{
    */
   public const Q1_OPTION_HOME_BASIC_CAROUSEL_HEIGHT = '_q1_option_home_basic_carouselHeight';
 
+  /**
+   * Q1主题-首页-基本-轮播图间隔时间
+   */
+  public const Q1_OPTION_HOME_BASIC_CAROUSEL_INTERVAL = '_q1_option_home_basic_carouselInterval';
+
    ////////////////////////文章页-基本信息/////////////////////////
 
   /**
