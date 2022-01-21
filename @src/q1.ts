@@ -33,8 +33,8 @@ const initralQ1 = ()=>{
       new SearchView().initral();
       break;
     case 'index':
-    default:
       new IndexView().initral();
+      break;
   }
 }
 

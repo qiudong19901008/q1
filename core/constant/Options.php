@@ -26,10 +26,7 @@ class Options{
 
   ////////////////////////全局-页脚/////////////////////////
 
-  /**
-   * Q1主题-选项-全局-页脚-友情链接
-   */
-  public const Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK = '_q1_option_global_footer_friendLink';
+  
   /**
    * Q1主题-选项-全局-页脚-版权 
    */         
@@ -49,8 +46,18 @@ class Options{
    * Q1主题-选项-全局-页脚-自定义代码
    */
   public const Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE = '_q1_option_global_footer_customCode';
+
+  /**
+   * Q1主题-选项-全局-页脚-显示网站速度
+   */
+  public const Q1_OPTION_GLOBAL_FOOTER_SHOW_SITE_SPEED = '_q1_option_global_footer_showSiteSpeed';
   
-  
+  ////////////////////////全局-友情链接/////////////////////////
+
+  /**
+   * Q1主题-选项-全局-友情链接
+   */
+  public const Q1_OPTION_GLOBAL_FRIEND_LINK = '_q1_option_global_friendLink';
 
   ////////////////////////首页-基本信息/////////////////////////
 

@@ -1,5 +1,7 @@
 <?php
-
+/*
+Template Name: 主题介绍
+*/
     use function q1\core\helper\{
       getThemeIntroData,
       getFooterCustomCode,

@@ -22,14 +22,14 @@ CSF::createSection( $prefix, array(
   // 'id' => 'global_common_setting',
   'title'  => '——通用设置',
   // 'icon' => 'fa fa-th-large',
-  'description' => '通用设置',
+  'desc' => '通用设置',
   'fields' => [
     //全局缩略图
     array(
       'id'=>Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL,
       'type'  => 'media',
       'title' => '默认缩略图',
-      'subtitle' => '全站默认的缩略图',
+      'desc' => '全站默认的缩略图, 当文章没图片时会作为默认图片显示',
     ),
   ]
 ) );
@@ -42,16 +42,16 @@ CSF::createSection( $prefix, array(
   // 'id' => 'global_header_setting',
   'title'  => '——页头设置',
   // 'icon' => 'fa fa-header',
-  'description' => '自定义头部, 可以放第三方代码, 比如广告联盟的js',
+  'desc' => '自定义头部, 可以放第三方代码, 比如广告联盟的js',
   'fields' => [
     //头部自定义代码
     array(
       'id'=>Options::Q1_OPTION_GLOBAL_HEADER_CUSTOM_CODE,
-      'type'  => 'code_editor', //code_editor
+      'type'  => 'code_editor',
       'title' => '头部自定义代码',
+      'desc' => '可以放第三方代码, 比如广告联盟代码',
       'settings' => [
         'theme' => 'dracula',
-        // 'mode'  => 'javascript',
       ],
       'sanitize' => false,
     ),
@@ -68,24 +68,12 @@ CSF::createSection( $prefix, array(
   // 'icon' => 'fa fa-step-forward',
   // 'description' => '自定义头部, 可以放第三方代码, 比如广告联盟的js',
   'fields' => [
-    //友情链接
-    array(
-      'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK,
-      'type' => 'repeater',
-      'title' => '友情链接',
-      'fields' => [
-        [
-          'id'          => 'item', //这个id还没定义
-          'type'        => 'text',
-          'title'       => '',
-        ],
-      ]
-    ),
     //底部菜单
     array(
       'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_MENU,
       'type' => 'repeater',
       'title' => '底部菜单',
+      'desc' => '可以放一些链接, 比如网站地图等',
       'fields' => [
         [
           'id'          => 'item', //这个id还没定义
@@ -99,7 +87,7 @@ CSF::createSection( $prefix, array(
       'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_LICENSE,
       'type' => 'repeater',
       'title' => '许可证',
-      'desc' => '可以放备案信息,公安备案信息等网络许可证',
+      'desc' => '可以放备案信息,公安备案信息等',
       'fields' => [
         [
           'id'          => 'item', //这个id还没定义
@@ -117,13 +105,46 @@ CSF::createSection( $prefix, array(
     //页脚自定义代码
     array(
       'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE,
-      'type'  => 'code_editor', //code_editor
+      'type'  => 'code_editor', 
       'title' => '页脚自定义代码',
+      'desc' => '可以放第三方代码, 比如百度统计等',
       'settings' => [
         'theme' => 'dracula',
-        // 'mode'  => 'javascript',
       ],
       'sanitize' => false,
+    ),
+    //显示网站速度
+    array(
+      'id' => Options::Q1_OPTION_GLOBAL_FOOTER_SHOW_SITE_SPEED,
+      'type'  => 'switcher',
+      'title' => '开启显示网站速度',
+      'desc' => '在页脚对网站响应速度做显示',
+    ),
+  ]
+) );
+
+/**
+ * 3. 友情链接设置
+ */
+CSF::createSection( $prefix, array(
+  'parent'	=> 'global_setting',
+  // 'id' => 'global_header_setting',
+  'title'  => '——友情链接设置',
+  // 'icon' => 'fa fa-header',
+  'fields' => [
+    //头部自定义代码
+    array(
+      'id'=>Options::Q1_OPTION_GLOBAL_FRIEND_LINK,
+      'type' => 'repeater',
+      'title' => '友情链接',
+      'desc' => '',
+      'fields' => [
+        [
+          'id'          => 'item', //这个id还没定义
+          'type'        => 'text',
+          'title'       => '',
+        ],
+      ]
     ),
   ]
 ) );

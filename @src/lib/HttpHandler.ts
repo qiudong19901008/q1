@@ -30,7 +30,7 @@ class HttpHandler{
   private _setRequestInterceptors(axios:AxiosInstance){
     axios.interceptors.request.use((originalConfig)=>{
       const reqConfig = {...originalConfig}; 
-      // console.log(reqConfig)
+      // console.log(reqConfig);
       //1. 是否有请求的url
       if(this._isLackRequestUrl(reqConfig)){
         throw new Error('need request url');

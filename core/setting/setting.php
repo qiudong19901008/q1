@@ -3,6 +3,7 @@
 namespace q1\core\setting{
 	use \CSF;
 	use q1\core\constant\Options;
+	use const q1\config\OPEN_PAGE_SETTING;
 
 	if ( ! class_exists( 'CSF' ) ) {
 		return null;
@@ -46,13 +47,17 @@ namespace q1\core\setting{
 	) );
 	include('postSetting.php');
 
-	//页面设置
-	CSF::createSection( $prefix, array(
-  'id' => 'page_setting',
-  'title'  => '页面设置',
-  'icon' => 'fa fa-file-o',
-	));
-	include('pageSetting.php');
+	if(OPEN_PAGE_SETTING){
+		//页面设置
+		CSF::createSection( $prefix, array(
+			'id' => 'page_setting',
+			'title'  => '页面设置',
+			'icon' => 'fa fa-file-o',
+		));
+		include('pageSetting.php');
+	}
+
+	
 
 }
 

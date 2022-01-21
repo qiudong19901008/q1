@@ -29,12 +29,14 @@ CSF::createSection( $prefix, array(
       'id'=>Options::Q1_OPTION_HOME_BASIC_DESCRIPTION,
       'type'  => 'textarea',
       'title' => '首页描述',
+      'desc' => '描述网站的主要内容, 可以提升seo'
     ),
     //首页关键词
     array(
       'id'=>Options::Q1_OPTION_HOME_BASIC_KEYWORDS,
       'type'  => 'text',
       'title' => '首页关键词',
+      'desc' => '可以提升seo'
     ),
     //轮播图高度
     array(

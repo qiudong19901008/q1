@@ -5,10 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) { die; }
 
 
 
-const TOKEN_SALT = 'SDFSdfjskdg';
+const TOKEN_SALT = 'SDFSdfjskdg'; 
 
-// 60*60*24*7 
 const TOKEN_EXPIRE_SECONDS = 60*60*24*7;
 
-include('./pageDefaultConfig.php');
+const OPEN_PAGE_SETTING = false;
+
+include('pageDefaultConfig.php');
 

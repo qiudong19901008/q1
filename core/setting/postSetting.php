@@ -28,14 +28,14 @@ CSF::createSection( $prefix, array(
       'id' => Options::Q1_OPTION_POST_BASIC_OPEN_COMMENT,
       'type'  => 'switcher',
       'title' => '开启评论',
-      'desc' => '',
+      'desc' => '一键开启关闭评论区域',
     ),
     //推荐文章数量
     array(
       'id' => Options::Q1_OPTION_POST_BASIC_RECOMMEND_POST_COUNT,
       'type'  => 'spinner',
       'title' => '推荐文章数量',
-      'desc' => '推荐文章数量, 最少推荐一篇, 最多推荐20篇',
+      'desc' => '推荐文章数量, 最少推荐1篇, 最多推荐20篇',
       'default'  => '8',
       'min'      => '1',
       'step'     => '1',
@@ -46,7 +46,7 @@ CSF::createSection( $prefix, array(
       'id' => Options::Q1_OPTION_POST_BASIC_OPEN_POST_BELONG_TO_ANNONCEMENT,
       'type'  => 'switcher',
       'title' => '开启文章首发声明',
-      'desc' => '有助于seo',
+      'desc' => '文章底部会出现文章声明, 有助于seo, 防搬运',
     ),
    
   ]

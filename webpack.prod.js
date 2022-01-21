@@ -9,7 +9,11 @@ const webpack = require('webpack');
 
 // http://localhost/zixuehu/wp-content/themes/hedao/q1/assets
 const publicPath = getPublicPath();
-const outputPath = getOutputPath();
+
+/**
+ * 样式输入路径
+ */
+ const outputPath = path.resolve(process.cwd(), 'assets'); 
 
 const config = {
 

@@ -6,15 +6,11 @@
   };
 
   $footerMenuList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_MENU,[]);
-  // var_dump($footerMenuList);
   $footerLicenseList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_LICENSE,[]);
   $footerCopyright = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_COPYRIGHT);
-  $friendLinkList = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK,[]);
-  // var_dump($friendLinkList);
+  $friendLinkList = getQ1Option(Options::Q1_OPTION_GLOBAL_FRIEND_LINK,[]);
 
-  // $options = get_option( Options::Q1_OPTION_PREFIX );
-  // $option = $options[Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK];
-  // var_dump($option);
+  $showSiteSpeed = getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_SHOW_SITE_SPEED,false);
 
 ?>
 
@@ -104,13 +100,18 @@
       <!-- ©2021 <a href="#">srcmini</a> -->
     </div>
     
+    <?php if($showSiteSpeed): ?>
+
     <p style="text-align:right;position:absolute;bottom:30px;right:5px;font-size:6px;">
         <?php printf('%d 次查询, 耗时 %s 秒', get_num_queries(), timer_stop(0, 3)); ?>
     </p>
 
-    <p style="text-align:right;position:absolute;bottom:10px;right:5px;font-size:6px;">
-        <?php echo 'powerd by <a href="https://hedaoshe.com" style="font-size:8px;">合道社</a>'  ?>
+    <?php endif; ?>
+
+    <p style='text-align:right;position:absolute;bottom:10px;right:5px;font-size:6px;'>
+        powerd by <a href='https://hedaoshe.com' style='font-size:8px;'>合道社</a>
     </p>
+   
     
     
 </div>

@@ -87,7 +87,7 @@ Redux::set_field(
   $opt_name, 
   'global_footer_setting', 
   [
-    'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_FRIEND_LINK,
+    'id'=>Options::Q1_OPTION_GLOBAL_FRIEND_LINK,
     'type' => 'multi_text',
     'title' => esc_html__('友情链接', 'your-textdomain-here'),
     'subtitle' => esc_html__('友情链接', 'your-textdomain-here'),

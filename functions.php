@@ -13,7 +13,6 @@ define('Q1_VERSION','1.0');
 require_once Q1_DIR_PATH . '/vendor/autoload.php';
 require_once Q1_DIR_PATH . '/inc/hedao/autoload.php';
 
-// require_once Q1_DIR_PATH . '/config/config.php';
 require_once Q1_DIR_PATH . '/core/autoload.php';
 
 
@@ -22,6 +21,12 @@ function loadTheme() {
 }
 
 loadTheme();
+
+// add_action('wp_footer', 'copyright');
+// function copyright(){
+
+// echo "";
+// }
 
 
 
