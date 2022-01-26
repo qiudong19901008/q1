@@ -1,19 +1,15 @@
 <?php
+namespace q1\config;
+
+if ( ! defined( 'ABSPATH' ) ) { die; }
 
 
 
-/**
- * 主题类型
- */
-const THEME_TYPE_ARR = ['q1','q5'];
+const TOKEN_SALT = 'SDFSdfjskdg'; 
 
-/**
- * 当前主题
- */
-const CURRENT_THEME = 'q1';
+const TOKEN_EXPIRE_SECONDS = 60*60*24*7;
 
-/**
- * 当前后台框架
- */
-const CURRENT_BACKEND_FRAMEWORK = 'codestar'; // redux codestar
+const OPEN_PAGE_SETTING = false;
+
+include('pageDefaultConfig.php');
 

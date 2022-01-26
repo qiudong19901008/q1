@@ -1,0 +1,139 @@
+
+
+/**
+* 1. reset类
+  2. 全局样式
+  3. css样式类
+  4. 组件
+  5. 页面
+*
+/*
+
+
+/* reset */
+@import url('./style/reset.css');
+
+/* 全局设置 */
+@import url('./style/globalStyle.css');
+
+
+/* css样式类 */
+@import url('./style/styleClass.css');
+
+
+/* widget */
+/* 组件-widget-tagCloudCard */
+@import url('../template-parts/components/widget/tagCloudCard/tagCloudCard.css');
+/* 组件-widget-authorCard */
+@import url('../template-parts/components/widget/authorCard/authorCard.css');
+/* 组件-widget-searchCard */
+@import url('../template-parts/components/widget/searchCard/searchCard.css');
+/* 组件-widget-simplePostCard */
+@import url('../template-parts/components/widget/simplePostCard/simplePostCard.css');
+/* 组件-widget-widgetRecommendCard */
+@import url('../template-parts/components/widget/widgetRecommendCard/widgetRecommendCard.css');
+
+
+/* common */
+/* 组件-common-pageTitleCard */
+@import url('../template-parts/components/common/pageTitleCard/pageTitleCard.css');
+/* 组件-common-postList */
+@import url('../template-parts/components/common/postList/postList.css');
+/* 组件-common-postCard */
+@import url('../template-parts/components/common/postCard/postCard.css');
+/* 组件-common-postCardTwo */
+@import url('../template-parts/components/common/postCardTwo/postCardTwo.css');
+/* 组件-common-pagination */
+@import url('../template-parts/components/common/pagination/pagination.css');
+/* 组件-common-menu */
+@import url('../template-parts/components/common/menu/menu.css');
+/* 组件-common-mobileMenu */
+@import url('../template-parts/components/common/mobileMenu/mobileMenu.css');
+/* 组件-common-carousel */
+@import url('../template-parts/components/index/carousel/carousel.css');
+/* 组件-common-siteHeader */
+@import url('../template-parts/components/common/siteHeader/siteHeader.css');
+/* 组件-common-siteFooter */
+@import url('../template-parts/components/common/siteFooter/siteFooter.css');
+
+
+/* post */
+/* 组件-post-commentCard */
+@import url('../template-parts/components/post/commentCard/commentCard.css');
+/* 组件-post-commentList */
+@import url('../template-parts/components/post/commentList/commentList.css');
+/* 组件-post-prevNextCard */
+@import url('../template-parts/components/post/prevNextCard/prevNextCard.css');
+/* 组件-post-postContent */
+@import url('../template-parts/components/post/postContent/postContent.css');
+/* 组件-post-recommendCard */
+@import url('../template-parts/components/post/recommendCard/recommendCard.css');
+/* 组件-post-commentSection */
+@import url('../template-parts/components/post/commentSection/commentSection.css');
+/* 组件-post-commentForm */
+@import url('../template-parts/components/post/commentForm/commentForm.css');
+/* 组件-postPageContent */
+@import url('../template-parts/components/post/postPageContent/postPageContent.css');
+
+/* index */
+/* 组件-indexPageContent */
+@import url('../template-parts/components/index/indexPageContent/indexPageContent.css');
+
+/* category */
+/* 组件-categoryPageContent */
+@import url('../template-parts/components/category/categoryPageContent/categoryPageContent.css');
+
+/* tag */
+/* 组件-tagPageContent */
+@import url('../template-parts/components/tag/tagPageContent/tagPageContent.css');
+
+/* search */
+/* 组件-searchPageContent */
+@import url('../template-parts/components/search/searchPageContent/searchPageContent.css');
+
+/* page */
+/* 组件-page-themeIntro */
+@import url('../template-parts/components/page/themeIntro/themeIntro.css');
+
+
+
+
+
+
+
+
+
+
+
+
+.siteHeaderWrapWrap{
+  margin-bottom: 2rem;
+  background: #fff; 
+}
+.siteHeaderWrap{
+  margin:0 auto;
+  max-width:1200px;
+  width:90%;
+}
+.indexPageWrap,
+.categoryPageWrap,
+.tagPageWrap,
+.searchPageWrap,
+.postPageWrap{
+  flex:1 0 auto;
+  padding:0 5px;
+}
+
+.siteFooterWrapWrap{
+  /* margin-bottom: 2rem; */
+  background: #fff; 
+  flex-shrink: 0;
+}
+.siteFooterWrap{
+  margin:0 auto;
+  max-width:1200px;
+}
+
+
+
+

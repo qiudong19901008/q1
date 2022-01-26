@@ -1,178 +1,175 @@
 <?php
 
 
+namespace q1\core\helper;
+use \q1\core\constant\Options;
+use \q1\core\constant\Fields;
 
-require_once HEDAO_DIR_PATH . '/core/helper/GetPostThumbUrl.php';
-require_once HEDAO_DIR_PATH . '/core/helper/GetMenuData.php';
-require_once HEDAO_DIR_PATH . '/core/helper/JwtAuth.php';
+use const q1\config\DEFAULT_THEME_INTRO_DATA;
 
-/**
- * 获取值, 没有则使用默认值
- */
- function getValue($value,$default){
-  return !empty($value)?$value:$default;
- }
-
- /**
-  * @description 根据键获取数组中对应的值, 不存在则返回默认
-  * @param array $arr
-  * @param string $key
-  * @param mix $default 默认值
-  */
- function getArrValueByKey($arr,$key,$default){
-  return isset($arr[$key])?$arr[$key]:$default;
- }
-
-
-/**
- * cookie是否包含某个值
- */
-function has_cookie($cookie_name){
-  if(isset($_COOKIE[$cookie_name])){
-    return true;
-  }else{
-    return false;
+function getQ1DefaultThumbUrl(){
+  $data = getQ1Option(
+    Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL,
+    []
+  );
+  // var_dump($data);
+  if(!empty($data) && !empty($data['url'])){
+    return $data['url'];
   }
+  return Q1_ROOT_URL . '/assets/image/thumb.jpg';
 }
 
 /**
- * 设置cookie
+ * 获取网站title
  */
-function setQ1Cookie($key,$value,$path='/',$expire=60*60*24*30){
-  $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false; // make cookies work with localhost
-  return setcookie($key,$value,$expire,$path,$domain,false);
-}
-
-/**
- * 返回json数据
- * @param array $data
- */
-function json($data){
-  header('Content-Type:application/json');
-  echo json_encode($data);
-  die;
-}
-
-/**
- * errorCode: 0
- * msg: "操作成功"
- * requestUrl: "PUT /rws/siteType/update/8"
- */
-function success($msg='操作成功'){
-  header('Content-Type:application/json');
-  echo json_encode([
-    'errorCode'=>0,
-    'msg'=>$msg,
-  ]);
-  die;
-}
-
-/**
- * errorCode: 0
- * msg: "操作失败"
- * requestUrl: "PUT /rws/siteType/update/8"
- */
-function failed($msg='操作失败',$errorCode=null){
-  header('Content-Type:application/json');
-  echo json_encode([
-    'errorCode'=>$errorCode?$errorCode:9999,
-    'msg'=>$msg,
-  ]);
-  die;
-}
-
-/**
- * @description 获取$_GET的参数
- */
-function getGETValue($name,$default=null){ 
-  $val = !empty($_GET[$name]) ? $_GET[$name] : $default; 
-  return $val; 
-}
-
-
-/**
- * @description 获取$_GET的参数
- */
-function getPOSTValue($name,$default=null){ 
-  $val = !empty($_POST[$name]) ? $_POST[$name] : $default; 
-  return $val; 
-}
-
-/**
- * 获取文章缩略图
- */
-function getPostThumbUrl($myPost,$default=''){
-  return GetPostThumbUrl::run($myPost,$default);
-}
-
-/**
- * 
- */
-function getMenuDataByLocation($location){
-  return GetMenuData::run($location);
-}
-
-
-/**
- * 是否是奇数
- */
- function isOddNumber($num){
-  if($num%2 == 1){
-    return true;
+function getSeoTitle(){
+  $connector = ' - '; //标题连接符
+  $siteName = get_option('blogname');
+  if(is_home()){
+    $title = $siteName;
+  }else if(is_category()){
+    $categoryName = single_cat_title('',false);
+    $title = $categoryName .  $connector . $siteName;
+  }else if(is_tag()){
+    $tagName = single_tag_title('',false);
+    $title = $tagName . $connector . $siteName;
+  }else if(is_search()){
+    global $s;
+    $title = $s . $connector . $siteName;
+  }else if(is_single()){
+    $postTitle = get_the_title();
+    $title = $postTitle . $connector . $siteName;
+  }else if(is_404()){
+    $title = '404';
   }
-  return false;
- }
+  return $title;
+}
 
- /**
- * @param int $uid 用户id
- * @param int $howLongExpire 多久过期
- * @param string $salt 盐
+/**
+ * 获取seo描述
  */
- function generateToken($uid,$howLongExpire,$salt){
-   return JwtAuth::generateToken($uid,$howLongExpire,$salt);
- }
-
- /**
- * @param string $token 令牌
- * @param string $salt 盐
- */
-function getUidFromToken($token,$salt){
-  $res = JwtAuth::getUidFromToken($token,$salt);
+function getSeoDescription(){
+  if(is_home()){
+    $res = getQ1Option(Options::Q1_OPTION_HOME_BASIC_DESCRIPTION);
+  }else if(is_category()){
+    $res = strip_tags(category_description());
+    if(empty($res)){
+      $res = single_cat_title('',false);
+    }
+  }else if(is_tag()){
+    $res = strip_tags(tag_description());
+    if(empty($res)){
+      $res = single_tag_title('',false);
+    }
+  }else if(is_search()){
+    global $s;
+    $res = $s;
+  }else if(is_single()){
+    $res = get_post_meta(get_the_ID(),Fields::Q1_FIELD_POST_DESCRIPTION,true);
+    if(empty($res)){
+      $res = get_the_title();
+    }
+  }else if(is_404()){
+    $res = '404';
+  }
   return $res;
 }
 
 /**
- * @description 解码basic的header, 获取token
- * @param string $basicValue 头部authention的值
- * @param string $suffix 后缀,可以弄一些加密字符
+ * 获取seo关键词
  */
-function getTokenFromBasicAuth($basicValue,$suffix=''){
-  // `Basic ${Base64.encode(token+':')}`;
-  $res = ltrim($basicValue,'Basic ');
-  $res = base64_decode($res);
-  return rtrim($res,$suffix);
+function getSeoKeywords(){
+  if(is_home()){
+    $res  = getQ1Option(Options::Q1_OPTION_HOME_BASIC_KEYWORDS);
+  }else if(is_category()){
+    $res = single_cat_title('',false);
+  }else if(is_tag()){
+    $res = single_tag_title('',false);
+  }else if(is_search()){
+    global $s;
+    $res = $s;
+  }else if(is_single()){
+    $res = get_post_meta(get_the_ID(),Fields::Q1_FIELD_POST_KEYWORDS,true);
+    if(empty($res)){
+      $res = get_the_title();
+    }
+  }else if(is_404()){
+    $res = '404';
+  }
+  return $res;
 }
 
 /**
- * @param \WP_REST_Request $request
+ * 获取自定义头部代码, 该区域可以放一些脚本, 比如谷歌广告代码
  */
-function getBasicToken($request,$suffix=''){
-  $basicAuth = $request->get_header('authorization');
-  if(!$basicAuth){
-    return '';
+function getHeaderCustomCode(){
+  return getQ1Option(Options::Q1_OPTION_GLOBAL_HEADER_CUSTOM_CODE);
+}
+
+/**
+ * 获取自定义头部代码, 该区域可以放一些脚本, 比如百度统计
+ */
+function getFooterCustomCode(){
+  return getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE);
+}
+
+/**
+ * 获取页面类型
+ */
+function getPageType(){
+  $res = '';
+  if(is_home()){
+    $res = 'index';
+  }else if(is_category()){
+    $res = 'category';
+  }else if(is_tag()){
+    $res = 'tag';
+  }else if(is_single()){
+    $res = 'post';
+  }else if(is_search()){
+    $res = 'search';
   }
-  return getTokenFromBasicAuth($basicAuth,$suffix);
+  return $res;
 }
 
+  /**
+   * @description 获取文章浏览量
+   */
+  function getPostViewCount($post_id){
+    $count = get_post_meta( $post_id, Fields::Q1_FIELD_POST_VIEW_COUNT, true );
+    return !empty($count)?$count:0;
+  }
 
-function isNotEmptyArr(&$value){
-  return isset($value) && is_array($value) && !empty($value);
-}
+  /**
+   * @description 获取文章点赞数量
+   */
+  function getPostLikeCount($post_id){
+    $count = get_post_meta( $post_id, Fields::Q1_FIELD_POST_LIKE_COUNT, true );
+    return !empty($count)?$count:0;
+  }
 
-function isNotEmptyStr(&$value){
-  return isset($value) && is_string($value) && !empty($value);
-}
+  function getThemeIntroData($pageId){
+    $res = [];
+    $themeIntroList = getQ1Option(Options::Q1_OPTION_PAGE_THEME_INTRO,[]);
+    foreach($themeIntroList as $themeIntro){
+      if($pageId == $themeIntro[Options::Q1_OPTION_PAGE_THEME_INTRO_PAGE_ID]){
+        $res = $themeIntro;
+      }
+    }
+    if(empty($res)){
+      return DEFAULT_THEME_INTRO_DATA;
+    }
+    return $res;
+  }
 
-function isNotEmptyParamInGet($key){
-  return isset($_Get[$key]) && !empty($_Get[$key]);
-}
+  /**
+   * 0表示不开启
+   * 1表示开启
+   */
+  function isOpenComment(){
+    $open = getQ1Option(Options::Q1_OPTION_POST_BASIC_OPEN_COMMENT);
+    if($open == '1'){
+      return true;
+    }
+    return false;
+  }

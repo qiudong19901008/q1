@@ -1,11 +1,11 @@
 import AxiosStatic,{AxiosRequestConfig,AxiosResponse,AxiosInstance,Method } from 'axios';
-import config from '../config/config'
+import config from '../config/config';
 import LocalStorager from './LocalStorager';
 import * as qs from 'qs';
 
 
 const defaultConfig:AxiosRequestConfig  = {
-  baseURL:config.requestConfig.baseURL, //基础url
+  // baseURL:config.requestConfig.baseURL, //基础url
   timeout: config.requestConfig.timeout, //超时时间
   validateStatus(status:number) { // return true或者设置为null或undefined，promise将resolved,否则将rejected
     return status >= 200 && status < 510
@@ -30,7 +30,7 @@ class HttpHandler{
   private _setRequestInterceptors(axios:AxiosInstance){
     axios.interceptors.request.use((originalConfig)=>{
       const reqConfig = {...originalConfig}; 
-      // console.log(reqConfig)
+      // console.log(reqConfig);
       //1. 是否有请求的url
       if(this._isLackRequestUrl(reqConfig)){
         throw new Error('need request url');
