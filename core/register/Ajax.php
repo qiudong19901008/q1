@@ -99,6 +99,8 @@ public function getPostListRouter(){
   $page = $_GET["page"];
   $size = $_GET["size"];
 
+  
+
   $categoryConditionList = [];
   if(isNotEmptyParamInGet('categoryId')){
     $categoryConditionList['categoryIdListIn'] = [$_GET["categoryId"]];
@@ -115,6 +117,12 @@ public function getPostListRouter(){
     $tagConditionList['tagSlugListIn'] = [$_GET["tagSlug"]];
   }
 
+  // // print_r('<pre>');
+  // // var_dump($categoryConditionList);
+  // json(isset($_Get['categorySlug']));
+  // // json(isNotEmptyParamInGet('categorySlug'));
+  // // isset($_Get[$key]) && !empty($_Get[$key]);
+  // die;
 
   $res = PostDao::queryPostList(
     $categoryConditionList,

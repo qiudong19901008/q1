@@ -167,5 +167,5 @@ function isNotEmptyStr(&$value){
 }
 
 function isNotEmptyParamInGet($key){
-  return isset($_Get[$key]) && !empty($_Get[$key]);
+  return isset($_GET[$key]) && !empty($_GET[$key]);
 }
