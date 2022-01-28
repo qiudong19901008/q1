@@ -66,6 +66,8 @@
 @import url('../template-parts/components/post/prevNextCard/prevNextCard.css');
 /* 组件-post-postContent */
 @import url('../template-parts/components/post/postContent/postContent.css');
+/* 组件-post-statement */
+@import url('../template-parts/components/post/postStatement/postStatement.css');
 /* 组件-post-recommendCard */
 @import url('../template-parts/components/post/recommendCard/recommendCard.css');
 /* 组件-post-commentSection */

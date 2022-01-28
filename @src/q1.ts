@@ -1,7 +1,4 @@
-
-// import './publicPath';
 import * as $ from 'jquery';
-// import 'font-awesome/css/font-awesome.min.css';
 import './q1.css';
 
 import '../template-parts/components/index/carousel/carousel';

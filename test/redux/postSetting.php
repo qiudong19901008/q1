@@ -56,7 +56,7 @@ Redux::set_field(
   $opt_name, 
   'post_basic_setting',
   [
-    'id' => Options::Q1_OPTION_POST_BASIC_OPEN_POST_BELONG_TO_ANNONCEMENT,
+    'id' => Options::Q1_OPTION_POST_BASIC_OPEN_POST_STATEMENT,
     'type' => 'switch',
     'title' => __( '开启文章首发声明' , 'redux_docs_generator' ),
     'subtitle' => __( '开启文章首发声明' , 'redux_docs_generator' ),

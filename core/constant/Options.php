@@ -116,11 +116,14 @@ class Options{
    public const Q1_OPTION_POST_BASIC_RECOMMEND_POST_COUNT = '_q1_option_post_basic_recommendPostCount';
 
    /**
-    * Q1主题-文章页-基本-开启文章归属(首发)声明
+    * Q1主题-文章页-基本-开启文章声明
     */
-    public const Q1_OPTION_POST_BASIC_OPEN_POST_BELONG_TO_ANNONCEMENT = '_q1_option_post_basic_openPostBelongToAnnoncement';
+    public const Q1_OPTION_POST_BASIC_OPEN_POST_STATEMENT = '_q1_option_post_basic_openPostStatement';
 
-
+    /**
+    * Q1主题-文章页-基本-文章申明内容
+    */
+    public const Q1_OPTION_POST_BASIC_POST_STATEMENT_CONTENT = '_q1_option_post_basic_post_statement_content';
 
     ////////////////////////页面-主题介绍页/////////////////////////
 

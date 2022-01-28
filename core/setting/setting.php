@@ -74,7 +74,10 @@ namespace q1\core\helper{
  */
 	function getQ1Option($optionName,$default=''){
 		$options = get_option( Options::Q1_OPTION_PREFIX );
-		return empty($options[$optionName]) ? $default:$options[$optionName];
+		// if(isset($options[$optionName]) && is_bool($options[$optionName])){ //bool也会返回默认值, 所以提前判断
+		// 	return $options[$optionName];
+		// }
+		return empty($options[$optionName]) ? $default:$options[$optionName]; 
 	}
 
 }

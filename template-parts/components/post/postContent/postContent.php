@@ -19,7 +19,7 @@
   };
 
 
-global $post;
+  global $post;
 
   $categoryList = CategoryDao::getCategoryListByPostId(get_the_ID());
   $category = $categoryList[0];
@@ -29,8 +29,10 @@ global $post;
   $commentCount = $post->comment_count;
 
 
-  $openPostBelongToAnnoncement = (bool)getQ1Option(Options::Q1_OPTION_POST_BASIC_OPEN_POST_BELONG_TO_ANNONCEMENT);
+  $openPostStatement = (bool)getQ1Option(Options::Q1_OPTION_POST_BASIC_OPEN_POST_STATEMENT);
 
+
+  $postStatementContent = getQ1Option(Options::Q1_OPTION_POST_BASIC_POST_STATEMENT_CONTENT);
 
 ?>
 <div class="postContent">
@@ -63,28 +65,16 @@ global $post;
       the_content();
     ?>
 
-    <!-- 开启首发声明 -->
+  <p class="postContent__cutOff">
+    结束
+  </p>
 
-    <?php if($openPostBelongToAnnoncement): ?>
-
-      <blockquote
-        style="font-size:16px;color:#000;"
-      > 
-        本文首发于:
-        <a 
-          href="<?php the_permalink(); ?>"
-          style="color:#000;text-decoration:none;cursor:default;"
-        ><?php echo getSeoTitle();  ?></a>
-      </blockquote >
-
-    <?php endif; ?>
+    
 
 
 
   </div>
-  <p class="postContent__cutOff">
-    结束
-  </p>
+  
   <div class="postContent__interaction">
     <div 
       class="postContent__like" 
@@ -97,6 +87,22 @@ global $post;
       赞(<span class="postContent__likeCount"><?php echo $likeCount; ?></span>)
     </div>
   </div>
+
+  <!-- 开启首发声明 -->
+
+  <?php if($openPostStatement): ?>
+  
+  <div class="postStatementWrap">
+
+    <?php get_template_part('template-parts/components/post/postStatement/postStatement',null,[
+      'title'=>getSeoTitle(),
+      'postStatementContent'=>$postStatementContent,
+    ]);  ?>
+
+  </div>
+    
+
+<?php endif; ?>
 
   <?php if(count($tagList)!==0): ?>
 

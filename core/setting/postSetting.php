@@ -41,15 +41,44 @@ CSF::createSection( $prefix, array(
       'step'     => '1',
       'max'      => '20',
     ),
-    //开启文章首发声明
+    //开启文章声明
     array(
-      'id' => Options::Q1_OPTION_POST_BASIC_OPEN_POST_BELONG_TO_ANNONCEMENT,
+      'id' => Options::Q1_OPTION_POST_BASIC_OPEN_POST_STATEMENT,
       'type'  => 'switcher',
-      'title' => '开启文章首发声明',
-      'desc' => '文章底部会出现文章声明, 有助于seo, 防搬运',
+      'title' => '开启文章声明',
+      'desc'  =>  '有助于seo',
+      'default' => true,
     ),
+    //文章申明内容
+    array(
+      'id'          => Options::Q1_OPTION_POST_BASIC_POST_STATEMENT_CONTENT, 
+      'type'        => 'textarea',
+      'title'       => '文章申明的内容',
+      'default'     => '非常欢迎各位朋友分享到个人站长或者朋友圈，但转载请说明文章出处“合道社”。',
+      'dependency'  => [Options::Q1_OPTION_POST_BASIC_OPEN_POST_STATEMENT, '==', true],
+    )
    
   ]
 ) );
+
+// //是否启用Cdn的font-awesome
+// array(
+//   'id'=>Options::Q1_OPTION_GLOBAL_COMMON_USE_CDN_FONT_AWESOME,
+//   'type'  => 'switcher',
+//   'title' => '开启font-awesome的CDN',
+//   'desc'  => '默认使用本地的font-awesome',
+//   'default' => false,
+// ),
+// //font-awesome的cdn地址
+// array(
+//   'id'          => Options::Q1_OPTION_GLOBAL_COMMON_CDN_ADDRESS, 
+//   'type'        => 'text',
+//   'title'       => 'font-awesome的CDN地址',
+//   'default'     => 'https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css',
+//   'dependency'  => [Options::Q1_OPTION_GLOBAL_COMMON_USE_CDN_FONT_AWESOME, '==', true],
+//   'attributes' => array(
+//     'style'    => 'width: 100%;'
+//   ),
+// )
 
 
