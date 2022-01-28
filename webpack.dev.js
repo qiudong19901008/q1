@@ -1,16 +1,13 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {
-  getPublicPath,
-} = require('./config');
+
 
 const webpack = require('webpack');
 
 /**
- * 样式http路径
- * http://localhost/zixuehu/wp-content/themes/q1/assets
+ * 
  */
-const publicPath = getPublicPath('zixuehu');
+const publicPath ='';
 
 /**
  * 样式输入路径
@@ -78,7 +75,8 @@ const config = {
               limit: 1024*8,
               emitFile:true,
               esModule: false,
-              // publicPath,
+              useRelativePath:true,//设置为相对路径
+              publicPath:'../',
             },
           }
         ],
@@ -111,7 +109,8 @@ const config = {
         // },
         //拆分第三方库（通过npm|yarn安装的库）
         vendors: {  
-          test: /[\\/]node_modules[\\/]/,
+          test: /[\\/]node_modules[\\/](jquery|qs|axios)[\\/]/,
+          // test: /[\\/]node_modules[\\/]/,
           name: 'vendor',
           chunks: 'initial',
           priority: -10,

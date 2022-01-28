@@ -26,7 +26,7 @@
   <meta name="keywords" content="<?php 
       echo getSeoKeywords(); 
   ?>">
-  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  
   <?php wp_head(); ?>
   
 

@@ -4,6 +4,9 @@
 namespace q1\core\register;
 
 use hedao\lib\traits\TSingleton;
+use q1\core\constant\Options;
+
+use function q1\core\helper\getQ1Option;
 
 class Assets{
 
@@ -22,7 +25,8 @@ class Assets{
   }
 
   public function registerStyles(){
-    wp_enqueue_style('q1',Q1_ROOT_URL . '/assets/css/q1.css',[],Q1_VERSION,'all');
+    $this->requireLocalOrCdnFontawe();
+    wp_enqueue_style('q1',Q1_ROOT_URL . '/assets/css/q1.css',['font-awesome'],Q1_VERSION,'all');
   }
 
   public function registerScripts(){
@@ -30,6 +34,16 @@ class Assets{
     wp_enqueue_script('q1', Q1_ROOT_URL . '/assets/js/q1.js',['q1-vendor'],Q1_VERSION,true);
   }
 
+
+  public function requireLocalOrCdnFontawe(){
+    $useCdn = getQ1Option(Options::Q1_OPTION_GLOBAL_COMMON_USE_CDN_FONT_AWESOME,false);
+    if($useCdn){
+      $cdnAddress = getQ1Option(Options::Q1_OPTION_GLOBAL_COMMON_CDN_ADDRESS,'https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+      wp_enqueue_style('font-awesome',$cdnAddress,[],'','all');
+    }else{
+      wp_enqueue_style('font-awesome',Q1_ROOT_URL . '/assets/css/font-awesome.min.css',[],'4.7.0','all');
+    }
+  }
   
 
   

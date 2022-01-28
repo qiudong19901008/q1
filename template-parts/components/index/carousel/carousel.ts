@@ -10,8 +10,6 @@ const carousel = $('.carousel');
 const carouselCount = $('.indexPageContent__carouselWrap').data('carouselcount');
 const carouselInterval = $('.indexPageContent__carouselWrap').data('carouselinterval');
 
-console.log(carouselInterval);
-
 const carouselNextFunc = ()=>{
   carouselDirection = 1;
   carousel.css('justifyContent','flex-start');

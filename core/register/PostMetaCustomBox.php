@@ -8,7 +8,6 @@ use function hedao\lib\helper\{
   getPOSTValue
 };
 
-use q1\core\constant\Fields;
 
 
 /**
@@ -21,8 +20,19 @@ class PostMetaCustomBox{
 
   use TSingleton;
 
-  protected function __construct()
+  private $_descriptionFieldName;
+  private $_keywordsFieldName;
+  private $_typeArr;
+
+  /**
+   * @param array $params [descriptionFieldName:string,keywordsFieldName:string,typeArr:('post'|'page')[]]
+   */
+  protected function __construct($params)
   {
+    $this->_descriptionFieldName = $params['descriptionFieldName'];
+    $this->_keywordsFieldName = $params['keywordsFieldName'];
+    $this->_typeArr = $params['typeArr'];
+
     $this->setupHook();
   }
 
@@ -35,6 +45,28 @@ class PostMetaCustomBox{
     add_action( 'edit_post', [$this,'updateCustomPostMetaValuesToPost'],20,2);
   }
 
+ 
+
+  
+
+  /**
+   * 新增保存
+   * publish_post：参数一个（$post_ID），点击发布文章时就会被触发
+   */
+  public function addCustomPostMetaValuesToPost($postId){
+    add_post_meta($postId,$this->_keywordsFieldName,getPOSTValue($this->_keywordsFieldName,''),true);
+    add_post_meta($postId,$this->_descriptionFieldName,getPOSTValue($this->_descriptionFieldName,''),true);
+  }
+
+  /**
+   * 编辑保存
+   * edit_post：参数两个（$post_ID, $post），只要编辑已经存在的文章就会被触发
+   */
+  public function updateCustomPostMetaValuesToPost($postId,$post){
+    update_post_meta($postId,$this->_keywordsFieldName,getPOSTValue($this->_keywordsFieldName,''));
+    update_post_meta($postId,$this->_descriptionFieldName,getPOSTValue($this->_descriptionFieldName,''));
+  }
+
   /**
    * 添加meta box list
    * 1. 关键词
@@ -45,46 +77,32 @@ class PostMetaCustomBox{
     $this->addDescriptionMetaBox();
   }
 
-  /**
-   * 新增保存
-   * publish_post：参数一个（$post_ID），点击发布文章时就会被触发
-   */
-  public function addCustomPostMetaValuesToPost($postId){
-    add_post_meta($postId,Fields::Q1_FIELD_POST_KEYWORDS,getPOSTValue(Fields::Q1_FIELD_POST_KEYWORDS,''),true);
-    add_post_meta($postId,Fields::Q1_FIELD_POST_DESCRIPTION,getPOSTValue(Fields::Q1_FIELD_POST_DESCRIPTION,''),true);
-  }
 
-  /**
-   * 编辑保存
-   * edit_post：参数两个（$post_ID, $post），只要编辑已经存在的文章就会被触发
-   */
-  public function updateCustomPostMetaValuesToPost($postId,$post){
-    update_post_meta($postId,Fields::Q1_FIELD_POST_KEYWORDS,getPOSTValue(Fields::Q1_FIELD_POST_KEYWORDS,''));
-    update_post_meta($postId,Fields::Q1_FIELD_POST_DESCRIPTION,getPOSTValue(Fields::Q1_FIELD_POST_DESCRIPTION,''));
-  }
-
+  // --------------------------------------------keywords-----------------
 
   public function addKeywordMetaBox(){
-    $types = ['post'];
-    foreach($types as $type){
+    // $types = ['post'];
+    foreach($this->_typeArr as $type){
       add_meta_box(
-        Fields::Q1_FIELD_POST_KEYWORDS, //Meta Box在前台页面中的id，可通过JS获取到该Meta Box  
+        $this->_keywordsFieldName, //Meta Box在前台页面中的id，可通过JS获取到该Meta Box  
         'seo关键词', //显示的标题 
         [$this,'printKeywordMetaBoxHtml'], //调方法，用于输出Meta Box的HTML代码   
         $type, // 在哪种类型的页面中添加   
         // 'side', // 在哪显示 side|advanced
         // 'default' // 优先级 
       );
+      // var_dump($this->_keywordsFieldName);
+      // die;
     }
   }
 
   public function printKeywordMetaBoxHtml(){
     global $post;
-    $value = get_post_meta( $post->ID, Fields::Q1_FIELD_POST_KEYWORDS, true );
+    $value = get_post_meta( $post->ID, $this->_keywordsFieldName, true );
     ?> 
       <input 
         type="text" 
-        name="<?php echo Fields::Q1_FIELD_POST_KEYWORDS; ?>" 
+        name="<?php echo $this->_keywordsFieldName; ?>" 
         value="<?php echo $value ?>"
         style="width:100%;"
       />
@@ -94,10 +112,10 @@ class PostMetaCustomBox{
 
   // --------------------------------------------description-----------------
   public function addDescriptionMetaBox(){
-    $types = ['post'];
-    foreach($types as $type){
+    // $types = ['post'];
+    foreach($this->_typeArr as $type){
       add_meta_box(
-        Fields::Q1_FIELD_POST_DESCRIPTION, //Meta Box在前台页面中的id，可通过JS获取到该Meta Box  
+        $this->_descriptionFieldName, //Meta Box在前台页面中的id，可通过JS获取到该Meta Box  
         'seo描述', //显示的标题 
         [$this,'printDescriptionMetaBoxHtml'], //调方法，用于输出Meta Box的HTML代码   
         $type, // 在哪种类型的页面中添加   
@@ -109,12 +127,12 @@ class PostMetaCustomBox{
 
   public function printDescriptionMetaBoxHtml(){
     global $post;
-    $value = get_post_meta( $post->ID, Fields::Q1_FIELD_POST_DESCRIPTION, true );
+    $value = get_post_meta( $post->ID, $this->_descriptionFieldName, true );
     ?> 
       <textarea 
         type="text"
         style="width:100%;"
-        name="<?php echo Fields::Q1_FIELD_POST_DESCRIPTION; ?>"
+        name="<?php echo $this->_descriptionFieldName; ?>"
         value="<?php 
         ?>"
         rows=8  
@@ -122,3 +140,32 @@ class PostMetaCustomBox{
     <?php
   }
 }
+
+
+
+
+ // private function _registePublishAction(){
+  //   foreach($this->_typeArr as $type){
+  //     switch($type){
+  //       case 'page':
+  //         add_action( 'publish_page', [$this,'addCustomPostMetaValuesToPost'],20,1);
+  //         break;
+  //       case 'post':
+  //         default:
+  //         add_action( 'publish_post', [$this,'addCustomPostMetaValuesToPost'],20,1);
+  //     }
+  //   }
+  // }
+
+  // private function _registeEditAction(){
+  //   foreach($this->_typeArr as $type){
+  //     switch($type){
+  //       case 'page':
+  //         add_action( 'edit_page', [$this,'addCustomPostMetaValuesToPost'],20,2);
+  //         break;
+  //       case 'post':
+  //         default:
+  //         add_action( 'edit_post', [$this,'addCustomPostMetaValuesToPost'],20,2);
+  //     }
+  //   }
+  // }

@@ -7,13 +7,13 @@ const {
 } = require('./config');
 const webpack = require('webpack');
 
-// http://localhost/zixuehu/wp-content/themes/hedao/q1/assets
-const publicPath = getPublicPath();
+
 
 /**
  * 样式输入路径
  */
  const outputPath = path.resolve(process.cwd(), 'assets'); 
+ const publicPath = 'https://hedaoshe.com/wp-content/themes/q1/assets';
 
 const config = {
 
@@ -63,17 +63,18 @@ const config = {
         ]
       },
        //url-loader打包图片字体
-      {
+       {
         test: /\.(jpg|png|gif|woff|svg|eot|ttf)\??.*$/,       
         use: [
           {
             loader:"url-loader",
             options:{
-              name:'resource/[name].[ext]',
-              limit: 40960,
+              name:`resource/[name].[ext]`,
+              limit: 1024*8,
               emitFile:true,
               esModule: false,
-              // publicPath, 不能加, 否则变绝对路径反而错误
+              useRelativePath:true,//设置为相对路径
+              publicPath:'../',
             },
           }
         ],

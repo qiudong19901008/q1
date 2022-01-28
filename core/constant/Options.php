@@ -16,6 +16,16 @@ class Options{
    */
   public const Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL = '_q1_option_global_common_defaultThumbnail';
 
+  /**
+   * Q1主题-选项-全局-通用-使用fontAwesome的cdn
+   */
+  public const Q1_OPTION_GLOBAL_COMMON_USE_CDN_FONT_AWESOME = '_q1_option_global_common_useCdnFontAwesome';
+
+  /**
+   * Q1主题-选项-全局-通用-fontAwesome的cdn地址
+   */
+  public const Q1_OPTION_GLOBAL_COMMON_CDN_ADDRESS = '_q1_option_global_common_cdnAddress';
+
   
   ////////////////////////全局-页头/////////////////////////
 

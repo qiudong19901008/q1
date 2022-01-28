@@ -18,8 +18,12 @@ class Q1Theme{
   protected function __construct(){
 
     Assets::getInstance();
-    //文章元数据自定义盒子
-    PostMetaCustomBox::getInstance();
+    //文章元数据自定义盒子[descriptionFieldName,keywordsFieldName,typeArr=('post'|'page')[]]
+    PostMetaCustomBox::getInstance([
+      'descriptionFieldName'=>Fields::Q1_FIELD_POST_DESCRIPTION,
+      'keywordsFieldName'=>Fields::Q1_FIELD_POST_KEYWORDS,
+      'typeArr'=>['post'],
+    ]); 
     Widget::getInstance();
     Menu::getInstance();
     Ajax::getInstance();

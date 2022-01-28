@@ -73,14 +73,14 @@ CSF::createSection( $prefix, array(
       ],
       'default' => [
         [
-          Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => Q1_DIR_PATH . '/q1/assets/image/0018.jpeg',
+          Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => Q1_ROOT_URL . '/q1/assets/image/0018.jpeg',
           Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_LINK => 'https://hedaoshe.com',
         ],
         [
-          Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => Q1_DIR_PATH  . '/q1/assets/image/0019.jpeg',
+          Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => Q1_ROOT_URL  . '/q1/assets/image/0019.jpeg',
           Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_LINK => 'https://hedaoshe.com',
         ],[
-          Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => Q1_DIR_PATH  . '/q1/assets/image/0020.jpeg',
+          Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => Q1_ROOT_URL  . '/q1/assets/image/0020.jpeg',
           Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_LINK => 'https://hedaoshe.com',
         ]
       ]
