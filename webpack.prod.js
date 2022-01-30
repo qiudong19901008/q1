@@ -13,7 +13,7 @@ const webpack = require('webpack');
  * 样式输入路径
  */
  const outputPath = path.resolve(process.cwd(), 'assets'); 
- const publicPath = 'https://hedaoshe.com/wp-content/themes/q1/assets';
+ const publicPath = '';
 
 const config = {
 
