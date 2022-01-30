@@ -70,7 +70,7 @@ class Deployer{
   _deleteOldDir(){
     const fnList = fs.readdirSync(this._oldDirPath);
     for(let fn of fnList){
-      rm('-r',[`${this._sourceDirPath}/${fn}`]);
+      rm('-r',[`${this._oldDirPath}/${fn}`]);
     }
     console.log('2-老文件夹删除完毕');
   }
