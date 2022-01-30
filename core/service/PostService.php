@@ -14,7 +14,8 @@ use q1\core\constant\{
 };
 
 use function q1\core\helper\{
-  getQ1DefaultThumbUrl,
+    getPostStatusList,
+    getQ1DefaultThumbUrl,
   getQ1Option,
 };
 
@@ -59,6 +60,7 @@ class PostService{
         'postIdListNotIn'=>[$postId]
       ],
       null,
+      getPostStatusList(),
       'rand',
       'DESC',
       1,
@@ -95,6 +97,7 @@ class PostService{
         [],
         [],
         null,
+        getPostStatusList(),
         $orderBy,
         'DESC',
         1,
@@ -213,6 +216,7 @@ class PostService{
       ],
       [],
       null,
+      getPostStatusList(),
       'create_time',
       'DESC',
       1,

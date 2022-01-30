@@ -11,7 +11,7 @@ trait TSingleton{
 
   }
 
-  /**
+   /**
    * @param array $params 参数
    */
   final public static function getInstance($params=[]){

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "git": "ts-node script/pushToGit.ts",
+    "predeploy":"npm run prod",
+    "deploy": "node script/deploy.js",
+    "git": "node script/pushToGit.js",
     "dev": "webpack --config webpack.dev.js --watch",
     "prod": "webpack --config webpack.prod.js"
   },

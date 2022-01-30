@@ -12,6 +12,7 @@ use function hedao\lib\helper\{
   failed,
   isNotEmptyParamInGet,
 };
+use function q1\core\helper\getPostStatusList;
 
 use q1\core\constant\Actions;
 use q1\core\constant\Fields;
@@ -117,6 +118,12 @@ public function getPostListRouter(){
     $tagConditionList['tagSlugListIn'] = [$_GET["tagSlug"]];
   }
 
+  if(is_user_logged_in()){
+    $postStatusList = ['private','publish'];
+  }else{
+    $postStatusList = ['publish'];
+  }
+
   // // print_r('<pre>');
   // // var_dump($categoryConditionList);
   // json(isset($_Get['categorySlug']));
@@ -130,6 +137,7 @@ public function getPostListRouter(){
     [],
     [],
     $_GET["s"],
+    getPostStatusList(),
     $orderBy,
     'DESC',
     $page,

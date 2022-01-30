@@ -173,3 +173,12 @@ function getPageType(){
     }
     return false;
   }
+
+  function getPostStatusList(){
+    if(is_user_logged_in()){
+      $postStatusList = ['private','publish'];
+    }else{
+      $postStatusList = ['publish'];
+    }
+    return $postStatusList;
+  }

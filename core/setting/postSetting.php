@@ -61,24 +61,5 @@ CSF::createSection( $prefix, array(
   ]
 ) );
 
-// //是否启用Cdn的font-awesome
-// array(
-//   'id'=>Options::Q1_OPTION_GLOBAL_COMMON_USE_CDN_FONT_AWESOME,
-//   'type'  => 'switcher',
-//   'title' => '开启font-awesome的CDN',
-//   'desc'  => '默认使用本地的font-awesome',
-//   'default' => false,
-// ),
-// //font-awesome的cdn地址
-// array(
-//   'id'          => Options::Q1_OPTION_GLOBAL_COMMON_CDN_ADDRESS, 
-//   'type'        => 'text',
-//   'title'       => 'font-awesome的CDN地址',
-//   'default'     => 'https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css',
-//   'dependency'  => [Options::Q1_OPTION_GLOBAL_COMMON_USE_CDN_FONT_AWESOME, '==', true],
-//   'attributes' => array(
-//     'style'    => 'width: 100%;'
-//   ),
-// )
 
 

@@ -35,6 +35,9 @@ class Autoload{
 			case 'traits':
 				$res = self::_getTraitsDirFilePath($classname);
 				break;
+			case 'register':
+				$res = self::_getRegisterDirFilePath($classname);
+				break;
 		}
 		return $res;
 	}
@@ -47,6 +50,10 @@ class Autoload{
 	private static function _getTraitsDirFilePath($classname){
 		// hedao\lib\traits\classname.php
 		return sprintf( __DIR__ . '/lib/traits/%s.php',$classname );
+	}
+
+	private static function _getRegisterDirFilePath($classname){
+		return sprintf( __DIR__ . '/lib/register/%s.php',$classname );
 	}
 
 	private static function _getDaoPath($classname){		
