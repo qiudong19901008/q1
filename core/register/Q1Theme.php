@@ -3,10 +3,14 @@
 
 namespace q1\core\register;
 
+use hedao\lib\register\CustomCodeSupport;
+use hedao\lib\register\ViewCountSupport;
 use hedao\lib\traits\TSingleton;
 
 use q1\core\constant\Fields;
+use q1\core\constant\Options;
 
+use function q1\core\helper\getQ1Option;
 
 require_once Q1_DIR_PATH . '/core/helper/helper.php';
 require_once Q1_DIR_PATH . '/config/config.php';
@@ -17,13 +21,30 @@ class Q1Theme{
 
   protected function __construct(){
 
-    Assets::getInstance();
+    $this->_loadBackendFramework();
+
+    
+
     //文章元数据自定义盒子[descriptionFieldName,keywordsFieldName,typeArr=('post'|'page')[]]
     PostMetaCustomBox::getInstance([
       'descriptionFieldName'=>Fields::Q1_FIELD_POST_DESCRIPTION,
       'keywordsFieldName'=>Fields::Q1_FIELD_POST_KEYWORDS,
       'typeArr'=>['post'],
     ]); 
+
+    //浏览量支持 [viewCountFieldName:string,postTypeArr:('post'|'page')[]]
+    ViewCountSupport::getInstance([
+      'viewCountFieldName' => Fields::Q1_FIELD_POST_VIEW_COUNT,
+    ]);
+
+    //自定义代码支持 [headerCustomCode:string,footerCustomCode:string]
+    CustomCodeSupport::getInstance(([
+      'headerCustomCode' => getQ1Option(Options::Q1_OPTION_GLOBAL_HEADER_CUSTOM_CODE),
+      'footerCustomCode' => getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE),
+    ]));
+
+
+    Assets::getInstance();
     Widget::getInstance();
     Menu::getInstance();
     Ajax::getInstance();
@@ -49,13 +70,10 @@ class Q1Theme{
 
     // 修改excerpt结尾
     add_filter('excerpt_more', [$this,'modifyExcerptEnding']);
-    
-    // 更新文章浏览量
-    add_action('wp_head', [$this,'updatePostViewCount']);
 
     // 加载后台框架
     // require_once Q1_DIR_PATH .'/inc/codestar-framework/codestar-framework.php';
-    $this->_loadBackendFramework();
+    
 
   }
 
@@ -63,21 +81,6 @@ class Q1Theme{
   public function modifyExcerptEnding($more) {
     return '...';
   }
-
-  //更新文章浏览量
-  public function updatePostViewCount(){
-    if (!is_singular()){
-      return;
-    }
-    global $post;
-    $postId = $post->ID;
-    if(!$postId){
-      return;
-    }
-    $oldView = (int)get_post_meta($postId,Fields::Q1_FIELD_POST_VIEW_COUNT,true);
-    update_post_meta($postId, Fields::Q1_FIELD_POST_VIEW_COUNT, ($oldView+1));
-  }
-
   public function _loadBackendFramework(){
     require_once Q1_DIR_PATH .'/inc/codestar-framework/codestar-framework.php';
     require_once Q1_DIR_PATH .'/core/setting/setting.php';

@@ -16,7 +16,6 @@
  
 
   <?php wp_footer();?>
-  <?php echo getFooterCustomCode(); ?>
     
   </body>
 </html>
