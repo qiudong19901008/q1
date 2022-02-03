@@ -56,7 +56,7 @@ const config = {
           {
             loader:'css-loader',
             options:{
-              esModule: false, //这个搞死人
+              esModule: false, //这个小心, es 和 commonjs的引入导出不同, 不能混用
             }
           },
         ],
@@ -92,6 +92,10 @@ const config = {
       'jquery': path.join(process.cwd(), '/node_modules/jquery/dist/jquery.min.js')
     }
   },
+   //表示jquery不需要打包
+  // externals: {
+  //   jquery: 'font-awesome',
+  // },
   
 
   optimization:{
@@ -109,8 +113,8 @@ const config = {
         // },
         //拆分第三方库（通过npm|yarn安装的库）
         vendors: {  
-          test: /[\\/]node_modules[\\/](jquery|qs|axios)[\\/]/,
-          // test: /[\\/]node_modules[\\/]/,
+          // test: /[\\/]node_modules[\\/](jquery|qs|axios|lodash|@popperjs\/core)[\\/]/,
+          test: /[\\/]node_modules[\\/]/,
           name: 'vendor',
           chunks: 'initial',
           priority: -10,

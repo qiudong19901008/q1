@@ -1,21 +1,15 @@
 
-## 进入到主体目录
-```
-cd /e/BETASITE/zixuehu/wp-content/themes/q1
-```
-
-q1_api
-
-q1_field
-
-q1_cookie
 
 
-## 要点
+
+## 知识点
 
 1. get_template_directory_uri 和 get_template_directory 的区别.
 解答: get_template_directory_uri是网络请求的主题路径, 例如 http://localhost/zixuehu/wp-content/themes/hedao
 而get_template_directory是本地的主题真实路径 例如 E:\BETASITE\zixuehu\wp-content\themes
+
+2. 当`$res=null`时, 使用isset($res)是什么结果.
+解答: 结果是`false`.
 
 
 ## 异常
@@ -30,7 +24,3 @@ q1_cookie
 3. git bash找不到composer命令
 原因：git bash必须识别全名称，也就是composer.bat无效
 解决：新建composer文件，把执行composer.bat的脚本写进去
-
-## 知识点
-
-1. 如果`$res=null`, 当使用isset($res)时, 结果是false

@@ -26,12 +26,18 @@ class Assets{
 
   public function registerStyles(){
     $this->requireLocalOrCdnFontawe();
-    wp_enqueue_style('q1',Q1_ROOT_URL . '/assets/css/q1.css',['font-awesome'],Q1_VERSION,'all');
+    $cssUrlPath = Q1_ROOT_URL . '/assets/css/q1.css';
+    $cssLocalPath = Q1_DIR_PATH . '/assets/css/q1.css';
+    $versionWithTime = Q1_VERSION . '_' . filemtime($cssLocalPath);
+    wp_enqueue_style('q1',$cssUrlPath,['font-awesome'],$versionWithTime,'all');
   }
 
   public function registerScripts(){
     wp_enqueue_script('q1-vendor', Q1_ROOT_URL . '/assets/js/vendor.js',[],Q1_VERSION,true);
-    wp_enqueue_script('q1', Q1_ROOT_URL . '/assets/js/q1.js',['q1-vendor'],Q1_VERSION,true);
+    $jsUrlPath = Q1_ROOT_URL . '/assets/js/q1.js';
+    $jsLocalPath = Q1_DIR_PATH . '/assets/js/q1.js';
+    $versionWithTime = Q1_VERSION . '_' .filemtime($jsLocalPath);
+    wp_enqueue_script('q1', $jsUrlPath,['q1-vendor'],$versionWithTime,true);
   }
 
 
