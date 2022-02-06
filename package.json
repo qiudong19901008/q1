@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "predeploy":"npm run prod",
+    "predeploy": "npm run prod",
     "deploy": "node script/deploy.js",
     "git": "node script/pushToGit.js",
     "dev": "webpack --config webpack.dev.js --watch",
@@ -20,7 +20,8 @@
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
     "qs": "^6.10.2",
-    "shelljs": "^0.8.4"
+    "shelljs": "^0.8.4",
+    "swiper": "^8.0.3"
   },
   "devDependencies": {
     "@types/css-minimizer-webpack-plugin": "^3.0.2",

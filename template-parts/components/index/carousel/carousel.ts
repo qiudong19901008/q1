@@ -16,16 +16,23 @@ const carouselNextFunc = ()=>{
   carouselSlider.css('transform',`translate(-${100/carouselCount}%)`);
 }
 
-let carouselDirection = 1; //1表示next方向, -1表示prev方向
-
-let timer = setInterval(carouselNextFunc,carouselInterval*1000);
-
-carouselPrev.on('click',()=>{
+const carouselPrevFunc = ()=>{
   carouselDirection = -1;
   carousel.css('justifyContent','flex-end');
   carouselSlider.css('transform',`translate(${100/carouselCount}%)`);
-})
+}
 
+const setTimer = () =>{
+  return setInterval(carouselNextFunc,carouselInterval*1000);
+}
+
+let carouselDirection = 1; //1表示next方向, -1表示prev方向
+
+let timer = setTimer();
+
+//左边箭头点击事件
+carouselPrev.on('click',carouselPrevFunc);
+//右边箭头点击事件
 carouselNext.on('click',carouselNextFunc);
 
 carouselSlider.on('transitionend',()=>{
@@ -44,12 +51,12 @@ carouselSlider.on('transitionend',()=>{
 
 carousel.on('mouseover',()=>{
   clearInterval(timer);
-  // console.log('aaa')
+  console.log('aaa')
 })
 
 carousel.on('mouseout',()=>{
-  timer = setInterval(carouselNextFunc,carouselInterval*1000);
-  // console.log('bbb')
+  timer = setTimer();
+  console.log('bbb')
 })
 
 

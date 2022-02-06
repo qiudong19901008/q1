@@ -1,4 +1,7 @@
 import * as $ from 'jquery';
+
+// import 'swiper/css/bundle';
+
 import './q1.css';
 
 import '../template-parts/components/index/carousel/carousel';
