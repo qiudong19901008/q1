@@ -34,7 +34,8 @@
     /* align-items: ; */
 }
 
-.themeIntro__headerLeft,.themeIntro__headerRight{
+.themeIntro__headerLeft,
+.themeIntro__headerRight{
   flex-basis: 50%;
 }
 
@@ -162,3 +163,45 @@
   color:#666;
 }
 
+/* 小于1000 */
+@media screen and (max-width:1000px) {
+
+
+  .themeIntro__interaction{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+  }
+
+  .themeIntro__headerLeft{
+    flex-basis:100%;
+  }
+
+  .themeIntro__headerRight{
+    flex-basis:0;
+  }
+
+  .themeIntro__abilityOne{
+    flex-direction: column;
+  }
+
+  .themeIntro__abilityOne > div{
+    width: 100%;
+  }
+
+  .themeIntro__abilityOneImgContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .themeIntro__abilityOneText{
+    order:20;
+  }
+
+  .themeIntro__abilityOneImgContainer--reverse{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
