@@ -19,6 +19,17 @@ function getQ1DefaultThumbUrl(){
   return Q1_ROOT_URL . '/assets/image/thumb.jpg';
 }
 
+
+	/**
+ * @description 获取q1的配置项
+ * @param string $optionName 选项名称
+ * @param string $default 
+ */
+	function getQ1Option($optionName,$default=''){
+		$options = get_option( Options::Q1_OPTION_PREFIX );
+		return empty($options[$optionName]) ? $default:$options[$optionName]; 
+	}
+
 /**
  * 获取网站title
  */

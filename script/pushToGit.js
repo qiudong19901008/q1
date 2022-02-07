@@ -1,10 +1,10 @@
-const Deployer = require('./Deployer');
-const config = require('./config');
+const Deployer = require('./service/Deployer');
+const {deployConfig} = require('./config/config');
 
 
 new Deployer(
-  config.sourceDirPath,
-  config.ignoreFnList,
-  config.siteRootDir,
-  config.oldDirPath,
+  deployConfig.sourceDirPath,
+  deployConfig.ignoreFnList,
+  deployConfig.siteRootDir,
+  deployConfig.oldDirPath,
 ).pushToGit();

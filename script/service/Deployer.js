@@ -1,6 +1,6 @@
 const {
   getLocalDateStr
-} = require('./helper');
+} = require('../lib/helper');
 const {exec,cp,rm,cd} = require('shelljs');
 const fs = require('fs');
 
