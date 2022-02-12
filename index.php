@@ -1,32 +1,26 @@
 <?php 
-      
-      get_header();
-
+  get_header();
 ?>
 
 
-    
-    <div class="indexPageWrap">
+  <div class="index">
 
-      <div class="indexPage">
-        <!-- 首页内容 -->
-        <div class="indexPage__contentWrap">
-          <?php 
-            get_template_part('template-parts/components/index/indexPageContent/indexPageContent');
-          ?>
-        </div>
-        <!-- 侧边栏 -->
-        <div class="indexPage__sidebar">
-          <?php 
-            get_sidebar();
-          ?>
-        </div>
+
+    <section class="index__main">
+      <div class="index__postList">
+        <?php get_template_part('template-parts/components/common/postList/postList');  ?>
       </div>
+    </section>
 
-    </div>
+    <section class="index__sidebar">
+      <?php  get_sidebar();?>
+    </section>
 
-    
-    <?php 
-      get_footer();
-    ?>
- 
+  </div>
+
+
+
+
+<?php 
+  get_footer();
+?>

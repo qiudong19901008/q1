@@ -4,7 +4,7 @@
   data-slug="<?php 
     $term = get_queried_object();
     echo $term->slug;
-  ?>"  
+  ?>"
 >
   <!-- 页面提示 -->
   <div class="categoryPageContent__pageTitleCardWrap">
@@ -14,7 +14,6 @@
   <div class="categoryPageContent__postListWrap">
     <?php get_template_part('template-parts/components/common/postList/postList'); ?>
   </div>
-
   <!-- 分页 -->
   <div class="categoryPageContent__paginationWrap paginationWrap">
     <?php get_template_part('template-parts/components/common/pagination/pagination'); ?>

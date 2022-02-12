@@ -24,7 +24,7 @@ use function q1\core\helper\{
   <title
     id="title"
   ><?php 
-    echo getSeoTitle();
+      echo getSeoTitle();
   ?></title>
   <meta name="description" content="<?php 
       echo getSeoDescription(getSiteDescription()); 

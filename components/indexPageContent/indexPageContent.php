@@ -16,32 +16,21 @@
   <?php if($count !== 0): ?>
 
   <!-- 轮播图 -->
-  <div class="indexPageContent__carouselWrap" 
-    data-carouselcount="<?php echo $count; ?>"
-    data-carouselinterval="<?php echo $interval; ?>"
-  >
-    <?php 
-      get_template_part('template-parts/components/index/carousel/carousel',null,[
-      'carouselItemList'=>$carouselItemList,
-      'carouselHeight' => $carouselHeight,
-      ]); 
-    ?>
-  </div>
+    <div class="indexPageContent__carouselWrap" 
+      data-carouselcount="<?php echo $count; ?>"
+      data-carouselinterval="<?php echo $interval; ?>"
+    >
+      <?php 
+        get_template_part('template-parts/components/index/carousel/carousel',null,[
+        'carouselItemList'=>$carouselItemList,
+        'carouselHeight' => $carouselHeight,
+        ]); 
+      ?>
+    </div>
 
   <?php endif; ?>
 
 
-  <!-- 置顶文章 -->
-  <!-- <div class="indexPageContent__topPost">
-    <div class="indexPageContent__topPostTitle">
-      置顶
-    </div>
-    <div class="indexPageContent__topPostWrap"> -->
-      <?php 
-        // get_template_part('q1/component/common/postCard/postCard') 
-      ?>
-    <!-- </div>
-  </div> -->
   <!-- 文章列表 -->
   <div class="indexPageContent__postList">
     <div class="indexPageContent__postListTitle">

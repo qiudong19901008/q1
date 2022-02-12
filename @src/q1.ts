@@ -4,10 +4,10 @@ import * as $ from 'jquery';
 
 import './q1.css';
 
-import '../template-parts/components/index/carousel/carousel';
-import '../template-parts/components/common/menu/menu';
-import '../template-parts/components/common/mobileMenu/mobileMenu';
-import '../template-parts/components/common/siteHeader/siteHeader';
+import '../components/carousel/carousel';
+import '../components/common/menu/menu';
+import '../components/common/mobileMenu/mobileMenu';
+import '../components/siteHeader/siteHeader';
 
 import IndexView from './view/index/index';
 import CategoryView from './view/category/category';

@@ -11,8 +11,7 @@
 >
   <div class="postList__CardWrap">
     <?php 
-      // get_template_part('q1/component/common/postCard/postCard');
-      // get_template_part('q1/component/common/postCardTwo/postCardTwo');
+      get_template_part('q1/component/common/postCard/postCard');
     ?>
   </div>
 </div>

@@ -22,11 +22,6 @@ function loadTheme() {
 
 loadTheme();
 
-// add_action('wp_footer', 'copyright');
-// function copyright(){
-
-// echo "";
-// }
 
 
 

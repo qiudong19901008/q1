@@ -1,4 +1,4 @@
-.postCardTwo{
+.postCard{
   border: 1px solid #eaeaea;
   padding:2rem;
   overflow: hidden;
@@ -9,34 +9,34 @@
   display: flex;
 }
 
-.postCardTwo:hover{
+.postCard:hover{
   background-color: rgb(251, 251, 251)  ;
 }
 
-.postCardTwo__left{
+.postCard__left{
   margin-right:2rem;
   width:200px;
   height:150px;
   flex-shrink: 0;
 }
 
-.postCardTwo__thumb{
+.postCard__thumb{
   display: block;
   width: 100%;
   height:100%;
 }
 
-.postCardTwo__thumbImg{
+.postCard__thumbImg{
   border-radius: 4px;
   width:100%;
   height:100%;
   transition: .2s ease-out;
 }
-.postCardTwo__thumbImg:hover{
+.postCard__thumbImg:hover{
   transform: scale(1.01);
 }
 
-.postCardTwo__right{
+.postCard__right{
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -46,24 +46,24 @@
 
 
 
-.postCardTwo__rightHeader{
+.postCard__rightHeader{
   /* margin:0 0 1rem; */
   display: flex;
   flex-direction: column;
 }
 
-.postCardTwo__categoryList{
+.postCard__categoryList{
   display: flex;
   margin-bottom: 1rem;
 }
 
-.postCardTwo__category{
+.postCard__category{
   margin-right: 8px;
   display: flex;
   align-items: center;
 }
 
-.postCardTwo__categoryDot{
+.postCard__categoryDot{
   display: inline-block;
   border-radius: 50%;
   height: 6px;
@@ -72,42 +72,42 @@
   background-color: #45BCF9;
 }
 
-.postCardTwo__title{
+.postCard__title{
   display: inline;
   font-size: 1.8rem;
   line-height: 1.4;
   margin-top: 0;
   font-weight: bold;
 }
-.postCardTwo__titleLink{
+.postCard__titleLink{
   /* word-wrap:break-word; 
   word-break:normal; */
   word-break:break-all;
 }
 
-.postCardTwo__meta{
+.postCard__meta{
   display: flex;
   justify-content: space-between;
 }
 
-.postCardTwo__meta > *{
+.postCard__meta > *{
   margin-right:1rem;
 }
 
-.postCardTwo__metaLeft > * {
+.postCard__metaLeft > * {
   margin-right:1rem;
 }
 
-.postCardTwo__metaRight{
+.postCard__metaRight{
   margin-right:0;
 }
 
-.postCardTwo__metaRight > *{
+.postCard__metaRight > *{
   margin-left:1rem;
 }
 
 
-.postCardTwo__excerpt{
+.postCard__excerpt{
   word-wrap: break-word;
   line-height: 2rem;
   margin-bottom: 4rem;
@@ -118,23 +118,23 @@
 
 @media screen and (max-width:1000px) {
     
-  .postCardTwo__left{
+  .postCard__left{
     margin-right:1rem;
     width:120px;
     height:80px;
   }
-  .postCardTwo__excerpt{
+  .postCard__excerpt{
     display: none;
   }
-  .postCardTwo__author,
-  .postCardTwo__comment,
-  .postCardTwo__like{
+  .postCard__author,
+  .postCard__comment,
+  .postCard__like{
     display: none;
   }
-  .postCardTwo__categoryList{
+  .postCard__categoryList{
     display: none;
   }
-  .postCardTwo__title{
+  .postCard__title{
     font-size: 1.5rem;
   }
 }

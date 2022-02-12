@@ -4,12 +4,12 @@
   margin-bottom: 2rem;
 }
 
-.indexPageContent__topPost{
+/* .indexPageContent__topPost{
   margin-bottom: 2rem;
-}
+} */
 
 
-.indexPageContent__topPostTitle,
+/* .indexPageContent__topPostTitle, */
 .indexPageContent__postListTitle{
   font-size: 2rem;
   font-weight: 600;
@@ -19,7 +19,7 @@
   border: 1px solid #eaeaea;
 }
 
-.indexPageContent__topPostWrap,
+/* .indexPageContent__topPostWrap, */
 .indexPageContent__postListWrap{
   margin-top:-1px;
 }

@@ -20,8 +20,4 @@ class IndexView extends BasePostListPageView{
 
 export default IndexView;
 
-// const indexView = new IndexView();
 
-// $(function(){
-//   indexView.initral();
-// })

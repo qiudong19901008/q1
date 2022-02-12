@@ -51,14 +51,6 @@
         
           <?php echo $menu['item'] ?>
           <span class="siteFooter__cutOff">|</span>
-        <!-- <a href="#">关于我们</a>
-        <span class="siteFooter__cutOff">|</span>
-        <a href="#">联系我们</a>
-        <span class="siteFooter__cutOff">|</span>
-        <a href="#">隐私策略</a>
-        <span class="siteFooter__cutOff">|</span>
-        <a href="#">网站地图</a> -->
-
       <?php endforeach;?>
 
 

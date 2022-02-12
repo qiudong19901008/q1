@@ -118,11 +118,6 @@ public function getPostListRouter(){
     $tagConditionList['tagSlugListIn'] = [$_GET["tagSlug"]];
   }
 
-  if(is_user_logged_in()){
-    $postStatusList = ['private','publish'];
-  }else{
-    $postStatusList = ['publish'];
-  }
 
   $res = PostDao::queryPostList(
     $categoryConditionList,
