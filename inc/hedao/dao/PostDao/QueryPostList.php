@@ -12,8 +12,6 @@ class QueryPostList{
    * @param array $tagConditionList [tagIdListIn:int[], tagIdListAnd:int[], tagIdListNotIn:int[], tagSlugListIn:string[], tagSlugListAnd:string[]]
    * @param array $authorConditionList [authorIdListIn:int[], authorIdListNotIn:int[], authorNickname:string]
    * @param array $postConditionList [postType:'page'|'post' ,postIdListIn:int[], postIdListNotIn:int[]]
-   * @param string $s 查询字符串
-   * @param array $postStatusList ['publish'|'private'|'pending'|'draft'...] 
    * @param string $orderBy 'create_time'|'update_time'|'comment_count'|'rand'|$meta_key
    * @param string $order 'DESC'|'ASC'
    * @param int $page 
@@ -27,7 +25,6 @@ class QueryPostList{
     $authorConditionList,
     $postConditionList,
     $s,
-    $postStatusList,
     $orderBy,
     $order,
     $page,
@@ -42,7 +39,6 @@ class QueryPostList{
       $authorConditionList,
       $postConditionList,
       $s,
-      $postStatusList,
       $orderBy,
       $order,
       $page,

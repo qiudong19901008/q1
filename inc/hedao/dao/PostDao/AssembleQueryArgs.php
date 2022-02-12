@@ -3,8 +3,8 @@
 namespace hedao\dao;
 
 use function hedao\lib\helper\{
-    isNotEmptyArr,
-    isNotEmptyStr,
+  isNotEmptyArr,
+  isNotEmptyStr,
 };
 
 class AssembleQueryArgs{
@@ -16,7 +16,6 @@ class AssembleQueryArgs{
     $authorConditionList,
     $postConditionList,
     $s,
-    $postStatusList,
     $orderBy,
     $order,
     $page,
@@ -24,7 +23,7 @@ class AssembleQueryArgs{
   ){
     $args = [
       // 'post_type'=>'post',
-      // 'post_status'=>'publish',
+      'post_status'=>'publish',
       'order'=>$order,
       'offset'=>AssembleQueryArgs::_getoffset($page,$size),
       'posts_per_page'=>$size,
@@ -34,7 +33,6 @@ class AssembleQueryArgs{
     $args = AssembleQueryArgs::_assembleAuthorArgs($authorConditionList,$args);
     $args = AssembleQueryArgs::_assemblePostArgs($postConditionList,$args);
     $args = AssembleQueryArgs::_assembleSearchArg($s,$args);
-    $args = AssembleQueryArgs::_assemblePostStatusArg($postStatusList,$args);
     $args = AssembleQueryArgs::_assembleOrderByArg($orderBy,$args);
     return $args;
   }
@@ -177,34 +175,6 @@ class AssembleQueryArgs{
     return $args;
   }
 
-  ///////////////////////////组装postStatus条件/////////////////////////////////
-
-  /**
-   * 参数地址: https://developer.wordpress.org/reference/classes/wp_query/#status-parameters
-   * @param array $postStatusList string[]
-   * @param array $args
-   */
-  private static function _assemblePostStatusArg($postStatusList,$args){
-    //拿到合格的文章状态
-    $allPostStatusList = ['publish','pending','draft','auto-draft','future','private','inherit','trash'];
-    $finalPostStatusList = [];
-    foreach($postStatusList as $postStatus){
-      $isRight = in_array($postStatus,$allPostStatusList);
-      if($isRight){
-        array_push($finalPostStatusList,$postStatus);
-      }
-    }
-    //设置post_status
-    if(isNotEmptyArr($finalPostStatusList)){
-      $args['post_status'] = $finalPostStatusList;
-    }else{
-      $args['post_status'] = ['publish'];
-    }
-    return $args;
-  }
-
-
-  // $args = AssembleQueryArgs::_assemblePostStatusArg($postStatusList,$args);
 
   ///////////////////////////组装排序条件/////////////////////////////////
 

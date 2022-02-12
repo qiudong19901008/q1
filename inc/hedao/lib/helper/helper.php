@@ -2,11 +2,14 @@
 
 namespace hedao\lib\helper;
 
-// require_once __DIR__ . '/GetPostThumbUrl.php';
-// require_once __DIR__ . '/GetMenuData.php';
-// require_once __DIR__ . '/JwtAuth.php';
+use hedao\lib\GetMenuData;
+use hedao\lib\JwtAuth;
 
 
+include('themeHelper.php');
+include('optionHelper.php');
+include('dataHelper.php');
+include('htmlHelper.php');
 
 
 /**
@@ -97,9 +100,6 @@ function getPOSTValue($name,$default=null){
   return $val; 
 }
 
-function getPostThumbUrl($myPost,$default=''){
-  return GetPostThumbUrl::run($myPost,$default);
-}
 
 function getMenuDataByLocation($location){
   return GetMenuData::run($location);
@@ -162,7 +162,6 @@ function isNotEmptyArr(&$value){
   return isset($value) && is_array($value) && !empty($value);
 }
 
-
 function isEmptyArr(&$value){
   return !isset($value) || !is_array($value) || empty($value);
 }
@@ -175,137 +174,30 @@ function isNotEmptyParamInGet($key){
   return isset($_GET[$key]) && !empty($_GET[$key]);
 }
 
-/**
- * 获取网站title
- */
-function getSeoTitle($withSiteName=true,$echo=true){
-  $connector = ' - '; //标题连接符
-  $siteName = get_option('blogname');
-  if(is_home()){
-    $title = $siteName;
-  }else if(is_category()){
-    $title = single_cat_title('',false);
-  }else if(is_tag()){
-    $title = single_tag_title('',false);
-  }else if(is_search()){
-    global $s;
-    $title = $s;
-  }else if(is_single()){
-    $title = get_the_title();
-    // $title = $postTitle . $connector . $siteName;
-  }else if(is_page()){
-    $title = get_the_title();
-    // $title = $pageTitle . $connector . $siteName;
-  }else if(is_404()){
-    $title = '404';
-  }
-
-  if(!is_home() && $withSiteName){
-    $title = $title . $connector . $siteName;
-  }
-
-  if($echo){
-    echo $title;
-  }else{
-    return $title;
-  }
-  
-}
-
-/**
- * 获取seo描述
- */
-function getSeoDescription($homeDescription,$postDescriptionFieldName,$echo=true){
-  if(is_home()){
-    return $homeDescription;
-  }else if(is_category()){
-    $res = strip_tags(category_description());
-    if(empty($res)){
-      $res = single_cat_title('',false);
-    }
-  }else if(is_tag()){
-    $res = strip_tags(tag_description());
-    if(empty($res)){
-      $res = single_tag_title('',false);
-    }
-  }else if(is_search()){
-    global $s;
-    $res = $s;
-  }else if(is_single()){
-    $res = get_post_meta(get_the_ID(),$postDescriptionFieldName,true);
-    if(empty($res)){
-      $res = get_the_title();
-    }
-  }else if(is_page()){
-    $res = get_post_meta(get_the_ID(),$postDescriptionFieldName,true);
-    if(empty($res)){
-      $res = get_the_title();
-    }
-  }else if(is_404()){
-    $res = '404';
-  }
-  if($echo){
-    echo $res;
-  }else{
-    return $res;
-  }
-}
-
-/**
- * 获取seo关键词
- */
-function getSeoKeywords($homeKeywords,$postKeywordsFieldName,$echo=true){
-  if(is_home()){
-    return $homeKeywords;
-  }else if(is_category()){
-    $res = single_cat_title('',false);
-  }else if(is_tag()){
-    $res = single_tag_title('',false);
-  }else if(is_search()){
-    global $s;
-    $res = $s;
-  }else if(is_single()){
-    $res = get_post_meta(get_the_ID(),$postKeywordsFieldName,true);
-    if(empty($res)){
-      $res = get_the_title();
-    }
-  }else if(is_page()){
-    $res = get_post_meta(get_the_ID(),$postKeywordsFieldName,true);
-    if(empty($res)){
-      $res = get_the_title();
-    }
-  }else if(is_404()){
-    $res = '404';
-  }
-  if($echo){
-    echo $res;
-  }else{
-    return $res;
-  }
-}
-
-function getSiteName($echo=true){
-  if($echo){
-      echo get_option('blogname');
-  }else{
-      return get_option('blogname');
-  }
-}
-
-function getSiteUrl($echo=true){
-  if($echo){
-    echo home_url();
-  }else{
-    return home_url();
-  }
-}
 
 function transformSlugListToIdList($slugList=[]){
   $res = [];
+  
   foreach($slugList as $slug){
-    $id = url_to_postid($slug);
+    $url = get_home_url(null,'/') . $slug;
+    $id = url_to_postid($url);
     array_push($res,$id);
   }
+
   return $res;
 }
+
+
+
+function getArticleFirstImgUrl($content){
+  preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+  if(empty($matches[1])){
+    return '';
+  }
+  return $matches[1][0];
+}
+
+
+
+
 
