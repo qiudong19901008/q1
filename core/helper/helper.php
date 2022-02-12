@@ -2,22 +2,36 @@
 
 
 namespace q1\core\helper;
+
+use hedao\constant\Options as ConstantOptions;
 use \q1\core\constant\Options;
 use \q1\core\constant\Fields;
 
+use function hedao\lib\helper\getPostThumbUrl;
+
 use const q1\config\DEFAULT_THEME_INTRO_DATA;
 
-function getQ1DefaultThumbUrl(){
-  $data = getQ1Option(
-    Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL,
-    []
-  );
-  // var_dump($data);
-  if(!empty($data) && !empty($data['url'])){
-    return $data['url'];
+
+
+  function getQ1DefaultThumbUrl(){
+    $data = getQ1Option(
+      Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL,
+      []
+    );
+    if(!empty($data) && !empty($data['url'])){
+      return $data['url'];
+    }
+    return THEME_HTTP_PATH . '/assets/image/thumb.jpg';
   }
-  return Q1_ROOT_URL . '/assets/image/thumb.jpg';
-}
+
+  function getQ5PostThumbUrl($myPost){
+    $thumbUrl = getPostThumbUrl($myPost);
+    if($thumbUrl){
+        return $thumbUrl;
+    }
+    return getQ1DefaultThumbUrl();
+  }
+
 
 
 	/**
@@ -30,99 +44,16 @@ function getQ1DefaultThumbUrl(){
 		return empty($options[$optionName]) ? $default:$options[$optionName]; 
 	}
 
-/**
- * 获取网站title
- */
-function getSeoTitle(){
-  $connector = ' - '; //标题连接符
-  $siteName = get_option('blogname');
-  if(is_home()){
-    $title = $siteName;
-  }else if(is_category()){
-    $categoryName = single_cat_title('',false);
-    $title = $categoryName .  $connector . $siteName;
-  }else if(is_tag()){
-    $tagName = single_tag_title('',false);
-    $title = $tagName . $connector . $siteName;
-  }else if(is_search()){
-    global $s;
-    $title = $s . $connector . $siteName;
-  }else if(is_single()){
-    $postTitle = get_the_title();
-    $title = $postTitle . $connector . $siteName;
-  }else if(is_404()){
-    $title = '404';
+
+  function getSiteDescription(){
+    $res=  getQ1Option(Options::Q1_OPTION_HOME_BASIC_DESCRIPTION);
+    return $res;
   }
-  return $title;
-}
 
-/**
- * 获取seo描述
- */
-function getSeoDescription(){
-  if(is_home()){
-    $res = getQ1Option(Options::Q1_OPTION_HOME_BASIC_DESCRIPTION);
-  }else if(is_category()){
-    $res = strip_tags(category_description());
-    if(empty($res)){
-      $res = single_cat_title('',false);
-    }
-  }else if(is_tag()){
-    $res = strip_tags(tag_description());
-    if(empty($res)){
-      $res = single_tag_title('',false);
-    }
-  }else if(is_search()){
-    global $s;
-    $res = $s;
-  }else if(is_single()){
-    $res = get_post_meta(get_the_ID(),Fields::Q1_FIELD_POST_DESCRIPTION,true);
-    if(empty($res)){
-      $res = get_the_title();
-    }
-  }else if(is_404()){
-    $res = '404';
+  function getSiteKeywords(){
+    return getQ1Option(Options::Q1_OPTION_HOME_BASIC_KEYWORDS);
   }
-  return $res;
-}
 
-/**
- * 获取seo关键词
- */
-function getSeoKeywords(){
-  if(is_home()){
-    $res  = getQ1Option(Options::Q1_OPTION_HOME_BASIC_KEYWORDS);
-  }else if(is_category()){
-    $res = single_cat_title('',false);
-  }else if(is_tag()){
-    $res = single_tag_title('',false);
-  }else if(is_search()){
-    global $s;
-    $res = $s;
-  }else if(is_single()){
-    $res = get_post_meta(get_the_ID(),Fields::Q1_FIELD_POST_KEYWORDS,true);
-    if(empty($res)){
-      $res = get_the_title();
-    }
-  }else if(is_404()){
-    $res = '404';
-  }
-  return $res;
-}
-
-/**
- * 获取自定义头部代码, 该区域可以放一些脚本, 比如谷歌广告代码
- */
-function getHeaderCustomCode(){
-  return getQ1Option(Options::Q1_OPTION_GLOBAL_HEADER_CUSTOM_CODE);
-}
-
-/**
- * 获取自定义头部代码, 该区域可以放一些脚本, 比如百度统计
- */
-function getFooterCustomCode(){
-  return getQ1Option(Options::Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE);
-}
 
 /**
  * 获取页面类型
@@ -147,7 +78,7 @@ function getPageType(){
    * @description 获取文章浏览量
    */
   function getPostViewCount($post_id){
-    $count = get_post_meta( $post_id, Fields::Q1_FIELD_POST_VIEW_COUNT, true );
+    $count = get_post_meta( $post_id, \hedao\constant\MetaBoxOptions::HEDAO_COMMON_VIEW_COUNT, true );
     return !empty($count)?$count:0;
   }
 

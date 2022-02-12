@@ -145,7 +145,7 @@ public function getPostListRouter(){
     ['meta','author','category'],
     [
       Fields::Q1_FIELD_POST_LIKE_COUNT,
-      Fields::Q1_FIELD_POST_VIEW_COUNT,
+      \hedao\constant\MetaBoxOptions::HEDAO_COMMON_VIEW_COUNT,
     ]
   );
 

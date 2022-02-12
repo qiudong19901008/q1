@@ -84,7 +84,7 @@ class PostService{
           $orderBy = 'comment_count';
           break;
         case 'view':
-          $orderBy = Fields::Q1_FIELD_POST_VIEW_COUNT;
+          $orderBy =\hedao\constant\MetaBoxOptions::HEDAO_COMMON_VIEW_COUNT;
           break;
         case 'like':
           $orderBy = Fields::Q1_FIELD_POST_LIKE_COUNT;
@@ -105,7 +105,7 @@ class PostService{
         ['meta'],
         [
           Fields::Q1_FIELD_POST_LIKE_COUNT,
-          Fields::Q1_FIELD_POST_VIEW_COUNT,
+          \hedao\constant\MetaBoxOptions::HEDAO_COMMON_VIEW_COUNT,
         ]
       );
 

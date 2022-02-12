@@ -1,11 +1,17 @@
 <?php
-  use function q1\core\helper\{
-    getSeoTitle,
-    getSeoKeywords,
-    getSeoDescription,
-    getHeaderCustomCode,
+
+use function hedao\lib\helper\{
+  getSeoDescription,
+  getSeoKeywords,
+  getSeoTitle,
+};
+use function q1\core\helper\{
     getPageType,
-  };
+    getSiteDescription,
+    getSiteKeywords,
+};
+
+
  
 ?>
 <!DOCTYPE html>
@@ -21,10 +27,10 @@
     echo getSeoTitle();
   ?></title>
   <meta name="description" content="<?php 
-      echo getSeoDescription(); 
+      echo getSeoDescription(getSiteDescription()); 
   ?>">
   <meta name="keywords" content="<?php 
-      echo getSeoKeywords(); 
+      echo getSeoKeywords(getSiteKeywords()); 
   ?>">
   
   <?php wp_head(); ?>
