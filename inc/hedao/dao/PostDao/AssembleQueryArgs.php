@@ -38,9 +38,9 @@ class AssembleQueryArgs{
   }
 
   private static function _getoffset($page,$size){
-    // var_dump($page);
-    // var_dump($size);
-    // die;
+    var_dump($page);
+    var_dump($size);
+    die;
     return ($page-1)*$size; 
   }
 

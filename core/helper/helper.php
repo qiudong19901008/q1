@@ -3,7 +3,6 @@
 
 namespace q1\core\helper;
 
-use hedao\constant\Options as ConstantOptions;
 use \q1\core\constant\Options;
 use \q1\core\constant\Fields;
 

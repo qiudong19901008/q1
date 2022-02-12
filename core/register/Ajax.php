@@ -124,13 +124,6 @@ public function getPostListRouter(){
     $postStatusList = ['publish'];
   }
 
-  // // print_r('<pre>');
-  // // var_dump($categoryConditionList);
-  // json(isset($_Get['categorySlug']));
-  // // json(isNotEmptyParamInGet('categorySlug'));
-  // // isset($_Get[$key]) && !empty($_Get[$key]);
-  // die;
-
   $res = PostDao::queryPostList(
     $categoryConditionList,
     $tagConditionList,
