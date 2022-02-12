@@ -3,7 +3,7 @@
 
 namespace q1\core\register;
 
-use hedao\lib\traits\TSingleton;
+use hedao\core\TSingleton;
 use q1\core\constant\Options;
 
 use function q1\core\helper\getQ1Option;

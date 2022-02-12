@@ -3,7 +3,7 @@
 
 namespace q1\core\register;
 
-use hedao\lib\traits\TSingleton;
+use hedao\core\TSingleton;
 use hedao\dao\CommentDao;
 use hedao\dao\PostDao;
 use function hedao\lib\helper\{

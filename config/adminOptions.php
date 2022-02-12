@@ -40,14 +40,14 @@ CSF::createSection( $prefix, array(
   // 'icon' => 'fa fa-th-large',
   'desc' => '通用设置',
   'fields' => [
-    //全局缩略图
+    /////////1. 全局缩略图//////////////
     array(
       'id'=>Options::Q1_OPTION_GLOBAL_COMMON_DEFAULT_THUMBNAIL,
       'type'  => 'media',
       'title' => '默认缩略图',
       'desc' => '全站默认的缩略图, 当文章没图片时会作为默认图片显示',
     ),
-    //是否启用Cdn的font-awesome
+    /////////2. font-awesome//////////////
     array(
       'id'=>Options::Q1_OPTION_GLOBAL_COMMON_USE_CDN_FONT_AWESOME,
       'type'  => 'switcher',
@@ -55,7 +55,6 @@ CSF::createSection( $prefix, array(
       'desc'  => '默认使用本地的font-awesome',
       'default' => false,
     ),
-    //font-awesome的cdn地址
     array(
       'id'          => Options::Q1_OPTION_GLOBAL_COMMON_CDN_ADDRESS, 
       'type'        => 'text',
@@ -65,21 +64,8 @@ CSF::createSection( $prefix, array(
       'attributes' => array(
         'style'    => 'width: 100%;'
       ),
-    )
-  ]
-) );
-
-/**
- * 1-2 页头设置
- */
-CSF::createSection( $prefix, array(
-  'parent'	=> 'global_setting',
-  // 'id' => 'global_header_setting',
-  'title'  => '——页头设置',
-  // 'icon' => 'fa fa-header',
-  'desc' => '自定义头部, 可以放第三方代码, 比如广告联盟的js',
-  'fields' => [
-    //头部自定义代码
+    ),
+    /////////3. 页头页脚自定义代码//////////////
     array(
       'id'=>Options::Q1_OPTION_GLOBAL_HEADER_CUSTOM_CODE,
       'type'  => 'code_editor',
@@ -90,18 +76,34 @@ CSF::createSection( $prefix, array(
       ],
       'sanitize' => false,
     ),
+    array(
+      'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE,
+      'type'  => 'code_editor',
+      'title' => '页脚自定义代码',
+      'desc' => '可以放第三方代码, 比如百度统计等代码',
+      'settings' => [
+        'theme' => 'dracula',
+      ],
+      'sanitize' => false,
+    ),
+    /////////4. 显示速度//////////////
+    array(
+      'id' => Options::Q1_OPTION_GLOBAL_FOOTER_SHOW_SITE_SPEED,
+      'type'  => 'switcher',
+      'title' => '开启显示网站速度',
+      'desc' => '在页脚对网站响应速度做显示',
+    ),
   ]
 ) );
 
+
+
 /**
- * 1-3 页脚设置
+ * 1-2 页脚设置
  */
 CSF::createSection( $prefix, array(
   'parent'	=> 'global_setting',
-  // 'id' => 'global_footer_setting',
   'title'  => '——页脚设置',
-  // 'icon' => 'fa fa-step-forward',
-  // 'description' => '自定义头部, 可以放第三方代码, 比如广告联盟的js',
   'fields' => [
     //底部菜单
     array(
@@ -137,29 +139,12 @@ CSF::createSection( $prefix, array(
       'type' => 'text',
       'title' => '版权信息',
     ),
-    //页脚自定义代码
-    array(
-      'id'=>Options::Q1_OPTION_GLOBAL_FOOTER_CUSTOM_CODE,
-      'type'  => 'code_editor', 
-      'title' => '页脚自定义代码',
-      'desc' => '可以放第三方代码, 比如百度统计等',
-      'settings' => [
-        'theme' => 'dracula',
-      ],
-      'sanitize' => false,
-    ),
-    //显示网站速度
-    array(
-      'id' => Options::Q1_OPTION_GLOBAL_FOOTER_SHOW_SITE_SPEED,
-      'type'  => 'switcher',
-      'title' => '开启显示网站速度',
-      'desc' => '在页脚对网站响应速度做显示',
-    ),
+    
   ]
 ) );
 
 /**
- * 1-4 友情链接设置
+ * 1-3 友情链接设置
  */
 CSF::createSection( $prefix, array(
   'parent'	=> 'global_setting',
@@ -185,16 +170,20 @@ CSF::createSection( $prefix, array(
 ) );
 
 
-////////////////////////////////////////////////2. 首页//////////////////////////////////////
+/*
+ * ********************************************************************************************
+ *    *********************************************2. 首页*****************************************************************
+ * **************************************************************************************************************
+ */
 
-	//2. 首页设置
-	CSF::createSection( $prefix, array(
-		'id' => 'home_setting',
-		'title'  => '首页设置',
-		'icon' => 'fa fa-home',
-	) );
+//2. 首页设置
+CSF::createSection( $prefix, array(
+  'id' => 'home_setting',
+  'title'  => '首页设置',
+  'icon' => 'fa fa-home',
+) );
 
-	/**
+/**
  * 2-1 首页基本信息
  */
 CSF::createSection( $prefix, array(
@@ -267,7 +256,11 @@ CSF::createSection( $prefix, array(
   ]
 ) );
 
-////////////////////////////////////////////////3. 文章页//////////////////////////////////////
+/*
+ * ********************************************************************************************
+ *    *********************************************3. 文章页*****************************************************************
+ * **************************************************************************************************************
+ */
 
 	//3. 文章页设置
 	CSF::createSection( $prefix, array(
@@ -333,14 +326,17 @@ CSF::createSection( $prefix, array(
 	}
 
 
-  ////////////////////////////////////////////////3. 主题备份//////////////////////////////////////
+  /*
+  * ********************************************************************************************
+  *    *********************************************4. 主题备份*****************************************************************
+  * **************************************************************************************************************
+  */
 
   CSF::createSection($prefix, array(
     'title'       => '备份恢复',
     'icon'        => 'fa fa-shield',
     'description' => '备份-恢复您的主题设置，方便迁移快速复刻网站</a>',
     'fields'      => array(
-  
         array(
             'type' => 'backup',
         ),

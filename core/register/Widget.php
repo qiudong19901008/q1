@@ -4,7 +4,7 @@
 
 namespace q1\core\register;
 
-use hedao\lib\traits\TSingleton;
+use hedao\core\TSingleton;
 use q1\core\widget\WidgetAuthor;
 use q1\core\widget\WidgetRecommendPosts;
 use q1\core\widget\WidgetSearch;
