@@ -5,12 +5,14 @@ namespace q1\core\register;
 
 use hedao\core\TSingleton;
 use hedao\dao\CategoryDao;
+use hedao\dao\CommentDao;
+
 use function hedao\lib\helper\{
   getBasicToken,
   getUidFromToken,
   generateToken,
   getPOSTValue,
-  getGETValue
+  getGETValue,
 }; 
 
 use q1\core\constant\ErrorCodes;
@@ -87,6 +89,23 @@ class Api{
       register_rest_route( 'q1/v1', '/category/list', [
         'methods' => 'GET',
         'callback' => [$this,'queryCategoryListRouter'],
+      ]);
+
+      //给文章点赞
+      register_rest_route( 'q1/v1', '/post/like', [
+        'methods' => 'POST',
+        'callback' => [$this,'likePostRouter'],
+      ]);
+
+      //////////评论////////////
+      register_rest_route( 'q1/v1', '/comment/list', [
+        'methods' => 'GET',
+        'callback' => [$this,'getCommentListRouter'],
+      ]);
+
+      register_rest_route( 'q1/v1', '/comment/add', [
+        'methods' => 'POST',
+        'callback' => [$this,'addOneCommentRouter'],
       ]);
     
     });
@@ -199,7 +218,47 @@ class Api{
       'zeroOrOneList'=>$zeroOrOneList
     ];
   }
-  
+
+  public function likePostRouter($request){
+    $postId = getPOSTValue('postId');
+    $res = PostService::likePostById($postId);
+    return [
+      'likeCount' => $res
+    ];
+  }
+
+  ///////////////////// COMMENT ////////////////////////
+  // getCommentListRouter
+  public function getCommentListRouter($request){
+    $postId = $_GET["postId"];
+    $page = $_GET["page"];
+    $size = $_GET["size"];
+    $res = CommentDao::query($postId,'comment_date','DESC',$page,$size);
+    return $res;
+  }
+
+  public function addOneCommentRouter($request){
+    $author = $_POST["author"];
+    $content = $_POST["content"];
+    $postId = $_POST["postId"];
+    $parentId = $_POST["parentId"];
+
+    $email = $_POST["email"];
+    $url = $_POST["authorUrl"];
+    $userId = $_POST["userId"]? $_POST["userId"]:0;
+    $res = CommentDao::addOneComment($author,$content,$postId,$parentId,$email,$url,$userId);
+    if($res){
+      return [
+        'errorCode'=>0,
+        'msg'=>'评论成功!',
+      ];
+    }else{
+      return [
+        'errorCode'=>10001,
+        'msg'=>'评论失败!',
+      ];
+    }
+  }
 
   /////////////////////CATEGORY////////////////////////
   public function queryCategoryListRouter(){

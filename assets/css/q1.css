@@ -114,6 +114,8 @@ a:hover{
 .container{
   margin:0 auto;
   max-width: 1200px;
+  width: 98%;
+  /* padding:0 20px; */
 }
 
 /* 表单 */
@@ -420,6 +422,24 @@ a:hover{
   top:0;
   opacity:0.2;
 }
+/*!********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./components/postListWithPagination/postListWithPagination.css ***!
+  \********************************************************************************************************************************************/
+
+
+.postListWithPagination__CardWrap{
+  margin-top:-1px;
+}
+
+.postListWithPagination__paginationWrap{
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+/* .postListWithPagination__paginationWrap{
+
+} */
 /*!****************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./components/postList/postList.css ***!
   \****************************************************************************************************************/
@@ -429,6 +449,15 @@ a:hover{
   margin-top:-1px;
 }
 
+/*!******************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./components/noContent/noContent.css ***!
+  \******************************************************************************************************************/
+.noContent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:100px;
+}
 /*!****************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./components/postCard/postCard.css ***!
   \****************************************************************************************************************/
@@ -605,7 +634,7 @@ a:hover{
   cursor: pointer;
 }
 .pagination__dots{
-  /* border-color:rgba(0,0,0,0); */
+  background:#fff !important;
 }
 /*!********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./components/menu/menu.css ***!
@@ -1546,10 +1575,11 @@ a:hover{
 .index__container{
   display: flex;
   padding:2rem 0;
+  
 }
 
 .index__main{
-  flex:1 0 auto;
+  flex:1 1 auto;
 
 }
 
@@ -1562,9 +1592,151 @@ a:hover{
   border: 1px solid #eaeaea;
 }
 
+
 .index__sidebar{
-  width:300px;
+  /* min-width:300px; */
   margin-left: 2rem;
+  flex:1 0 300px;
+}
+
+@media screen and (max-width:1000px) {
+  .index__sidebar{
+    display: none;
+  }
+}
+/*!********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./category.css ***!
+  \********************************************************************************************/
+.category__container{
+  display: flex;
+  padding:2rem 0;
+}
+
+.category__main{
+  flex:1 1 auto;
+
+}
+
+.category__pageTitleCardWrap{
+  margin-bottom: 2rem;
+}
+
+
+
+.category__sidebar{
+  max-width:300px;
+  margin-left: 2rem;
+  flex:1 0 300px;
+
+}
+
+
+@media screen and (max-width:1000px) {
+  .category__sidebar{
+    display: none;
+  }
+}
+/*!***************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./tag.css ***!
+  \***************************************************************************************/
+.tag__container{
+  display: flex;
+  padding:2rem 0;
+}
+
+.tag__main{
+  flex:1 1 auto;
+
+}
+
+.tag__pageTitleCardWrap{
+  margin-bottom: 2rem;
+}
+
+
+.tag__sidebar{
+  max-width:300px;
+  margin-left: 2rem;
+  flex:1 0 300px;
+
+}
+
+@media screen and (max-width:1000px) {
+  .tag__sidebar{
+    display: none;
+  }
+}
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./search.css ***!
+  \******************************************************************************************/
+.search__container{
+  display: flex;
+  padding:2rem 0;
+}
+
+.search__main{
+  flex:1 1 auto;
+
+}
+
+.search__pageTitleCardWrap{
+  margin-bottom: 2rem;
+}
+
+.search__paginationWrap{
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.search__sidebar{
+  max-width:300px;
+  margin-left: 2rem;
+  flex:1 0 300px;
+
+}
+
+
+@media screen and (max-width:1000px) {
+  .search__sidebar{
+    display: none;
+  }
+}
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./single.css ***!
+  \******************************************************************************************/
+.single__container{
+  display: flex;
+  padding:2rem 0;
+}
+
+.single__main{
+  max-width: 88rem;
+  min-width: 30rem;
+  flex-shrink: 1;
+}
+
+.single__pageTitleCardWrap{
+  margin-bottom: 2rem;
+}
+
+.postPageContent__contentWrap,
+.postPageContent__nextPrevWrap,
+.postPageContent__recommendWrap{
+  margin-bottom: 2rem;
+}
+
+
+.single__sidebar{
+  width:30rem;
+  margin-left: 2rem;
+  min-width: 30rem;
+}
+
+@media screen and (max-width:1000px) {
+  .single__sidebar{
+    display: none;
+  }
 }
 /*!*******************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./@src/q1.css ***!
@@ -1599,6 +1771,7 @@ a:hover{
 
 /* common */
 /* 组件-common-pageTitleCard */
+/* 组件-common-postList */
 /* 组件-common-postList */
 /* 组件-common-postCard */
 /* 组件-common-pagination */
@@ -1647,10 +1820,6 @@ a:hover{
 
 
 
-
-
-
-
 /* .siteHeaderWrapWrap{
   margin-bottom: 2rem;
   background: #fff; 
@@ -1679,105 +1848,6 @@ a:hover{
 } */
 
 
-
-
-
-/*!*********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./@src/view/index/index.css ***!
-  \*********************************************************************************************************/
-.indexPageWrap{
-  margin-bottom:2rem;
-}
-.indexPage{
-  display: flex;
-  justify-content: space-between;
-  margin:2rem auto;
-  max-width: 1200px;
-}
-
-.indexPage__contentWrap{
-  max-width: 90rem;
-  flex:1;
-  width: 100%;
-}
-
-.indexPage__sidebar{
-  width:30rem;
-  margin-left:2rem;
-}
-
-/* 小于1000 */
-@media screen and (max-width:1000px) {
-  .indexPage__sidebar{
-    display: none;
-  }
-}
-
-
-
-/*!***************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./@src/view/category/category.css ***!
-  \***************************************************************************************************************/
-.categoryPageWrap{
-  margin-bottom:2rem;
-}
-.categoryPage{
-  display: flex;
-  justify-content: space-between;
-  margin:2rem auto;
-  max-width: 1200px;
-}
-
-.categoryPage__contentWrap{
-  max-width: 90rem;
-  flex:1;
-  width: 100%;
-}
-
-.categoryPage__sidebar{
-  width:30rem;
-  margin-left:2rem;
-}
-
-/* 小于1000 */
-@media screen and (max-width:1000px) {
-  .categoryPage__sidebar{
-    display: none;
-  }
-}
-
-
-
-/*!*****************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./@src/view/tag/tag.css ***!
-  \*****************************************************************************************************/
-.tagPageWrap{
-  margin-bottom:2rem;
-}
-.tagPage{
-  display: flex;
-  justify-content: space-between;
-  margin:2rem auto;
-  max-width: 1200px;
-}
-
-.tagPage__contentWrap{
-  max-width: 90rem;
-  flex:1;
-  width: 100%;
-}
-
-.tagPage__sidebar{
-  width:30rem;
-  margin-left:2rem;
-}
-
-/* 小于1000 */
-@media screen and (max-width:1000px) {
-  .tagPage__sidebar{
-    display: none;
-  }
-}
 
 
 
@@ -2858,36 +2928,3 @@ a:hover{
 /* 文章样式 */
 /* @import url('./post-content-style.css'); */
 /* @import url('./lixiaolai-markdown.css'); */
-/*!***********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./@src/view/search/search.css ***!
-  \***********************************************************************************************************/
-.searchPageWrap{
-  margin-bottom:2rem;
-}
-.searchPage{
-  display: flex;
-  justify-content: space-between;
-  margin:2rem auto;
-  max-width: 1200px;
-}
-
-.searchPage__contentWrap{
-  max-width: 90rem;
-  flex:1;
-  width: 100%;
-}
-
-.searchPage__sidebar{
-  width:30rem;
-  margin-left:2rem;
-}
-
-/* 小于1000 */
-@media screen and (max-width:1000px) {
-  .searchPage__sidebar{
-    display: none;
-  }
-}
-
-
-

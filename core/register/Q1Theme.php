@@ -36,7 +36,7 @@ class Q1Theme{
 
     SupportModifyExcerptEnding::getInstance([
       'ending'=>'...'
-    ]);//$params [ending:string]
+    ]);
 
     disableGutenbergEditor();
     hideAdminBar();

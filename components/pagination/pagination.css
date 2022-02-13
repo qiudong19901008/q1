@@ -28,5 +28,5 @@
   cursor: pointer;
 }
 .pagination__dots{
-  /* border-color:rgba(0,0,0,0); */
+  background:#fff !important;
 }

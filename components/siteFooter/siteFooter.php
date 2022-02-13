@@ -87,7 +87,10 @@
     <!-- copyright -->
     <div class="copyright">
 
-      <?php echo $footerCopyright; ?>
+      
+
+      <a href='https://hedaoshe.com' style='margin-right:10px;'>合道社</a>
+      <?php echo $footerCopyright;  ?>
       
       <!-- ©2021 <a href="#">srcmini</a> -->
     </div>
@@ -100,9 +103,9 @@
 
     <?php endif; ?>
 
-    <p style='text-align:right;position:absolute;bottom:10px;right:5px;font-size:6px;'>
-        powerd by <a href='https://hedaoshe.com' style='font-size:8px;'>合道社</a>
-    </p>
+    <!-- <p style='text-align:right;position:absolute;bottom:10px;right:5px;font-size:6px;'>
+        powerd by 
+    </p> -->
    
     
     

@@ -23,7 +23,7 @@ use const q1\config\DEFAULT_THEME_INTRO_DATA;
     return THEME_HTTP_PATH . '/assets/image/thumb.jpg';
   }
 
-  function getQ5PostThumbUrl($myPost){
+  function getQ1PostThumbUrl($myPost){
     $thumbUrl = getPostThumbUrl($myPost);
     if($thumbUrl){
         return $thumbUrl;

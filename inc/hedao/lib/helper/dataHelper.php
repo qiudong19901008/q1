@@ -11,7 +11,8 @@ use hedao\constant\MetaBoxOptions;
  * 3. 获取seo关键词
  * 4. 获取网站名
  * 5. 获取网站主页链接
- * 5. 获取网站缩略图
+ * 6. 获取网站缩略图
+ * 7. 获取文章分类信息
  */
 
 
@@ -130,9 +131,9 @@ function getSiteUrl(){
 }
 
 /**
- * 
- * 1. 获取文章缩略图
- * 2. 获取文章第一张图片
+ * 6. 获取图片缩略图
+ *  获取文章缩略图
+ *  获取文章第一张图片
  */
 function getPostThumbUrl($myPost){
   $thumbUrl = get_the_post_thumbnail_url( $myPost->ID);
@@ -146,4 +147,29 @@ function getPostThumbUrl($myPost){
     }
     //如果还没有则返回空
     return '';
+}
+
+/**
+ * 7. 获取文章分类信息
+ */
+function getPostCategories($myPostId=0){
+  if($myPostId === 0){
+    $categories = get_the_category();
+  }else{
+    $categories = get_the_category($myPostId);
+  }
+  
+  $res = [];
+  foreach($categories as $category){
+    $id = $category->term_id;
+    $name = $category->name;
+    $slug = $category->slug;
+    $url = getSiteUrl() . '/category/' . $slug;
+    $res[]=[
+      'id'=>$id,
+      'name'=>$name,
+      'url'=>$url,
+    ];
+  }
+  return $res;
 }

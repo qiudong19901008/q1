@@ -1,0 +1,33 @@
+.search__container{
+  display: flex;
+  padding:2rem 0;
+}
+
+.search__main{
+  flex:1 1 auto;
+
+}
+
+.search__pageTitleCardWrap{
+  margin-bottom: 2rem;
+}
+
+.search__paginationWrap{
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.search__sidebar{
+  max-width:300px;
+  margin-left: 2rem;
+  flex:1 0 300px;
+
+}
+
+
+@media screen and (max-width:1000px) {
+  .search__sidebar{
+    display: none;
+  }
+}

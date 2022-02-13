@@ -1,0 +1,33 @@
+.single__container{
+  display: flex;
+  padding:2rem 0;
+}
+
+.single__main{
+  max-width: 88rem;
+  min-width: 30rem;
+  flex-shrink: 1;
+}
+
+.single__pageTitleCardWrap{
+  margin-bottom: 2rem;
+}
+
+.postPageContent__contentWrap,
+.postPageContent__nextPrevWrap,
+.postPageContent__recommendWrap{
+  margin-bottom: 2rem;
+}
+
+
+.single__sidebar{
+  width:30rem;
+  margin-left: 2rem;
+  min-width: 30rem;
+}
+
+@media screen and (max-width:1000px) {
+  .single__sidebar{
+    display: none;
+  }
+}

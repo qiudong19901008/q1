@@ -33,7 +33,7 @@ function getHeDaoMetaBoxCommonDescriptionOption(){
 }
 
 function getHeDaoMetaBoxCommonViewCountOption(){
-  return getHeDaoMetaBoxOption(MetaBoxOptions::HEDAO_COMMON_VIEW_COUNT); 
+  return  getHeDaoMetaBoxOption(MetaBoxOptions::HEDAO_COMMON_VIEW_COUNT,0); 
 }
 
 function getHeDaoOutsideThumbnailMetaBoxOption(){

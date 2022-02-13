@@ -2,15 +2,14 @@
 
     use q1\core\constant\Actions;
 
+use function hedao\lib\helper\getSiteUrl;
+
 ?>
 
 <div 
   class="commentList" 
   data-url="<?php 
-    echo admin_url('admin-ajax.php');
-  ?>"
-  data-action="<?php 
-    echo Actions::Q1_ACTION_COMMENT_GET_COMMENT_LIST; 
+    echo getSiteUrl() . '/wp-json/q1/v1/comment/list'
   ?>"
   data-size="<?php 
     echo get_option('comments_per_page',10); 
@@ -21,13 +20,13 @@
   <div class="commentList__item">
     <div class="commentList__cardWrap">
       <?php 
-        // get_template_part('q1/component/post/commentCard/commentCard'); 
+        // get_template_part('components/commentCard/commentCard'); 
       ?>
     </div>
     <div class="commentList__cardChild">
       <div class="commentList__childCardWrap">
         <?php 
-          // get_template_part('q1/component/post/commentCard/commentCard'); 
+          // get_template_part('components/commentCard/commentCard'); 
         ?>
       </div>
     </div>

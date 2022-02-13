@@ -1,10 +1,11 @@
 .index__container{
   display: flex;
   padding:2rem 0;
+  
 }
 
 .index__main{
-  flex:1 0 auto;
+  flex:1 1 auto;
 
 }
 
@@ -17,7 +18,15 @@
   border: 1px solid #eaeaea;
 }
 
+
 .index__sidebar{
-  width:300px;
+  /* min-width:300px; */
   margin-left: 2rem;
+  flex:1 0 300px;
+}
+
+@media screen and (max-width:1000px) {
+  .index__sidebar{
+    display: none;
+  }
 }

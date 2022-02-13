@@ -1,15 +1,15 @@
 
 
-.postListWithTitle__CardWrap{
+.postListWithPagination__CardWrap{
   margin-top:-1px;
 }
 
-
-.postListWithTitle__title{
-  font-size: 2rem;
-  font-weight: 600;
+.postListWithPagination__paginationWrap{
+  display: flex;
+  justify-content: center;
   background-color: #fff;
-  padding:1rem;
-  padding-left:2rem;
-  border: 1px solid #eaeaea;
 }
+
+/* .postListWithPagination__paginationWrap{
+
+} */

@@ -1,57 +1,63 @@
 
 <?php 
-  get_header()  
-?>
-    
-    <div class="postPageWrap">
+  get_header();
 
-      <div class="postPage">
-        <!-- 分类页内容 -->
-        <div class="postPage__contentWrap">
-        <?php
-            use function q1\core\helper\isOpenComment;
+use function hedao\lib\helper\console;
+use function q1\core\helper\isOpenComment;
 
             $open = isOpenComment();
             
+
+
+?>
+    
+    <div class="single">
+      <div class="single__container container">
+        
+        <div class="single__main">
+          <!-- 内容 -->
+          <div class="postPageContent__contentWrap">
+            <?php get_template_part('components/postContent/postContent'); ?>
+          </div>
+
+          <!-- 上一篇下一篇 -->
+          <div class="postPageContent__nextPrevWrap">
+            <?php get_template_part('components/prevNextCard/prevNextCard'); ?>
+          </div>
+
+          <!-- 推荐 -->
+          <div class="postPageContent__recommendWrap">
+            <?php 
+              get_template_part('components/recommendCard/recommendCard'); 
+            ?>
+          </div>
+
+          <?php
+
+            // $c = get_comments();
+          // console($c);
+            // get_template_part('components/commentSection/commentSection'); 
+            $open = isOpenComment();
+            if($open){
+              get_template_part('components/commentSection/commentSection'); 
+            }
           ?>
 
-          <div class="postPageContent" data-commentstatus="<?php echo $open?'1':'0'; ?>">
-            
-              <div class="postPageContent__contentWrap">
-                <?php get_template_part('template-parts/components/post/postContent/postContent'); ?>
-              </div>
-
-              <div class="postPageContent__nextPrevWrap">
-                <?php get_template_part('template-parts/components/post/prevNextCard/prevNextCard'); ?>
-              </div>
-
-              <div class="postPageContent__recommendWrap">
-                
-                <?php 
-                  get_template_part('template-parts/components/post/recommendCard/recommendCard'); 
-                ?>
-              </div>
-
-              <!-- 评论模板 -->
-              <?php 
-                  
-                $open = isOpenComment();
-                  if($open){
-                    get_template_part('comments'); 
-                  }
-              ?>
-            
-          </div>
         </div>
+
         <!-- 侧边栏 -->
-        <div class="postPage__sidebar">
+        <aside class="single__sidebar">
           <?php 
             get_sidebar();
           ?>
-        </div>
+        </aside>
+
       </div>
 
     </div>
+
+
+      
 
     
 <?php 

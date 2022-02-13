@@ -4,12 +4,10 @@ const httpHandler = new HttpHandler();
 
 export type GetCommentListType = {
   postId:number,
-  action:string,
 }
 
 export type LikePostType = {
   postId:number,
-  action:string,
 }
 
 export type GetPostList = {
@@ -23,7 +21,6 @@ export type GetPostList = {
 }
 
 export type SubmitCommentType = {
-  action:string,
   author:string,
   email:string,
   authorUrl:string,

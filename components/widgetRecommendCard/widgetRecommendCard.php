@@ -15,8 +15,8 @@
 
           <?php 
 
-            var_dump($myPost);
-            die;
+            // var_dump($myPost);
+            // die;
             get_template_part('components/simplePostCard/simplePostCard',null,[
               'post'=>$myPost,
             ]);

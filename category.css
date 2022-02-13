@@ -1,0 +1,29 @@
+.category__container{
+  display: flex;
+  padding:2rem 0;
+}
+
+.category__main{
+  flex:1 1 auto;
+
+}
+
+.category__pageTitleCardWrap{
+  margin-bottom: 2rem;
+}
+
+
+
+.category__sidebar{
+  max-width:300px;
+  margin-left: 2rem;
+  flex:1 0 300px;
+
+}
+
+
+@media screen and (max-width:1000px) {
+  .category__sidebar{
+    display: none;
+  }
+}

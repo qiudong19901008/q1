@@ -4,47 +4,26 @@
   get_header()
 ?>
     
-    <div class="categoryPageWrap">
+    <div class="category">
+      <div class="category__container container">
+        <div class="category__main">
 
-      <div class="categoryPage">
-        <!-- 分类页内容 -->
-        <div class="categoryPage__contentWrap">
-          
-          
-          <div 
-            class="categoryPageContent"
-            data-slug="<?php 
-              $term = get_queried_object();
-              echo $term->slug;
-            ?>"
-          >
-            <!-- 页面提示 -->
-            <div class="categoryPageContent__pageTitleCardWrap">
-              <?php get_template_part('template-parts/components/common/pageTitleCard/pageTitleCard') ?>
-            </div>
-            <!-- 文章列表 -->
-            <div class="categoryPageContent__postListWrap">
-              <?php get_template_part('template-parts/components/common/postList/postList'); ?>
-            </div>
-            <!-- 分页 -->
-            <div class="categoryPageContent__paginationWrap paginationWrap">
-              <?php get_template_part('template-parts/components/common/pagination/pagination'); ?>
-            </div>
-            
-            
+          <div class="category__pageTitleCardWrap">
+            <?php get_template_part('components/pageTitleCard/pageTitleCard') ?>
           </div>
+          <!-- 文章列表 -->
+          <div class="category__postListWithPaginationWrap">
+              <?php 
+                get_template_part('components/postListWithPagination/postListWithPagination'); 
+              ?>
+          </div>
+        </div>
 
-        </div>
-        <!-- 侧边栏 -->
-        <div class="categoryPage__sidebar">
-          <?php 
-            get_sidebar();
-          ?>
-        </div>
+        <aside class="category__sidebar">
+          <?php  get_sidebar();?>
+        </aside>
       </div>
-
     </div>
-
     
 <?php 
   get_footer();

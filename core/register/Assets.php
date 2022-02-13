@@ -30,6 +30,7 @@ class Assets{
     $cssLocalPath = Q1_DIR_PATH . '/assets/css/q1.css';
     $versionWithTime = Q1_VERSION . '_' . filemtime($cssLocalPath);
     wp_enqueue_style('q1',$cssUrlPath,['font-awesome'],$versionWithTime,'all');
+    wp_enqueue_script('q1', Q1_ROOT_URL . '/assets/js/q1.js',['q1-vendor'],$versionWithTime,true);
   }
 
   public function registerScripts(){

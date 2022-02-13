@@ -12,6 +12,16 @@ include('dataHelper.php');
 include('htmlHelper.php');
 
 
+
+
+function console($var,$finish=true){
+  print_r('<pre>');
+  var_dump($var);
+  if($finish){
+    die;
+  }
+}
+
 /**
  * @description 获取值, 空则使用默认值
  */

@@ -1,24 +1,34 @@
-<?php
-  use q1\core\constant\Actions;
-
-
-
-?>
-
-
 
 <div class="postListWithPagination">
-    <div class="postListWithPagination__postList">
-      <div class="postListWithPagination__postCardWrap">
-        <?php 
-          get_template_part('q1/component/common/postCard/postCard');
-        ?>
-      </div>
-    </div>
-    <div class="postListWithPagination__paginationWrap">
+
+  <!-- post list -->
+  <div class="postListWithPagination__postList">
+
+    <?php 
+      if(have_posts()):
+        while(have_posts()):
+          the_post();
+    ?>
+
+    <div class="postListWithPagination__CardWrap">
       <?php 
-        get_template_part('template-parts/components/common/pagination/pagination'); 
+        get_template_part('components/postCard/postCard');
       ?>
     </div>
-</div>
 
+    <?php  
+        endwhile;
+      endif;
+    ?>
+
+  </div>
+
+  <!-- post pagination -->
+  <div class="postListWithPagination__paginationWrap">
+    <?php 
+      get_template_part('components/pagination/pagination'); 
+    ?>
+  </div>
+
+
+</div>

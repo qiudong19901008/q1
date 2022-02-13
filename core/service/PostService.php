@@ -243,4 +243,8 @@ class PostService{
     return $res;
   }
 
+  // public static function getNewestPostList(){
+  //   PostDao::queryPostList([])
+  // }
+
 }

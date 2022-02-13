@@ -8,16 +8,16 @@
     </div>
     <div class="commentSection__listWrap">
       <?php 
-        get_template_part('template-parts/components/post/commentList/commentList'); 
+        get_template_part('components/commentList/commentList'); 
       ?>
     </div>
     <div class="commentSection__paginationWrap">
       <?php 
-        get_template_part('template-parts/components/common/pagination/pagination');  
+        get_template_part('components/pagination/pagination');  
       ?>
     </div>
     <div class="commentSection__formWrap">
-      <?php get_template_part('template-parts/components/post/commentForm/commentForm'); ?>
+      <?php get_template_part('components/commentForm/commentForm'); ?>
     </div>
     
   </div>

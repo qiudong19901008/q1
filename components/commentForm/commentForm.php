@@ -1,10 +1,12 @@
 <?php
   use q1\core\constant\Actions;
+
+use function hedao\lib\helper\getSiteUrl;
+
 ?>
 <form class="commentForm" 
   data-postid="<?php the_ID(); ?>"
-  data-action="<?php echo Actions::Q1_ACTION_COMMENT_ADD_ONE_COMMENT; ?>"
-  data-url="<?php echo admin_url('admin-ajax.php') ?>"
+  data-url="<?php echo getSiteUrl() . '/wp-json/q1/v1/comment/add'?>"
 >
   <!-- 提示信息 -->
   <!-- <p class="commentForm__tips hide">

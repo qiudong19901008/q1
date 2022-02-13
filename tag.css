@@ -1,0 +1,27 @@
+.tag__container{
+  display: flex;
+  padding:2rem 0;
+}
+
+.tag__main{
+  flex:1 1 auto;
+
+}
+
+.tag__pageTitleCardWrap{
+  margin-bottom: 2rem;
+}
+
+
+.tag__sidebar{
+  max-width:300px;
+  margin-left: 2rem;
+  flex:1 0 300px;
+
+}
+
+@media screen and (max-width:1000px) {
+  .tag__sidebar{
+    display: none;
+  }
+}

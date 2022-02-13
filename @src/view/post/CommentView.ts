@@ -9,6 +9,7 @@ import {
 class CommentView{
 
   public async initral(){
+    console.log('comment section initral')
     await this.getDataThenUpdatePageStructure(1);
     this.bindOnlyOnceEvents();
     this.bindEvents();
@@ -88,7 +89,6 @@ class CommentView{
 
          //1.
           const url = $('.commentForm').data('url');
-          const action = $('.commentForm').data('action');
           const postId = $('.commentForm').data('postid');
           const author = $('.commentForm__authorNickname').val() as string;
           const email = $('.commentForm__authorEmail').val() as string;
@@ -108,22 +108,28 @@ class CommentView{
           }
           this._openLoading();
           //3. 
-          const res = await PostModel.addOneComment(url,{
-            action,
-            postId,
-            author,
-            authorUrl,
-            content,
-            parentId,
-            email,
-          });
-          //4. 
-          if(res.errorCode === 0){ //成功后清除表单数据
-            alert('提交成功, 审核通过后放出');
-            this._resetCommentForm();
-          }else{
-            alert('提交失败');
+          try{
+            const res = await PostModel.addOneComment(url,{
+              postId,
+              author,
+              authorUrl,
+              content,
+              parentId,
+              email,
+            });
+            if(res.errorCode && res.errorCode === 0){ //成功后清除表单数据
+              alert('提交成功, 审核通过后放出');
+              this._resetCommentForm();
+            }else{
+              alert('提交失败');
+            }
+          }catch(e){
+            alert('提交失败,可能是重复评论');
           }
+          
+          //4. 
+          
+          
           this._closeLoading();
       }catch(e){
         this._closeLoading();
@@ -179,21 +185,19 @@ class CommentView{
 
     //先检测是否开启了评论, 0:未开启, 1:开启
     const commentStatus = $('.commentSection').data('open');
-    if(commentStatus == '0'){
-      return;
-    }
+    // if(commentStatus == '0'){
+    //   return;
+    // }
 
     const postId = $('.commentList').data('postid');
     const url = $('.commentList').data('url');
-    const action = $('.commentList').data('action');
     const size = $('.commentList').data('size');
 
     const params = {
       postId:parseInt(postId),
-      action,
     }
     const {list,count} = await PostModel.getCommentList(url,params,page,parseInt(size));
-    const commentListHtml = getCommentListHtml(list,url,action,size,postId);
+    const commentListHtml = getCommentListHtml(list,url,size,postId);
     const paginationHtml = getPaginationHtml(page,count,size,'');
     $('.commentSection__listWrap').html(commentListHtml);
     $('.commentSection__paginationWrap').html(paginationHtml);

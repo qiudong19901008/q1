@@ -8,8 +8,8 @@ import CookieHandler from "../CookieHandler";
 
 
 
-const getCommentListHtml = (commentList:any[],url:string,action:string,size:string,postId:string)=>{
-  return CommentListHtmlGetter.run(commentList,url,action,size,postId);
+const getCommentListHtml = (commentList:any[],url:string,size:string,postId:string)=>{
+  return CommentListHtmlGetter.run(commentList,url,size,postId);
 }
 
 const getPostListHtml = (postList:any[],url:string,action:string,size:string,pageUrl:string)=>{

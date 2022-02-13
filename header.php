@@ -32,12 +32,23 @@ use function q1\core\helper\{
   header{
     background-color: #fff;
   }
+  .siteHeaderWrap{
+    padding:0 20px;
+  }
+  body{
+    display: flex;
+    flex-direction: column;
+
+  }
+  /* #app{
+    min-width: calc(100vh-);
+  } */
 </style>
 <body>
    
    
    <header>
-     <div class="siteHeaderWrap container">
+     <div class="siteHeaderWrap container" data-pagetype="<?php echo getPageType(); ?>" >
       <?php 
           get_template_part( 'components/siteHeader/siteHeader' ); 
         ?>

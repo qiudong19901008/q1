@@ -1,5 +1,5 @@
   <div 
-    class="commentSection"
+    class="comments"
   >
     <div class="commentSection__mask hide">
       <div class="loading"></div>
@@ -11,7 +11,7 @@
     </div>
     <div class="commentSection__paginationWrap">
       <?php 
-        get_template_part('template-parts/components/common/pagination/pagination');  
+        get_template_part('components/pagination/pagination');  
       ?>
     </div>
     <div class="commentSection__formWrap">

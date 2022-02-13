@@ -1,11 +1,18 @@
 
- 
+ <style>
+
+  footer{
+    background-color: #fff;
+    
+  }
+
+ </style>
  <!-- 页脚 -->
- <div class="siteFooterWrapWrap">
-    <div class="siteFooterWrap">
-      <?php get_template_part( 'template-parts/components/common/siteFooter/siteFooter' ); ?>
-    </div>
-</div>
+  <footer>
+        <div class="siteFooterWrap container">
+          <?php get_template_part( 'components/siteFooter/siteFooter' ); ?>
+        </div>
+  </footer>
  
 
   <?php wp_footer();?>

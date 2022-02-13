@@ -11,9 +11,10 @@
     Cookies,
   };
 
-  use function q1\core\helper\{
+use function hedao\lib\helper\getSeoTitle;
+use function hedao\lib\helper\getSiteUrl;
+use function q1\core\helper\{
     getQ1Option,
-    getSeoTitle,
     getPostViewCount,
     getPostLikeCount,
   };
@@ -71,16 +72,20 @@
 
     
 
-
+  <!-- https://hedaoshe.com/wp-json -->
+  <!-- /q1/v1/token/get -->
 
   </div>
   
+  <?php 
+    ;
+  ?>
+
   <div class="postContent__interaction">
     <div 
       class="postContent__like" 
       data-id="<?php the_ID(); ?>"
-      data-action="<?php echo Actions::Q1_ACTION_POST_LIKE_POST; ?>"
-      data-url="<?php echo admin_url('admin-ajax.php'); ?>"
+      data-url="<?php echo getSiteUrl() . '/wp-json/q1/v1/post/like' ?>"
       data-cookie="<?php echo Cookies::Q1_COOKIE_POST_ALREADY_LIKE; ?>"
     >
       <i class="fa fa-thumbs-up"></i>

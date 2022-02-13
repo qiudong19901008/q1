@@ -3,12 +3,11 @@
 class CommentListHtmlGetter{
 
   //获取评论html
-  public static run(commentList:any[],url:string,action:string,size:string,postId:string){
+  public static run(commentList:any[],url:string,size:string,postId:string){
     const res = `
       <div 
         class="commentList" 
         data-url="${url}"
-        data-action="${action}"
         data-postid="${postId}"
         data-size="${size}"
       >
