@@ -45,6 +45,20 @@ function getHeDaoOutsideThumbnailMetaBoxOption(){
 }
 
 
+// 下载
+function getHeDaoMetaBoxDownloadUrlOption(){
+  return  getHeDaoMetaBoxOption(MetaBoxOptions::HEDAO_DOWNLOAD_URL,''); 
+}
+
+function getHeDaoMetaBoxDownloadPasswordOption(){
+  return  getHeDaoMetaBoxOption(MetaBoxOptions::HEDAO_DOWNLOAD_PASSWORD,''); 
+}
+
+function getHeDaoMetaBoxDownloadUnpackPasswordOption(){
+  return  getHeDaoMetaBoxOption(MetaBoxOptions::HEDAO_DOWNLOAD_UNPACK_PASSWORD,''); 
+}
+
+
 
 
 

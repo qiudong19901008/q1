@@ -20,7 +20,7 @@ class MetaBoxOptions{
    */
   public const HEDAO_OUTSIDE_THUMBNAIL_URL = '_hedao_post_meta_outside_thumbnail_url';
 
-  ///////////////关键词和描述/////////////
+  ///////////////通用属性: 关键词, 描述, 浏览量/////////////
 
   /**
    * 合道-通用配置前缀
@@ -39,6 +39,22 @@ class MetaBoxOptions{
    */
   public const HEDAO_COMMON_VIEW_COUNT= '_hedao_post_meta_view_count';
 
-  
+  ///////////////下载属性: 链接,提取码,解压码/////////////
+  /**
+   * 合道-通用配置前缀
+   */
+  public const HEDAO_DOWNLOAD_PREFIX = '_hedao_download_post_meta_option_prefix';
+  /**
+   * 合道-下载链接
+   */
+  public const HEDAO_DOWNLOAD_URL = '_hedao_post_meta_downloadUrl';
+  /**
+   * 合道-提取码
+   */
+  public const HEDAO_DOWNLOAD_PASSWORD = '_hedao_post_meta_downloadPassword';
+  /**
+   * 合道-解压码
+   */
+  public const HEDAO_DOWNLOAD_UNPACK_PASSWORD= '_hedao_post_meta_unpackPassword';
 
 }

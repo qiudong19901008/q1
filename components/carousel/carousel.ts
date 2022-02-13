@@ -7,8 +7,8 @@ const carouselPrev = $('.carousel__prev');
 const carouselSlider = $('.carousel__slider');
 const carousel = $('.carousel');
 
-const carouselCount = $('.indexPageContent__carouselWrap').data('carouselcount');
-const carouselInterval = $('.indexPageContent__carouselWrap').data('carouselinterval');
+const carouselCount = $('.index__carouselWrap').data('carouselcount');
+const carouselInterval = $('.index__carouselWrap').data('carouselinterval');
 
 const carouselNextFunc = ()=>{
   carouselDirection = 1;
@@ -51,12 +51,12 @@ carouselSlider.on('transitionend',()=>{
 
 carousel.on('mouseover',()=>{
   clearInterval(timer);
-  console.log('aaa')
+  // console.log('aaa')
 })
 
 carousel.on('mouseout',()=>{
   timer = setTimer();
-  console.log('bbb')
+  // console.log('bbb')
 })
 
 

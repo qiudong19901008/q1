@@ -83,6 +83,10 @@ class Options{
   /**
    * Q1主题-首页-基本-轮播图 
    */
+  public const Q1_OPTION_HOME_BASIC_CAROUSEL_OPEN = '_q1_option_home_basic_carouselOpen';
+  /**
+   * Q1主题-首页-基本-轮播图 
+   */
   public const Q1_OPTION_HOME_BASIC_CAROUSEL = '_q1_option_home_basic_carousel';
   /**
    * Q1主题-首页-基本-轮播图item链接

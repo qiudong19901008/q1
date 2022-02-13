@@ -1575,12 +1575,14 @@ a:hover{
 .index__container{
   display: flex;
   padding:2rem 0;
-  
 }
 
 .index__main{
   flex:1 1 auto;
+}
 
+.index__carouselWrap{
+  margin-bottom: 2rem;
 }
 
 .index__postListTitle{

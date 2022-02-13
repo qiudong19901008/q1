@@ -6,6 +6,7 @@ namespace q1\core\register;
 use hedao\Hedao;
 
 use hedao\core\TSingleton;
+use hedao\metaBox\MetaBoxDownload;
 use hedao\support\SupportModifyExcerptEnding;
 use q1\core\constant\Fields;
 use q1\core\constant\Options;
@@ -36,6 +37,10 @@ class Q1Theme{
 
     SupportModifyExcerptEnding::getInstance([
       'ending'=>'...'
+    ]);
+
+    MetaBoxDownload::getInstance([
+      'postTypeArr'=> ['post','page']
     ]);
 
     disableGutenbergEditor();

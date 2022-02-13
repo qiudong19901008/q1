@@ -2,11 +2,19 @@
 
   use q1\core\constant\Options;
 
-  $carouselItemList = $args['carouselItemList'];
-  $carouselHeight = $args['carouselHeight'];
+use function hedao\lib\helper\console;
+use function q1\core\helper\getQ1Option;
+
+// $carouselItemList = $args['carouselItemList'];
+  // $carouselHeight = $args['carouselHeight'];
+  // $count = count($carouselItemList);
+
+ 
+  $carouselItemList = getQ1Option(Options::Q1_OPTION_HOME_BASIC_CAROUSEL);
+  $carouselHeight = getQ1Option(Options::Q1_OPTION_HOME_BASIC_CAROUSEL_HEIGHT);
   $count = count($carouselItemList);
-
-
+  // console($res);
+  // // console()
 ?>
 
 

@@ -206,6 +206,15 @@ CSF::createSection( $prefix, array(
       'title' => '首页关键词',
       'desc' => '可以提升seo'
     ),
+    //////////轮播图///////////
+    //轮播图开关
+    array(
+      'id'=>Options::Q1_OPTION_HOME_BASIC_CAROUSEL_OPEN,
+      'type'  => 'switcher',
+      'title' => '轮播图开关',
+      'desc' => '',
+      'default' => false,
+    ),
     //轮播图高度
     array(
       'id'=>Options::Q1_OPTION_HOME_BASIC_CAROUSEL_HEIGHT,
@@ -213,6 +222,7 @@ CSF::createSection( $prefix, array(
       'title' => '轮播图高度',
       'desc' => '单位像素, 默认300像素',
       'default' => 300,
+      'dependency'  => [Options::Q1_OPTION_HOME_BASIC_CAROUSEL_OPEN, '==', true],
     ),
     //轮播图播放间隔时间
     array(
@@ -221,6 +231,7 @@ CSF::createSection( $prefix, array(
       'title' => '轮播图播放间隔',
       'desc' => '默认4秒',
       'default' => 4,
+      'dependency'  => [Options::Q1_OPTION_HOME_BASIC_CAROUSEL_OPEN, '==', true],
     ),
     //首页轮播图
     array(
@@ -251,7 +262,8 @@ CSF::createSection( $prefix, array(
           Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => Q1_ROOT_URL  . '/assets/image/0020.jpeg',
           Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_LINK => 'https://hedaoshe.com',
         ]
-      ]
+      ],
+      'dependency'  => [Options::Q1_OPTION_HOME_BASIC_CAROUSEL_OPEN, '==', true],
     ),
   ]
 ) );
