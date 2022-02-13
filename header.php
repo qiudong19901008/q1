@@ -20,36 +20,26 @@ use function q1\core\helper\{
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title
-    id="title"
-  ><?php 
-      echo getSeoTitle();
-  ?></title>
-  <meta name="description" content="<?php 
-      echo getSeoDescription(getSiteDescription()); 
-  ?>">
-  <meta name="keywords" content="<?php 
-      echo getSeoKeywords(getSiteKeywords()); 
-  ?>">
+  <title><?php echo getSeoTitle();?></title>
+  <meta name="description" content="<?php echo getSeoDescription(getSiteDescription()); ?>">
+  <meta name="keywords" content="<?php  echo getSeoKeywords(getSiteKeywords()); ?>">
   
   <?php wp_head(); ?>
   
 
 </head>
+<style>
+  header{
+    background-color: #fff;
+  }
+</style>
 <body>
-   <!-- 页头 -->
-
-  <?php if(!is_page()): ?>
-
-  <div class="siteHeaderWrapWrap" data-pagetype="<?php 
-    echo getPageType(); 
-  ?>">
-    <div class="siteHeaderWrap">
+   
+   
+   <header>
+     <div class="siteHeaderWrap container">
       <?php 
-        get_template_part( 'template-parts/components/common/siteHeader/siteHeader' ); 
-      ?>
-    </div>
-  </div>
-
-  <?php endif; ?>
+          get_template_part( 'components/siteHeader/siteHeader' ); 
+        ?>
+     </div>
+   </header>

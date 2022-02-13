@@ -5,8 +5,8 @@ import * as $ from 'jquery';
 import './q1.css';
 
 import '../components/carousel/carousel';
-import '../components/common/menu/menu';
-import '../components/common/mobileMenu/mobileMenu';
+import '../components/menu/menu';
+import '../components/mobileMenu/mobileMenu';
 import '../components/siteHeader/siteHeader';
 
 import IndexView from './view/index/index';

@@ -47,7 +47,7 @@ class Assets{
       $cdnAddress = getQ1Option(Options::Q1_OPTION_GLOBAL_COMMON_CDN_ADDRESS,'https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css');
       wp_enqueue_style('font-awesome',$cdnAddress,[],'','all');
     }else{
-      wp_enqueue_style('font-awesome',Q1_ROOT_URL . '/assets/css/font-awesome.min.css',[],'4.7.0','all');
+      wp_enqueue_style('font-awesome',Q1_ROOT_URL . '/assets/font-awesome/css/font-awesome.min.css',[],'4.7.0','all');
     }
   }
   

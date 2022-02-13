@@ -33,4 +33,4 @@
 /* 文章样式 */
 /* @import url('./post-content-style.css'); */
 /* @import url('./lixiaolai-markdown.css'); */
-@import url('./github-markdown');
+@import url('../../style/github-markdown.css');

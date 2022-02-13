@@ -2,21 +2,34 @@
   get_header();
 ?>
 
+    <div class="index">
+      <div class="index__container container">
+        <main class="index__main">
+          <!-- 轮播图 -->
 
-  <div class="index">
+          <!-- 文章列表 -->
+          <div class="index__postList">
+            <div class="index__postListTitle">
+              最新文章
+            </div>
+            <div class="index__postListWrap">
+              <?php 
+                get_template_part('components/postList/postList'); 
+              ?>
+            </div>
+            <div class="indexPageContent__paginationWrap">
+              <?php 
+                get_template_part('components/pagination/pagination'); 
+              ?>
+            </div>
+          </div>
+        </main>
 
-
-    <section class="index__main">
-      <div class="index__postList">
-        <?php get_template_part('template-parts/components/common/postList/postList');  ?>
+        <aside class="index__sidebar">
+          <?php  get_sidebar();?>
+        </aside>
       </div>
-    </section>
-
-    <section class="index__sidebar">
-      <?php  get_sidebar();?>
-    </section>
-
-  </div>
+    </div>
 
 
 
