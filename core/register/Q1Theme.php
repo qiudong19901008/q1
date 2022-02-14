@@ -6,8 +6,8 @@ namespace q1\core\register;
 use hedao\Hedao;
 
 use hedao\core\TSingleton;
-use hedao\metaBox\MetaBoxDownload;
-use hedao\support\SupportModifyExcerptEnding;
+use hedao\lib\metaBox\MetaBoxDownload;
+use hedao\lib\support\SupportModifyExcerptEnding;
 use q1\core\constant\Fields;
 use q1\core\constant\Options;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace hedao\support;
+namespace hedao\lib\support;
 
 use hedao\core\TSingleton;
 

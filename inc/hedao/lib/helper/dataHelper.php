@@ -3,7 +3,7 @@
 
 namespace hedao\lib\helper;
 
-use hedao\constant\MetaBoxOptions;
+use hedao\lib\constant\MetaBoxOptions;
 
 /**
  * 1. 获取seo标题

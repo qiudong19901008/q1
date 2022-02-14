@@ -1,7 +1,7 @@
 <?php
 
-namespace hedao\metaBox;
-use hedao\constant\MetaBoxOptions;
+namespace hedao\lib\metaBox;
+use hedao\lib\constant\MetaBoxOptions;
 use hedao\core\TSingleton;
 use function hedao\lib\getHeDaoMetaBoxOption;
 use \CSF;

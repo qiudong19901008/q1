@@ -1,7 +1,7 @@
 <?php
 
 
-namespace hedao\constant;
+namespace hedao\lib\constant;
 
 class Options{
 

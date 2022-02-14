@@ -77,7 +77,7 @@ function getPageType(){
    * @description 获取文章浏览量
    */
   function getPostViewCount($post_id){
-    $count = get_post_meta( $post_id, \hedao\constant\MetaBoxOptions::HEDAO_COMMON_VIEW_COUNT, true );
+    $count = get_post_meta( $post_id, \hedao\lib\constant\MetaBoxOptions::HEDAO_COMMON_VIEW_COUNT, true );
     return !empty($count)?$count:0;
   }
 

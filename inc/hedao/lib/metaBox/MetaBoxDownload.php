@@ -1,9 +1,9 @@
 <?php
 
-namespace hedao\metaBox;
+namespace hedao\lib\metaBox;
 
 use \CSF;
-use hedao\constant\MetaBoxOptions;
+use hedao\lib\constant\MetaBoxOptions;
 use hedao\core\TSingleton;
 
 use function hedao\lib\getHeDaoMetaBoxOption;

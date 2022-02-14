@@ -117,19 +117,20 @@ class CommentView{
               parentId,
               email,
             });
-            if(res.errorCode && res.errorCode === 0){ //成功后清除表单数据
+            
+            if(res.errorCode === 0){ //成功后清除表单数据
+              // console.log(res,'成功');
               alert('提交成功, 审核通过后放出');
               this._resetCommentForm();
             }else{
+              // console.log(res,'失败');
               alert('提交失败');
             }
           }catch(e){
             alert('提交失败,可能是重复评论');
           }
           
-          //4. 
-          
-          
+          //4.           
           this._closeLoading();
       }catch(e){
         this._closeLoading();

@@ -1,9 +1,9 @@
 <?php
 
-namespace hedao\support;
+namespace hedao\lib\support;
 
-use hedao\constant\Fields;
-use hedao\constant\MetaBoxOptions;
+use hedao\lib\constant\Fields;
+use hedao\lib\constant\MetaBoxOptions;
 use hedao\core\TSingleton;
 
 /**

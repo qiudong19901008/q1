@@ -2,8 +2,8 @@
 
 namespace hedao\lib\helper;
 
-use hedao\constant\Options;
-use hedao\constant\MetaBoxOptions;
+use hedao\lib\constant\Options;
+use hedao\lib\constant\MetaBoxOptions;
 
 /**
  * @description 获取q5的配置项

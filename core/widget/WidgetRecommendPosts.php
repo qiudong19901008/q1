@@ -68,7 +68,7 @@ class WidgetRecommendPosts extends \WP_Widget{
         $text = '';
         switch($type){
           case 'view':
-            $viewCount = $meta[\hedao\constant\MetaBoxOptions::HEDAO_COMMON_VIEW_COUNT];
+            $viewCount = $meta[\hedao\lib\constant\MetaBoxOptions::HEDAO_COMMON_VIEW_COUNT];
             $text = '浏览('.$viewCount.')';
             break;
           case 'comment':

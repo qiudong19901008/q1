@@ -4,7 +4,7 @@ namespace hedao\lib\helper;
 
 use hedao\lib\GetMenuData;
 use hedao\lib\JwtAuth;
-
+use Requests;
 
 include('themeHelper.php');
 include('optionHelper.php');
@@ -142,6 +142,20 @@ function getMenuDataByLocation($location){
 function getUidFromToken($token,$salt){
   $res = JwtAuth::getUidFromToken($token,$salt);
   return $res;
+}
+
+/**
+ * @description 拦截不合格的请求,并且给请求实体设置数据
+ * @param \WP_REST_Request request 请求实体, 自动传入
+ */
+function interceptIllegalRequest($request){
+  $token = getBasicToken($request,':');
+  $uid = getUidFromToken($token,TOKEN_SALT);
+  if($uid == 0){
+    return false;
+  }
+  $request->set_header('uid',$uid);
+  return true;
 }
 
 /**
