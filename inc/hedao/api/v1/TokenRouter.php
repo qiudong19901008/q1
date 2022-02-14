@@ -1,5 +1,6 @@
 <?php
 
+namespace hedao\api\v1;
 
 use hedao\core\TSingleton;
 use hedao\lib\exceptions\Success;
@@ -45,11 +46,12 @@ class TokenRouter{
    * 2. 根据id获取token
    */
   public function getTokenRouter($request){
+    // return $request;
     $username = getPOSTValue('username');
     $password = getPOSTValue('password');
     $userId = UserService::getUserIdByUsernameAndPassword($username,$password);
     if(!$userId){
-      new UserLoginFailed();
+      return new UserLoginFailed();
     }
     return generateToken($userId,TOKEN_EXPIRE_SECONDS,TOKEN_SALT); //包含了token和过期时间
   }
@@ -59,9 +61,9 @@ class TokenRouter{
     $token = getPOSTValue('token');
     $uid = getUidFromToken($token,TOKEN_SALT);
     if($uid == 0){
-      new TokenInvalid();
+      return new TokenInvalid();
     }else{
-      new Success();
+      return new Success('令牌有效!');
     }
   }
 

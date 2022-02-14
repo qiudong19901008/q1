@@ -48,12 +48,6 @@ class RealLoader{
 			case 'service':
 				$fp = self::_getServicePath($pathChipArr[1]);
 				break;
-			// case 'metaBox':
-			// 	$fp = self::_getMetaBoxPath($pathChipArr[1]);
-			// 	break;
-			// case 'support':
-			// 	$fp = self::_getSupportPath($pathChipArr[1]);
-			// 	break;
 		}
 		if(!self::_isCollectPath($fp)){
 			return;

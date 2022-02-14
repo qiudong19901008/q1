@@ -64,8 +64,7 @@ class PostDao{
    * @param number authorId 作者id
    * @param array categoryIdList 分类id列表
    * @param array tagIdList 标签id列表
-   * @param string description seo描述
-   * @param string keywords seo关键词
+   * @param array metaList 元信息列表
    * @param string status 文章状态 'publish', 'draft', 'future', 'private'
    * @param date create_time
    * @return 文章id, 如果不成功则返回0
@@ -99,7 +98,7 @@ class PostDao{
 
 
    /**
-   * @description 更新一篇文章
+   * @description 更新一篇文章(相比新增缺少了creat_time)
    * @param number id 文章id
    * @param string title 文章标题
    * @param string content 文章内容

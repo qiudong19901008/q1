@@ -12,4 +12,12 @@ class ErrorCodes{
   /**token失效 */
   public const HEDAO_TOKEN_INVALID = '10002';
 
+
+  /**插入文章失败 */
+  public const HEDAO_INSERT_POST_FAILED = '20001';
+  /**更新文章失败 */
+  public const HEDAO_UPDATE_POST_FAILED = '20002';
+  /**删除文章列表失败 */
+  public const HEDAO_DELETE_POST_LIST_FAILED = '20003';
+
 }
