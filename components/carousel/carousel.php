@@ -1,9 +1,9 @@
 <?php
 
-  use q1\core\constant\Options;
+  use q1\lib\constant\Options;
 
 use function hedao\lib\helper\console;
-use function q1\core\helper\getQ1Option;
+use function q1\lib\helper\getQ1Option;
 
 // $carouselItemList = $args['carouselItemList'];
   // $carouselHeight = $args['carouselHeight'];

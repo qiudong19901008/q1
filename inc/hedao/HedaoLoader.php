@@ -4,6 +4,8 @@ namespace hedao;
 
 use hedao\core\BaseLoader;
 
+use function hedao\lib\helper\console;
+
 class HedaoLoader extends BaseLoader{
 
   protected function getRootDir()
@@ -26,6 +28,9 @@ class HedaoLoader extends BaseLoader{
       case 'service':
         $fp = $this->_getServiceClassPath($pathChipArr[1]);
         break;
+      case 'dao':
+        $fp = $this->_getDaoClassPath($pathChipArr[1]);
+        break;
       case 'lib':
         $fp = $this->_getLibFilePath($pathChipArr[1],@$pathChipArr[2]);
         break;
@@ -45,7 +50,12 @@ class HedaoLoader extends BaseLoader{
 
   private function _getServiceClassPath($classname){
     // /service/classname/classname.php
-    return sprintf( $this->getRootDir() . '/service/%s/%s.php',$classname);
+    return sprintf( $this->getRootDir() . '/service/%s/%s.php',$classname,$classname);
+  }
+
+  private function _getDaoClassPath($classname){
+    // /dao/classname/classname.php
+    return sprintf( $this->getRootDir() . '/dao/%s/%s.php',$classname,$classname);
   }
 
   private function _getLibFilePath($firstFloor,$secondFloor){
@@ -65,7 +75,8 @@ class HedaoLoader extends BaseLoader{
         break;
       default:
         // /lib/class.php
-        $res = sprintf( $this->getRootDir() . '/lib/%s.php',$secondFloor);
+        $res = sprintf( $this->getRootDir() . '/lib/%s.php',$firstFloor);
+        // console($res);
     }
     return $res;
   }

@@ -253,14 +253,14 @@
         ],
         'default' => [
           [
-            Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => Q1_ROOT_URL . '/assets/image/0018.jpeg',
+            Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => THEME_HTTP_PATH . '/assets/image/0018.jpeg',
             Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_LINK => 'https://hedaoshe.com',
           ],
           [
-            Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => Q1_ROOT_URL  . '/assets/image/0019.jpeg',
+            Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => THEME_HTTP_PATH  . '/assets/image/0019.jpeg',
             Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_LINK => 'https://hedaoshe.com',
           ],[
-            Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => Q1_ROOT_URL  . '/assets/image/0020.jpeg',
+            Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_IMAGE => THEME_HTTP_PATH  . '/assets/image/0020.jpeg',
             Options::Q1_OPTION_HOME_BASIC_CAROUSEL_ITEM_LINK => 'https://hedaoshe.com',
           ]
         ],

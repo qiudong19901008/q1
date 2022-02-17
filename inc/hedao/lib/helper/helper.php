@@ -6,8 +6,6 @@ use hedao\lib\GetMenuData;
 use hedao\lib\JwtAuth;
 
 
-use const hedao\config\TOKEN_SALT;
-
 include('themeHelper.php');
 include('optionHelper.php');
 include('dataHelper.php');
@@ -112,12 +110,6 @@ function getPOSTValue($name,$default=null){
   $val = !empty($_POST[$name]) ? $_POST[$name] : $default; 
   return $val; 
 }
-
-// function getPUTValue($name,$default=null){ 
-  
-//   $val = !empty($_POST[$name]) ? $_PUT[$name] : $default; 
-//   return $val; 
-// }
 
 
 function getMenuDataByLocation($location){

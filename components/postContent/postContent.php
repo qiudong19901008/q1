@@ -5,7 +5,7 @@
     TagDao,
   };
 
-  use q1\core\constant\{
+  use q1\lib\constant\{
     Options,
     Actions,
     Cookies,
@@ -13,7 +13,7 @@
 
 use function hedao\lib\helper\getSeoTitle;
 use function hedao\lib\helper\getSiteUrl;
-use function q1\core\helper\{
+use function q1\lib\helper\{
     getQ1Option,
     getPostViewCount,
     getPostLikeCount,

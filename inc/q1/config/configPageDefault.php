@@ -4,7 +4,7 @@ namespace q1\config;
 
 if ( ! defined( 'ABSPATH' ) ) { die; }
 
-use q1\core\constant\Options;
+use q1\lib\constant\Options;
 
 // 主题介绍页面
 const DEFAULT_THEME_INTRO_DATA = [

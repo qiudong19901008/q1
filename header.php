@@ -5,7 +5,7 @@ use function hedao\lib\helper\{
   getSeoKeywords,
   getSeoTitle,
 };
-use function q1\core\helper\{
+use function q1\lib\helper\{
     getPageType,
     getSiteDescription,
     getSiteKeywords,

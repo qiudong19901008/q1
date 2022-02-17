@@ -29,8 +29,9 @@ class Hedao{
   }
 
   public static function loadFiles(){
+    require_once __DIR__ . '/core/BaseLoader.php'; //必须先加载自动加载的父类
     require_once __DIR__ .'/HedaoLoader.php'; //hedao自动加载
-    require_once __DIR__ .'/inc/codestar/codestar.php'; //codestar框架
+    require_once __DIR__ .'/lib/codestar/codestar.php'; //codestar框架
     require_once __DIR__ .'/config/config.php'; //全局配置
     require_once __DIR__ .'/lib/helper/helper.php'; //帮助函数
     require_once __DIR__ .'/lib/exceptions.php'; //异常

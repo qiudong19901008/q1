@@ -1,11 +1,12 @@
 
 <?php 
-  get_header();
 
-use function hedao\lib\helper\console;
-use function q1\core\helper\isOpenComment;
+    get_header();
 
-            $open = isOpenComment();
+    use function hedao\lib\helper\console;
+    use function q1\lib\helper\isOpenComment;
+
+    $open = isOpenComment();
             
 
 

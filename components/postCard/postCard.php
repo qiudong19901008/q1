@@ -1,13 +1,13 @@
 
 <?php
 
-use q1\core\constant\Fields;
+use q1\lib\constant\Fields;
 
 use function hedao\lib\helper\console;
 use function hedao\lib\helper\getHeDaoMetaBoxCommonViewCountOption;
 use function hedao\lib\helper\getPostCategories;
-use function q1\core\helper\getQ1Option;
-use function q1\core\helper\getQ1PostThumbUrl;
+use function q1\lib\helper\getQ1Option;
+use function q1\lib\helper\getQ1PostThumbUrl;
 
 $categories = getPostCategories();
 

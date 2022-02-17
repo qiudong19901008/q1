@@ -1,6 +1,8 @@
 <?php
 namespace hedao\core;
 
+include('TSingleton.php');
+
 use hedao\core\TSingleton;
 
 abstract class BaseLoader{
