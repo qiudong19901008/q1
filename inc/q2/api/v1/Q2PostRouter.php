@@ -1,6 +1,6 @@
 <?php
 
-namespace hedao\api\v1;
+namespace q2\api\v1;
 
 use hedao\core\BaseRouter;
 use hedao\core\TSingleton;
@@ -10,13 +10,12 @@ use hedao\lib\exceptions\DeletePostListFailed;
 use hedao\lib\exceptions\InsertPostFailed;
 use hedao\lib\exceptions\Success;
 use hedao\lib\exceptions\UpdatePostFailed;
-use hedao\service\PostService;
 
 use function hedao\lib\helper\getGETValue;
 use function hedao\lib\helper\getPOSTValue;
 
 
-class PostRouter extends BaseRouter{
+class Q2PostRouter extends BaseRouter{
 
   use TSingleton;
 

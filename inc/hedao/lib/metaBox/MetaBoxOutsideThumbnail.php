@@ -39,7 +39,7 @@ class MetaBoxOutsideThumbnail{
             'type'  => 'switcher',
             'title' => '开启',
             'desc'  => '',
-            'default' => false,
+            'default' => true,
           ),
           // 外链缩略图地址
           array(
