@@ -39,9 +39,6 @@ class RealLoader{
 			case 'dao':
 				$fp = self::_getDaoPath($pathChipArr[1]);
 				break;
-			// case 'constant':
-			// 	$fp = self::_getConstantPath($pathChipArr[1]);
-			// 	break;
 			case 'core':
 				$fp = self::_getCorePath($pathChipArr[1]);
 				break;
@@ -79,11 +76,6 @@ class RealLoader{
 		return $res;
 	}
 
-	private static function _getLibPath($classname){
-		// hedao\lib\classname.php
-		return sprintf( self::_getRootDir() . '/lib/%s.php',$classname );
-	}
-
 	private static function _getDaoPath($classname){		
 		// hedao/dao/classname/classname.php;
 		return sprintf( self::_getRootDir() . '/dao/%s/%s.php', $classname, $classname);
@@ -94,24 +86,10 @@ class RealLoader{
 		return sprintf( self::_getRootDir() . '/service/%s/%s.php', $classname, $classname);
 	}
 
-	private static function _getConstantPath($classname){		
-		// hedao/constant/classname.php;
-		return sprintf( self::_getRootDir() . '/constant/%s.php', $classname);
-	}
 
 	private static function _getCorePath($classname){
 		// hedao/core/classname.php;
 		return sprintf( self::_getRootDir() . '/core/%s.php', $classname);
-	}
-
-	private static function _getMetaBoxPath($classname){
-		// hedao/metaBox/classname.php;
-		return sprintf( self::_getRootDir() . '/metaBox/%s.php', $classname);
-	}
-
-	private static function _getSupportPath($classname){
-		// hedao/support/classname.php;
-		return sprintf( self::_getRootDir() . '/support/%s.php', $classname);
 	}
 
 

@@ -12,6 +12,7 @@ include('themeHelper.php');
 include('optionHelper.php');
 include('dataHelper.php');
 include('htmlHelper.php');
+include('sqlHelper.php');
 
 
 
@@ -151,20 +152,6 @@ function getUidFromToken($token,$salt){
   $res = JwtAuth::getUidFromToken($token,$salt);
   return $res;
 }
-
-/**
- * @description 拦截不合格的请求,并且给请求实体设置数据
- * @param \WP_REST_Request request 请求实体, 自动传入
- */
-// function interceptIllegalRequest($request){
-//   $token = getBasicToken($request,':');
-//   $uid = getUidFromToken($token,TOKEN_SALT);
-//   if($uid == 0){
-//     return false;
-//   }
-//   $request->set_header('uid',$uid);
-//   return true;
-// }
 
 /**
  * @description 解码basic的header, 获取token

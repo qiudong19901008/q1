@@ -2,17 +2,14 @@
 
 namespace hedao\api\v1;
 
-use BaseRouter;
+use hedao\core\BaseRouter;
 use hedao\core\TSingleton;
 use hedao\dao\PostDao;
 use hedao\lib\constant\MetaBoxOptions;
 use hedao\lib\exceptions\DeletePostListFailed;
 use hedao\lib\exceptions\InsertPostFailed;
 use hedao\lib\exceptions\Success;
-use hedao\lib\exceptions\TokenInvalid;
-use hedao\lib\exceptions\UserLoginFailed;
 use hedao\service\PostService;
-use hedao\service\UserService;
 use const hedao\config\{
   TOKEN_SALT,
   TOKEN_EXPIRE_SECONDS,
@@ -34,6 +31,7 @@ class PostRouter extends BaseRouter{
 
   protected function __construct()
   {
+    // parent::__construct(TOKEN_SALT);  
     $this->init();
   }
 
@@ -42,7 +40,7 @@ class PostRouter extends BaseRouter{
       //添加一篇文章
       register_rest_route( 'hedao/v1', '/post/add', [
         'methods' => 'POST',
-        // 'permission_callback' => 'interceptIllegalRequest',
+        'permission_callback' => [$this,'interceptIllegalRequest'],
         'callback' => [$this,'addOneRouter'],
       ]);
       // //添加多篇文章
@@ -84,6 +82,7 @@ class PostRouter extends BaseRouter{
    * 3. 新增
    */
   public function addOneRouter($request){
+    // \WP_REST_Server::get_raw_data();
     //1. 
     $uid = $request->get_header('uid');
     //必填
@@ -155,19 +154,22 @@ class PostRouter extends BaseRouter{
     $uid = $request->get_header('uid');
     //1.
     $title = getPOSTValue('title');
-    $categoryIdList = getPOSTValue('categoryIdList');
     $content = getPOSTValue('content','');
     $status = getPOSTValue('status','publish');
     $tagIdList = getPOSTValue('tagIdList');
+    $categoryIdList = getPOSTValue('categoryIdList');
     
     $downloadUrl = getPOSTValue('downloadUrl','');
     $downloadPassword = getPOSTValue('downloadPassword','');
     $unpackPassword = getPOSTValue('unpackPassword','');
 
+    $thumbnail = getPOSTValue('thumbnail'); 
     $keywords = getPOSTValue('keywords');
     $description = getPOSTValue('description');
     
     $metaList = [
+      MetaBoxOptions::HEDAO_OUTSIDE_THUMBNAIL_URL=>$thumbnail,
+
       MetaBoxOptions::HEDAO_COMMON_KEYWORDS=>$keywords,
       MetaBoxOptions::HEDAO_COMMON_DESCRIPTION=>$description,
 
@@ -265,7 +267,7 @@ class PostRouter extends BaseRouter{
     if(!$idArr || count($idArr) === 0){
       return new DeletePostListFailed('必须传入idArr');
     }
-    $res = PostService::deletePostListByIdArr($idArr);
+    $res = deletePostListByIdArr($idArr);
     $success = $res['success'];
     $failed = $res['failed'];
     if($failed !== 0){

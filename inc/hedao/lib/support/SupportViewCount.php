@@ -2,7 +2,6 @@
 
 namespace hedao\lib\support;
 
-use hedao\lib\constant\Fields;
 use hedao\lib\constant\MetaBoxOptions;
 use hedao\core\TSingleton;
 

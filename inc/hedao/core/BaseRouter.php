@@ -1,17 +1,25 @@
 <?php
 
+namespace hedao\core;
+
 use const hedao\config\TOKEN_SALT;
 
 use function hedao\lib\helper\getBasicToken;
 use function hedao\lib\helper\getUidFromToken;
 
-class BaseRouter{
+abstract class BaseRouter{
 
+  // private $_salt;
+
+  protected function __construct()
+  { 
+    // $this->_salt = $salt;
+  }
 
 
   /**
    * @description 拦截不合格的请求,并且给请求实体设置数据
-   * @param \WP_REST_Request request 请求实体, 自动传入
+   * @param \WP_REST_Request $request 请求实体, 自动传入
    */
   public function interceptIllegalRequest($request){
     $token = getBasicToken($request,':');

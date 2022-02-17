@@ -26,7 +26,6 @@ class SupportModifyExcerptEnding{
   }
 
   protected function setupHook(){
-    //1. 更新浏览量
     add_filter('excerpt_more', [$this,'modifyExcerptEnding']);
   }
 
