@@ -1,6 +1,6 @@
 <?php
 
-namespace q1\core\constant;
+namespace q1\lib\constant;
 
 class ErrorCodes{
 

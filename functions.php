@@ -1,19 +1,15 @@
 <?php
 
 
-/**
- * 定义常量
- */
-define('Q1_DIR_PATH',get_template_directory());
-define('Q1_ROOT_URL',get_template_directory_uri());
-define('Q1_VERSION','1.0');
 
 
+require_once THEME_LOCAL_PATH . '/vendor/autoload.php';
+require_once THEME_LOCAL_PATH . '/inc/hedao/autoload.php';
 
-require_once Q1_DIR_PATH . '/vendor/autoload.php';
-require_once Q1_DIR_PATH . '/inc/hedao/autoload.php';
+require_once THEME_LOCAL_PATH . '/inc/q1/Q1.php';
 
-require_once Q1_DIR_PATH . '/core/autoload.php';
+
+// \q1\
 
 
 function loadTheme() {

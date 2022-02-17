@@ -1,14 +1,14 @@
 <?php
 
-namespace q1\core\widget;
+namespace q1\lib\widget;
 
 use function hedao\lib\helper\{
   getValue,
   getValueFromArrByKey,
 };
 
-use q1\core\constant\Fields;
-use q1\core\service\PostService;
+use q1\lib\constant\Fields;
+use q1\service\PostService;
 
 class WidgetRecommendPosts extends \WP_Widget{
 

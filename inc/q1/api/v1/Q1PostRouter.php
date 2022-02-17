@@ -4,27 +4,15 @@
 namespace q1\api\v1;
 
 use hedao\core\TSingleton;
-use hedao\dao\CategoryDao;
-use hedao\dao\CommentDao;
-
-use function hedao\lib\helper\{
-  getBasicToken,
-  getUidFromToken,
-  generateToken,
-  getPOSTValue,
-  getGETValue,
-}; 
-
 use hedao\core\BaseRouter;
 
-use q1\core\constant\ErrorCodes;
-use q1\core\service\PostService;
-use q1\core\service\UserService;
+use function hedao\lib\helper\{
+  getPOSTValue,
+}; 
 
-use const q1\config\{
-  TOKEN_SALT,
-  TOKEN_EXPIRE_SECONDS,
-};
+use q1\service\PostService;
+
+
 
 class Q1PostRouter extends BaseRouter{
 

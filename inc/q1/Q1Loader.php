@@ -1,10 +1,14 @@
 <?php
 
-namespace hedao;
+namespace q1;
 
 use hedao\core\BaseLoader;
 
-class HedaoLoader extends BaseLoader{
+
+
+class Q1Loader extends BaseLoader{
+
+
 
   protected function getRootDir()
   {
@@ -13,7 +17,7 @@ class HedaoLoader extends BaseLoader{
 
   protected function getFilePath($resource)
   {
-    $resource = str_replace( 'hedao\\', '', $resource );
+    $resource = str_replace( 'q1\\', '', $resource );
 		$pathChipArr = explode( '\\',	$resource );
 		$fp = '';
     switch($pathChipArr[0]){
@@ -44,8 +48,8 @@ class HedaoLoader extends BaseLoader{
   }
 
   private function _getServiceClassPath($classname){
-    // /service/classname/classname.php
-    return sprintf( $this->getRootDir() . '/service/%s/%s.php',$classname);
+    // /core/class.php
+    return sprintf( $this->getRootDir() . '/service/%s.php',$classname);
   }
 
   private function _getLibFilePath($firstFloor,$secondFloor){
@@ -55,27 +59,21 @@ class HedaoLoader extends BaseLoader{
         // /lib/constant/class.php
         $res = sprintf( $this->getRootDir() . '/lib/constant/%s.php',$secondFloor);
         break;
-      case 'metaBox':
-        // /lib/metaBox/class.php
-        $res = sprintf( $this->getRootDir() . '/lib/metaBox/%s.php',$secondFloor);
+      case 'widget':
+        // /lib/widget/class.php
+        $res = sprintf( $this->getRootDir() . '/lib/widget/%s.php',$secondFloor);
         break;
-      case 'support':
-        // /lib/support/class.php
-        $res = sprintf( $this->getRootDir() . '/lib/support/%s.php',$secondFloor);
-        break;
-      default:
-        // /lib/class.php
-        $res = sprintf( $this->getRootDir() . '/lib/%s.php',$secondFloor);
     }
     return $res;
   }
 
 }
 
+
 function autoload($resource){
-  $loader = HedaoLoader::getInstance();
+  $loader = Q1Loader::getInstance();
   $loader->load($resource);
 }
 
 
-spl_autoload_register( '\hedao\autoload' ); 
+spl_autoload_register( '\q1\autoload' ); 

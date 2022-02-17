@@ -4,9 +4,9 @@
 namespace q1\api\v1;
 
 use hedao\core\TSingleton;
+use hedao\core\BaseRouter;
 use hedao\dao\CommentDao;
 
-use hedao\core\BaseRouter;
 
 class Q1CommentRouter extends BaseRouter{
 

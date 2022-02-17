@@ -1,10 +1,10 @@
 <?php
 
 
-namespace q1\core\helper;
+namespace q1\lib\helper;
 
-use \q1\core\constant\Options;
-use \q1\core\constant\Fields;
+use q1\lib\constant\Options;
+use q1\lib\constant\Fields;
 
 use function hedao\lib\helper\getPostThumbUrl;
 

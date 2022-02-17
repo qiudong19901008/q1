@@ -1,22 +1,18 @@
 <?php
 
 
-namespace q1\core\service;
+namespace q1\service;
 
-use hedao\dao\{
-  PostDao,
-  CategoryDao
-};
+use hedao\dao\PostDao;
+use hedao\dao\CategoryDao;
 
-use q1\core\constant\{
-  Fields,
-  Options,
-};
+use q1\lib\constant\Fields;
+use q1\lib\constant\Options;
 
-use function q1\core\helper\{
+use function q1\lib\helper\{
     getPostStatusList,
     getQ1DefaultThumbUrl,
-  getQ1Option,
+    getQ1Option,
 };
 
 class PostService{

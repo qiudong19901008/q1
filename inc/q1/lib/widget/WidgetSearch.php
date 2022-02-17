@@ -1,6 +1,6 @@
 <?php
 
-namespace q1\core\widget;
+namespace q1\lib\widget;
 
 use function hedao\lib\helper\{
   getValue,

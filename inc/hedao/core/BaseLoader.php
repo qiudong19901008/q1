@@ -1,7 +1,13 @@
 <?php
+namespace hedao\core;
 
+use hedao\core\TSingleton;
 
 abstract class BaseLoader{
+
+
+  use TSingleton;
+  
 
   /**
    * 获取根路径
@@ -17,7 +23,7 @@ abstract class BaseLoader{
   /**
    * @param string $resource 完全限定名的命名空间文件路径
    */
-  protected function load($resource){
+  public function load($resource){
     $fp = $this->getFilePath($resource);
     if(!$this->isCollectPath($fp)){ 
       return;
