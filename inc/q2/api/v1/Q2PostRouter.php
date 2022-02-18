@@ -232,7 +232,7 @@ class Q2PostRouter extends BaseRouter{
       $orderRule,
       $page,
       $size,
-      ['author','category','tag','meta'],
+      ['category','tag','meta'],
       [
         MetaBoxOptions::HEDAO_OUTSIDE_THUMBNAIL_URL,
 

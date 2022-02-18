@@ -5,9 +5,9 @@ use hedao\core\TSingleton;
 use hedao\Hedao;
 use hedao\lib\metaBox\MetaBoxDownload;
 use hedao\lib\support\SupportModifyExcerptEnding;
-
+use q2\api\v1\Q2PageRouter;
 use q2\api\v1\Q2PostRouter;
-
+use q2\core\Menu;
 
 use function hedao\lib\helper\disableGutenbergEditor;
 
@@ -31,7 +31,7 @@ class Q2{
 
     // Assets::getInstance();
     // Widget::getInstance();
-    // Menu::getInstance();
+    Menu::getInstance();
 
     self::registeRouters();
 
@@ -54,6 +54,7 @@ class Q2{
 
   public static function registeRouters(){
     Q2PostRouter::getInstance();
+    Q2PageRouter::getInstance();
   }
 
 }

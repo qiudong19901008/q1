@@ -8,6 +8,7 @@ use hedao\lib\metaBox\MetaBoxCommon;
 use hedao\lib\metaBox\MetaBoxOutsideThumbnail;
 use hedao\lib\support\SupportCustomMenu;
 use hedao\lib\support\SupportViewCount;
+use hedao\lib\taxonomy\TaxonomyTdk;
 
 use function hedao\lib\helper\hideAdminBar;
 use function hedao\lib\helper\openThumbnail;
@@ -37,20 +38,22 @@ class Hedao{
     require_once __DIR__ .'/lib/exceptions.php'; //异常
   }
 
-  public static function basic($postTypeArr= ['page','post']){
+  public static function basic($postTypeArr= ['page','post'],$taxonomyTypeArr = ['category','post_tag']){
       hideAdminBar();
       openThumbnail();
 
       MetaBoxCommon::getInstance([
         'postTypeArr' => $postTypeArr,
       ]);
-      MetaBoxOutsideThumbnail::getInstance([
-        'postTypeArr' => $postTypeArr,
-      ]);
       SupportViewCount::getInstance([
         'postTypeArr' => $postTypeArr,
       ]);
       SupportCustomMenu::getInstance();
+
+      //taxonomy
+      TaxonomyTdk::getInstance([
+        'taxonomyTypeArr' => $taxonomyTypeArr,
+      ]);
 
       //注册api
       TokenRouter::getInstance();

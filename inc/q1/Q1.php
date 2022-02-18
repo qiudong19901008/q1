@@ -4,7 +4,13 @@ namespace q1;
 use hedao\core\TSingleton;
 use hedao\Hedao;
 use hedao\lib\metaBox\MetaBoxDownload;
+use hedao\lib\metaBox\MetaBoxOutsideThumbnail;
+
 use hedao\lib\support\SupportModifyExcerptEnding;
+
+use hedao\lib\taxonomy\TaxonomyView;
+use hedao\lib\taxonomy\TaxonomyOutsideThumbnail;
+
 use q1\api\v1\Q1CommentRouter;
 use q1\api\v1\Q1PostRouter;
 use q1\core\Menu;
@@ -19,9 +25,21 @@ class Q1{
     self::defineContants();
     self::loadFiles();
 
-    Hedao::basic(['page','post']);
+    Hedao::basic(['page','post'],['category','post_tag']);
     SupportModifyExcerptEnding::getInstance([
       'ending'=>'...'
+    ]);
+
+    MetaBoxOutsideThumbnail::getInstance([
+      'postTypeArr' => ['page','post'],
+    ]);
+
+    TaxonomyOutsideThumbnail::getInstance([
+      'taxonomyTypeArr' => ['category','post_tag']
+    ]);
+
+    TaxonomyView::getInstance([
+      'taxonomyTypeArr' => ['category','post_tag']
     ]);
 
     disableGutenbergEditor();

@@ -2,6 +2,8 @@
 
 namespace hedao\lib;
 
+use function hedao\lib\helper\console;
+
 class GetMenuData{
 
   public static function run($locationName){
@@ -10,6 +12,11 @@ class GetMenuData{
       return [];
     }
     return GetMenuData::_getMenuData($menuId);
+  }
+
+  public static function getRawMenuData($locationName){
+    $menuId = GetMenuData::_getMenuId($locationName);
+    return wp_get_nav_menu_items( $menuId );
   }
 
   private static function _getMenuId($locationName){
@@ -37,16 +44,10 @@ class GetMenuData{
   private static function _getTopMenuList($menuItemList){
     $res = [];
     foreach($menuItemList as $menuItem){
-      $id = $menuItem->ID;
-      $title = $menuItem->title;
-      $url = $menuItem->url;
       $parentId = $menuItem->menu_item_parent;
       if($parentId == 0){
-        array_push($res,[
-          'id'=>$id,
-          'title'=>$title,
-          'url'=>$url,
-        ]);
+        $data = self::_getOneMenuData($menuItem);
+        array_push($res,$data);
       }
     }
     return $res;
@@ -56,18 +57,28 @@ class GetMenuData{
     $res = [];
     $topMenuId = $topMenu['id'];
     foreach($menuItemList as $menuItem){
-      $id = $menuItem->ID;
-      $title = $menuItem->title;
-      $url = $menuItem->url;
       $parentId = $menuItem->menu_item_parent;
       if($topMenuId == $parentId){
-        array_push($res,[
-          'id'=>$id,
-          'title'=>$title,
-          'url'=>$url,
-        ]);
+        $data = self::_getOneMenuData($menuItem);
+        array_push($res,$data);
       }
     }
+    return $res;
+  }
+
+  private static function _getOneMenuData($menuItem){
+    $id = $menuItem->object_id; //这是文章 category tag的真实id
+    $title = $menuItem->title;  
+    $url = $menuItem->url;
+    $menuId = $menuItem->ID; 
+    $type = $menuItem->object; // post_tag category post
+    $res = [
+      'id' => $id,
+      'title'=>$title,
+      'url' => $url,
+      'type' => $type,
+      'menuId' => $menuId,
+    ];
     return $res;
   }
 

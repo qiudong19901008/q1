@@ -34,13 +34,13 @@ class MetaBoxOutsideThumbnail{
     CSF::createSection(MetaBoxOptions::HEDAO_OUTSIDE_THUMBNAIL_PREFIX, array(
       'fields' => [
           // 开启外链缩略图
-          array(
-            'id'=>MetaBoxOptions::HEDAO_OUTSIDE_THUMBNAIL_OPEN,
-            'type'  => 'switcher',
-            'title' => '开启',
-            'desc'  => '',
-            'default' => true,
-          ),
+          // array(
+          //   'id'=>MetaBoxOptions::HEDAO_OUTSIDE_THUMBNAIL_OPEN,
+          //   'type'  => 'switcher',
+          //   'title' => '开启',
+          //   'desc'  => '',
+          //   'default' => true,
+          // ),
           // 外链缩略图地址
           array(
             'id'          => MetaBoxOptions::HEDAO_OUTSIDE_THUMBNAIL_URL,
@@ -50,7 +50,7 @@ class MetaBoxOutsideThumbnail{
             'attributes'  => array(
               'style'     => 'width: 100%;'
             ),
-            'dependency'  => [MetaBoxOptions::HEDAO_OUTSIDE_THUMBNAIL_OPEN, '==', true],
+            // 'dependency'  => [MetaBoxOptions::HEDAO_OUTSIDE_THUMBNAIL_OPEN, '==', true],
           ),
       ]
     ));

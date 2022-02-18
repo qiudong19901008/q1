@@ -69,6 +69,10 @@ class HedaoLoader extends BaseLoader{
         // /lib/metaBox/class.php
         $res = sprintf( $this->getRootDir() . '/lib/metaBox/%s.php',$secondFloor);
         break;
+      case 'taxonomy':
+        // /lib/taxonomy/class.php
+        $res = sprintf( $this->getRootDir() . '/lib/taxonomy/%s.php',$secondFloor);
+        break;
       case 'support':
         // /lib/support/class.php
         $res = sprintf( $this->getRootDir() . '/lib/support/%s.php',$secondFloor);

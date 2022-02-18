@@ -1,10 +1,17 @@
 <?php
 
+use hedao\lib\GetMenuData;
 use q1\lib\constant\Options;
 
+use function hedao\lib\helper\console;
+use function hedao\lib\helper\getMenuDataByLocation;
 use function q1\lib\helper\getQ1Option;
 
 $isOpen = getQ1Option(Options::Q1_OPTION_HOME_BASIC_CAROUSEL_OPEN);
+
+// $data = getMenuDataByLocation('homeMenu');
+// $data = GetMenuData::getRawMenuData('homeMenu');
+// console($data);
 
 get_header();
 ?>
