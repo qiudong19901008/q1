@@ -17,7 +17,9 @@ class ErrorCodes{
   public const HEDAO_INSERT_POST_FAILED = '20011';
   /**更新文章失败 */
   public const HEDAO_UPDATE_POST_FAILED = '20012';
+  /**删除文章失败 */
+  public const HEDAO_DELETE_POST_FAILED = '20013';
   /**删除文章列表失败 */
-  public const HEDAO_DELETE_POST_LIST_FAILED = '20013';
+  public const HEDAO_DELETE_POST_LIST_FAILED = '20014';
 
 }

@@ -53,6 +53,18 @@ class UpdatePostFailed extends \WP_REST_Response{
   }
 }
 
+class DeletePostFailed extends \WP_REST_Response{
+
+  public function __construct($msg='删除文章失败!'){
+    $data = [
+      'errorCode'=>ErrorCodes::HEDAO_DELETE_POST_FAILED,
+      'msg'=>$msg,
+    ];
+    parent::__construct($data,400);
+    // new \WP_REST_Response($res,400);
+  }
+}
+
 class DeletePostListFailed extends \WP_REST_Response{
 
   public function __construct($msg='其中有!'){

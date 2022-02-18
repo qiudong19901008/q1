@@ -6,6 +6,7 @@ use hedao\core\BaseRouter;
 use hedao\core\TSingleton;
 use hedao\dao\PostDao;
 use hedao\lib\constant\MetaBoxOptions;
+use hedao\lib\exceptions\DeletePostFailed;
 use hedao\lib\exceptions\DeletePostListFailed;
 use hedao\lib\exceptions\InsertPostFailed;
 use hedao\lib\exceptions\Success;
@@ -43,8 +44,14 @@ class Q2PostRouter extends BaseRouter{
         'methods' => 'GET',
         'callback' => [$this,'queryListRouter']
       ]);
-      //删除多篇文章
+       //删除一篇文章
       register_rest_route( 'q2/v1', '/post/delete', [
+        'methods' => 'POST',
+        'permission_callback' => [$this,'interceptIllegalRequest'],
+        'callback' => [$this,'deleteOneRouter']
+      ]);
+      //删除多篇文章
+      register_rest_route( 'q2/v1', '/post/deleteList', [
         'methods' => 'POST',
         'permission_callback' => [$this,'interceptIllegalRequest'],
         'callback' => [$this,'deleteManyRouter']
@@ -126,6 +133,7 @@ class Q2PostRouter extends BaseRouter{
 
 
   public function updateOneRouter($request){
+    
     // 如果没id则会找不到路由, 所以不必验证id
     $id = (int)$request['id'];
     $uid = $request->get_header('uid');
@@ -239,6 +247,19 @@ class Q2PostRouter extends BaseRouter{
     );
     return $listAndCount;
   }
+
+  public function deleteOneRouter($request){
+    $id = getPOSTValue('id');
+    if(!$id){
+      return new DeletePostListFailed('必须传入id');
+    }
+    $res = PostDao::deleteOnePost($id);
+    if($res == 0){
+      return new DeletePostFailed();
+    }
+    return new Success();
+  }
+
 
   public function deleteManyRouter($request){
     $idArr = getPOSTValue('idArr');
